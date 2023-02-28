@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3f4d46a7-8013-4af4-8290-811e7807fafe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IssueReturn.xsd" MetadataType="Schema" ID="c4edab70-65b3-4ce8-9a63-8dc29c286713" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?xsd=xsd0" />
+    <MetadataFile FileName="IssueReturn1.xsd" MetadataType="Schema" ID="117caca3-36d5-4970-ad6b-f7dafafe15c9" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?xsd=xsd2" />
+    <MetadataFile FileName="IssueReturn2.xsd" MetadataType="Schema" ID="5c2611db-e00c-4396-abbb-b826c820d4fe" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?xsd=xsd6" />
+    <MetadataFile FileName="IssueReturn3.xsd" MetadataType="Schema" ID="fd6632b3-2ab5-4133-860c-ecc863d38675" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?xsd=xsd7" />
+    <MetadataFile FileName="IssueReturn4.xsd" MetadataType="Schema" ID="8836f478-1f03-4acf-8d5d-6af374bcf40d" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?xsd=xsd1" />
+    <MetadataFile FileName="IssueReturn5.xsd" MetadataType="Schema" ID="232e2615-aa22-4348-a6b2-0765d03a315f" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?xsd=xsd3" />
+    <MetadataFile FileName="IssueReturnSvcFacade.wsdl" MetadataType="Wsdl" ID="aa4ec573-270c-4d9c-8987-5c37283bc112" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?wsdl" />
+    <MetadataFile FileName="IssueReturn.disco" MetadataType="Disco" ID="81b27134-dc40-49d2-a80d-04efc03db621" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?disco" />
+    <MetadataFile FileName="IssueReturn6.xsd" MetadataType="Schema" ID="e5b3be46-33db-4be1-97e4-2e68ade2d2f5" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?xsd=xsd8" />
+    <MetadataFile FileName="IssueReturn7.xsd" MetadataType="Schema" ID="93a2d04f-1947-4899-ae7a-d78446b84870" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?xsd=xsd4" />
+    <MetadataFile FileName="IssueReturn8.xsd" MetadataType="Schema" ID="ec309ca0-9914-45ef-91a0-b6e0e2b0df47" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?xsd=xsd5" />
+    <MetadataFile FileName="IssueReturn.wsdl" MetadataType="Wsdl" ID="57dbc8d8-cac6-43a2-af20-c596ac442d99" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/IssueReturn.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

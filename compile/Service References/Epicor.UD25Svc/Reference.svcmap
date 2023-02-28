@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1a55b168-eed4-4b3f-a18a-c3fd6f85d0e9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://bpocloudapp01/epicordemo/ice/bo/ud25.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UD25.wsdl" MetadataType="Wsdl" ID="8145a43a-b419-4e9b-a11c-8949bce1c822" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="UD25.xsd" MetadataType="Schema" ID="550e8c9b-2f30-4d7c-80b5-f84a3fec63a6" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?xsd=xsd7" />
+    <MetadataFile FileName="UD251.xsd" MetadataType="Schema" ID="f0a2c9e2-6f32-4417-9717-688c6ebfb84c" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?xsd=xsd0" />
+    <MetadataFile FileName="UD25SvcFacade.wsdl" MetadataType="Wsdl" ID="601a6f95-dd1e-4def-9a42-44525ca220e7" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?wsdl" />
+    <MetadataFile FileName="UD252.xsd" MetadataType="Schema" ID="f76539eb-67d4-4e73-905b-911efb0d9583" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?xsd=xsd2" />
+    <MetadataFile FileName="UD253.xsd" MetadataType="Schema" ID="f8fa27d4-38c3-4076-9dd6-a77f33136678" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?xsd=xsd3" />
+    <MetadataFile FileName="UD254.xsd" MetadataType="Schema" ID="edf1cfcf-483a-4ed5-8dd2-baa4aa2c1cf6" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?xsd=xsd5" />
+    <MetadataFile FileName="UD255.xsd" MetadataType="Schema" ID="b539ae3d-ed69-4b66-b892-2bec24396dda" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?xsd=xsd6" />
+    <MetadataFile FileName="UD256.xsd" MetadataType="Schema" ID="7fc98a3d-580a-4be1-8c9f-78958ca53e53" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?xsd=xsd8" />
+    <MetadataFile FileName="UD257.xsd" MetadataType="Schema" ID="36d11a11-eb5b-4fcb-a98d-a905e4c8663b" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?xsd=xsd1" />
+    <MetadataFile FileName="UD25.disco" MetadataType="Disco" ID="b30aab0c-b3ba-4161-839a-e559c2f0dd0c" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?disco" />
+    <MetadataFile FileName="UD258.xsd" MetadataType="Schema" ID="a16a6f85-79cc-4d0b-825c-c7ba1c170ba0" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Ice/BO/UD25.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

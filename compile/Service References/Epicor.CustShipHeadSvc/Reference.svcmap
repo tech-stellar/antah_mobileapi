@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e144c82e-e09b-4b2f-800f-dd1b7b947082" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://bpocloudapp01/epicordemo/ERP/bo/CustShip.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CustShip.xsd" MetadataType="Schema" ID="7c298b08-160e-47c3-b7b5-faddb44fe845" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd4" />
+    <MetadataFile FileName="CustShip.wsdl" MetadataType="Wsdl" ID="f4cf39b4-fdae-4015-b9a5-1d4018fa8399" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="CustShip1.xsd" MetadataType="Schema" ID="c7487860-c256-4a03-a421-4bd9b2b77cd9" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd0" />
+    <MetadataFile FileName="CustShip2.xsd" MetadataType="Schema" ID="4c5eef1b-62c3-4330-a48c-47cfc0489a2b" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd8" />
+    <MetadataFile FileName="CustShip.disco" MetadataType="Disco" ID="2d2b67a2-40be-43c6-91c3-0b630b27dcae" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?disco" />
+    <MetadataFile FileName="CustShip3.xsd" MetadataType="Schema" ID="69e01715-c3e5-43f5-9f4b-c5aa5a2da418" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd2" />
+    <MetadataFile FileName="CustShip4.xsd" MetadataType="Schema" ID="241af729-aa2c-47b6-9369-f48c05a55dd4" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd5" />
+    <MetadataFile FileName="CustShipSvcFacade.wsdl" MetadataType="Wsdl" ID="f0ccda13-b67f-4ace-bdfd-ba7e3111a1b2" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?wsdl" />
+    <MetadataFile FileName="CustShip5.xsd" MetadataType="Schema" ID="4c794e2e-0725-466c-b8f6-4b3384e5b2bd" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd6" />
+    <MetadataFile FileName="CustShip6.xsd" MetadataType="Schema" ID="976d6b9d-4dae-45e8-97c3-24e1e593403f" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd7" />
+    <MetadataFile FileName="CustShip7.xsd" MetadataType="Schema" ID="252b81c1-3951-4302-86ec-bde516b7de8c" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd3" />
+    <MetadataFile FileName="CustShip8.xsd" MetadataType="Schema" ID="56c798ef-6f5d-425a-8454-bbd80caa9ff3" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

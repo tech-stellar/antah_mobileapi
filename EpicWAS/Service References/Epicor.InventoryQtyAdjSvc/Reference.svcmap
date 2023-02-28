@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3458f549-906b-4ab3-a992-38fa0ea11a48" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://epicorsi/ERP10/Erp/BO/InventoryQtyAdj.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InventoryQtyAdj9.xsd" MetadataType="Schema" ID="d5ca123c-b35f-4a52-a534-85181dd978bd" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd8" />
+    <MetadataFile FileName="InventoryQtyAdj91.xsd" MetadataType="Schema" ID="de8b87b3-da0b-4b89-a593-c330903f4034" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd7" />
+    <MetadataFile FileName="InventoryQtyAdj92.xsd" MetadataType="Schema" ID="9ccae507-868d-4bba-bbc7-2ba4735acd03" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd5" />
+    <MetadataFile FileName="InventoryQtyAdj93.xsd" MetadataType="Schema" ID="54c09144-f272-470a-9770-dcdbf539336e" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd3" />
+    <MetadataFile FileName="InventoryQtyAdjSvcFacade1.wsdl" MetadataType="Wsdl" ID="219fcaaf-2741-47ee-b05d-5cc43321e90b" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?wsdl" />
+    <MetadataFile FileName="InventoryQtyAdj94.xsd" MetadataType="Schema" ID="27a63d96-0028-433d-8713-caab31fb3aaf" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd1" />
+    <MetadataFile FileName="InventoryQtyAdj1.wsdl" MetadataType="Wsdl" ID="55fed810-7a9d-4798-ae0d-99cf0f59fd17" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="InventoryQtyAdj95.xsd" MetadataType="Schema" ID="52bc2717-eca1-46f2-88cd-5787bf44a87c" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd6" />
+    <MetadataFile FileName="InventoryQtyAdj1.disco" MetadataType="Disco" ID="026f510c-ec20-425a-8ee1-d06026e54b4d" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?disco" />
+    <MetadataFile FileName="InventoryQtyAdj96.xsd" MetadataType="Schema" ID="9f342119-c177-47f9-8c27-a839cdda5147" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd4" />
+    <MetadataFile FileName="InventoryQtyAdj97.xsd" MetadataType="Schema" ID="fa850f88-1955-48f4-8433-846bc2879dac" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd2" />
+    <MetadataFile FileName="InventoryQtyAdj98.xsd" MetadataType="Schema" ID="82d5dbfa-4c5a-416f-bbe2-3cd2f660b6a5" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

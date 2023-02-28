@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="85ae4b02-4369-48ac-b090-7ab3b7ccfb5f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://erp10/epicor_demo/ERP/bo/Customer.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CustomerSvcFacade1.wsdl" MetadataType="Wsdl" ID="525d2b27-c849-4612-b1dd-50857d40e358" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?wsdl" />
+    <MetadataFile FileName="Customer1.disco" MetadataType="Disco" ID="13b9a17c-5151-41d7-9775-25a8a0eceb2c" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?disco" />
+    <MetadataFile FileName="Customer1.wsdl" MetadataType="Wsdl" ID="3445844d-82af-4b72-9ee8-078e0c7bdcbe" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Customer9.xsd" MetadataType="Schema" ID="a8f8826c-05cc-4002-930d-4405c41ad2f7" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd1" />
+    <MetadataFile FileName="Customer91.xsd" MetadataType="Schema" ID="aebd4360-08f6-4aae-8a72-ebe69f220d4a" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd0" />
+    <MetadataFile FileName="Customer92.xsd" MetadataType="Schema" ID="ded2e8b4-2041-47b0-86e2-e9fe79b8665c" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd3" />
+    <MetadataFile FileName="Customer93.xsd" MetadataType="Schema" ID="714746d7-fcf3-41c8-8669-1c326fcfd7b5" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd2" />
+    <MetadataFile FileName="Customer94.xsd" MetadataType="Schema" ID="9aa3d40e-b1cd-4525-b6b8-6b9a25d2c6a5" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd5" />
+    <MetadataFile FileName="Customer95.xsd" MetadataType="Schema" ID="23d465bb-d075-47cd-8e1b-dcc380e206bd" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd4" />
+    <MetadataFile FileName="Customer96.xsd" MetadataType="Schema" ID="0c07a84f-dcac-40fd-8254-f7a9f2013a97" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd7" />
+    <MetadataFile FileName="Customer97.xsd" MetadataType="Schema" ID="2b7a5d58-59ce-435d-9cd1-dab52bcbe383" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd6" />
+    <MetadataFile FileName="Customer98.xsd" MetadataType="Schema" ID="667c1004-0512-48bd-9ae9-a359310d9689" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:MaterialQueue" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:MaterialQueue" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:MaterialQueue/Imports">
+      <xsd:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd0" namespace="Erp:BO:MaterialQueue" />
+      <xsd:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd6" namespace="http://epicor.com/UserDefinedColumns" />
+      <xsd:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MaterialQueueSvcContract_AutoSelectTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSelectTransactions" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_AutoSelectTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSelectTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_AutoSelectTransactions_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetMtlQueueByTranID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMtlQueueByTranID" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetMtlQueueByTranID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMtlQueueByTranIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetMtlQueueByTranID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_LockUnLockMtlQueForEmpID_InputMessage">
+    <wsdl:part name="parameters" element="tns:LockUnLockMtlQueForEmpID" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_LockUnLockMtlQueForEmpID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LockUnLockMtlQueForEmpIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_LockUnLockMtlQueForEmpID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_LockUnLockMtlQue_InputMessage">
+    <wsdl:part name="parameters" element="tns:LockUnLockMtlQue" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_LockUnLockMtlQue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LockUnLockMtlQueResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_LockUnLockMtlQue_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetDefaultFilterSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultFilterSettings" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetDefaultFilterSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultFilterSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetDefaultFilterSettings_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_UnlockAutoSelectTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockAutoSelectTransactions" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_UnlockAutoSelectTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockAutoSelectTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_UnlockAutoSelectTransactions_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_SortQueueByPriority_InputMessage">
+    <wsdl:part name="parameters" element="tns:SortQueueByPriority" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_SortQueueByPriority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SortQueueByPriorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_SortQueueByPriority_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_VerifyMtlQueueExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyMtlQueueExists" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_VerifyMtlQueueExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyMtlQueueExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_VerifyMtlQueueExists_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetRowsCustom_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsCustom" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetRowsCustom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsCustomResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetRowsCustom_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetPCIDPrintParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPCIDPrintParams" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetPCIDPrintParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPCIDPrintParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetPCIDPrintParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetPkgControlIDGenParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPkgControlIDGenParams" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetPkgControlIDGenParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPkgControlIDGenParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetPkgControlIDGenParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetNewMtlQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewMtlQueue" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetNewMtlQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewMtlQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetNewMtlQueue_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q12:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_DeleteByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByID" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_DeleteByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q13:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByID" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q14:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q15:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetRows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRows" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetRows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q16:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetBySysRowID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowID" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetBySysRowID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q17:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetBySysRowIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDs" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetBySysRowIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q18:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_Update_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q19:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_UpdateExt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExt" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_UpdateExt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialQueueSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q20:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="MaterialQueueSvcContract">
+    <wsdl:operation name="AutoSelectTransactions">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/AutoSelectTransactions" message="tns:MaterialQueueSvcContract_AutoSelectTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/AutoSelectTransactionsResponse" message="tns:MaterialQueueSvcContract_AutoSelectTransactions_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/AutoSelectTransactionsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_AutoSelectTransactions_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMtlQueueByTranID">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetMtlQueueByTranID" message="tns:MaterialQueueSvcContract_GetMtlQueueByTranID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetMtlQueueByTranIDResponse" message="tns:MaterialQueueSvcContract_GetMtlQueueByTranID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetMtlQueueByTranIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetMtlQueueByTranID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LockUnLockMtlQueForEmpID">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/LockUnLockMtlQueForEmpID" message="tns:MaterialQueueSvcContract_LockUnLockMtlQueForEmpID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/LockUnLockMtlQueForEmpIDResponse" message="tns:MaterialQueueSvcContract_LockUnLockMtlQueForEmpID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/LockUnLockMtlQueForEmpIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_LockUnLockMtlQueForEmpID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LockUnLockMtlQue">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/LockUnLockMtlQue" message="tns:MaterialQueueSvcContract_LockUnLockMtlQue_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/LockUnLockMtlQueResponse" message="tns:MaterialQueueSvcContract_LockUnLockMtlQue_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/LockUnLockMtlQueEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_LockUnLockMtlQue_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultFilterSettings">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetDefaultFilterSettings" message="tns:MaterialQueueSvcContract_GetDefaultFilterSettings_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetDefaultFilterSettingsResponse" message="tns:MaterialQueueSvcContract_GetDefaultFilterSettings_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetDefaultFilterSettingsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetDefaultFilterSettings_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockAutoSelectTransactions">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/UnlockAutoSelectTransactions" message="tns:MaterialQueueSvcContract_UnlockAutoSelectTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/UnlockAutoSelectTransactionsResponse" message="tns:MaterialQueueSvcContract_UnlockAutoSelectTransactions_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/UnlockAutoSelectTransactionsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_UnlockAutoSelectTransactions_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SortQueueByPriority">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/SortQueueByPriority" message="tns:MaterialQueueSvcContract_SortQueueByPriority_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/SortQueueByPriorityResponse" message="tns:MaterialQueueSvcContract_SortQueueByPriority_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/SortQueueByPriorityEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_SortQueueByPriority_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyMtlQueueExists">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/VerifyMtlQueueExists" message="tns:MaterialQueueSvcContract_VerifyMtlQueueExists_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/VerifyMtlQueueExistsResponse" message="tns:MaterialQueueSvcContract_VerifyMtlQueueExists_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/VerifyMtlQueueExistsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_VerifyMtlQueueExists_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRowsCustom">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetRowsCustom" message="tns:MaterialQueueSvcContract_GetRowsCustom_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetRowsCustomResponse" message="tns:MaterialQueueSvcContract_GetRowsCustom_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetRowsCustomEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetRowsCustom_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPCIDPrintParams">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetPCIDPrintParams" message="tns:MaterialQueueSvcContract_GetPCIDPrintParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetPCIDPrintParamsResponse" message="tns:MaterialQueueSvcContract_GetPCIDPrintParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetPCIDPrintParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetPCIDPrintParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPkgControlIDGenParams">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetPkgControlIDGenParams" message="tns:MaterialQueueSvcContract_GetPkgControlIDGenParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetPkgControlIDGenParamsResponse" message="tns:MaterialQueueSvcContract_GetPkgControlIDGenParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetPkgControlIDGenParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetPkgControlIDGenParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewMtlQueue">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetNewMtlQueue" message="tns:MaterialQueueSvcContract_GetNewMtlQueue_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetNewMtlQueueResponse" message="tns:MaterialQueueSvcContract_GetNewMtlQueue_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetNewMtlQueueEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetNewMtlQueue_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByID">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/DeleteByID" message="tns:MaterialQueueSvcContract_DeleteByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/DeleteByIDResponse" message="tns:MaterialQueueSvcContract_DeleteByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/DeleteByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetByID" message="tns:MaterialQueueSvcContract_GetByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetByIDResponse" message="tns:MaterialQueueSvcContract_GetByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetList" message="tns:MaterialQueueSvcContract_GetList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetListResponse" message="tns:MaterialQueueSvcContract_GetList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRows">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetRows" message="tns:MaterialQueueSvcContract_GetRows_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetRowsResponse" message="tns:MaterialQueueSvcContract_GetRows_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetRowsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowID">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetBySysRowID" message="tns:MaterialQueueSvcContract_GetBySysRowID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetBySysRowIDResponse" message="tns:MaterialQueueSvcContract_GetBySysRowID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetBySysRowIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowIDs">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetBySysRowIDs" message="tns:MaterialQueueSvcContract_GetBySysRowIDs_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetBySysRowIDsResponse" message="tns:MaterialQueueSvcContract_GetBySysRowIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/GetBySysRowIDsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/Update" message="tns:MaterialQueueSvcContract_Update_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/UpdateResponse" message="tns:MaterialQueueSvcContract_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/UpdateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_Update_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExt">
+      <wsdl:input wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/UpdateExt" message="tns:MaterialQueueSvcContract_UpdateExt_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/UpdateExtResponse" message="tns:MaterialQueueSvcContract_UpdateExt_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:MaterialQueue/MaterialQueueSvcContract/UpdateExtEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:MaterialQueueSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

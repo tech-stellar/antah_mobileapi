@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:EmpBasic" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:EmpBasic" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:EmpBasic/Imports">
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd0" namespace="Erp:BO:EmpBasic" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd8" namespace="http://epicor.com/UserDefinedColumns" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EmpBasicSvcContract_GetClientFileName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientFileName" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetClientFileName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientFileNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetClientFileName_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Mins2Int_InputMessage">
+    <wsdl:part name="parameters" element="tns:Mins2Int" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Mins2Int_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Mins2IntResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Mins2Int_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Hours2Int_InputMessage">
+    <wsdl:part name="parameters" element="tns:Hours2Int" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Hours2Int_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Hours2IntResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Hours2Int_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Date2Int_InputMessage">
+    <wsdl:part name="parameters" element="tns:Date2Int" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Date2Int_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Date2IntResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Date2Int_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetCodeDescList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeDescList" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetCodeDescList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeDescListResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetCodeDescList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_CheckShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckShift" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_CheckShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_CheckShift_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_ClockIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClockIn" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_ClockIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClockInResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_ClockIn_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_ClockOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClockOut" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_ClockOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClockOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_ClockOut_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_CustomizeResourceCal_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomizeResourceCal" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_CustomizeResourceCal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomizeResourceCalResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_CustomizeResourceCal_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_CheckClockInStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckClockInStatus" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_CheckClockInStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckClockInStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_CheckClockInStatus_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetByIDForTE_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIDForTE" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetByIDForTE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIDForTEResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetByIDForTE_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetDefaultEmpID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultEmpID" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetDefaultEmpID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultEmpIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetDefaultEmpID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q12:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetListExpEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpEmployees" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetListExpEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListExpEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetListExpEmployees_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q13:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetListForTE_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListForTE" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetListForTE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListForTEResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetListForTE_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q14:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetPerConData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPerConData" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetPerConData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPerConDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetPerConData_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q15:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetRowsFromList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsFromList" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetRowsFromList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsFromListResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetRowsFromList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q16:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetRowsWhoIsNotHere_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsWhoIsNotHere" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetRowsWhoIsNotHere_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsWhoIsNotHereResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetRowsWhoIsNotHere_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q17:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeCalendarID_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeCalendarID" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeCalendarID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeCalendarIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeCalendarID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q18:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeCurrencyCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeCurrencyCode" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeCurrencyCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeCurrencyCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeCurrencyCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q19:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeExpenseAllowed_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeExpenseAllowed" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeExpenseAllowed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeExpenseAllowedResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeExpenseAllowed_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q20:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeExpenseAutoApprove_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeExpenseAutoApprove" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeExpenseAutoApprove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeExpenseAutoApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeExpenseAutoApprove_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q21:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeExpenseVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeExpenseVendor" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeExpenseVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeExpenseVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeExpenseVendor_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q22:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeRateEffectiveDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeRateEffectiveDate" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeRateEffectiveDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeRateEffectiveDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeRateEffectiveDate_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q23:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeRateEndDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeRateEndDate" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeRateEndDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeRateEndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeRateEndDate_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q24:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeResource" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeResource_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q25:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeResourceGrp_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeResourceGrp" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeResourceGrp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeResourceGrpResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeResourceGrp_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q26:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeRoleCd_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeRoleCd" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeRoleCd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeRoleCdResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeRoleCd_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q27:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeTimeAutoApprove_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeTimeAutoApprove" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeTimeAutoApprove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeTimeAutoApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeTimeAutoApprove_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q28:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeTimeTypeCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeTimeTypeCode" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeTimeTypeCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeTimeTypeCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_OnChangeTimeTypeCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q29:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_UpdateResourceCal_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResourceCal" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_UpdateResourceCal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResourceCalResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_UpdateResourceCal_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q30:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_FromEffDateOverlaps_InputMessage">
+    <wsdl:part name="parameters" element="tns:FromEffDateOverlaps" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_FromEffDateOverlaps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FromEffDateOverlapsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_FromEffDateOverlaps_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q31:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetEmpStatusCodeDescList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpStatusCodeDescList" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetEmpStatusCodeDescList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpStatusCodeDescListResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetEmpStatusCodeDescList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q32:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_getValidCompanyName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getValidCompanyName" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_getValidCompanyName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getValidCompanyNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_getValidCompanyName_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q33:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetIfCurrentSiteHasExternalMES_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIfCurrentSiteHasExternalMES" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetIfCurrentSiteHasExternalMES_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIfCurrentSiteHasExternalMESResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetIfCurrentSiteHasExternalMES_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q34:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_ModifySearchIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifySearchIDs" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_ModifySearchIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifySearchIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_ModifySearchIDs_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q35:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpBasic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpBasic" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpBasic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpBasicResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpBasic_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q36:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpBasicAttch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpBasicAttch" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpBasicAttch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpBasicAttchResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpBasicAttch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q37:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpLabExpRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpLabExpRate" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpLabExpRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpLabExpRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpLabExpRate_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q38:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpCal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpCal" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpCal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpCalResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpCal_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q39:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewPartner_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartner" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewPartner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewPartner_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q40:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewResourceCal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewResourceCal" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewResourceCal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewResourceCalResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewResourceCal_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q41:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpRole" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpRole_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q42:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEntityGLC_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEntityGLC" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEntityGLC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEntityGLCResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEntityGLC_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q43:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpRoleRt_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpRoleRt" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpRoleRt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewEmpRoleRtResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetNewEmpRoleRt_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q44:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_DeleteByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByID" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_DeleteByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q45:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByID" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q46:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q47:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetRows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRows" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetRows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q48:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetBySysRowID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowID" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetBySysRowID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q49:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetBySysRowIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDs" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetBySysRowIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q50:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_Update_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q51:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_UpdateExt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExt" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_UpdateExt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpBasicSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q52:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="EmpBasicSvcContract">
+    <wsdl:operation name="GetClientFileName">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetClientFileName" message="tns:EmpBasicSvcContract_GetClientFileName_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetClientFileNameResponse" message="tns:EmpBasicSvcContract_GetClientFileName_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetClientFileNameEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetClientFileName_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Mins2Int">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Mins2Int" message="tns:EmpBasicSvcContract_Mins2Int_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Mins2IntResponse" message="tns:EmpBasicSvcContract_Mins2Int_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Mins2IntEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_Mins2Int_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Hours2Int">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Hours2Int" message="tns:EmpBasicSvcContract_Hours2Int_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Hours2IntResponse" message="tns:EmpBasicSvcContract_Hours2Int_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Hours2IntEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_Hours2Int_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Date2Int">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Date2Int" message="tns:EmpBasicSvcContract_Date2Int_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Date2IntResponse" message="tns:EmpBasicSvcContract_Date2Int_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Date2IntEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_Date2Int_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeDescList">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetCodeDescList" message="tns:EmpBasicSvcContract_GetCodeDescList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetCodeDescListResponse" message="tns:EmpBasicSvcContract_GetCodeDescList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetCodeDescListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetCodeDescList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckShift">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/CheckShift" message="tns:EmpBasicSvcContract_CheckShift_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/CheckShiftResponse" message="tns:EmpBasicSvcContract_CheckShift_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/CheckShiftEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_CheckShift_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClockIn">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/ClockIn" message="tns:EmpBasicSvcContract_ClockIn_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/ClockInResponse" message="tns:EmpBasicSvcContract_ClockIn_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/ClockInEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_ClockIn_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClockOut">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/ClockOut" message="tns:EmpBasicSvcContract_ClockOut_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/ClockOutResponse" message="tns:EmpBasicSvcContract_ClockOut_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/ClockOutEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_ClockOut_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomizeResourceCal">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/CustomizeResourceCal" message="tns:EmpBasicSvcContract_CustomizeResourceCal_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/CustomizeResourceCalResponse" message="tns:EmpBasicSvcContract_CustomizeResourceCal_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/CustomizeResourceCalEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_CustomizeResourceCal_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckClockInStatus">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/CheckClockInStatus" message="tns:EmpBasicSvcContract_CheckClockInStatus_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/CheckClockInStatusResponse" message="tns:EmpBasicSvcContract_CheckClockInStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/CheckClockInStatusEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_CheckClockInStatus_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByIDForTE">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetByIDForTE" message="tns:EmpBasicSvcContract_GetByIDForTE_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetByIDForTEResponse" message="tns:EmpBasicSvcContract_GetByIDForTE_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetByIDForTEEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetByIDForTE_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultEmpID">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetDefaultEmpID" message="tns:EmpBasicSvcContract_GetDefaultEmpID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetDefaultEmpIDResponse" message="tns:EmpBasicSvcContract_GetDefaultEmpID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetDefaultEmpIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetDefaultEmpID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListExpEmployees">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetListExpEmployees" message="tns:EmpBasicSvcContract_GetListExpEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetListExpEmployeesResponse" message="tns:EmpBasicSvcContract_GetListExpEmployees_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetListExpEmployeesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetListExpEmployees_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListForTE">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetListForTE" message="tns:EmpBasicSvcContract_GetListForTE_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetListForTEResponse" message="tns:EmpBasicSvcContract_GetListForTE_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetListForTEEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetListForTE_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerConData">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetPerConData" message="tns:EmpBasicSvcContract_GetPerConData_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetPerConDataResponse" message="tns:EmpBasicSvcContract_GetPerConData_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetPerConDataEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetPerConData_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRowsFromList">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetRowsFromList" message="tns:EmpBasicSvcContract_GetRowsFromList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetRowsFromListResponse" message="tns:EmpBasicSvcContract_GetRowsFromList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetRowsFromListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetRowsFromList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRowsWhoIsNotHere">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetRowsWhoIsNotHere" message="tns:EmpBasicSvcContract_GetRowsWhoIsNotHere_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetRowsWhoIsNotHereResponse" message="tns:EmpBasicSvcContract_GetRowsWhoIsNotHere_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetRowsWhoIsNotHereEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetRowsWhoIsNotHere_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeCalendarID">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeCalendarID" message="tns:EmpBasicSvcContract_OnChangeCalendarID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeCalendarIDResponse" message="tns:EmpBasicSvcContract_OnChangeCalendarID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeCalendarIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeCalendarID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeCurrencyCode">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeCurrencyCode" message="tns:EmpBasicSvcContract_OnChangeCurrencyCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeCurrencyCodeResponse" message="tns:EmpBasicSvcContract_OnChangeCurrencyCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeCurrencyCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeCurrencyCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeExpenseAllowed">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeExpenseAllowed" message="tns:EmpBasicSvcContract_OnChangeExpenseAllowed_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeExpenseAllowedResponse" message="tns:EmpBasicSvcContract_OnChangeExpenseAllowed_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeExpenseAllowedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeExpenseAllowed_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeExpenseAutoApprove">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeExpenseAutoApprove" message="tns:EmpBasicSvcContract_OnChangeExpenseAutoApprove_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeExpenseAutoApproveResponse" message="tns:EmpBasicSvcContract_OnChangeExpenseAutoApprove_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeExpenseAutoApproveEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeExpenseAutoApprove_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeExpenseVendor">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeExpenseVendor" message="tns:EmpBasicSvcContract_OnChangeExpenseVendor_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeExpenseVendorResponse" message="tns:EmpBasicSvcContract_OnChangeExpenseVendor_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeExpenseVendorEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeExpenseVendor_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeRateEffectiveDate">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeRateEffectiveDate" message="tns:EmpBasicSvcContract_OnChangeRateEffectiveDate_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeRateEffectiveDateResponse" message="tns:EmpBasicSvcContract_OnChangeRateEffectiveDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeRateEffectiveDateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeRateEffectiveDate_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeRateEndDate">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeRateEndDate" message="tns:EmpBasicSvcContract_OnChangeRateEndDate_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeRateEndDateResponse" message="tns:EmpBasicSvcContract_OnChangeRateEndDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeRateEndDateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeRateEndDate_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeResource">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeResource" message="tns:EmpBasicSvcContract_OnChangeResource_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeResourceResponse" message="tns:EmpBasicSvcContract_OnChangeResource_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeResourceEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeResource_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeResourceGrp">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeResourceGrp" message="tns:EmpBasicSvcContract_OnChangeResourceGrp_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeResourceGrpResponse" message="tns:EmpBasicSvcContract_OnChangeResourceGrp_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeResourceGrpEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeResourceGrp_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeRoleCd">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeRoleCd" message="tns:EmpBasicSvcContract_OnChangeRoleCd_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeRoleCdResponse" message="tns:EmpBasicSvcContract_OnChangeRoleCd_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeRoleCdEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeRoleCd_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeTimeAutoApprove">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeTimeAutoApprove" message="tns:EmpBasicSvcContract_OnChangeTimeAutoApprove_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeTimeAutoApproveResponse" message="tns:EmpBasicSvcContract_OnChangeTimeAutoApprove_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeTimeAutoApproveEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeTimeAutoApprove_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeTimeTypeCode">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeTimeTypeCode" message="tns:EmpBasicSvcContract_OnChangeTimeTypeCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeTimeTypeCodeResponse" message="tns:EmpBasicSvcContract_OnChangeTimeTypeCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/OnChangeTimeTypeCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_OnChangeTimeTypeCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateResourceCal">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/UpdateResourceCal" message="tns:EmpBasicSvcContract_UpdateResourceCal_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/UpdateResourceCalResponse" message="tns:EmpBasicSvcContract_UpdateResourceCal_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/UpdateResourceCalEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_UpdateResourceCal_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FromEffDateOverlaps">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/FromEffDateOverlaps" message="tns:EmpBasicSvcContract_FromEffDateOverlaps_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/FromEffDateOverlapsResponse" message="tns:EmpBasicSvcContract_FromEffDateOverlaps_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/FromEffDateOverlapsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_FromEffDateOverlaps_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpStatusCodeDescList">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetEmpStatusCodeDescList" message="tns:EmpBasicSvcContract_GetEmpStatusCodeDescList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetEmpStatusCodeDescListResponse" message="tns:EmpBasicSvcContract_GetEmpStatusCodeDescList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetEmpStatusCodeDescListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetEmpStatusCodeDescList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getValidCompanyName">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/getValidCompanyName" message="tns:EmpBasicSvcContract_getValidCompanyName_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/getValidCompanyNameResponse" message="tns:EmpBasicSvcContract_getValidCompanyName_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/getValidCompanyNameEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_getValidCompanyName_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIfCurrentSiteHasExternalMES">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetIfCurrentSiteHasExternalMES" message="tns:EmpBasicSvcContract_GetIfCurrentSiteHasExternalMES_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetIfCurrentSiteHasExternalMESResponse" message="tns:EmpBasicSvcContract_GetIfCurrentSiteHasExternalMES_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetIfCurrentSiteHasExternalMESEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetIfCurrentSiteHasExternalMES_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifySearchIDs">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/ModifySearchIDs" message="tns:EmpBasicSvcContract_ModifySearchIDs_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/ModifySearchIDsResponse" message="tns:EmpBasicSvcContract_ModifySearchIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/ModifySearchIDsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_ModifySearchIDs_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEmpBasic">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpBasic" message="tns:EmpBasicSvcContract_GetNewEmpBasic_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpBasicResponse" message="tns:EmpBasicSvcContract_GetNewEmpBasic_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpBasicEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetNewEmpBasic_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEmpBasicAttch">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpBasicAttch" message="tns:EmpBasicSvcContract_GetNewEmpBasicAttch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpBasicAttchResponse" message="tns:EmpBasicSvcContract_GetNewEmpBasicAttch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpBasicAttchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetNewEmpBasicAttch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEmpLabExpRate">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpLabExpRate" message="tns:EmpBasicSvcContract_GetNewEmpLabExpRate_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpLabExpRateResponse" message="tns:EmpBasicSvcContract_GetNewEmpLabExpRate_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpLabExpRateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetNewEmpLabExpRate_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEmpCal">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpCal" message="tns:EmpBasicSvcContract_GetNewEmpCal_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpCalResponse" message="tns:EmpBasicSvcContract_GetNewEmpCal_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpCalEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetNewEmpCal_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPartner">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewPartner" message="tns:EmpBasicSvcContract_GetNewPartner_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewPartnerResponse" message="tns:EmpBasicSvcContract_GetNewPartner_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewPartnerEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetNewPartner_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewResourceCal">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewResourceCal" message="tns:EmpBasicSvcContract_GetNewResourceCal_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewResourceCalResponse" message="tns:EmpBasicSvcContract_GetNewResourceCal_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewResourceCalEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetNewResourceCal_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEmpRole">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpRole" message="tns:EmpBasicSvcContract_GetNewEmpRole_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpRoleResponse" message="tns:EmpBasicSvcContract_GetNewEmpRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpRoleEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetNewEmpRole_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEntityGLC">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEntityGLC" message="tns:EmpBasicSvcContract_GetNewEntityGLC_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEntityGLCResponse" message="tns:EmpBasicSvcContract_GetNewEntityGLC_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEntityGLCEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetNewEntityGLC_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewEmpRoleRt">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpRoleRt" message="tns:EmpBasicSvcContract_GetNewEmpRoleRt_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpRoleRtResponse" message="tns:EmpBasicSvcContract_GetNewEmpRoleRt_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetNewEmpRoleRtEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetNewEmpRoleRt_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByID">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/DeleteByID" message="tns:EmpBasicSvcContract_DeleteByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/DeleteByIDResponse" message="tns:EmpBasicSvcContract_DeleteByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/DeleteByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetByID" message="tns:EmpBasicSvcContract_GetByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetByIDResponse" message="tns:EmpBasicSvcContract_GetByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetList" message="tns:EmpBasicSvcContract_GetList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetListResponse" message="tns:EmpBasicSvcContract_GetList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRows">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetRows" message="tns:EmpBasicSvcContract_GetRows_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetRowsResponse" message="tns:EmpBasicSvcContract_GetRows_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetRowsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowID">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetBySysRowID" message="tns:EmpBasicSvcContract_GetBySysRowID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetBySysRowIDResponse" message="tns:EmpBasicSvcContract_GetBySysRowID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetBySysRowIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowIDs">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetBySysRowIDs" message="tns:EmpBasicSvcContract_GetBySysRowIDs_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetBySysRowIDsResponse" message="tns:EmpBasicSvcContract_GetBySysRowIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/GetBySysRowIDsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/Update" message="tns:EmpBasicSvcContract_Update_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/UpdateResponse" message="tns:EmpBasicSvcContract_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/UpdateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_Update_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExt">
+      <wsdl:input wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/UpdateExt" message="tns:EmpBasicSvcContract_UpdateExt_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/UpdateExtResponse" message="tns:EmpBasicSvcContract_UpdateExt_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:EmpBasic/EmpBasicSvcContract/UpdateExtEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:EmpBasicSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

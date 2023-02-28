@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="10b17535-9eb5-4f73-a7d3-5fcc0cf928cf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://erp10/ERPDEMO/Erp/BO/Receipt.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Receipt.xsd" MetadataType="Schema" ID="2d8245a8-f372-437e-9ab6-705437460da1" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?xsd=xsd6" />
+    <MetadataFile FileName="Receipt1.xsd" MetadataType="Schema" ID="51265c37-e90f-4ffe-8895-ea710ae80e4b" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?xsd=xsd0" />
+    <MetadataFile FileName="Receipt2.xsd" MetadataType="Schema" ID="55e29f12-66ad-4a13-88ff-b2deb5fc3c7b" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?xsd=xsd2" />
+    <MetadataFile FileName="Receipt3.xsd" MetadataType="Schema" ID="4dfcc302-cc1f-4a68-bf2a-5b412b38b1a0" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?xsd=xsd5" />
+    <MetadataFile FileName="Receipt4.xsd" MetadataType="Schema" ID="49dfa0cb-e6fa-4356-905e-896758b66116" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?xsd=xsd7" />
+    <MetadataFile FileName="ReceiptSvcFacade.wsdl" MetadataType="Wsdl" ID="bfddc278-f008-4bfe-b6a6-9142d605c56b" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?wsdl" />
+    <MetadataFile FileName="Receipt5.xsd" MetadataType="Schema" ID="dd1524d4-eabd-4aef-bd35-603a3de30277" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?xsd=xsd1" />
+    <MetadataFile FileName="Receipt.wsdl" MetadataType="Wsdl" ID="52f6e961-7ac3-4124-89c9-67119a38c549" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Receipt6.xsd" MetadataType="Schema" ID="736a7bd4-efe3-434c-b195-a7d8056d6949" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?xsd=xsd3" />
+    <MetadataFile FileName="Receipt7.xsd" MetadataType="Schema" ID="a3e9524a-93cf-4be1-822c-481714faa6f9" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?xsd=xsd8" />
+    <MetadataFile FileName="Receipt.disco" MetadataType="Disco" ID="6a272778-9470-482b-be0f-23e3df8f8d58" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?disco" />
+    <MetadataFile FileName="Receipt8.xsd" MetadataType="Schema" ID="d76a36fb-2f4d-4244-8f38-790497fcf6f4" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/Receipt.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

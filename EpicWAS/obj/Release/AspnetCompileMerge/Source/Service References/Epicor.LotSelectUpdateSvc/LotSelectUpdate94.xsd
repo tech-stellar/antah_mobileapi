@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Tablesets" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+  <xs:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="PartLotListTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Ice" base="q1:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PartLotList" nillable="true" type="tns:PartLotListTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PartLotListTableset" nillable="true" type="tns:PartLotListTableset" />
+  <xs:complexType name="PartLotListTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartLotListRow" nillable="true" type="tns:PartLotListRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartLotListTable" nillable="true" type="tns:PartLotListTable" />
+  <xs:complexType name="PartLotListRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Ice" base="q2:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Batch" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BestBeforeDt" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CSFCJ5ApvlEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CSFCJ5ApvlStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CSFCJ5Avail" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CSFCJ5FormNbr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CSFCJ5Vessel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CSFLMWAvail" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CSFLMWComOath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:PartLotListRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CureDt" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExpireDt" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FIFOLotBurdenCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FIFOLotLaborCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FIFOLotMaterialCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FIFOLotMtlBurCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FIFOLotSubContCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FirmWare" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstRefDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="HeatNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImportNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImportedFrom" type="xs:int" />
+          <xs:element minOccurs="0" name="ImportedFromDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastRefDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LotBurdenCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LotLaborCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LotMaterialCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LotMtlBurCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LotNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LotSubContCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MfgBatch" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MfgDt" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MfgLot" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OnHand" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OnHandQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartLotDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumIUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPricePerCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSalesUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSellingFactor" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartNumTrackDimension" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackLots" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackSerialNum" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Plant" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScrLotBurdenCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrLotLaborCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrLotMaterialCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrLotMtlBurCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrLotSubContCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ShipDocAvail" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="TransactionSource" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PartLotListRow" nillable="true" type="tns:PartLotListRow" />
+  <xs:simpleType name="PartLotListRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="LotNum" />
+      <xs:enumeration value="PartLotDescription" />
+      <xs:enumeration value="OnHand" />
+      <xs:enumeration value="FirstRefDate" />
+      <xs:enumeration value="LastRefDate" />
+      <xs:enumeration value="LotLaborCost" />
+      <xs:enumeration value="LotBurdenCost" />
+      <xs:enumeration value="LotMaterialCost" />
+      <xs:enumeration value="LotSubContCost" />
+      <xs:enumeration value="LotMtlBurCost" />
+      <xs:enumeration value="ExpirationDate" />
+      <xs:enumeration value="ShipDocAvail" />
+      <xs:enumeration value="Batch" />
+      <xs:enumeration value="MfgBatch" />
+      <xs:enumeration value="MfgLot" />
+      <xs:enumeration value="HeatNum" />
+      <xs:enumeration value="FirmWare" />
+      <xs:enumeration value="BestBeforeDt" />
+      <xs:enumeration value="MfgDt" />
+      <xs:enumeration value="CureDt" />
+      <xs:enumeration value="ExpireDt" />
+      <xs:enumeration value="FIFOLotLaborCost" />
+      <xs:enumeration value="FIFOLotBurdenCost" />
+      <xs:enumeration value="FIFOLotMaterialCost" />
+      <xs:enumeration value="FIFOLotSubContCost" />
+      <xs:enumeration value="FIFOLotMtlBurCost" />
+      <xs:enumeration value="CSFLMWComOath" />
+      <xs:enumeration value="CSFCJ5FormNbr" />
+      <xs:enumeration value="CSFCJ5Vessel" />
+      <xs:enumeration value="CSFCJ5ApvlStart" />
+      <xs:enumeration value="CSFCJ5ApvlEnd" />
+      <xs:enumeration value="ImportNum" />
+      <xs:enumeration value="ImportedFrom" />
+      <xs:enumeration value="ImportedFromDesc" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="TransactionSource" />
+      <xs:enumeration value="ScrLotBurdenCost" />
+      <xs:enumeration value="ScrLotLaborCost" />
+      <xs:enumeration value="ScrLotMaterialCost" />
+      <xs:enumeration value="ScrLotMtlBurCost" />
+      <xs:enumeration value="ScrLotSubContCost" />
+      <xs:enumeration value="Plant" />
+      <xs:enumeration value="OnHandQty" />
+      <xs:enumeration value="CSFCJ5Avail" />
+      <xs:enumeration value="CSFLMWAvail" />
+      <xs:enumeration value="PartNumPricePerCode" />
+      <xs:enumeration value="PartNumTrackDimension" />
+      <xs:enumeration value="PartNumIUM" />
+      <xs:enumeration value="PartNumSalesUM" />
+      <xs:enumeration value="PartNumTrackLots" />
+      <xs:enumeration value="PartNumPartDescription" />
+      <xs:enumeration value="PartNumSellingFactor" />
+      <xs:enumeration value="PartNumTrackSerialNum" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PartLotListRowColumnOrder" nillable="true" type="tns:PartLotListRowColumnOrder" />
+  <xs:complexType name="LotSelectUpdateTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Ice" base="q3:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PartLot" nillable="true" type="tns:PartLotTable" />
+          <xs:element minOccurs="0" name="PartLotAttch" nillable="true" type="tns:PartLotAttchTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LotSelectUpdateTableset" nillable="true" type="tns:LotSelectUpdateTableset" />
+  <xs:complexType name="PartLotTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartLotRow" nillable="true" type="tns:PartLotRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartLotTable" nillable="true" type="tns:PartLotTable" />
+  <xs:complexType name="PartLotRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Ice" base="q4:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Batch" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BestBeforeDt" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="CSFCJ5ApvlEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CSFCJ5ApvlStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CSFCJ5Avail" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CSFCJ5FormNbr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CSFCJ5Vessel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CSFLMWAvail" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CSFLMWComOath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:PartLotRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CureDt" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DeferManual" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExpireDt" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FIFOLotBurdenCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FIFOLotLaborCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FIFOLotMaterialCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FIFOLotMtlBurCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FIFOLotSubContCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FirmWare" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstRefDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="HeatNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImportNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImportedFrom" type="xs:int" />
+          <xs:element minOccurs="0" name="ImportedFromDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastRefDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LotBurdenCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LotLaborCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LotMaterialCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LotMtlBurCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LotNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LotSubContCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MXImportDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MXImportLocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MfgBatch" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MfgDt" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MfgLot" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OnHand" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OnHandQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartLotDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumIUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPricePerCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSalesUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSellingFactor" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartNumTrackDimension" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackLots" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackSerialNum" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Plant" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScrLotBurdenCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrLotLaborCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrLotMaterialCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrLotMtlBurCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrLotSubContCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ShipDocAvail" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="TotalQtyAvg" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TransactionSource" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PartLotRow" nillable="true" type="tns:PartLotRow" />
+  <xs:simpleType name="PartLotRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="LotNum" />
+      <xs:enumeration value="PartLotDescription" />
+      <xs:enumeration value="OnHand" />
+      <xs:enumeration value="FirstRefDate" />
+      <xs:enumeration value="LastRefDate" />
+      <xs:enumeration value="LotLaborCost" />
+      <xs:enumeration value="LotBurdenCost" />
+      <xs:enumeration value="LotMaterialCost" />
+      <xs:enumeration value="LotSubContCost" />
+      <xs:enumeration value="LotMtlBurCost" />
+      <xs:enumeration value="ExpirationDate" />
+      <xs:enumeration value="ShipDocAvail" />
+      <xs:enumeration value="Batch" />
+      <xs:enumeration value="MfgBatch" />
+      <xs:enumeration value="MfgLot" />
+      <xs:enumeration value="HeatNum" />
+      <xs:enumeration value="FirmWare" />
+      <xs:enumeration value="BestBeforeDt" />
+      <xs:enumeration value="MfgDt" />
+      <xs:enumeration value="CureDt" />
+      <xs:enumeration value="ExpireDt" />
+      <xs:enumeration value="FIFOLotLaborCost" />
+      <xs:enumeration value="FIFOLotBurdenCost" />
+      <xs:enumeration value="FIFOLotMaterialCost" />
+      <xs:enumeration value="FIFOLotSubContCost" />
+      <xs:enumeration value="FIFOLotMtlBurCost" />
+      <xs:enumeration value="CSFLMWComOath" />
+      <xs:enumeration value="CSFCJ5FormNbr" />
+      <xs:enumeration value="CSFCJ5Vessel" />
+      <xs:enumeration value="CSFCJ5ApvlStart" />
+      <xs:enumeration value="CSFCJ5ApvlEnd" />
+      <xs:enumeration value="ImportNum" />
+      <xs:enumeration value="ImportedFrom" />
+      <xs:enumeration value="ImportedFromDesc" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="MXImportLocation" />
+      <xs:enumeration value="MXImportDate" />
+      <xs:enumeration value="TotalQtyAvg" />
+      <xs:enumeration value="CSFCJ5Avail" />
+      <xs:enumeration value="CSFLMWAvail" />
+      <xs:enumeration value="OnHandQty" />
+      <xs:enumeration value="Plant" />
+      <xs:enumeration value="ScrLotBurdenCost" />
+      <xs:enumeration value="ScrLotLaborCost" />
+      <xs:enumeration value="ScrLotMaterialCost" />
+      <xs:enumeration value="ScrLotMtlBurCost" />
+      <xs:enumeration value="ScrLotSubContCost" />
+      <xs:enumeration value="TransactionSource" />
+      <xs:enumeration value="DeferManual" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="PartNumPartDescription" />
+      <xs:enumeration value="PartNumTrackDimension" />
+      <xs:enumeration value="PartNumSalesUM" />
+      <xs:enumeration value="PartNumTrackLots" />
+      <xs:enumeration value="PartNumIUM" />
+      <xs:enumeration value="PartNumSellingFactor" />
+      <xs:enumeration value="PartNumPricePerCode" />
+      <xs:enumeration value="PartNumTrackSerialNum" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PartLotRowColumnOrder" nillable="true" type="tns:PartLotRowColumnOrder" />
+  <xs:complexType name="PartLotAttchTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartLotAttchRow" nillable="true" type="tns:PartLotAttchRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartLotAttchTable" nillable="true" type="tns:PartLotAttchTable" />
+  <xs:complexType name="PartLotAttchRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Ice" base="q5:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:PartLotAttchRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocTypeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DrawDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DrawingSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ForeignSysRowID" type="ser:guid" />
+          <xs:element minOccurs="0" name="LotNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PDMDocID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="XFileRefNum" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PartLotAttchRow" nillable="true" type="tns:PartLotAttchRow" />
+  <xs:simpleType name="PartLotAttchRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="LotNum" />
+      <xs:enumeration value="DrawingSeq" />
+      <xs:enumeration value="XFileRefNum" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="ForeignSysRowID" />
+      <xs:enumeration value="DrawDesc" />
+      <xs:enumeration value="FileName" />
+      <xs:enumeration value="PDMDocID" />
+      <xs:enumeration value="DocTypeID" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PartLotAttchRowColumnOrder" nillable="true" type="tns:PartLotAttchRowColumnOrder" />
+  <xs:complexType name="UpdExtLotSelectUpdateTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Ice" base="q6:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PartLot" nillable="true" type="tns:PartLotTable" />
+          <xs:element minOccurs="0" name="PartLotAttch" nillable="true" type="tns:PartLotAttchTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdExtLotSelectUpdateTableset" nillable="true" type="tns:UpdExtLotSelectUpdateTableset" />
+</xs:schema>

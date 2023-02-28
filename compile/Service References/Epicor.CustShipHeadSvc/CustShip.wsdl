@@ -1,0 +1,2132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:CustShip" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:CustShip" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:CustShip/Imports">
+      <xsd:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd0" namespace="Erp:BO:CustShip" />
+      <xsd:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd8" namespace="http://epicor.com/UserDefinedColumns" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CustShipSvcContract_CheckPackageCodeAllocNegQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPackageCodeAllocNegQty" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckPackageCodeAllocNegQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPackageCodeAllocNegQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckPackageCodeAllocNegQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPkgCodeQtyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPkgCodeQtyList" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPkgCodeQtyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPkgCodeQtyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPkgCodeQtyList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GenerateDigitalSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateDigitalSignature" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GenerateDigitalSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateDigitalSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GenerateDigitalSignature_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangePCIDPackVerify_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePCIDPackVerify" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangePCIDPackVerify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePCIDPackVerifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangePCIDPackVerify_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PackVerifyCalcPackPCIDCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:PackVerifyCalcPackPCIDCount" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PackVerifyCalcPackPCIDCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PackVerifyCalcPackPCIDCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PackVerifyCalcPackPCIDCount_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PackVerifyPerformPackVerification_InputMessage">
+    <wsdl:part name="parameters" element="tns:PackVerifyPerformPackVerification" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PackVerifyPerformPackVerification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PackVerifyPerformPackVerificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PackVerifyPerformPackVerification_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipHead_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipHead" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipHead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipHeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipHead_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipHeadAttch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipHeadAttch" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipHeadAttch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipHeadAttchResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipHeadAttch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewCartonTrkDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewCartonTrkDtl" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewCartonTrkDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewCartonTrkDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewCartonTrkDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipDtl" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipDtlAttch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipDtlAttch" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipDtlAttch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipDtlAttchResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipDtlAttch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipCOO_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipCOO" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipCOO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipCOOResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipCOO_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q12:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipDtlTax_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipDtlTax" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipDtlTax_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipDtlTaxResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipDtlTax_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q13:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipMisc_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipMisc" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipMisc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipMiscResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipMisc_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q14:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipUPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipUPS" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipUPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewShipUPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewShipUPS_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q15:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeleteByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByID" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeleteByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q16:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByID" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q17:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q18:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetRows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRows" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetRows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q19:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetBySysRowID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowID" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetBySysRowID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q20:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetBySysRowIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDs" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetBySysRowIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q21:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_Update_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q22:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateExt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExt" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateExt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q23:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ExpireDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExpireDate" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ExpireDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExpireDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ExpireDate_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q24:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CreateCustomerCartons_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerCartons" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CreateCustomerCartons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerCartonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CreateCustomerCartons_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q25:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_AllowUndoExternalDN_InputMessage">
+    <wsdl:part name="parameters" element="tns:AllowUndoExternalDN" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_AllowUndoExternalDN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AllowUndoExternalDNResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_AllowUndoExternalDN_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q26:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_AskForShipToChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:AskForShipToChange" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_AskForShipToChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AskForShipToChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_AskForShipToChange_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q27:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_AssignLegalNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignLegalNumber" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_AssignLegalNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignLegalNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_AssignLegalNumber_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q28:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackageControlPackVoid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageControlPackVoid" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackageControlPackVoid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageControlPackVoidResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackageControlPackVoid_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q29:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_VoidPackSlip_InputMessage">
+    <wsdl:part name="parameters" element="tns:VoidPackSlip" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_VoidPackSlip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VoidPackSlipResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_VoidPackSlip_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q30:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildCompSerMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuildCompSerMatch" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildCompSerMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuildCompSerMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildCompSerMatch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q31:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildSerialMatchingParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuildSerialMatchingParams" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildSerialMatchingParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuildSerialMatchingParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildSerialMatchingParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q32:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildShipToCustomerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuildShipToCustomerList" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildShipToCustomerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuildShipToCustomerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildShipToCustomerList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q33:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildShipToList_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuildShipToList" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildShipToList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuildShipToListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_BuildShipToList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q34:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CalculateWeight_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateWeight" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CalculateWeight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateWeightResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CalculateWeight_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q35:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CancelVoid_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelVoid" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CancelVoid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelVoidResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CancelVoid_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q36:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CanStage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanStage" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CanStage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanStageResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CanStage_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q37:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CartonValidateWeight_InputMessage">
+    <wsdl:part name="parameters" element="tns:CartonValidateWeight" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CartonValidateWeight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CartonValidateWeightResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CartonValidateWeight_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q38:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipCmpl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipCmpl" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipCmpl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipCmplResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipCmpl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q39:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipDtlMFCustID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipDtlMFCustID" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipDtlMFCustID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipDtlMFCustIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipDtlMFCustID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q40:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipDtlMFShipToNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipDtlMFShipToNum" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipDtlMFShipToNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipDtlMFShipToNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipDtlMFShipToNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q41:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipDtlUseOTMF_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipDtlUseOTMF" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipDtlUseOTMF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipDtlUseOTMFResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipDtlUseOTMF_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q42:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipHeadShipToCustID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipHeadShipToCustID" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipHeadShipToCustID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipHeadShipToCustIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipHeadShipToCustID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q43:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipMiscPrcnt_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipMiscPrcnt" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipMiscPrcnt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeShipMiscPrcntResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeShipMiscPrcnt_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q44:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatus" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeStatus_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q45:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangePCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePCID" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangePCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangePCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q46:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeWarrantyToFSA_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeWarrantyToFSA" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeWarrantyToFSA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeWarrantyToFSAResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ChangeWarrantyToFSA_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q47:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_RemovePCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePCID" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_RemovePCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_RemovePCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q48:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckCompliance_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCompliance" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckCompliance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckComplianceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckCompliance_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q49:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckCOOPercents_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCOOPercents" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckCOOPercents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCOOPercentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckCOOPercents_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q50:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOrder" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckOrder_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q51:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckOrderComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOrderComplete" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckOrderComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOrderCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckOrderComplete_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q52:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckPrePartInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPrePartInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckPrePartInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPrePartInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckPrePartInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q53:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckReadyToInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckReadyToInvoice" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckReadyToInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckReadyToInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckReadyToInvoice_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q54="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q54:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckShipDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckShipDtl" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckShipDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckShipDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckShipDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q55="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q55:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckValidCartonWeight_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckValidCartonWeight" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckValidCartonWeight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckValidCartonWeightResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckValidCartonWeight_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q56="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q56:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ClearConvertedManifestUOMFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearConvertedManifestUOMFields" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ClearConvertedManifestUOMFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearConvertedManifestUOMFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ClearConvertedManifestUOMFields_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q57="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q57:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ConvertToManifestUOM_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertToManifestUOM" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ConvertToManifestUOM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertToManifestUOMResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ConvertToManifestUOM_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q58="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q58:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ConvertUOM_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertUOM" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ConvertUOM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertUOMResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ConvertUOM_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q59="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q59:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CreateMassShipDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMassShipDtl" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CreateMassShipDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMassShipDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CreateMassShipDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q60="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q60:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeletePhantomPacks_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhantomPacks" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeletePhantomPacks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhantomPacksResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeletePhantomPacks_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q61="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q61:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeleteRangePhantomPacks_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRangePhantomPacks" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeleteRangePhantomPacks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRangePhantomPacksResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeleteRangePhantomPacks_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q62="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q62:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ExpressShip_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExpressShip" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ExpressShip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExpressShipResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ExpressShip_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q63="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q63:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetCartonPackaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartonPackaging" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetCartonPackaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartonPackagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetCartonPackaging_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q64="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q64:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetCustShipOrdTrk_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustShipOrdTrk" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetCustShipOrdTrk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustShipOrdTrkResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetCustShipOrdTrk_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q65="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q65:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetHeadOrderInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHeadOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetHeadOrderInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHeadOrderInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetHeadOrderInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q66="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q66:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetEnablePackageControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnablePackageControl" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetEnablePackageControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnablePackageControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetEnablePackageControl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q67="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q67:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetJobDtlInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobDtlInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetJobDtlInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobDtlInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetJobDtlInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q68="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q68:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetJobInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetJobInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetJobInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q69="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q69:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetJobSupOpSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobSupOpSeq" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetJobSupOpSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobSupOpSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetJobSupOpSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q70="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q70:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetLegalNumGenOpts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLegalNumGenOpts" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetLegalNumGenOpts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLegalNumGenOptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetLegalNumGenOpts_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q71="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q71:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetLegalNumGenOpts_InputMessage">
+    <wsdl:part name="parameters" element="tns:POGetLegalNumGenOpts" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetLegalNumGenOpts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POGetLegalNumGenOptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetLegalNumGenOpts_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q72="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q72:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetManifestInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManifestInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetManifestInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManifestInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetManifestInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q73="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q73:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewOrdrShipDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewOrdrShipDtl" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewOrdrShipDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewOrdrShipDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewOrdrShipDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q74="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q74:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewOrdrShipUPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewOrdrShipUPS" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewOrdrShipUPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewOrdrShipUPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetNewOrdrShipUPS_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q75="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q75:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetOrderInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetOrderInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetOrderInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q76="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q76:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetOrderLineInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderLineInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetOrderLineInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderLineInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetOrderLineInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q77="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q77:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetOrderRelInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderRelInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetOrderRelInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderRelInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetOrderRelInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q78="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q78:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackaging" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackaging_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q79="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q79:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackClass" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackClass_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q80="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q80:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackOutPartXRef_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackOutPartXRef" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackOutPartXRef_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackOutPartXRefResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPackOutPartXRef_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q81="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q81:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPartInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPartInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPartInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q82="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q82:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPayBTFlagDefaults_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayBTFlagDefaults" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPayBTFlagDefaults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayBTFlagDefaultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPayBTFlagDefaults_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q83="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q83:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPOPackaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPOPackaging" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPOPackaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPOPackagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPOPackaging_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q84="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q84:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPOPackClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPOPackClass" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPOPackClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPOPackClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetPOPackClass_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q85="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q85:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetQtyInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQtyInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetQtyInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQtyInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetQtyInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q86="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q86:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetRowsContactTracker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsContactTracker" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetRowsContactTracker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsContactTrackerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetRowsContactTracker_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q87="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q87:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetRowsCustomerTracker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsCustomerTracker" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetRowsCustomerTracker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsCustomerTrackerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetRowsCustomerTracker_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q88="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q88:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetScale_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScale" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetScale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetScale_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q89="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q89:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetSelectIDNumbersParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectIDNumbersParams" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetSelectIDNumbersParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectIDNumbersParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetSelectIDNumbersParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q90="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q90:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetSelectSerialNumbersParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParams" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetSelectSerialNumbersParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q91="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q91:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GenerateSelectIDNumParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateSelectIDNumParams" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GenerateSelectIDNumParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateSelectIDNumParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GenerateSelectIDNumParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q92="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q92:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GenerateLocationIDNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateLocationIDNum" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GenerateLocationIDNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateLocationIDNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GenerateLocationIDNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q93="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q93:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetShipMiscDefaults_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipMiscDefaults" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetShipMiscDefaults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipMiscDefaultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetShipMiscDefaults_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q94="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q94:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetShipToAddr_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipToAddr" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetShipToAddr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShipToAddrResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetShipToAddr_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q95="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q95:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetTranDocTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTranDocTypeID" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetTranDocTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTranDocTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetTranDocTypeID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q96="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q96:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CalculateWarrantyExpiration_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateWarrantyExpiration" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CalculateWarrantyExpiration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateWarrantyExpirationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CalculateWarrantyExpiration_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q97="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q97:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetWarrantyInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarrantyInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetWarrantyInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarrantyInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetWarrantyInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q98="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q98:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ClearWarrantyInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearWarrantyInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ClearWarrantyInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearWarrantyInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ClearWarrantyInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q99="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q99:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetWhseInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWhseInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetWhseInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWhseInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetWhseInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q100="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q100:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_HHCreateMassShipDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:HHCreateMassShipDtl" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_HHCreateMassShipDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HHCreateMassShipDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_HHCreateMassShipDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q101="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q101:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_HHGetOrderInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:HHGetOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_HHGetOrderInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HHGetOrderInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_HHGetOrderInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q102="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q102:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_HHSetDtlDefaultValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:HHSetDtlDefaultValues" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_HHSetDtlDefaultValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HHSetDtlDefaultValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_HHSetDtlDefaultValues_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q103="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q103:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_MarkShipmentLines_InputMessage">
+    <wsdl:part name="parameters" element="tns:MarkShipmentLines" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_MarkShipmentLines_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MarkShipmentLinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_MarkShipmentLines_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q104="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q104:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PhantomStatusCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:PhantomStatusCheck" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PhantomStatusCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PhantomStatusCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PhantomStatusCheck_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q105="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q105:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POChangeStage_InputMessage">
+    <wsdl:part name="parameters" element="tns:POChangeStage" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POChangeStage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POChangeStageResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POChangeStage_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q106="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q106:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POChangeStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:POChangeStatus" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POChangeStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POChangeStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POChangeStatus_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q107="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q107:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POFindBuffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:POFindBuffer" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POFindBuffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POFindBufferResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POFindBuffer_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q108="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q108:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POFindBufWhseBinLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:POFindBufWhseBinLot" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POFindBufWhseBinLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POFindBufWhseBinLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POFindBufWhseBinLot_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q109="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q109:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetDtlList_InputMessage">
+    <wsdl:part name="parameters" element="tns:POGetDtlList" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetDtlList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POGetDtlListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetDtlList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q110="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q110:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POPCIDGetDtlList_InputMessage">
+    <wsdl:part name="parameters" element="tns:POPCIDGetDtlList" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POPCIDGetDtlList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POPCIDGetDtlListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POPCIDGetDtlList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q111="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q111:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:POGetNew" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POGetNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetNew_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q112="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q112:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeleteKitComponents_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteKitComponents" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeleteKitComponents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteKitComponentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_DeleteKitComponents_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q113="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q113:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateOrderRelOnKitChildren_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderRelOnKitChildren" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateOrderRelOnKitChildren_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderRelOnKitChildrenResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateOrderRelOnKitChildren_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q114="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q114:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetShipTo_InputMessage">
+    <wsdl:part name="parameters" element="tns:POGetShipTo" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetShipTo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POGetShipToResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POGetShipTo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q115="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q115:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PostUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostUpdate" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PostUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PostUpdate_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q116="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q116:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:POUpdate" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POUpdate_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q117="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q117:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POUpdateAndDisplay_InputMessage">
+    <wsdl:part name="parameters" element="tns:POUpdateAndDisplay" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POUpdateAndDisplay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POUpdateAndDisplayResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POUpdateAndDisplay_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q118="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q118:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POValidateOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:POValidateOrder" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POValidateOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POValidateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POValidateOrder_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q119="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q119:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POValidateOrderRel_InputMessage">
+    <wsdl:part name="parameters" element="tns:POValidateOrderRel" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POValidateOrderRel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POValidateOrderRelResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POValidateOrderRel_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q120="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q120:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POValidatePart_InputMessage">
+    <wsdl:part name="parameters" element="tns:POValidatePart" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POValidatePart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POValidatePartResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_POValidatePart_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q121="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q121:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PreCreateMassShipDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreCreateMassShipDtl" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PreCreateMassShipDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreCreateMassShipDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PreCreateMassShipDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q122="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q122:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessKitChildern_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessKitChildern" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessKitChildern_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessKitChildernResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessKitChildern_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q123="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q123:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PrePickedOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrePickedOrders" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PrePickedOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrePickedOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PrePickedOrders_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q124="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q124:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PrintSlip_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintSlip" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PrintSlip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintSlipResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_PrintSlip_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q125="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q125:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessMassShipKit_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessMassShipKit" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessMassShipKit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessMassShipKitResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessMassShipKit_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q126="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q126:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessPickedOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPickedOrder" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessPickedOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPickedOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessPickedOrder_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q127="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q127:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessPickedOrderHH_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPickedOrderHH" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessPickedOrderHH_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPickedOrderHHResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ProcessPickedOrderHH_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q128="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q128:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_RebuildShipUPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:RebuildShipUPS" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_RebuildShipUPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RebuildShipUPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_RebuildShipUPS_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q129="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q129:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_SetUPSQVEnable_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUPSQVEnable" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_SetUPSQVEnable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUPSQVEnableResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_SetUPSQVEnable_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q130="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q130:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_SetUPSQVShipStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUPSQVShipStatus" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_SetUPSQVShipStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUPSQVShipStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_SetUPSQVShipStatus_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q131="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q131:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_StageWarning_InputMessage">
+    <wsdl:part name="parameters" element="tns:StageWarning" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_StageWarning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StageWarningResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_StageWarning_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q132="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q132:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UndoShipAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:UndoShipAll" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UndoShipAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UndoShipAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UndoShipAll_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q133="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q133:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateManifestChargeAmts_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateManifestChargeAmts" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateManifestChargeAmts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateManifestChargeAmtsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateManifestChargeAmts_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q134="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q134:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateMaster_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMaster" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateMaster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdateMaster_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q135="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q135:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdatePackCODWithCarton_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackCODWithCarton" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdatePackCODWithCarton_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackCODWithCartonResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdatePackCODWithCarton_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q136="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q136:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdatePackDeclaredWithCarton_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackDeclaredWithCarton" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdatePackDeclaredWithCarton_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackDeclaredWithCartonResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdatePackDeclaredWithCarton_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q137="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q137:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdatePackWeightWithCarton_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackWeightWithCarton" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdatePackWeightWithCarton_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackWeightWithCartonResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_UpdatePackWeightWithCarton_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q138="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q138:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateBinCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBinCode" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateBinCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBinCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateBinCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q139="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q139:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidatePackNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePackNum" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidatePackNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePackNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidatePackNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q140="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q140:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateCreditHold_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCreditHold" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateCreditHold_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCreditHoldResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateCreditHold_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q141="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q141:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateCreditHoldPO_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCreditHoldPO" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateCreditHoldPO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCreditHoldPOResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateCreditHoldPO_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q142="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q142:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateCreditHoldSSC_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCreditHoldSSC" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateCreditHoldSSC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCreditHoldSSCResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateCreditHoldSSC_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q143="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q143:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateKitPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateKitPart" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateKitPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateKitPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateKitPart_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q144="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q144:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateLocationIDNumbers_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateLocationIDNumbers" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateLocationIDNumbers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateLocationIDNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateLocationIDNumbers_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q145="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q145:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateSN_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSN" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateSN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSNResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q146="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q146:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_VoidLegalNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:VoidLegalNumber" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_VoidLegalNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VoidLegalNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_VoidLegalNumber_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q147="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q147:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetAvailTranDocTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailTranDocTypes" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetAvailTranDocTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailTranDocTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetAvailTranDocTypes_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q148="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q148:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetCodeDescList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeDescList" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetCodeDescList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeDescListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_GetCodeDescList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q149="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q149:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_NegativeInventoryTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTest" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_NegativeInventoryTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q150="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q150:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckPCBinOutLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPCBinOutLocation" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckPCBinOutLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPCBinOutLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustShipSvcContract_CheckPCBinOutLocation_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q151="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q151:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="CustShipSvcContract">
+    <wsdl:operation name="CheckPackageCodeAllocNegQty">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckPackageCodeAllocNegQty" message="tns:CustShipSvcContract_CheckPackageCodeAllocNegQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckPackageCodeAllocNegQtyResponse" message="tns:CustShipSvcContract_CheckPackageCodeAllocNegQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckPackageCodeAllocNegQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckPackageCodeAllocNegQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPkgCodeQtyList">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPkgCodeQtyList" message="tns:CustShipSvcContract_GetPkgCodeQtyList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPkgCodeQtyListResponse" message="tns:CustShipSvcContract_GetPkgCodeQtyList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPkgCodeQtyListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetPkgCodeQtyList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDigitalSignature">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GenerateDigitalSignature" message="tns:CustShipSvcContract_GenerateDigitalSignature_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GenerateDigitalSignatureResponse" message="tns:CustShipSvcContract_GenerateDigitalSignature_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GenerateDigitalSignatureEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GenerateDigitalSignature_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePCIDPackVerify">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangePCIDPackVerify" message="tns:CustShipSvcContract_ChangePCIDPackVerify_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangePCIDPackVerifyResponse" message="tns:CustShipSvcContract_ChangePCIDPackVerify_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangePCIDPackVerifyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangePCIDPackVerify_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PackVerifyCalcPackPCIDCount">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PackVerifyCalcPackPCIDCount" message="tns:CustShipSvcContract_PackVerifyCalcPackPCIDCount_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PackVerifyCalcPackPCIDCountResponse" message="tns:CustShipSvcContract_PackVerifyCalcPackPCIDCount_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PackVerifyCalcPackPCIDCountEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_PackVerifyCalcPackPCIDCount_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PackVerifyPerformPackVerification">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PackVerifyPerformPackVerification" message="tns:CustShipSvcContract_PackVerifyPerformPackVerification_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PackVerifyPerformPackVerificationResponse" message="tns:CustShipSvcContract_PackVerifyPerformPackVerification_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PackVerifyPerformPackVerificationEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_PackVerifyPerformPackVerification_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewShipHead">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipHead" message="tns:CustShipSvcContract_GetNewShipHead_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipHeadResponse" message="tns:CustShipSvcContract_GetNewShipHead_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipHeadEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewShipHead_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewShipHeadAttch">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipHeadAttch" message="tns:CustShipSvcContract_GetNewShipHeadAttch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipHeadAttchResponse" message="tns:CustShipSvcContract_GetNewShipHeadAttch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipHeadAttchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewShipHeadAttch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewCartonTrkDtl">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewCartonTrkDtl" message="tns:CustShipSvcContract_GetNewCartonTrkDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewCartonTrkDtlResponse" message="tns:CustShipSvcContract_GetNewCartonTrkDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewCartonTrkDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewCartonTrkDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewShipDtl">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipDtl" message="tns:CustShipSvcContract_GetNewShipDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipDtlResponse" message="tns:CustShipSvcContract_GetNewShipDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewShipDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewShipDtlAttch">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipDtlAttch" message="tns:CustShipSvcContract_GetNewShipDtlAttch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipDtlAttchResponse" message="tns:CustShipSvcContract_GetNewShipDtlAttch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipDtlAttchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewShipDtlAttch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewShipCOO">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipCOO" message="tns:CustShipSvcContract_GetNewShipCOO_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipCOOResponse" message="tns:CustShipSvcContract_GetNewShipCOO_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipCOOEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewShipCOO_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewShipDtlTax">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipDtlTax" message="tns:CustShipSvcContract_GetNewShipDtlTax_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipDtlTaxResponse" message="tns:CustShipSvcContract_GetNewShipDtlTax_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipDtlTaxEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewShipDtlTax_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewShipMisc">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipMisc" message="tns:CustShipSvcContract_GetNewShipMisc_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipMiscResponse" message="tns:CustShipSvcContract_GetNewShipMisc_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipMiscEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewShipMisc_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewShipUPS">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipUPS" message="tns:CustShipSvcContract_GetNewShipUPS_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipUPSResponse" message="tns:CustShipSvcContract_GetNewShipUPS_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewShipUPSEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewShipUPS_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByID">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeleteByID" message="tns:CustShipSvcContract_DeleteByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeleteByIDResponse" message="tns:CustShipSvcContract_DeleteByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeleteByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetByID" message="tns:CustShipSvcContract_GetByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetByIDResponse" message="tns:CustShipSvcContract_GetByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetList" message="tns:CustShipSvcContract_GetList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetListResponse" message="tns:CustShipSvcContract_GetList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRows">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetRows" message="tns:CustShipSvcContract_GetRows_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetRowsResponse" message="tns:CustShipSvcContract_GetRows_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetRowsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowID">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetBySysRowID" message="tns:CustShipSvcContract_GetBySysRowID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetBySysRowIDResponse" message="tns:CustShipSvcContract_GetBySysRowID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetBySysRowIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowIDs">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetBySysRowIDs" message="tns:CustShipSvcContract_GetBySysRowIDs_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetBySysRowIDsResponse" message="tns:CustShipSvcContract_GetBySysRowIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetBySysRowIDsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/Update" message="tns:CustShipSvcContract_Update_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateResponse" message="tns:CustShipSvcContract_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_Update_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExt">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateExt" message="tns:CustShipSvcContract_UpdateExt_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateExtResponse" message="tns:CustShipSvcContract_UpdateExt_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateExtEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpireDate">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ExpireDate" message="tns:CustShipSvcContract_ExpireDate_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ExpireDateResponse" message="tns:CustShipSvcContract_ExpireDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ExpireDateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ExpireDate_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomerCartons">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CreateCustomerCartons" message="tns:CustShipSvcContract_CreateCustomerCartons_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CreateCustomerCartonsResponse" message="tns:CustShipSvcContract_CreateCustomerCartons_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CreateCustomerCartonsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CreateCustomerCartons_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AllowUndoExternalDN">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/AllowUndoExternalDN" message="tns:CustShipSvcContract_AllowUndoExternalDN_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/AllowUndoExternalDNResponse" message="tns:CustShipSvcContract_AllowUndoExternalDN_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/AllowUndoExternalDNEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_AllowUndoExternalDN_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AskForShipToChange">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/AskForShipToChange" message="tns:CustShipSvcContract_AskForShipToChange_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/AskForShipToChangeResponse" message="tns:CustShipSvcContract_AskForShipToChange_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/AskForShipToChangeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_AskForShipToChange_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignLegalNumber">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/AssignLegalNumber" message="tns:CustShipSvcContract_AssignLegalNumber_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/AssignLegalNumberResponse" message="tns:CustShipSvcContract_AssignLegalNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/AssignLegalNumberEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_AssignLegalNumber_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageControlPackVoid">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackageControlPackVoid" message="tns:CustShipSvcContract_GetPackageControlPackVoid_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackageControlPackVoidResponse" message="tns:CustShipSvcContract_GetPackageControlPackVoid_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackageControlPackVoidEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetPackageControlPackVoid_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VoidPackSlip">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/VoidPackSlip" message="tns:CustShipSvcContract_VoidPackSlip_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/VoidPackSlipResponse" message="tns:CustShipSvcContract_VoidPackSlip_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/VoidPackSlipEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_VoidPackSlip_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuildCompSerMatch">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildCompSerMatch" message="tns:CustShipSvcContract_BuildCompSerMatch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildCompSerMatchResponse" message="tns:CustShipSvcContract_BuildCompSerMatch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildCompSerMatchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_BuildCompSerMatch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuildSerialMatchingParams">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildSerialMatchingParams" message="tns:CustShipSvcContract_BuildSerialMatchingParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildSerialMatchingParamsResponse" message="tns:CustShipSvcContract_BuildSerialMatchingParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildSerialMatchingParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_BuildSerialMatchingParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuildShipToCustomerList">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildShipToCustomerList" message="tns:CustShipSvcContract_BuildShipToCustomerList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildShipToCustomerListResponse" message="tns:CustShipSvcContract_BuildShipToCustomerList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildShipToCustomerListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_BuildShipToCustomerList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuildShipToList">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildShipToList" message="tns:CustShipSvcContract_BuildShipToList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildShipToListResponse" message="tns:CustShipSvcContract_BuildShipToList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/BuildShipToListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_BuildShipToList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateWeight">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CalculateWeight" message="tns:CustShipSvcContract_CalculateWeight_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CalculateWeightResponse" message="tns:CustShipSvcContract_CalculateWeight_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CalculateWeightEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CalculateWeight_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelVoid">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CancelVoid" message="tns:CustShipSvcContract_CancelVoid_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CancelVoidResponse" message="tns:CustShipSvcContract_CancelVoid_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CancelVoidEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CancelVoid_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanStage">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CanStage" message="tns:CustShipSvcContract_CanStage_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CanStageResponse" message="tns:CustShipSvcContract_CanStage_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CanStageEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CanStage_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CartonValidateWeight">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CartonValidateWeight" message="tns:CustShipSvcContract_CartonValidateWeight_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CartonValidateWeightResponse" message="tns:CustShipSvcContract_CartonValidateWeight_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CartonValidateWeightEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CartonValidateWeight_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeShipCmpl">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipCmpl" message="tns:CustShipSvcContract_ChangeShipCmpl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipCmplResponse" message="tns:CustShipSvcContract_ChangeShipCmpl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipCmplEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangeShipCmpl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeShipDtlMFCustID">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipDtlMFCustID" message="tns:CustShipSvcContract_ChangeShipDtlMFCustID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipDtlMFCustIDResponse" message="tns:CustShipSvcContract_ChangeShipDtlMFCustID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipDtlMFCustIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangeShipDtlMFCustID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeShipDtlMFShipToNum">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipDtlMFShipToNum" message="tns:CustShipSvcContract_ChangeShipDtlMFShipToNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipDtlMFShipToNumResponse" message="tns:CustShipSvcContract_ChangeShipDtlMFShipToNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipDtlMFShipToNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangeShipDtlMFShipToNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeShipDtlUseOTMF">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipDtlUseOTMF" message="tns:CustShipSvcContract_ChangeShipDtlUseOTMF_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipDtlUseOTMFResponse" message="tns:CustShipSvcContract_ChangeShipDtlUseOTMF_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipDtlUseOTMFEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangeShipDtlUseOTMF_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeShipHeadShipToCustID">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipHeadShipToCustID" message="tns:CustShipSvcContract_ChangeShipHeadShipToCustID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipHeadShipToCustIDResponse" message="tns:CustShipSvcContract_ChangeShipHeadShipToCustID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipHeadShipToCustIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangeShipHeadShipToCustID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeShipMiscPrcnt">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipMiscPrcnt" message="tns:CustShipSvcContract_ChangeShipMiscPrcnt_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipMiscPrcntResponse" message="tns:CustShipSvcContract_ChangeShipMiscPrcnt_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeShipMiscPrcntEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangeShipMiscPrcnt_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeStatus">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeStatus" message="tns:CustShipSvcContract_ChangeStatus_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeStatusResponse" message="tns:CustShipSvcContract_ChangeStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeStatusEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangeStatus_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePCID">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangePCID" message="tns:CustShipSvcContract_ChangePCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangePCIDResponse" message="tns:CustShipSvcContract_ChangePCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangePCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangePCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeWarrantyToFSA">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeWarrantyToFSA" message="tns:CustShipSvcContract_ChangeWarrantyToFSA_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeWarrantyToFSAResponse" message="tns:CustShipSvcContract_ChangeWarrantyToFSA_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ChangeWarrantyToFSAEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ChangeWarrantyToFSA_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePCID">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/RemovePCID" message="tns:CustShipSvcContract_RemovePCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/RemovePCIDResponse" message="tns:CustShipSvcContract_RemovePCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/RemovePCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_RemovePCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCompliance">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckCompliance" message="tns:CustShipSvcContract_CheckCompliance_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckComplianceResponse" message="tns:CustShipSvcContract_CheckCompliance_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckComplianceEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckCompliance_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCOOPercents">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckCOOPercents" message="tns:CustShipSvcContract_CheckCOOPercents_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckCOOPercentsResponse" message="tns:CustShipSvcContract_CheckCOOPercents_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckCOOPercentsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckCOOPercents_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOrder">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckOrder" message="tns:CustShipSvcContract_CheckOrder_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckOrderResponse" message="tns:CustShipSvcContract_CheckOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckOrderEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckOrder_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOrderComplete">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckOrderComplete" message="tns:CustShipSvcContract_CheckOrderComplete_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckOrderCompleteResponse" message="tns:CustShipSvcContract_CheckOrderComplete_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckOrderCompleteEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckOrderComplete_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPrePartInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckPrePartInfo" message="tns:CustShipSvcContract_CheckPrePartInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckPrePartInfoResponse" message="tns:CustShipSvcContract_CheckPrePartInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckPrePartInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckPrePartInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckReadyToInvoice">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckReadyToInvoice" message="tns:CustShipSvcContract_CheckReadyToInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckReadyToInvoiceResponse" message="tns:CustShipSvcContract_CheckReadyToInvoice_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckReadyToInvoiceEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckReadyToInvoice_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckShipDtl">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckShipDtl" message="tns:CustShipSvcContract_CheckShipDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckShipDtlResponse" message="tns:CustShipSvcContract_CheckShipDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckShipDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckShipDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckValidCartonWeight">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckValidCartonWeight" message="tns:CustShipSvcContract_CheckValidCartonWeight_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckValidCartonWeightResponse" message="tns:CustShipSvcContract_CheckValidCartonWeight_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckValidCartonWeightEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckValidCartonWeight_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearConvertedManifestUOMFields">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ClearConvertedManifestUOMFields" message="tns:CustShipSvcContract_ClearConvertedManifestUOMFields_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ClearConvertedManifestUOMFieldsResponse" message="tns:CustShipSvcContract_ClearConvertedManifestUOMFields_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ClearConvertedManifestUOMFieldsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ClearConvertedManifestUOMFields_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertToManifestUOM">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ConvertToManifestUOM" message="tns:CustShipSvcContract_ConvertToManifestUOM_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ConvertToManifestUOMResponse" message="tns:CustShipSvcContract_ConvertToManifestUOM_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ConvertToManifestUOMEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ConvertToManifestUOM_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertUOM">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ConvertUOM" message="tns:CustShipSvcContract_ConvertUOM_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ConvertUOMResponse" message="tns:CustShipSvcContract_ConvertUOM_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ConvertUOMEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ConvertUOM_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMassShipDtl">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CreateMassShipDtl" message="tns:CustShipSvcContract_CreateMassShipDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CreateMassShipDtlResponse" message="tns:CustShipSvcContract_CreateMassShipDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CreateMassShipDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CreateMassShipDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhantomPacks">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeletePhantomPacks" message="tns:CustShipSvcContract_DeletePhantomPacks_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeletePhantomPacksResponse" message="tns:CustShipSvcContract_DeletePhantomPacks_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeletePhantomPacksEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_DeletePhantomPacks_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRangePhantomPacks">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeleteRangePhantomPacks" message="tns:CustShipSvcContract_DeleteRangePhantomPacks_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeleteRangePhantomPacksResponse" message="tns:CustShipSvcContract_DeleteRangePhantomPacks_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeleteRangePhantomPacksEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_DeleteRangePhantomPacks_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpressShip">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ExpressShip" message="tns:CustShipSvcContract_ExpressShip_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ExpressShipResponse" message="tns:CustShipSvcContract_ExpressShip_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ExpressShipEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ExpressShip_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonPackaging">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetCartonPackaging" message="tns:CustShipSvcContract_GetCartonPackaging_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetCartonPackagingResponse" message="tns:CustShipSvcContract_GetCartonPackaging_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetCartonPackagingEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetCartonPackaging_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustShipOrdTrk">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetCustShipOrdTrk" message="tns:CustShipSvcContract_GetCustShipOrdTrk_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetCustShipOrdTrkResponse" message="tns:CustShipSvcContract_GetCustShipOrdTrk_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetCustShipOrdTrkEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetCustShipOrdTrk_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHeadOrderInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetHeadOrderInfo" message="tns:CustShipSvcContract_GetHeadOrderInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetHeadOrderInfoResponse" message="tns:CustShipSvcContract_GetHeadOrderInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetHeadOrderInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetHeadOrderInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnablePackageControl">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetEnablePackageControl" message="tns:CustShipSvcContract_GetEnablePackageControl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetEnablePackageControlResponse" message="tns:CustShipSvcContract_GetEnablePackageControl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetEnablePackageControlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetEnablePackageControl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDtlInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetJobDtlInfo" message="tns:CustShipSvcContract_GetJobDtlInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetJobDtlInfoResponse" message="tns:CustShipSvcContract_GetJobDtlInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetJobDtlInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetJobDtlInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetJobInfo" message="tns:CustShipSvcContract_GetJobInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetJobInfoResponse" message="tns:CustShipSvcContract_GetJobInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetJobInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetJobInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobSupOpSeq">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetJobSupOpSeq" message="tns:CustShipSvcContract_GetJobSupOpSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetJobSupOpSeqResponse" message="tns:CustShipSvcContract_GetJobSupOpSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetJobSupOpSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetJobSupOpSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLegalNumGenOpts">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetLegalNumGenOpts" message="tns:CustShipSvcContract_GetLegalNumGenOpts_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetLegalNumGenOptsResponse" message="tns:CustShipSvcContract_GetLegalNumGenOpts_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetLegalNumGenOptsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetLegalNumGenOpts_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POGetLegalNumGenOpts">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetLegalNumGenOpts" message="tns:CustShipSvcContract_POGetLegalNumGenOpts_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetLegalNumGenOptsResponse" message="tns:CustShipSvcContract_POGetLegalNumGenOpts_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetLegalNumGenOptsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POGetLegalNumGenOpts_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManifestInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetManifestInfo" message="tns:CustShipSvcContract_GetManifestInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetManifestInfoResponse" message="tns:CustShipSvcContract_GetManifestInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetManifestInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetManifestInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewOrdrShipDtl">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewOrdrShipDtl" message="tns:CustShipSvcContract_GetNewOrdrShipDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewOrdrShipDtlResponse" message="tns:CustShipSvcContract_GetNewOrdrShipDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewOrdrShipDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewOrdrShipDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewOrdrShipUPS">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewOrdrShipUPS" message="tns:CustShipSvcContract_GetNewOrdrShipUPS_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewOrdrShipUPSResponse" message="tns:CustShipSvcContract_GetNewOrdrShipUPS_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetNewOrdrShipUPSEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetNewOrdrShipUPS_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetOrderInfo" message="tns:CustShipSvcContract_GetOrderInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetOrderInfoResponse" message="tns:CustShipSvcContract_GetOrderInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetOrderInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetOrderInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderLineInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetOrderLineInfo" message="tns:CustShipSvcContract_GetOrderLineInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetOrderLineInfoResponse" message="tns:CustShipSvcContract_GetOrderLineInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetOrderLineInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetOrderLineInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderRelInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetOrderRelInfo" message="tns:CustShipSvcContract_GetOrderRelInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetOrderRelInfoResponse" message="tns:CustShipSvcContract_GetOrderRelInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetOrderRelInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetOrderRelInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackaging">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackaging" message="tns:CustShipSvcContract_GetPackaging_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackagingResponse" message="tns:CustShipSvcContract_GetPackaging_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackagingEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetPackaging_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackClass">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackClass" message="tns:CustShipSvcContract_GetPackClass_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackClassResponse" message="tns:CustShipSvcContract_GetPackClass_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackClassEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetPackClass_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackOutPartXRef">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackOutPartXRef" message="tns:CustShipSvcContract_GetPackOutPartXRef_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackOutPartXRefResponse" message="tns:CustShipSvcContract_GetPackOutPartXRef_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPackOutPartXRefEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetPackOutPartXRef_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPartInfo" message="tns:CustShipSvcContract_GetPartInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPartInfoResponse" message="tns:CustShipSvcContract_GetPartInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPartInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetPartInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayBTFlagDefaults">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPayBTFlagDefaults" message="tns:CustShipSvcContract_GetPayBTFlagDefaults_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPayBTFlagDefaultsResponse" message="tns:CustShipSvcContract_GetPayBTFlagDefaults_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPayBTFlagDefaultsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetPayBTFlagDefaults_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPOPackaging">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPOPackaging" message="tns:CustShipSvcContract_GetPOPackaging_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPOPackagingResponse" message="tns:CustShipSvcContract_GetPOPackaging_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPOPackagingEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetPOPackaging_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPOPackClass">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPOPackClass" message="tns:CustShipSvcContract_GetPOPackClass_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPOPackClassResponse" message="tns:CustShipSvcContract_GetPOPackClass_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetPOPackClassEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetPOPackClass_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQtyInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetQtyInfo" message="tns:CustShipSvcContract_GetQtyInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetQtyInfoResponse" message="tns:CustShipSvcContract_GetQtyInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetQtyInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetQtyInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRowsContactTracker">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetRowsContactTracker" message="tns:CustShipSvcContract_GetRowsContactTracker_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetRowsContactTrackerResponse" message="tns:CustShipSvcContract_GetRowsContactTracker_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetRowsContactTrackerEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetRowsContactTracker_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRowsCustomerTracker">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetRowsCustomerTracker" message="tns:CustShipSvcContract_GetRowsCustomerTracker_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetRowsCustomerTrackerResponse" message="tns:CustShipSvcContract_GetRowsCustomerTracker_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetRowsCustomerTrackerEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetRowsCustomerTracker_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScale">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetScale" message="tns:CustShipSvcContract_GetScale_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetScaleResponse" message="tns:CustShipSvcContract_GetScale_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetScaleEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetScale_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectIDNumbersParams">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetSelectIDNumbersParams" message="tns:CustShipSvcContract_GetSelectIDNumbersParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetSelectIDNumbersParamsResponse" message="tns:CustShipSvcContract_GetSelectIDNumbersParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetSelectIDNumbersParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetSelectIDNumbersParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectSerialNumbersParams">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetSelectSerialNumbersParams" message="tns:CustShipSvcContract_GetSelectSerialNumbersParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetSelectSerialNumbersParamsResponse" message="tns:CustShipSvcContract_GetSelectSerialNumbersParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetSelectSerialNumbersParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateSelectIDNumParams">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GenerateSelectIDNumParams" message="tns:CustShipSvcContract_GenerateSelectIDNumParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GenerateSelectIDNumParamsResponse" message="tns:CustShipSvcContract_GenerateSelectIDNumParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GenerateSelectIDNumParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GenerateSelectIDNumParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateLocationIDNum">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GenerateLocationIDNum" message="tns:CustShipSvcContract_GenerateLocationIDNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GenerateLocationIDNumResponse" message="tns:CustShipSvcContract_GenerateLocationIDNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GenerateLocationIDNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GenerateLocationIDNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipMiscDefaults">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetShipMiscDefaults" message="tns:CustShipSvcContract_GetShipMiscDefaults_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetShipMiscDefaultsResponse" message="tns:CustShipSvcContract_GetShipMiscDefaults_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetShipMiscDefaultsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetShipMiscDefaults_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipToAddr">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetShipToAddr" message="tns:CustShipSvcContract_GetShipToAddr_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetShipToAddrResponse" message="tns:CustShipSvcContract_GetShipToAddr_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetShipToAddrEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetShipToAddr_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTranDocTypeID">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetTranDocTypeID" message="tns:CustShipSvcContract_GetTranDocTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetTranDocTypeIDResponse" message="tns:CustShipSvcContract_GetTranDocTypeID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetTranDocTypeIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetTranDocTypeID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateWarrantyExpiration">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CalculateWarrantyExpiration" message="tns:CustShipSvcContract_CalculateWarrantyExpiration_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CalculateWarrantyExpirationResponse" message="tns:CustShipSvcContract_CalculateWarrantyExpiration_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CalculateWarrantyExpirationEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CalculateWarrantyExpiration_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetWarrantyInfo" message="tns:CustShipSvcContract_GetWarrantyInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetWarrantyInfoResponse" message="tns:CustShipSvcContract_GetWarrantyInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetWarrantyInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetWarrantyInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearWarrantyInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ClearWarrantyInfo" message="tns:CustShipSvcContract_ClearWarrantyInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ClearWarrantyInfoResponse" message="tns:CustShipSvcContract_ClearWarrantyInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ClearWarrantyInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ClearWarrantyInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWhseInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetWhseInfo" message="tns:CustShipSvcContract_GetWhseInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetWhseInfoResponse" message="tns:CustShipSvcContract_GetWhseInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetWhseInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetWhseInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HHCreateMassShipDtl">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/HHCreateMassShipDtl" message="tns:CustShipSvcContract_HHCreateMassShipDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/HHCreateMassShipDtlResponse" message="tns:CustShipSvcContract_HHCreateMassShipDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/HHCreateMassShipDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_HHCreateMassShipDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HHGetOrderInfo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/HHGetOrderInfo" message="tns:CustShipSvcContract_HHGetOrderInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/HHGetOrderInfoResponse" message="tns:CustShipSvcContract_HHGetOrderInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/HHGetOrderInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_HHGetOrderInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HHSetDtlDefaultValues">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/HHSetDtlDefaultValues" message="tns:CustShipSvcContract_HHSetDtlDefaultValues_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/HHSetDtlDefaultValuesResponse" message="tns:CustShipSvcContract_HHSetDtlDefaultValues_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/HHSetDtlDefaultValuesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_HHSetDtlDefaultValues_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkShipmentLines">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/MarkShipmentLines" message="tns:CustShipSvcContract_MarkShipmentLines_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/MarkShipmentLinesResponse" message="tns:CustShipSvcContract_MarkShipmentLines_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/MarkShipmentLinesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_MarkShipmentLines_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PhantomStatusCheck">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PhantomStatusCheck" message="tns:CustShipSvcContract_PhantomStatusCheck_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PhantomStatusCheckResponse" message="tns:CustShipSvcContract_PhantomStatusCheck_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PhantomStatusCheckEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_PhantomStatusCheck_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POChangeStage">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POChangeStage" message="tns:CustShipSvcContract_POChangeStage_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POChangeStageResponse" message="tns:CustShipSvcContract_POChangeStage_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POChangeStageEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POChangeStage_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POChangeStatus">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POChangeStatus" message="tns:CustShipSvcContract_POChangeStatus_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POChangeStatusResponse" message="tns:CustShipSvcContract_POChangeStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POChangeStatusEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POChangeStatus_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POFindBuffer">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POFindBuffer" message="tns:CustShipSvcContract_POFindBuffer_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POFindBufferResponse" message="tns:CustShipSvcContract_POFindBuffer_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POFindBufferEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POFindBuffer_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POFindBufWhseBinLot">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POFindBufWhseBinLot" message="tns:CustShipSvcContract_POFindBufWhseBinLot_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POFindBufWhseBinLotResponse" message="tns:CustShipSvcContract_POFindBufWhseBinLot_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POFindBufWhseBinLotEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POFindBufWhseBinLot_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POGetDtlList">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetDtlList" message="tns:CustShipSvcContract_POGetDtlList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetDtlListResponse" message="tns:CustShipSvcContract_POGetDtlList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetDtlListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POGetDtlList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POPCIDGetDtlList">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POPCIDGetDtlList" message="tns:CustShipSvcContract_POPCIDGetDtlList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POPCIDGetDtlListResponse" message="tns:CustShipSvcContract_POPCIDGetDtlList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POPCIDGetDtlListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POPCIDGetDtlList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POGetNew">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetNew" message="tns:CustShipSvcContract_POGetNew_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetNewResponse" message="tns:CustShipSvcContract_POGetNew_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetNewEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POGetNew_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKitComponents">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeleteKitComponents" message="tns:CustShipSvcContract_DeleteKitComponents_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeleteKitComponentsResponse" message="tns:CustShipSvcContract_DeleteKitComponents_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/DeleteKitComponentsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_DeleteKitComponents_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderRelOnKitChildren">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateOrderRelOnKitChildren" message="tns:CustShipSvcContract_UpdateOrderRelOnKitChildren_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateOrderRelOnKitChildrenResponse" message="tns:CustShipSvcContract_UpdateOrderRelOnKitChildren_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateOrderRelOnKitChildrenEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_UpdateOrderRelOnKitChildren_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POGetShipTo">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetShipTo" message="tns:CustShipSvcContract_POGetShipTo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetShipToResponse" message="tns:CustShipSvcContract_POGetShipTo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POGetShipToEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POGetShipTo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostUpdate">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PostUpdate" message="tns:CustShipSvcContract_PostUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PostUpdateResponse" message="tns:CustShipSvcContract_PostUpdate_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PostUpdateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_PostUpdate_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POUpdate">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POUpdate" message="tns:CustShipSvcContract_POUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POUpdateResponse" message="tns:CustShipSvcContract_POUpdate_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POUpdateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POUpdate_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POUpdateAndDisplay">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POUpdateAndDisplay" message="tns:CustShipSvcContract_POUpdateAndDisplay_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POUpdateAndDisplayResponse" message="tns:CustShipSvcContract_POUpdateAndDisplay_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POUpdateAndDisplayEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POUpdateAndDisplay_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POValidateOrder">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POValidateOrder" message="tns:CustShipSvcContract_POValidateOrder_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POValidateOrderResponse" message="tns:CustShipSvcContract_POValidateOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POValidateOrderEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POValidateOrder_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POValidateOrderRel">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POValidateOrderRel" message="tns:CustShipSvcContract_POValidateOrderRel_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POValidateOrderRelResponse" message="tns:CustShipSvcContract_POValidateOrderRel_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POValidateOrderRelEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POValidateOrderRel_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POValidatePart">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POValidatePart" message="tns:CustShipSvcContract_POValidatePart_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POValidatePartResponse" message="tns:CustShipSvcContract_POValidatePart_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/POValidatePartEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_POValidatePart_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreCreateMassShipDtl">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PreCreateMassShipDtl" message="tns:CustShipSvcContract_PreCreateMassShipDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PreCreateMassShipDtlResponse" message="tns:CustShipSvcContract_PreCreateMassShipDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PreCreateMassShipDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_PreCreateMassShipDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessKitChildern">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessKitChildern" message="tns:CustShipSvcContract_ProcessKitChildern_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessKitChildernResponse" message="tns:CustShipSvcContract_ProcessKitChildern_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessKitChildernEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ProcessKitChildern_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrePickedOrders">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PrePickedOrders" message="tns:CustShipSvcContract_PrePickedOrders_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PrePickedOrdersResponse" message="tns:CustShipSvcContract_PrePickedOrders_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PrePickedOrdersEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_PrePickedOrders_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintSlip">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PrintSlip" message="tns:CustShipSvcContract_PrintSlip_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PrintSlipResponse" message="tns:CustShipSvcContract_PrintSlip_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/PrintSlipEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_PrintSlip_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMassShipKit">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessMassShipKit" message="tns:CustShipSvcContract_ProcessMassShipKit_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessMassShipKitResponse" message="tns:CustShipSvcContract_ProcessMassShipKit_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessMassShipKitEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ProcessMassShipKit_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPickedOrder">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessPickedOrder" message="tns:CustShipSvcContract_ProcessPickedOrder_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessPickedOrderResponse" message="tns:CustShipSvcContract_ProcessPickedOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessPickedOrderEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ProcessPickedOrder_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPickedOrderHH">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessPickedOrderHH" message="tns:CustShipSvcContract_ProcessPickedOrderHH_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessPickedOrderHHResponse" message="tns:CustShipSvcContract_ProcessPickedOrderHH_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ProcessPickedOrderHHEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ProcessPickedOrderHH_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RebuildShipUPS">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/RebuildShipUPS" message="tns:CustShipSvcContract_RebuildShipUPS_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/RebuildShipUPSResponse" message="tns:CustShipSvcContract_RebuildShipUPS_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/RebuildShipUPSEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_RebuildShipUPS_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUPSQVEnable">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/SetUPSQVEnable" message="tns:CustShipSvcContract_SetUPSQVEnable_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/SetUPSQVEnableResponse" message="tns:CustShipSvcContract_SetUPSQVEnable_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/SetUPSQVEnableEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_SetUPSQVEnable_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUPSQVShipStatus">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/SetUPSQVShipStatus" message="tns:CustShipSvcContract_SetUPSQVShipStatus_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/SetUPSQVShipStatusResponse" message="tns:CustShipSvcContract_SetUPSQVShipStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/SetUPSQVShipStatusEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_SetUPSQVShipStatus_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StageWarning">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/StageWarning" message="tns:CustShipSvcContract_StageWarning_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/StageWarningResponse" message="tns:CustShipSvcContract_StageWarning_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/StageWarningEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_StageWarning_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoShipAll">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UndoShipAll" message="tns:CustShipSvcContract_UndoShipAll_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UndoShipAllResponse" message="tns:CustShipSvcContract_UndoShipAll_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UndoShipAllEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_UndoShipAll_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManifestChargeAmts">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateManifestChargeAmts" message="tns:CustShipSvcContract_UpdateManifestChargeAmts_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateManifestChargeAmtsResponse" message="tns:CustShipSvcContract_UpdateManifestChargeAmts_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateManifestChargeAmtsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_UpdateManifestChargeAmts_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMaster">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateMaster" message="tns:CustShipSvcContract_UpdateMaster_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateMasterResponse" message="tns:CustShipSvcContract_UpdateMaster_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdateMasterEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_UpdateMaster_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePackCODWithCarton">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdatePackCODWithCarton" message="tns:CustShipSvcContract_UpdatePackCODWithCarton_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdatePackCODWithCartonResponse" message="tns:CustShipSvcContract_UpdatePackCODWithCarton_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdatePackCODWithCartonEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_UpdatePackCODWithCarton_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePackDeclaredWithCarton">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdatePackDeclaredWithCarton" message="tns:CustShipSvcContract_UpdatePackDeclaredWithCarton_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdatePackDeclaredWithCartonResponse" message="tns:CustShipSvcContract_UpdatePackDeclaredWithCarton_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdatePackDeclaredWithCartonEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_UpdatePackDeclaredWithCarton_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePackWeightWithCarton">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdatePackWeightWithCarton" message="tns:CustShipSvcContract_UpdatePackWeightWithCarton_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdatePackWeightWithCartonResponse" message="tns:CustShipSvcContract_UpdatePackWeightWithCarton_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/UpdatePackWeightWithCartonEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_UpdatePackWeightWithCarton_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateBinCode">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateBinCode" message="tns:CustShipSvcContract_ValidateBinCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateBinCodeResponse" message="tns:CustShipSvcContract_ValidateBinCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateBinCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ValidateBinCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePackNum">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidatePackNum" message="tns:CustShipSvcContract_ValidatePackNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidatePackNumResponse" message="tns:CustShipSvcContract_ValidatePackNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidatePackNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ValidatePackNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCreditHold">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateCreditHold" message="tns:CustShipSvcContract_ValidateCreditHold_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateCreditHoldResponse" message="tns:CustShipSvcContract_ValidateCreditHold_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateCreditHoldEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ValidateCreditHold_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCreditHoldPO">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateCreditHoldPO" message="tns:CustShipSvcContract_ValidateCreditHoldPO_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateCreditHoldPOResponse" message="tns:CustShipSvcContract_ValidateCreditHoldPO_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateCreditHoldPOEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ValidateCreditHoldPO_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCreditHoldSSC">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateCreditHoldSSC" message="tns:CustShipSvcContract_ValidateCreditHoldSSC_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateCreditHoldSSCResponse" message="tns:CustShipSvcContract_ValidateCreditHoldSSC_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateCreditHoldSSCEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ValidateCreditHoldSSC_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateKitPart">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateKitPart" message="tns:CustShipSvcContract_ValidateKitPart_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateKitPartResponse" message="tns:CustShipSvcContract_ValidateKitPart_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateKitPartEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ValidateKitPart_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLocationIDNumbers">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateLocationIDNumbers" message="tns:CustShipSvcContract_ValidateLocationIDNumbers_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateLocationIDNumbersResponse" message="tns:CustShipSvcContract_ValidateLocationIDNumbers_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateLocationIDNumbersEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ValidateLocationIDNumbers_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSN">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateSN" message="tns:CustShipSvcContract_ValidateSN_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateSNResponse" message="tns:CustShipSvcContract_ValidateSN_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/ValidateSNEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VoidLegalNumber">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/VoidLegalNumber" message="tns:CustShipSvcContract_VoidLegalNumber_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/VoidLegalNumberResponse" message="tns:CustShipSvcContract_VoidLegalNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/VoidLegalNumberEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_VoidLegalNumber_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailTranDocTypes">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetAvailTranDocTypes" message="tns:CustShipSvcContract_GetAvailTranDocTypes_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetAvailTranDocTypesResponse" message="tns:CustShipSvcContract_GetAvailTranDocTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetAvailTranDocTypesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetAvailTranDocTypes_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeDescList">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetCodeDescList" message="tns:CustShipSvcContract_GetCodeDescList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetCodeDescListResponse" message="tns:CustShipSvcContract_GetCodeDescList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/GetCodeDescListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_GetCodeDescList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NegativeInventoryTest">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/NegativeInventoryTest" message="tns:CustShipSvcContract_NegativeInventoryTest_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/NegativeInventoryTestResponse" message="tns:CustShipSvcContract_NegativeInventoryTest_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/NegativeInventoryTestEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPCBinOutLocation">
+      <wsdl:input wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckPCBinOutLocation" message="tns:CustShipSvcContract_CheckPCBinOutLocation_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckPCBinOutLocationResponse" message="tns:CustShipSvcContract_CheckPCBinOutLocation_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:CustShip/CustShipSvcContract/CheckPCBinOutLocationEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:CustShipSvcContract_CheckPCBinOutLocation_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

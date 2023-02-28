@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e144c82e-e09b-4b2f-800f-dd1b7b947082" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://erp10/epicor_demo/ERP/bo/CustShip.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CustShip9.xsd" MetadataType="Schema" ID="ced7953f-1854-4acb-92fd-029741ebd224" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?xsd=xsd3" />
+    <MetadataFile FileName="CustShip91.xsd" MetadataType="Schema" ID="c5950fe0-8fee-4091-97b2-d220ce31d652" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?xsd=xsd0" />
+    <MetadataFile FileName="CustShip92.xsd" MetadataType="Schema" ID="572eb74c-3be0-4c48-8042-8490d68882f9" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?xsd=xsd1" />
+    <MetadataFile FileName="CustShip93.xsd" MetadataType="Schema" ID="0676853b-71ba-400f-bb53-45e337825b36" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?xsd=xsd6" />
+    <MetadataFile FileName="CustShip94.xsd" MetadataType="Schema" ID="49325666-677b-4f04-80b8-a3bf59ffbeb1" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?xsd=xsd7" />
+    <MetadataFile FileName="CustShip95.xsd" MetadataType="Schema" ID="c03ee0d7-646b-4130-b0b5-ad623a8dd7c2" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?xsd=xsd4" />
+    <MetadataFile FileName="CustShip96.xsd" MetadataType="Schema" ID="c6db520c-bbb6-4f62-bdfc-69c8d481ed61" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?xsd=xsd5" />
+    <MetadataFile FileName="CustShip97.xsd" MetadataType="Schema" ID="7ce20b89-30c9-4bfc-8229-994da10a8de7" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?xsd=xsd8" />
+    <MetadataFile FileName="CustShip1.disco" MetadataType="Disco" ID="52a327c7-aee0-464f-8490-2a5b74a77f5f" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?disco" />
+    <MetadataFile FileName="CustShipSvcFacade1.wsdl" MetadataType="Wsdl" ID="3398d0a4-92ff-48f5-a291-fb92075892a6" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?wsdl" />
+    <MetadataFile FileName="CustShip1.wsdl" MetadataType="Wsdl" ID="8878de9c-5815-4a55-80e3-e336b4d66742" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="CustShip98.xsd" MetadataType="Schema" ID="29ea4731-51f1-4af6-ab6f-506bf3095554" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/CustShip.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

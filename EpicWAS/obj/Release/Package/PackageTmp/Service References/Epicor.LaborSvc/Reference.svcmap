@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ce0995c0-8479-413a-bd7d-1948f6717732" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://erp10/EPICOR_DEMO/Erp/BO/Labor.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Labor.xsd" MetadataType="Schema" ID="77d279cb-050f-4144-a2a6-8fea8bd1c11e" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd0" />
+    <MetadataFile FileName="Labor1.xsd" MetadataType="Schema" ID="80db0ac9-8dc5-4294-9808-00c82bb629ce" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd4" />
+    <MetadataFile FileName="Labor2.xsd" MetadataType="Schema" ID="da146b56-84e6-41bc-a207-cff813edb277" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd8" />
+    <MetadataFile FileName="Labor3.xsd" MetadataType="Schema" ID="6c97de31-9395-4f9e-85fd-7e61edffdaa8" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd1" />
+    <MetadataFile FileName="Labor4.xsd" MetadataType="Schema" ID="db88b187-8e61-4c98-a8a4-bed6389d2dfc" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd5" />
+    <MetadataFile FileName="Labor.disco" MetadataType="Disco" ID="1c279861-4e9e-41a5-bb57-bd2f0cdb19c5" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?disco" />
+    <MetadataFile FileName="LaborSvcFacade.wsdl" MetadataType="Wsdl" ID="4c22010b-7256-4a00-a85f-b242a3ccfe1e" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?wsdl" />
+    <MetadataFile FileName="Labor5.xsd" MetadataType="Schema" ID="4516c8a9-8901-41b8-9248-138da35a7f2f" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd2" />
+    <MetadataFile FileName="Labor6.xsd" MetadataType="Schema" ID="2c1edc1b-0bcb-4fe8-9d1b-9c2ca95591f6" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd6" />
+    <MetadataFile FileName="Labor.wsdl" MetadataType="Wsdl" ID="1c3bc33c-e71e-418e-b79e-c2f780dc5b09" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Labor7.xsd" MetadataType="Schema" ID="e70e26be-a859-4b3a-94e2-0c997405a76d" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd3" />
+    <MetadataFile FileName="Labor8.xsd" MetadataType="Schema" ID="cf122795-e231-4d19-a354-856f049bc9f0" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd7" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

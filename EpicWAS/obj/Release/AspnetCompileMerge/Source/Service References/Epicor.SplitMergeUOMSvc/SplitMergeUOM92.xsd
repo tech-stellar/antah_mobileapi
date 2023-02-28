@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Tablesets" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+  <xs:complexType name="SplitMergeUOMTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Ice" base="q1:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SMDtl" nillable="true" type="tns:SMDtlTable" />
+          <xs:element minOccurs="0" name="SMHdr" nillable="true" type="tns:SMHdrTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SplitMergeUOMTableset" nillable="true" type="tns:SplitMergeUOMTableset" />
+  <xs:complexType name="SMDtlTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SMDtlRow" nillable="true" type="tns:SMDtlRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SMDtlTable" nillable="true" type="tns:SMDtlTable" />
+  <xs:complexType name="SMDtlRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Ice" base="q2:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllocatedQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BinNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:SMDtlRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ConvFactor" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ConvFactorUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LotNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OnHandQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="UOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UOMDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WarehouseCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SMDtlRow" nillable="true" type="tns:SMDtlRow" />
+  <xs:simpleType name="SMDtlRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="WarehouseCode" />
+      <xs:enumeration value="BinNum" />
+      <xs:enumeration value="LotNum" />
+      <xs:enumeration value="OnHandQty" />
+      <xs:enumeration value="Quantity" />
+      <xs:enumeration value="UOM" />
+      <xs:enumeration value="UOMDescription" />
+      <xs:enumeration value="ConvFactor" />
+      <xs:enumeration value="ConvFactorUOM" />
+      <xs:enumeration value="AllocatedQty" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SMDtlRowColumnOrder" nillable="true" type="tns:SMDtlRowColumnOrder" />
+  <xs:complexType name="SMHdrTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SMHdrRow" nillable="true" type="tns:SMHdrRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SMHdrTable" nillable="true" type="tns:SMHdrTable" />
+  <xs:complexType name="SMHdrRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Ice" base="q3:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllocatedQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BinDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BinNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:SMHdrRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnableLot" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LotDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LotNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OnHandQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OnHandUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OnHandUOMDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProcessType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RemainQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RemainUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TransQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TransUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UOMDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WarehouseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WarehouseDesc" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SMHdrRow" nillable="true" type="tns:SMHdrRow" />
+  <xs:simpleType name="SMHdrRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="WarehouseCode" />
+      <xs:enumeration value="BinNum" />
+      <xs:enumeration value="LotNum" />
+      <xs:enumeration value="ProcessType" />
+      <xs:enumeration value="OnHandQty" />
+      <xs:enumeration value="Quantity" />
+      <xs:enumeration value="UOM" />
+      <xs:enumeration value="TransDate" />
+      <xs:enumeration value="BinDescription" />
+      <xs:enumeration value="LotDescription" />
+      <xs:enumeration value="PartDescription" />
+      <xs:enumeration value="UOMDescription" />
+      <xs:enumeration value="WarehouseDesc" />
+      <xs:enumeration value="EnableLot" />
+      <xs:enumeration value="OnHandUOM" />
+      <xs:enumeration value="OnHandUOMDesc" />
+      <xs:enumeration value="RemainQty" />
+      <xs:enumeration value="RemainUOM" />
+      <xs:enumeration value="TransQty" />
+      <xs:enumeration value="TransUOM" />
+      <xs:enumeration value="AllocatedQty" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SMHdrRowColumnOrder" nillable="true" type="tns:SMHdrRowColumnOrder" />
+</xs:schema>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a57570be-5a70-44e9-88b7-93ce0b20df66" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://ERP10/epicor_demo/ERP/bo/PartTran.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PartTran1.disco" MetadataType="Disco" ID="4d556a13-af9d-46c8-9905-f58181ff2df9" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?disco" />
+    <MetadataFile FileName="PartTran1.wsdl" MetadataType="Wsdl" ID="408ea22c-c53a-4b57-b74c-d8ada9b0976d" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="PartTranSvcFacade1.wsdl" MetadataType="Wsdl" ID="510fa58d-b15b-4cd3-b58f-1f02403e65bd" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?wsdl" />
+    <MetadataFile FileName="PartTran9.xsd" MetadataType="Schema" ID="3d4d1b23-f045-4d24-8b2f-d91f78a63101" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?xsd=xsd8" />
+    <MetadataFile FileName="PartTran91.xsd" MetadataType="Schema" ID="7ff61ff8-f184-425f-a127-9e57896d744f" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?xsd=xsd3" />
+    <MetadataFile FileName="PartTran92.xsd" MetadataType="Schema" ID="1d1f6b87-8368-4754-8e84-7a8d68a5b776" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?xsd=xsd2" />
+    <MetadataFile FileName="PartTran93.xsd" MetadataType="Schema" ID="b539d5c0-cf7b-461f-a9f2-d13918a3a855" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?xsd=xsd1" />
+    <MetadataFile FileName="PartTran94.xsd" MetadataType="Schema" ID="dd4d7413-239e-4ea6-98ab-57b85f49b06e" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?xsd=xsd0" />
+    <MetadataFile FileName="PartTran95.xsd" MetadataType="Schema" ID="c491c69c-24c3-42e3-9e97-ca5e32c93acc" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?xsd=xsd7" />
+    <MetadataFile FileName="PartTran96.xsd" MetadataType="Schema" ID="517b4dfa-70a5-45a8-a654-d74f26a4d881" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?xsd=xsd6" />
+    <MetadataFile FileName="PartTran97.xsd" MetadataType="Schema" ID="aed051aa-77d7-4935-807e-8d15f3969ba4" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?xsd=xsd5" />
+    <MetadataFile FileName="PartTran98.xsd" MetadataType="Schema" ID="56137853-d100-44a3-8dca-8c2cf25a96aa" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/PartTran.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

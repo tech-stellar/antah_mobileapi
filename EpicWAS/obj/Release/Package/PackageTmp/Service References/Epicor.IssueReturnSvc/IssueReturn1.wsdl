@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:IssueReturn" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:IssueReturn" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:IssueReturn/Imports">
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd0" namespace="Erp:BO:IssueReturn" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd8" namespace="http://epicor.com/UserDefinedColumns" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IssueReturnSvcContract__History07_08_InputMessage">
+    <wsdl:part name="parameters" element="tns:_History07_08" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract__History07_08_OutputMessage">
+    <wsdl:part name="parameters" element="tns:_History07_08Response" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract__History07_08_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetListJobs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListJobs" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetListJobs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetListJobs_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewIssueReturn_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssueReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewIssueReturn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssueReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewIssueReturn_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewIssueReturnFromJob_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssueReturnFromJob" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewIssueReturnFromJob_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssueReturnFromJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewIssueReturnFromJob_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewIssueReturnToJob_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssueReturnToJob" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewIssueReturnToJob_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssueReturnToJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewIssueReturnToJob_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewJobAsmblMultiple_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewJobAsmblMultiple" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewJobAsmblMultiple_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewJobAsmblMultipleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewJobAsmblMultiple_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewJobAsmblSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewJobAsmblSearch" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewJobAsmblSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewJobAsmblSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewJobAsmblSearch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewPartMultiple_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartMultiple" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewPartMultiple_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartMultipleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewPartMultiple_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewPartNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartNum" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewPartNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewPartNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewPartSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartSearch" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewPartSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetNewPartSearch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetRows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRows" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetRows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q12:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetSelectSerialNumbersParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParams" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetSelectSerialNumbersParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q13:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetUnissuedQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnissuedQty" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetUnissuedQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnissuedQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetUnissuedQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q14:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetUnpickSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnpickSettings" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetUnpickSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnpickSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetUnpickSettings_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q15:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_IsValidAssembly_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidAssembly" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_IsValidAssembly_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidAssemblyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_IsValidAssembly_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q16:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromPCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromPCID" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromPCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromPCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromPCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q17:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_JobExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:JobExists" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_JobExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JobExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_JobExists_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q18:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangePCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePCID" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangePCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangePCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q19:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromAssemblySeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromAssemblySeq" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromAssemblySeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromAssemblySeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromAssemblySeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q20:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromBinNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromBinNum" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromBinNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromBinNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromBinNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q21:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromJobNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromJobNum" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromJobNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromJobNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromJobNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q22:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromJobSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromJobSeq" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromJobSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromJobSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromJobSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q23:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeFromWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeFromWarehouse_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q24:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeLotNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeLotNum" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeLotNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeLotNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeLotNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q25:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangePartNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePartNum" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangePartNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePartNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangePartNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q26:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToAssemblySeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeToAssemblySeq" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToAssemblySeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeToAssemblySeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToAssemblySeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q27:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToJobNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeToJobNum" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToJobNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeToJobNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToJobNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q28:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToJobSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeToJobSeq" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToJobSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeToJobSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToJobSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q29:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeToWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeToWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeToWarehouse_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q30:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeTranQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeTranQty" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeTranQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeTranQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeTranQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q31:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeUM_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeUM" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeUM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeUMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeUM_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q32:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeASTUom_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeASTUom" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeASTUom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeASTUomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangeASTUom_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q33:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangingFromBinNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangingFromBinNum" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangingFromBinNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangingFromBinNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangingFromBinNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q34:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangingJobSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangingJobSeq" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangingJobSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangingJobSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangingJobSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q35:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangingToJobSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangingToJobSeq" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangingToJobSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangingToJobSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_OnChangingToJobSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q36:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PerformMaterialMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:PerformMaterialMovement" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PerformMaterialMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PerformMaterialMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PerformMaterialMovement_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q37:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PerformMaterialMovementWithLegalNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:PerformMaterialMovementWithLegalNum" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PerformMaterialMovementWithLegalNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PerformMaterialMovementWithLegalNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PerformMaterialMovementWithLegalNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q38:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_MassUnpickByPCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:MassUnpickByPCID" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_MassUnpickByPCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MassUnpickByPCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_MassUnpickByPCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q39:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GenerateDynamicPCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateDynamicPCID" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GenerateDynamicPCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateDynamicPCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GenerateDynamicPCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q40:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_SuppressPrintMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuppressPrintMessages" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_SuppressPrintMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuppressPrintMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_SuppressPrintMessages_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q41:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_IsAutoPrintSetup_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAutoPrintSetup" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_IsAutoPrintSetup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAutoPrintSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_IsAutoPrintSetup_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q42:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_ValidatePkgControlID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePkgControlID" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_ValidatePkgControlID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePkgControlIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_ValidatePkgControlID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q43:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PreGetNewIssueReturn_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreGetNewIssueReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PreGetNewIssueReturn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreGetNewIssueReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PreGetNewIssueReturn_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q44:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PrePerformMaterialMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrePerformMaterialMovement" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PrePerformMaterialMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrePerformMaterialMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_PrePerformMaterialMovement_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q45:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_SetQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_SetQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_SetQuantity_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q46:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_ValidateSN_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSN" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_ValidateSN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSNResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q47:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetInventoryQtyAdjBrw_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoryQtyAdjBrw" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetInventoryQtyAdjBrw_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoryQtyAdjBrwResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetInventoryQtyAdjBrw_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q48:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetPartXRefInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartXRefInfo" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetPartXRefInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartXRefInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetPartXRefInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q49:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_ValidUOM_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidUOM" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_ValidUOM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidUOMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_ValidUOM_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q50:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetAvailTranDocTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailTranDocTypes" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetAvailTranDocTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailTranDocTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_GetAvailTranDocTypes_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q51:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_NegativeInventoryTestTran_InputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTestTran" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_NegativeInventoryTestTran_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTestTranResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_NegativeInventoryTestTran_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q52:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_NegativeInventoryTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTest" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_NegativeInventoryTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q53:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_MasterInventoryBinTests_InputMessage">
+    <wsdl:part name="parameters" element="tns:MasterInventoryBinTests" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_MasterInventoryBinTests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MasterInventoryBinTestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_MasterInventoryBinTests_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q54="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q54:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_checkWhseBin_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkWhseBin" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_checkWhseBin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkWhseBinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_checkWhseBin_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q55="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q55:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_FillForeignFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:FillForeignFields" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_FillForeignFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FillForeignFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_FillForeignFields_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q56="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q56:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_CheckPackageCodeAllocNegQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPackageCodeAllocNegQty" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_CheckPackageCodeAllocNegQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPackageCodeAllocNegQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueReturnSvcContract_CheckPackageCodeAllocNegQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q57="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q57:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="IssueReturnSvcContract">
+    <wsdl:operation name="_History07_08">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/_History07_08" message="tns:IssueReturnSvcContract__History07_08_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/_History07_08Response" message="tns:IssueReturnSvcContract__History07_08_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/_History07_08EpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract__History07_08_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetList" message="tns:IssueReturnSvcContract_GetList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetListResponse" message="tns:IssueReturnSvcContract_GetList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListJobs">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetListJobs" message="tns:IssueReturnSvcContract_GetListJobs_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetListJobsResponse" message="tns:IssueReturnSvcContract_GetListJobs_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetListJobsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetListJobs_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewIssueReturn">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewIssueReturn" message="tns:IssueReturnSvcContract_GetNewIssueReturn_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewIssueReturnResponse" message="tns:IssueReturnSvcContract_GetNewIssueReturn_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewIssueReturnEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetNewIssueReturn_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewIssueReturnFromJob">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewIssueReturnFromJob" message="tns:IssueReturnSvcContract_GetNewIssueReturnFromJob_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewIssueReturnFromJobResponse" message="tns:IssueReturnSvcContract_GetNewIssueReturnFromJob_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewIssueReturnFromJobEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetNewIssueReturnFromJob_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewIssueReturnToJob">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewIssueReturnToJob" message="tns:IssueReturnSvcContract_GetNewIssueReturnToJob_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewIssueReturnToJobResponse" message="tns:IssueReturnSvcContract_GetNewIssueReturnToJob_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewIssueReturnToJobEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetNewIssueReturnToJob_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewJobAsmblMultiple">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewJobAsmblMultiple" message="tns:IssueReturnSvcContract_GetNewJobAsmblMultiple_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewJobAsmblMultipleResponse" message="tns:IssueReturnSvcContract_GetNewJobAsmblMultiple_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewJobAsmblMultipleEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetNewJobAsmblMultiple_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewJobAsmblSearch">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewJobAsmblSearch" message="tns:IssueReturnSvcContract_GetNewJobAsmblSearch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewJobAsmblSearchResponse" message="tns:IssueReturnSvcContract_GetNewJobAsmblSearch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewJobAsmblSearchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetNewJobAsmblSearch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPartMultiple">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewPartMultiple" message="tns:IssueReturnSvcContract_GetNewPartMultiple_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewPartMultipleResponse" message="tns:IssueReturnSvcContract_GetNewPartMultiple_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewPartMultipleEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetNewPartMultiple_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPartNum">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewPartNum" message="tns:IssueReturnSvcContract_GetNewPartNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewPartNumResponse" message="tns:IssueReturnSvcContract_GetNewPartNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewPartNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetNewPartNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPartSearch">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewPartSearch" message="tns:IssueReturnSvcContract_GetNewPartSearch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewPartSearchResponse" message="tns:IssueReturnSvcContract_GetNewPartSearch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetNewPartSearchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetNewPartSearch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRows">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetRows" message="tns:IssueReturnSvcContract_GetRows_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetRowsResponse" message="tns:IssueReturnSvcContract_GetRows_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetRowsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectSerialNumbersParams">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetSelectSerialNumbersParams" message="tns:IssueReturnSvcContract_GetSelectSerialNumbersParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetSelectSerialNumbersParamsResponse" message="tns:IssueReturnSvcContract_GetSelectSerialNumbersParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetSelectSerialNumbersParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnissuedQty">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetUnissuedQty" message="tns:IssueReturnSvcContract_GetUnissuedQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetUnissuedQtyResponse" message="tns:IssueReturnSvcContract_GetUnissuedQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetUnissuedQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetUnissuedQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnpickSettings">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetUnpickSettings" message="tns:IssueReturnSvcContract_GetUnpickSettings_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetUnpickSettingsResponse" message="tns:IssueReturnSvcContract_GetUnpickSettings_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetUnpickSettingsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetUnpickSettings_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidAssembly">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/IsValidAssembly" message="tns:IssueReturnSvcContract_IsValidAssembly_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/IsValidAssemblyResponse" message="tns:IssueReturnSvcContract_IsValidAssembly_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/IsValidAssemblyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_IsValidAssembly_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeFromPCID">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromPCID" message="tns:IssueReturnSvcContract_OnChangeFromPCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromPCIDResponse" message="tns:IssueReturnSvcContract_OnChangeFromPCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromPCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeFromPCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JobExists">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/JobExists" message="tns:IssueReturnSvcContract_JobExists_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/JobExistsResponse" message="tns:IssueReturnSvcContract_JobExists_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/JobExistsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_JobExists_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangePCID">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangePCID" message="tns:IssueReturnSvcContract_OnChangePCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangePCIDResponse" message="tns:IssueReturnSvcContract_OnChangePCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangePCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangePCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeFromAssemblySeq">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromAssemblySeq" message="tns:IssueReturnSvcContract_OnChangeFromAssemblySeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromAssemblySeqResponse" message="tns:IssueReturnSvcContract_OnChangeFromAssemblySeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromAssemblySeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeFromAssemblySeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeFromBinNum">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromBinNum" message="tns:IssueReturnSvcContract_OnChangeFromBinNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromBinNumResponse" message="tns:IssueReturnSvcContract_OnChangeFromBinNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromBinNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeFromBinNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeFromJobNum">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromJobNum" message="tns:IssueReturnSvcContract_OnChangeFromJobNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromJobNumResponse" message="tns:IssueReturnSvcContract_OnChangeFromJobNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromJobNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeFromJobNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeFromJobSeq">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromJobSeq" message="tns:IssueReturnSvcContract_OnChangeFromJobSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromJobSeqResponse" message="tns:IssueReturnSvcContract_OnChangeFromJobSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromJobSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeFromJobSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeFromWarehouse">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromWarehouse" message="tns:IssueReturnSvcContract_OnChangeFromWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromWarehouseResponse" message="tns:IssueReturnSvcContract_OnChangeFromWarehouse_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeFromWarehouseEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeFromWarehouse_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeLotNum">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeLotNum" message="tns:IssueReturnSvcContract_OnChangeLotNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeLotNumResponse" message="tns:IssueReturnSvcContract_OnChangeLotNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeLotNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeLotNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangePartNum">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangePartNum" message="tns:IssueReturnSvcContract_OnChangePartNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangePartNumResponse" message="tns:IssueReturnSvcContract_OnChangePartNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangePartNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangePartNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeToAssemblySeq">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToAssemblySeq" message="tns:IssueReturnSvcContract_OnChangeToAssemblySeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToAssemblySeqResponse" message="tns:IssueReturnSvcContract_OnChangeToAssemblySeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToAssemblySeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeToAssemblySeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeToJobNum">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToJobNum" message="tns:IssueReturnSvcContract_OnChangeToJobNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToJobNumResponse" message="tns:IssueReturnSvcContract_OnChangeToJobNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToJobNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeToJobNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeToJobSeq">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToJobSeq" message="tns:IssueReturnSvcContract_OnChangeToJobSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToJobSeqResponse" message="tns:IssueReturnSvcContract_OnChangeToJobSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToJobSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeToJobSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeToWarehouse">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToWarehouse" message="tns:IssueReturnSvcContract_OnChangeToWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToWarehouseResponse" message="tns:IssueReturnSvcContract_OnChangeToWarehouse_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeToWarehouseEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeToWarehouse_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeTranQty">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeTranQty" message="tns:IssueReturnSvcContract_OnChangeTranQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeTranQtyResponse" message="tns:IssueReturnSvcContract_OnChangeTranQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeTranQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeTranQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeUM">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeUM" message="tns:IssueReturnSvcContract_OnChangeUM_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeUMResponse" message="tns:IssueReturnSvcContract_OnChangeUM_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeUMEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeUM_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeASTUom">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeASTUom" message="tns:IssueReturnSvcContract_OnChangeASTUom_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeASTUomResponse" message="tns:IssueReturnSvcContract_OnChangeASTUom_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangeASTUomEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangeASTUom_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangingFromBinNum">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangingFromBinNum" message="tns:IssueReturnSvcContract_OnChangingFromBinNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangingFromBinNumResponse" message="tns:IssueReturnSvcContract_OnChangingFromBinNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangingFromBinNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangingFromBinNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangingJobSeq">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangingJobSeq" message="tns:IssueReturnSvcContract_OnChangingJobSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangingJobSeqResponse" message="tns:IssueReturnSvcContract_OnChangingJobSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangingJobSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangingJobSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangingToJobSeq">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangingToJobSeq" message="tns:IssueReturnSvcContract_OnChangingToJobSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangingToJobSeqResponse" message="tns:IssueReturnSvcContract_OnChangingToJobSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/OnChangingToJobSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_OnChangingToJobSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformMaterialMovement">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PerformMaterialMovement" message="tns:IssueReturnSvcContract_PerformMaterialMovement_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PerformMaterialMovementResponse" message="tns:IssueReturnSvcContract_PerformMaterialMovement_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PerformMaterialMovementEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_PerformMaterialMovement_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformMaterialMovementWithLegalNum">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PerformMaterialMovementWithLegalNum" message="tns:IssueReturnSvcContract_PerformMaterialMovementWithLegalNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PerformMaterialMovementWithLegalNumResponse" message="tns:IssueReturnSvcContract_PerformMaterialMovementWithLegalNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PerformMaterialMovementWithLegalNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_PerformMaterialMovementWithLegalNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MassUnpickByPCID">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/MassUnpickByPCID" message="tns:IssueReturnSvcContract_MassUnpickByPCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/MassUnpickByPCIDResponse" message="tns:IssueReturnSvcContract_MassUnpickByPCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/MassUnpickByPCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_MassUnpickByPCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDynamicPCID">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GenerateDynamicPCID" message="tns:IssueReturnSvcContract_GenerateDynamicPCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GenerateDynamicPCIDResponse" message="tns:IssueReturnSvcContract_GenerateDynamicPCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GenerateDynamicPCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GenerateDynamicPCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuppressPrintMessages">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/SuppressPrintMessages" message="tns:IssueReturnSvcContract_SuppressPrintMessages_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/SuppressPrintMessagesResponse" message="tns:IssueReturnSvcContract_SuppressPrintMessages_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/SuppressPrintMessagesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_SuppressPrintMessages_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAutoPrintSetup">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/IsAutoPrintSetup" message="tns:IssueReturnSvcContract_IsAutoPrintSetup_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/IsAutoPrintSetupResponse" message="tns:IssueReturnSvcContract_IsAutoPrintSetup_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/IsAutoPrintSetupEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_IsAutoPrintSetup_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePkgControlID">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/ValidatePkgControlID" message="tns:IssueReturnSvcContract_ValidatePkgControlID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/ValidatePkgControlIDResponse" message="tns:IssueReturnSvcContract_ValidatePkgControlID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/ValidatePkgControlIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_ValidatePkgControlID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreGetNewIssueReturn">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PreGetNewIssueReturn" message="tns:IssueReturnSvcContract_PreGetNewIssueReturn_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PreGetNewIssueReturnResponse" message="tns:IssueReturnSvcContract_PreGetNewIssueReturn_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PreGetNewIssueReturnEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_PreGetNewIssueReturn_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrePerformMaterialMovement">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PrePerformMaterialMovement" message="tns:IssueReturnSvcContract_PrePerformMaterialMovement_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PrePerformMaterialMovementResponse" message="tns:IssueReturnSvcContract_PrePerformMaterialMovement_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/PrePerformMaterialMovementEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_PrePerformMaterialMovement_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetQuantity">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/SetQuantity" message="tns:IssueReturnSvcContract_SetQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/SetQuantityResponse" message="tns:IssueReturnSvcContract_SetQuantity_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/SetQuantityEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_SetQuantity_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSN">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/ValidateSN" message="tns:IssueReturnSvcContract_ValidateSN_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/ValidateSNResponse" message="tns:IssueReturnSvcContract_ValidateSN_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/ValidateSNEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryQtyAdjBrw">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetInventoryQtyAdjBrw" message="tns:IssueReturnSvcContract_GetInventoryQtyAdjBrw_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetInventoryQtyAdjBrwResponse" message="tns:IssueReturnSvcContract_GetInventoryQtyAdjBrw_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetInventoryQtyAdjBrwEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetInventoryQtyAdjBrw_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartXRefInfo">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetPartXRefInfo" message="tns:IssueReturnSvcContract_GetPartXRefInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetPartXRefInfoResponse" message="tns:IssueReturnSvcContract_GetPartXRefInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetPartXRefInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetPartXRefInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidUOM">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/ValidUOM" message="tns:IssueReturnSvcContract_ValidUOM_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/ValidUOMResponse" message="tns:IssueReturnSvcContract_ValidUOM_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/ValidUOMEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_ValidUOM_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailTranDocTypes">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetAvailTranDocTypes" message="tns:IssueReturnSvcContract_GetAvailTranDocTypes_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetAvailTranDocTypesResponse" message="tns:IssueReturnSvcContract_GetAvailTranDocTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/GetAvailTranDocTypesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_GetAvailTranDocTypes_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NegativeInventoryTestTran">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/NegativeInventoryTestTran" message="tns:IssueReturnSvcContract_NegativeInventoryTestTran_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/NegativeInventoryTestTranResponse" message="tns:IssueReturnSvcContract_NegativeInventoryTestTran_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/NegativeInventoryTestTranEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_NegativeInventoryTestTran_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NegativeInventoryTest">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/NegativeInventoryTest" message="tns:IssueReturnSvcContract_NegativeInventoryTest_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/NegativeInventoryTestResponse" message="tns:IssueReturnSvcContract_NegativeInventoryTest_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/NegativeInventoryTestEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MasterInventoryBinTests">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/MasterInventoryBinTests" message="tns:IssueReturnSvcContract_MasterInventoryBinTests_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/MasterInventoryBinTestsResponse" message="tns:IssueReturnSvcContract_MasterInventoryBinTests_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/MasterInventoryBinTestsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_MasterInventoryBinTests_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkWhseBin">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/checkWhseBin" message="tns:IssueReturnSvcContract_checkWhseBin_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/checkWhseBinResponse" message="tns:IssueReturnSvcContract_checkWhseBin_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/checkWhseBinEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_checkWhseBin_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FillForeignFields">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/FillForeignFields" message="tns:IssueReturnSvcContract_FillForeignFields_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/FillForeignFieldsResponse" message="tns:IssueReturnSvcContract_FillForeignFields_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/FillForeignFieldsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_FillForeignFields_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackageCodeAllocNegQty">
+      <wsdl:input wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/CheckPackageCodeAllocNegQty" message="tns:IssueReturnSvcContract_CheckPackageCodeAllocNegQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/CheckPackageCodeAllocNegQtyResponse" message="tns:IssueReturnSvcContract_CheckPackageCodeAllocNegQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:IssueReturn/IssueReturnSvcContract/CheckPackageCodeAllocNegQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:IssueReturnSvcContract_CheckPackageCodeAllocNegQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

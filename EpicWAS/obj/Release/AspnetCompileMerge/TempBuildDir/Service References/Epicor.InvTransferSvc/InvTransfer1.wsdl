@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:InvTransfer" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:InvTransfer" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:InvTransfer/Imports">
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/InvTransfer.svc?xsd=xsd0" namespace="Erp:BO:InvTransfer" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/InvTransfer.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/InvTransfer.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/InvTransfer.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/InvTransfer.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/InvTransfer.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/InvTransfer.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/InvTransfer.svc?xsd=xsd6" namespace="http://epicor.com/UserDefinedColumns" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/InvTransfer.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="InvTransferSvcContract_ChangeFromBin_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeFromBin" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeFromBin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeFromBinResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeFromBin_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeFromWhse_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeFromWhse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeFromWhse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeFromWhseResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeFromWhse_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeLot" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeLot_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeToBin_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeToBin" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeToBin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeToBinResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeToBin_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeToWhse_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeToWhse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeToWhse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeToWhseResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeToWhse_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeUOM_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUOM" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeUOM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUOMResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeUOM_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_CommitTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransfer" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_CommitTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_CommitTransfer_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetAvailBins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailBins" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetAvailBins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailBinsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetAvailBins_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetNewInventoryTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewInventoryTransfer" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetNewInventoryTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewInventoryTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetNewInventoryTransfer_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangePCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePCID" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangePCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangePCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeTransferPartNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTransferPartNum" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeTransferPartNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTransferPartNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeTransferPartNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeTransferQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTransferQty" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeTransferQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeTransferQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ChangeTransferQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q12:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetPartXRefInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartXRefInfo" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetPartXRefInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartXRefInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetPartXRefInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q13:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetPrimaryBin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryBin" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetPrimaryBin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryBinResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetPrimaryBin_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q14:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetSelectSerialNumbersParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParams" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetSelectSerialNumbersParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q15:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetTransferRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferRecord" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetTransferRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetTransferRecord_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q16:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetNotSelectedInvTransferRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotSelectedInvTransferRecords" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetNotSelectedInvTransferRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotSelectedInvTransferRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetNotSelectedInvTransferRecords_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q17:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetInvTransferRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvTransferRecords" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetInvTransferRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvTransferRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetInvTransferRecords_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q18:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetInvTransferRecordsForPCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvTransferRecordsForPCID" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetInvTransferRecordsForPCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvTransferRecordsForPCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetInvTransferRecordsForPCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q19:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_PreCommitTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreCommitTransfer" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_PreCommitTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreCommitTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_PreCommitTransfer_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q20:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ValidateSN_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSN" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ValidateSN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSNResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q21:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_AreSNumsAllocated_InputMessage">
+    <wsdl:part name="parameters" element="tns:AreSNumsAllocated" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_AreSNumsAllocated_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AreSNumsAllocatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_AreSNumsAllocated_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q22:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetAvailTranDocTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailTranDocTypes" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetAvailTranDocTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailTranDocTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetAvailTranDocTypes_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q23:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_NegativeInventoryTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTest" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_NegativeInventoryTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q24:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_MasterInventoryBinTests_InputMessage">
+    <wsdl:part name="parameters" element="tns:MasterInventoryBinTests" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_MasterInventoryBinTests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MasterInventoryBinTestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_MasterInventoryBinTests_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q25:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetPartFromRowID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartFromRowID" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetPartFromRowID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartFromRowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvTransferSvcContract_GetPartFromRowID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q26:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="InvTransferSvcContract">
+    <wsdl:operation name="ChangeFromBin">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeFromBin" message="tns:InvTransferSvcContract_ChangeFromBin_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeFromBinResponse" message="tns:InvTransferSvcContract_ChangeFromBin_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeFromBinEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ChangeFromBin_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeFromWhse">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeFromWhse" message="tns:InvTransferSvcContract_ChangeFromWhse_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeFromWhseResponse" message="tns:InvTransferSvcContract_ChangeFromWhse_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeFromWhseEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ChangeFromWhse_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeLot">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeLot" message="tns:InvTransferSvcContract_ChangeLot_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeLotResponse" message="tns:InvTransferSvcContract_ChangeLot_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeLotEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ChangeLot_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeToBin">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeToBin" message="tns:InvTransferSvcContract_ChangeToBin_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeToBinResponse" message="tns:InvTransferSvcContract_ChangeToBin_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeToBinEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ChangeToBin_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeToWhse">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeToWhse" message="tns:InvTransferSvcContract_ChangeToWhse_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeToWhseResponse" message="tns:InvTransferSvcContract_ChangeToWhse_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeToWhseEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ChangeToWhse_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUOM">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeUOM" message="tns:InvTransferSvcContract_ChangeUOM_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeUOMResponse" message="tns:InvTransferSvcContract_ChangeUOM_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeUOMEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ChangeUOM_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransfer">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/CommitTransfer" message="tns:InvTransferSvcContract_CommitTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/CommitTransferResponse" message="tns:InvTransferSvcContract_CommitTransfer_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/CommitTransferEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_CommitTransfer_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailBins">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetAvailBins" message="tns:InvTransferSvcContract_GetAvailBins_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetAvailBinsResponse" message="tns:InvTransferSvcContract_GetAvailBins_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetAvailBinsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetAvailBins_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewInventoryTransfer">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetNewInventoryTransfer" message="tns:InvTransferSvcContract_GetNewInventoryTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetNewInventoryTransferResponse" message="tns:InvTransferSvcContract_GetNewInventoryTransfer_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetNewInventoryTransferEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetNewInventoryTransfer_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePCID">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangePCID" message="tns:InvTransferSvcContract_ChangePCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangePCIDResponse" message="tns:InvTransferSvcContract_ChangePCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangePCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ChangePCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTransferPartNum">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeTransferPartNum" message="tns:InvTransferSvcContract_ChangeTransferPartNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeTransferPartNumResponse" message="tns:InvTransferSvcContract_ChangeTransferPartNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeTransferPartNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ChangeTransferPartNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeTransferQty">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeTransferQty" message="tns:InvTransferSvcContract_ChangeTransferQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeTransferQtyResponse" message="tns:InvTransferSvcContract_ChangeTransferQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ChangeTransferQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ChangeTransferQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartXRefInfo">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetPartXRefInfo" message="tns:InvTransferSvcContract_GetPartXRefInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetPartXRefInfoResponse" message="tns:InvTransferSvcContract_GetPartXRefInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetPartXRefInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetPartXRefInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryBin">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetPrimaryBin" message="tns:InvTransferSvcContract_GetPrimaryBin_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetPrimaryBinResponse" message="tns:InvTransferSvcContract_GetPrimaryBin_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetPrimaryBinEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetPrimaryBin_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectSerialNumbersParams">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetSelectSerialNumbersParams" message="tns:InvTransferSvcContract_GetSelectSerialNumbersParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetSelectSerialNumbersParamsResponse" message="tns:InvTransferSvcContract_GetSelectSerialNumbersParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetSelectSerialNumbersParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferRecord">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetTransferRecord" message="tns:InvTransferSvcContract_GetTransferRecord_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetTransferRecordResponse" message="tns:InvTransferSvcContract_GetTransferRecord_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetTransferRecordEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetTransferRecord_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotSelectedInvTransferRecords">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetNotSelectedInvTransferRecords" message="tns:InvTransferSvcContract_GetNotSelectedInvTransferRecords_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetNotSelectedInvTransferRecordsResponse" message="tns:InvTransferSvcContract_GetNotSelectedInvTransferRecords_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetNotSelectedInvTransferRecordsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetNotSelectedInvTransferRecords_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvTransferRecords">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetInvTransferRecords" message="tns:InvTransferSvcContract_GetInvTransferRecords_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetInvTransferRecordsResponse" message="tns:InvTransferSvcContract_GetInvTransferRecords_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetInvTransferRecordsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetInvTransferRecords_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvTransferRecordsForPCID">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetInvTransferRecordsForPCID" message="tns:InvTransferSvcContract_GetInvTransferRecordsForPCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetInvTransferRecordsForPCIDResponse" message="tns:InvTransferSvcContract_GetInvTransferRecordsForPCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetInvTransferRecordsForPCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetInvTransferRecordsForPCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreCommitTransfer">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/PreCommitTransfer" message="tns:InvTransferSvcContract_PreCommitTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/PreCommitTransferResponse" message="tns:InvTransferSvcContract_PreCommitTransfer_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/PreCommitTransferEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_PreCommitTransfer_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSN">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ValidateSN" message="tns:InvTransferSvcContract_ValidateSN_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ValidateSNResponse" message="tns:InvTransferSvcContract_ValidateSN_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/ValidateSNEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreSNumsAllocated">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/AreSNumsAllocated" message="tns:InvTransferSvcContract_AreSNumsAllocated_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/AreSNumsAllocatedResponse" message="tns:InvTransferSvcContract_AreSNumsAllocated_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/AreSNumsAllocatedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_AreSNumsAllocated_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailTranDocTypes">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetAvailTranDocTypes" message="tns:InvTransferSvcContract_GetAvailTranDocTypes_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetAvailTranDocTypesResponse" message="tns:InvTransferSvcContract_GetAvailTranDocTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetAvailTranDocTypesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetAvailTranDocTypes_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NegativeInventoryTest">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/NegativeInventoryTest" message="tns:InvTransferSvcContract_NegativeInventoryTest_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/NegativeInventoryTestResponse" message="tns:InvTransferSvcContract_NegativeInventoryTest_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/NegativeInventoryTestEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MasterInventoryBinTests">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/MasterInventoryBinTests" message="tns:InvTransferSvcContract_MasterInventoryBinTests_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/MasterInventoryBinTestsResponse" message="tns:InvTransferSvcContract_MasterInventoryBinTests_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/MasterInventoryBinTestsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_MasterInventoryBinTests_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartFromRowID">
+      <wsdl:input wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetPartFromRowID" message="tns:InvTransferSvcContract_GetPartFromRowID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetPartFromRowIDResponse" message="tns:InvTransferSvcContract_GetPartFromRowID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:InvTransfer/InvTransferSvcContract/GetPartFromRowIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:InvTransferSvcContract_GetPartFromRowID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

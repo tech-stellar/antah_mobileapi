@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="21a23432-250a-4993-a07d-f730341a2aa9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LotSelectUpdate9.xsd" MetadataType="Schema" ID="206d02f7-6c40-4a35-ac17-08857a94546a" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd8" />
+    <MetadataFile FileName="LotSelectUpdate91.xsd" MetadataType="Schema" ID="d8b0aa94-e4a8-477a-b50a-bba68357cee2" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd7" />
+    <MetadataFile FileName="LotSelectUpdate92.xsd" MetadataType="Schema" ID="0403cfa9-5c77-42d8-80ed-f4dcc3731375" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd1" />
+    <MetadataFile FileName="LotSelectUpdate93.xsd" MetadataType="Schema" ID="91a30b8e-9965-4ba3-8d07-ea59c213b967" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd3" />
+    <MetadataFile FileName="LotSelectUpdate1.disco" MetadataType="Disco" ID="c5132392-878a-4512-bc8c-8cf5dd650177" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?disco" />
+    <MetadataFile FileName="LotSelectUpdate1.wsdl" MetadataType="Wsdl" ID="bd450a6f-3b6e-4915-8de0-8ff08fcb17d8" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="LotSelectUpdate94.xsd" MetadataType="Schema" ID="31173c29-c59d-40c1-b292-fdc16cb80dff" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd4" />
+    <MetadataFile FileName="LotSelectUpdate95.xsd" MetadataType="Schema" ID="280f31c4-7a94-4674-bbb7-b182fb68de9a" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd5" />
+    <MetadataFile FileName="LotSelectUpdate96.xsd" MetadataType="Schema" ID="35d2df0e-29f4-41c5-8681-655e7aab6c68" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd6" />
+    <MetadataFile FileName="LotSelectUpdate97.xsd" MetadataType="Schema" ID="95d00dc4-7311-4e81-9301-5254171b7c80" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd0" />
+    <MetadataFile FileName="LotSelectUpdateSvcFacade1.wsdl" MetadataType="Wsdl" ID="d28b29b0-0ca8-4300-abc7-746a40e25486" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?wsdl" />
+    <MetadataFile FileName="LotSelectUpdate98.xsd" MetadataType="Schema" ID="15bb8e1d-165e-435a-b008-bb5eaabdd6a1" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

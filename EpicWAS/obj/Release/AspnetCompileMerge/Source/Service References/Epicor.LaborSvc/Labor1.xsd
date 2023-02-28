@@ -1,0 +1,1904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Tablesets" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+  <xs:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="LaborTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Ice" base="q1:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LaborDtl" nillable="true" type="tns:LaborDtlTable" />
+          <xs:element minOccurs="0" name="LaborDtlAttch" nillable="true" type="tns:LaborDtlAttchTable" />
+          <xs:element minOccurs="0" name="LaborDtlComment" nillable="true" type="tns:LaborDtlCommentTable" />
+          <xs:element minOccurs="0" name="LaborDtlGroup" nillable="true" type="tns:LaborDtlGroupTable" />
+          <xs:element minOccurs="0" name="LaborEquip" nillable="true" type="tns:LaborEquipTable" />
+          <xs:element minOccurs="0" name="LaborHed" nillable="true" type="tns:LaborHedTable" />
+          <xs:element minOccurs="0" name="LaborPart" nillable="true" type="tns:LaborPartTable" />
+          <xs:element minOccurs="0" name="LbrScrapSerialNumbers" nillable="true" type="tns:LbrScrapSerialNumbersTable" />
+          <xs:element minOccurs="0" name="SNFormat" nillable="true" type="tns:SNFormatTable" />
+          <xs:element minOccurs="0" name="SelectedSerialNumbers" nillable="true" type="tns:SelectedSerialNumbersTable" />
+          <xs:element minOccurs="0" name="TimeWeeklyView" nillable="true" type="tns:TimeWeeklyViewTable" />
+          <xs:element minOccurs="0" name="TimeWorkHours" nillable="true" type="tns:TimeWorkHoursTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborTableset" nillable="true" type="tns:LaborTableset" />
+  <xs:complexType name="LaborDtlTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LaborDtlRow" nillable="true" type="tns:LaborDtlRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaborDtlTable" nillable="true" type="tns:LaborDtlTable" />
+  <xs:complexType name="LaborDtlRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Ice" base="q2:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ABTUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActID" type="xs:int" />
+          <xs:element minOccurs="0" name="ActiveTaskID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActiveTrans" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AddedOper" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AllowDirLbr" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AppliedToSchedule" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ApprovalPhaseDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalPhaseID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalProjectDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalProjectID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ApprovedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ApprvrHasOpenTask" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AsOfDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AsOfSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="AssemblySeq" type="xs:int" />
+          <xs:element minOccurs="0" name="AssignToBatch" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BFLaborReq" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BaseCurrCodeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BatchComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BatchLaborHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BatchMode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BatchPctOfTotHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BatchPrint" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BatchQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BatchRequestMove" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BatchTotalExpectedHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BatchWasSaved" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillServiceRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="BurdenCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BurdenHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BurdenRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CallCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CallLine" type="xs:int" />
+          <xs:element minOccurs="0" name="CallNum" type="xs:int" />
+          <xs:element minOccurs="0" name="CapabilityDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CapabilityID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ChangeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ChangeTime" type="xs:int" />
+          <xs:element minOccurs="0" name="ChangedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ChargeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ChargeRateSRC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ChgRateCurrDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClaimRef" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClockInDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ClockInMInute" type="xs:int" />
+          <xs:element minOccurs="0" name="ClockOutMinute" type="xs:int" />
+          <xs:element minOccurs="0" name="ClockOutTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ClockinTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:LaborDtlRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Complete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CompleteFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ContractCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractNum" type="xs:int" />
+          <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreateTime" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedViaTEWeekView" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CurrentWFStageID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DisLaborType" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DisPrjRoleCd" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DisTimeTypCd" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DiscrepQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DiscrepUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DiscrpRsnCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DiscrpRsnDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplayJob" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocPBChargeAmt" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DocPBChargeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Downtime" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DowntimeTotal" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DspChangeTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspClockInTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspClockOutTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspCreateTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspTotHours" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtClockIn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DtClockOut" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DtailID" type="xs:int" />
+          <xs:element minOccurs="0" name="EarnedHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EfficiencyPercentage" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EmpBasicFirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmpBasicLastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmpBasicName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnableComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableCopy" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableDiscrepQty" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableInspection" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableLaborQty" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableLot" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableNextOprSeq" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnablePCID" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnablePrintTagsList" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableRecall" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableRecallAprv" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableRequestMove" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableResourceGrpID" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableSN" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableScrapQty" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableSubmit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EndActivity" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnteredOnCurPlant" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EpicorFSA" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ExpenseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExpenseCodeDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FSAAction" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FSACallCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FSAContractCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FSAContractNum" type="xs:int" />
+          <xs:element minOccurs="0" name="FSAEmpID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FSAEquipmentInstallID" type="xs:int" />
+          <xs:element minOccurs="0" name="FSAEquipmentPartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FSAServiceOrderNum" type="xs:int" />
+          <xs:element minOccurs="0" name="FSAServiceOrderResourceNum" type="xs:int" />
+          <xs:element minOccurs="0" name="FSAWarrantyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FSComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FiscalCalendarID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FiscalPeriod" type="xs:int" />
+          <xs:element minOccurs="0" name="FiscalYear" type="xs:int" />
+          <xs:element minOccurs="0" name="FiscalYearSuffix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GLTranAmt" type="xs:decimal" />
+          <xs:element minOccurs="0" name="GLTranDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GLTrans" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HCMIntregationHCMEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HCMPayHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HCMStatusStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HH" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HasAccessToRow" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HasAttachments" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HasComments" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ISFixHourAndQtyOnly" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ImportDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Imported" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IndirectCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndirectDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InspectionPending" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IntExternalKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JCDept" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JCDeptDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JCSystReworkReasons" type="xs:boolean" />
+          <xs:element minOccurs="0" name="JCSystScrapReasons" type="xs:boolean" />
+          <xs:element minOccurs="0" name="JDFInputFiles" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JDFNumberOfPages" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JDFOpCompleted" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobAsmblDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobAsmblPartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobOperComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="JobType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobTypeCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JournalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JournalNum" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborCollection" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LaborCost" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LaborDtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborEntryMethod" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborHedSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LaborNote" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LaborRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LaborType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborTypePseudo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastTaskID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LbrDay" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LbrMonth" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LbrWeek" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LotNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MES" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MachineDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MultipleEmployeesText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewDifDateFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="NewPrjRoleCd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewRoleCdDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NextAssemblySeq" type="xs:int" />
+          <xs:element minOccurs="0" name="NextOperDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NextOprSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="NextResourceDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NonConfProcessed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NotSubmitted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OkToChangeResourceGrpID" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OpCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OpCodeOpDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OpComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OpDescOpDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OprSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="OutputBin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OutputWarehouse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OverRidePayRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PBAllowModify" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PBChargeAmt" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PBChargeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PBCurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PBHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PBInvNum" type="xs:int" />
+          <xs:element minOccurs="0" name="PBRateFrom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PCID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PMUID" type="xs:int" />
+          <xs:element minOccurs="0" name="ParentLaborDtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="PartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PayMethodName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PayMethodSummarizePerCustomer" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PayMethodType" type="xs:int" />
+          <xs:element minOccurs="0" name="PayrollDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PendingApprovalBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhaseID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhaseIDDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhaseJobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhaseOprSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="PostedToGL" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PrintNCTag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PrintPCIDContents" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PrjUsedTran" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProdDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjPhaseID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjProcessed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProjectDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QuickEntryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReWork" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReWorkReasonDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RefAssemblySeq" type="xs:int" />
+          <xs:element minOccurs="0" name="RefJobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RefOprSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="RequestMove" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ResReasonCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResReasonDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceGrpDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceGrpID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReworkReasonCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleCd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleCdDisplayAll" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RoleCdRoleDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rpt1PBChargeAmt" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Rpt1PBChargeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Rpt2PBChargeAmt" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Rpt2PBChargeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Rpt3PBChargeAmt" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Rpt3PBChargeRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrapQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrapReasonCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScrapReasonDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScrapUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SentFromMES" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ServCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServNum" type="xs:int" />
+          <xs:element minOccurs="0" name="SetupPctComplete" type="xs:int" />
+          <xs:element minOccurs="0" name="Shift" type="xs:int" />
+          <xs:element minOccurs="0" name="ShiftDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartActivity" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SubmittedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="TaskSetID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeAutoSubmit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TimeDisableDelete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TimeDisableUpdate" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TimeStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeTypCd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeTypCdDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TreeNodeImageName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UnapprovedFirstArt" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WFComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WFGroupID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WarrantyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WeekDisplayText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WipPosted" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborDtlRow" nillable="true" type="tns:LaborDtlRow" />
+  <xs:simpleType name="LaborDtlRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="EmployeeNum" />
+      <xs:enumeration value="LaborHedSeq" />
+      <xs:enumeration value="LaborDtlSeq" />
+      <xs:enumeration value="LaborType" />
+      <xs:enumeration value="LaborTypePseudo" />
+      <xs:enumeration value="ReWork" />
+      <xs:enumeration value="ReworkReasonCode" />
+      <xs:enumeration value="JobNum" />
+      <xs:enumeration value="AssemblySeq" />
+      <xs:enumeration value="OprSeq" />
+      <xs:enumeration value="JCDept" />
+      <xs:enumeration value="ResourceGrpID" />
+      <xs:enumeration value="OpCode" />
+      <xs:enumeration value="LaborHrs" />
+      <xs:enumeration value="BurdenHrs" />
+      <xs:enumeration value="LaborQty" />
+      <xs:enumeration value="ScrapQty" />
+      <xs:enumeration value="ScrapReasonCode" />
+      <xs:enumeration value="SetupPctComplete" />
+      <xs:enumeration value="Complete" />
+      <xs:enumeration value="IndirectCode" />
+      <xs:enumeration value="LaborNote" />
+      <xs:enumeration value="ExpenseCode" />
+      <xs:enumeration value="LaborCollection" />
+      <xs:enumeration value="AppliedToSchedule" />
+      <xs:enumeration value="ClockInMInute" />
+      <xs:enumeration value="ClockOutMinute" />
+      <xs:enumeration value="ClockInDate" />
+      <xs:enumeration value="ClockinTime" />
+      <xs:enumeration value="ClockOutTime" />
+      <xs:enumeration value="ActiveTrans" />
+      <xs:enumeration value="OverRidePayRate" />
+      <xs:enumeration value="LaborRate" />
+      <xs:enumeration value="BurdenRate" />
+      <xs:enumeration value="DspClockInTime" />
+      <xs:enumeration value="DspClockOutTime" />
+      <xs:enumeration value="ResourceID" />
+      <xs:enumeration value="OpComplete" />
+      <xs:enumeration value="EarnedHrs" />
+      <xs:enumeration value="AddedOper" />
+      <xs:enumeration value="PayrollDate" />
+      <xs:enumeration value="PostedToGL" />
+      <xs:enumeration value="FiscalYear" />
+      <xs:enumeration value="FiscalPeriod" />
+      <xs:enumeration value="JournalNum" />
+      <xs:enumeration value="GLTrans" />
+      <xs:enumeration value="JournalCode" />
+      <xs:enumeration value="InspectionPending" />
+      <xs:enumeration value="CallNum" />
+      <xs:enumeration value="CallLine" />
+      <xs:enumeration value="ServNum" />
+      <xs:enumeration value="ServCode" />
+      <xs:enumeration value="ResReasonCode" />
+      <xs:enumeration value="WipPosted" />
+      <xs:enumeration value="DiscrepQty" />
+      <xs:enumeration value="DiscrpRsnCode" />
+      <xs:enumeration value="ParentLaborDtlSeq" />
+      <xs:enumeration value="LaborEntryMethod" />
+      <xs:enumeration value="FiscalYearSuffix" />
+      <xs:enumeration value="FiscalCalendarID" />
+      <xs:enumeration value="BFLaborReq" />
+      <xs:enumeration value="ABTUID" />
+      <xs:enumeration value="ProjectID" />
+      <xs:enumeration value="PhaseID" />
+      <xs:enumeration value="RoleCd" />
+      <xs:enumeration value="TimeTypCd" />
+      <xs:enumeration value="PBInvNum" />
+      <xs:enumeration value="PMUID" />
+      <xs:enumeration value="TaskSetID" />
+      <xs:enumeration value="ApprovedDate" />
+      <xs:enumeration value="ClaimRef" />
+      <xs:enumeration value="QuickEntryCode" />
+      <xs:enumeration value="TimeStatus" />
+      <xs:enumeration value="CreatedBy" />
+      <xs:enumeration value="CreateDate" />
+      <xs:enumeration value="CreateTime" />
+      <xs:enumeration value="ChangedBy" />
+      <xs:enumeration value="ChangeDate" />
+      <xs:enumeration value="ChangeTime" />
+      <xs:enumeration value="ActiveTaskID" />
+      <xs:enumeration value="LastTaskID" />
+      <xs:enumeration value="CreatedViaTEWeekView" />
+      <xs:enumeration value="CurrentWFStageID" />
+      <xs:enumeration value="WFGroupID" />
+      <xs:enumeration value="WFComplete" />
+      <xs:enumeration value="ApprovalRequired" />
+      <xs:enumeration value="SubmittedBy" />
+      <xs:enumeration value="PBRateFrom" />
+      <xs:enumeration value="PBCurrencyCode" />
+      <xs:enumeration value="PBHours" />
+      <xs:enumeration value="PBChargeRate" />
+      <xs:enumeration value="PBChargeAmt" />
+      <xs:enumeration value="DocPBChargeRate" />
+      <xs:enumeration value="Rpt1PBChargeRate" />
+      <xs:enumeration value="Rpt2PBChargeRate" />
+      <xs:enumeration value="Rpt3PBChargeRate" />
+      <xs:enumeration value="DocPBChargeAmt" />
+      <xs:enumeration value="Rpt1PBChargeAmt" />
+      <xs:enumeration value="Rpt2PBChargeAmt" />
+      <xs:enumeration value="Rpt3PBChargeAmt" />
+      <xs:enumeration value="Shift" />
+      <xs:enumeration value="ActID" />
+      <xs:enumeration value="DtailID" />
+      <xs:enumeration value="ProjProcessed" />
+      <xs:enumeration value="AsOfDate" />
+      <xs:enumeration value="AsOfSeq" />
+      <xs:enumeration value="JDFInputFiles" />
+      <xs:enumeration value="JDFNumberOfPages" />
+      <xs:enumeration value="BatchWasSaved" />
+      <xs:enumeration value="AssignToBatch" />
+      <xs:enumeration value="BatchComplete" />
+      <xs:enumeration value="BatchRequestMove" />
+      <xs:enumeration value="BatchPrint" />
+      <xs:enumeration value="BatchLaborHrs" />
+      <xs:enumeration value="BatchPctOfTotHrs" />
+      <xs:enumeration value="BatchQty" />
+      <xs:enumeration value="BatchTotalExpectedHrs" />
+      <xs:enumeration value="JDFOpCompleted" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="Downtime" />
+      <xs:enumeration value="RefJobNum" />
+      <xs:enumeration value="RefAssemblySeq" />
+      <xs:enumeration value="RefOprSeq" />
+      <xs:enumeration value="Imported" />
+      <xs:enumeration value="ImportDate" />
+      <xs:enumeration value="TimeAutoSubmit" />
+      <xs:enumeration value="BatchMode" />
+      <xs:enumeration value="BillServiceRate" />
+      <xs:enumeration value="HCMPayHours" />
+      <xs:enumeration value="EpicorFSA" />
+      <xs:enumeration value="AllowDirLbr" />
+      <xs:enumeration value="ApprovalPhaseDesc" />
+      <xs:enumeration value="ApprovalPhaseID" />
+      <xs:enumeration value="ApprovalProjectDesc" />
+      <xs:enumeration value="ApprovalProjectID" />
+      <xs:enumeration value="ApprovedBy" />
+      <xs:enumeration value="ApprvrHasOpenTask" />
+      <xs:enumeration value="BaseCurrCodeDesc" />
+      <xs:enumeration value="BurdenCost" />
+      <xs:enumeration value="CallCode" />
+      <xs:enumeration value="CapabilityDescription" />
+      <xs:enumeration value="CapabilityID" />
+      <xs:enumeration value="ChargeRate" />
+      <xs:enumeration value="ChargeRateSRC" />
+      <xs:enumeration value="ChgRateCurrDesc" />
+      <xs:enumeration value="CompleteFlag" />
+      <xs:enumeration value="ContractCode" />
+      <xs:enumeration value="ContractNum" />
+      <xs:enumeration value="DiscrepUOM" />
+      <xs:enumeration value="DisLaborType" />
+      <xs:enumeration value="DisplayJob" />
+      <xs:enumeration value="DisPrjRoleCd" />
+      <xs:enumeration value="DisTimeTypCd" />
+      <xs:enumeration value="DowntimeTotal" />
+      <xs:enumeration value="DspChangeTime" />
+      <xs:enumeration value="DspCreateTime" />
+      <xs:enumeration value="DspTotHours" />
+      <xs:enumeration value="DtClockIn" />
+      <xs:enumeration value="DtClockOut" />
+      <xs:enumeration value="EfficiencyPercentage" />
+      <xs:enumeration value="EmployeeName" />
+      <xs:enumeration value="EnableComplete" />
+      <xs:enumeration value="EnableCopy" />
+      <xs:enumeration value="EnableDiscrepQty" />
+      <xs:enumeration value="EnableInspection" />
+      <xs:enumeration value="EnableLaborQty" />
+      <xs:enumeration value="EnableNextOprSeq" />
+      <xs:enumeration value="EnablePrintTagsList" />
+      <xs:enumeration value="EnableRecall" />
+      <xs:enumeration value="EnableRecallAprv" />
+      <xs:enumeration value="EnableRequestMove" />
+      <xs:enumeration value="EnableResourceGrpID" />
+      <xs:enumeration value="EnableScrapQty" />
+      <xs:enumeration value="EnableSN" />
+      <xs:enumeration value="EnableSubmit" />
+      <xs:enumeration value="EndActivity" />
+      <xs:enumeration value="EnteredOnCurPlant" />
+      <xs:enumeration value="FSAAction" />
+      <xs:enumeration value="FSACallCode" />
+      <xs:enumeration value="FSAContractCode" />
+      <xs:enumeration value="FSAContractNum" />
+      <xs:enumeration value="FSAEmpID" />
+      <xs:enumeration value="FSAEquipmentInstallID" />
+      <xs:enumeration value="FSAEquipmentPartNum" />
+      <xs:enumeration value="FSAServiceOrderNum" />
+      <xs:enumeration value="FSAServiceOrderResourceNum" />
+      <xs:enumeration value="FSAWarrantyCode" />
+      <xs:enumeration value="FSComplete" />
+      <xs:enumeration value="GLTranAmt" />
+      <xs:enumeration value="GLTranDate" />
+      <xs:enumeration value="HasAccessToRow" />
+      <xs:enumeration value="HasComments" />
+      <xs:enumeration value="HH" />
+      <xs:enumeration value="IntExternalKey" />
+      <xs:enumeration value="ISFixHourAndQtyOnly" />
+      <xs:enumeration value="JCSystReworkReasons" />
+      <xs:enumeration value="JCSystScrapReasons" />
+      <xs:enumeration value="JobOperComplete" />
+      <xs:enumeration value="JobType" />
+      <xs:enumeration value="JobTypeCode" />
+      <xs:enumeration value="LaborCost" />
+      <xs:enumeration value="LaborUOM" />
+      <xs:enumeration value="LbrDay" />
+      <xs:enumeration value="LbrMonth" />
+      <xs:enumeration value="LbrWeek" />
+      <xs:enumeration value="MES" />
+      <xs:enumeration value="MultipleEmployeesText" />
+      <xs:enumeration value="NewDifDateFlag" />
+      <xs:enumeration value="NewPrjRoleCd" />
+      <xs:enumeration value="NewRoleCdDesc" />
+      <xs:enumeration value="NextAssemblySeq" />
+      <xs:enumeration value="NextOperDesc" />
+      <xs:enumeration value="NextOprSeq" />
+      <xs:enumeration value="NextResourceDesc" />
+      <xs:enumeration value="NonConfProcessed" />
+      <xs:enumeration value="NotSubmitted" />
+      <xs:enumeration value="OkToChangeResourceGrpID" />
+      <xs:enumeration value="PartDescription" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="PBAllowModify" />
+      <xs:enumeration value="PendingApprovalBy" />
+      <xs:enumeration value="PhaseJobNum" />
+      <xs:enumeration value="PhaseOprSeq" />
+      <xs:enumeration value="PrintNCTag" />
+      <xs:enumeration value="PrjUsedTran" />
+      <xs:enumeration value="ProdDesc" />
+      <xs:enumeration value="ProjPhaseID" />
+      <xs:enumeration value="RequestMove" />
+      <xs:enumeration value="ResourceDesc" />
+      <xs:enumeration value="RoleCdDisplayAll" />
+      <xs:enumeration value="ScrapUOM" />
+      <xs:enumeration value="SentFromMES" />
+      <xs:enumeration value="StartActivity" />
+      <xs:enumeration value="TimeDisableDelete" />
+      <xs:enumeration value="TimeDisableUpdate" />
+      <xs:enumeration value="TreeNodeImageName" />
+      <xs:enumeration value="UnapprovedFirstArt" />
+      <xs:enumeration value="WarrantyCode" />
+      <xs:enumeration value="WeekDisplayText" />
+      <xs:enumeration value="PCID" />
+      <xs:enumeration value="EnablePCID" />
+      <xs:enumeration value="OutputBin" />
+      <xs:enumeration value="OutputWarehouse" />
+      <xs:enumeration value="EnableLot" />
+      <xs:enumeration value="LotNum" />
+      <xs:enumeration value="PrintPCIDContents" />
+      <xs:enumeration value="HasAttachments" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="DiscrpRsnDescription" />
+      <xs:enumeration value="EmpBasicLastName" />
+      <xs:enumeration value="EmpBasicFirstName" />
+      <xs:enumeration value="EmpBasicName" />
+      <xs:enumeration value="ExpenseCodeDescription" />
+      <xs:enumeration value="HCMIntregationHCMEnabled" />
+      <xs:enumeration value="HCMStatusStatus" />
+      <xs:enumeration value="IndirectDescription" />
+      <xs:enumeration value="JCDeptDescription" />
+      <xs:enumeration value="JobAsmblPartNum" />
+      <xs:enumeration value="JobAsmblDescription" />
+      <xs:enumeration value="MachineDescription" />
+      <xs:enumeration value="OpCodeOpDesc" />
+      <xs:enumeration value="OpDescOpDesc" />
+      <xs:enumeration value="PayMethodType" />
+      <xs:enumeration value="PayMethodSummarizePerCustomer" />
+      <xs:enumeration value="PayMethodName" />
+      <xs:enumeration value="PhaseIDDescription" />
+      <xs:enumeration value="ProjectDescription" />
+      <xs:enumeration value="ResourceGrpDescription" />
+      <xs:enumeration value="ResReasonDescription" />
+      <xs:enumeration value="ReWorkReasonDescription" />
+      <xs:enumeration value="RoleCdRoleDescription" />
+      <xs:enumeration value="ScrapReasonDescription" />
+      <xs:enumeration value="ShiftDescription" />
+      <xs:enumeration value="TimeTypCdDescription" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LaborDtlRowColumnOrder" nillable="true" type="tns:LaborDtlRowColumnOrder" />
+  <xs:complexType name="LaborDtlAttchTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LaborDtlAttchRow" nillable="true" type="tns:LaborDtlAttchRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaborDtlAttchTable" nillable="true" type="tns:LaborDtlAttchTable" />
+  <xs:complexType name="LaborDtlAttchRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Ice" base="q3:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:LaborDtlAttchRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocTypeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DrawDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DrawingSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ForeignSysRowID" type="ser:guid" />
+          <xs:element minOccurs="0" name="LaborDtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborHedSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="PDMDocID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="XFileRefNum" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborDtlAttchRow" nillable="true" type="tns:LaborDtlAttchRow" />
+  <xs:simpleType name="LaborDtlAttchRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="LaborHedSeq" />
+      <xs:enumeration value="LaborDtlSeq" />
+      <xs:enumeration value="DrawingSeq" />
+      <xs:enumeration value="XFileRefNum" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="ForeignSysRowID" />
+      <xs:enumeration value="DrawDesc" />
+      <xs:enumeration value="FileName" />
+      <xs:enumeration value="PDMDocID" />
+      <xs:enumeration value="DocTypeID" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LaborDtlAttchRowColumnOrder" nillable="true" type="tns:LaborDtlAttchRowColumnOrder" />
+  <xs:complexType name="LaborDtlCommentTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LaborDtlCommentRow" nillable="true" type="tns:LaborDtlCommentRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaborDtlCommentTable" nillable="true" type="tns:LaborDtlCommentTable" />
+  <xs:complexType name="LaborDtlCommentRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Ice" base="q4:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="ChangeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ChangeTime" type="xs:int" />
+          <xs:element minOccurs="0" name="ChangedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:LaborDtlCommentRowColumnOrder" />
+          <xs:element minOccurs="0" name="CommentNum" type="xs:int" />
+          <xs:element minOccurs="0" name="CommentText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CommentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreateTime" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspChangeTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspCreateTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IntExternalKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborDtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborHedSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="TaskSeqNum" type="xs:int" />
+          <xs:element minOccurs="0" name="TreeNodeImageName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborDtlCommentRow" nillable="true" type="tns:LaborDtlCommentRow" />
+  <xs:simpleType name="LaborDtlCommentRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="LaborHedSeq" />
+      <xs:enumeration value="LaborDtlSeq" />
+      <xs:enumeration value="CommentNum" />
+      <xs:enumeration value="CommentType" />
+      <xs:enumeration value="CommentText" />
+      <xs:enumeration value="CreatedBy" />
+      <xs:enumeration value="CreateDate" />
+      <xs:enumeration value="CreateTime" />
+      <xs:enumeration value="ChangedBy" />
+      <xs:enumeration value="ChangeDate" />
+      <xs:enumeration value="ChangeTime" />
+      <xs:enumeration value="TaskSeqNum" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="DspChangeTime" />
+      <xs:enumeration value="DspCreateTime" />
+      <xs:enumeration value="TreeNodeImageName" />
+      <xs:enumeration value="IntExternalKey" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LaborDtlCommentRowColumnOrder" nillable="true" type="tns:LaborDtlCommentRowColumnOrder" />
+  <xs:complexType name="LaborDtlGroupTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LaborDtlGroupRow" nillable="true" type="tns:LaborDtlGroupRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaborDtlGroupTable" nillable="true" type="tns:LaborDtlGroupTable" />
+  <xs:complexType name="LaborDtlGroupRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Ice" base="q5:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="ClaimRef" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:LaborDtlGroupRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborDtlGroupRow" nillable="true" type="tns:LaborDtlGroupRow" />
+  <xs:simpleType name="LaborDtlGroupRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="EmployeeNum" />
+      <xs:enumeration value="ClaimRef" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LaborDtlGroupRowColumnOrder" nillable="true" type="tns:LaborDtlGroupRowColumnOrder" />
+  <xs:complexType name="LaborEquipTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LaborEquipRow" nillable="true" type="tns:LaborEquipRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaborEquipTable" nillable="true" type="tns:LaborEquipTable" />
+  <xs:complexType name="LaborEquipRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Ice" base="q6:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:LaborEquipRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrentMeter" type="xs:int" />
+          <xs:element minOccurs="0" name="EquipDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EquipID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EquipLaborMeterOpt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EquipMeterUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Hours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LaborDtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborHedSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="Qty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborEquipRow" nillable="true" type="tns:LaborEquipRow" />
+  <xs:simpleType name="LaborEquipRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="LaborHedSeq" />
+      <xs:enumeration value="LaborDtlSeq" />
+      <xs:enumeration value="EquipID" />
+      <xs:enumeration value="Hours" />
+      <xs:enumeration value="Qty" />
+      <xs:enumeration value="CurrentMeter" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="EquipLaborMeterOpt" />
+      <xs:enumeration value="EquipDescription" />
+      <xs:enumeration value="EquipMeterUOM" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LaborEquipRowColumnOrder" nillable="true" type="tns:LaborEquipRowColumnOrder" />
+  <xs:complexType name="LaborHedTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LaborHedRow" nillable="true" type="tns:LaborHedRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaborHedTable" nillable="true" type="tns:LaborHedTable" />
+  <xs:complexType name="LaborHedRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Ice" base="q7:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActLunchInTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ActLunchOutTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ActiveTrans" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ActualClockInTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ActualClockOutTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ActualClockinDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BatchAssignTo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BatchComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BatchEndHrs" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BatchHrsRemain" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BatchHrsRemainDisp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BatchHrsRemainPct" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BatchHrsRemainPctDisp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BatchMode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BatchSplitHrsMethod" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BatchStartHrs" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BatchTotalHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BatchTotalHrsDisp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="ChkLink" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClockInDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ClockInTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ClockOutTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:LaborHedRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspClockInTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspClockOutTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspPayHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EmpBasicShift" type="xs:int" />
+          <xs:element minOccurs="0" name="EmpBasicSupervisorID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNumFirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNumLastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNumName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FeedPayroll" type="xs:boolean" />
+          <xs:element minOccurs="0" name="GetNewNoHdr" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HCMPayHoursCalcType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HCMStatusStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HCMTotPayHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ImagePath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImportDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Imported" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LaborCollection" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LaborHedSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LunchBreak" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LunchInTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LunchOutTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LunchStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MES" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PRSystHCMEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PayHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PayrollDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PayrollValuesForHCM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Shift" type="xs:int" />
+          <xs:element minOccurs="0" name="ShiftDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="TimeDisableDelete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TimeDisableUpdate" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TotBurHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotLbrHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TranSet" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransferredToPayroll" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WipPosted" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborHedRow" nillable="true" type="tns:LaborHedRow" />
+  <xs:simpleType name="LaborHedRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="EmployeeNum" />
+      <xs:enumeration value="LaborHedSeq" />
+      <xs:enumeration value="PayrollDate" />
+      <xs:enumeration value="Shift" />
+      <xs:enumeration value="ClockInDate" />
+      <xs:enumeration value="ClockInTime" />
+      <xs:enumeration value="DspClockInTime" />
+      <xs:enumeration value="ActualClockInTime" />
+      <xs:enumeration value="ActualClockinDate" />
+      <xs:enumeration value="LunchStatus" />
+      <xs:enumeration value="ActLunchOutTime" />
+      <xs:enumeration value="LunchOutTime" />
+      <xs:enumeration value="ActLunchInTime" />
+      <xs:enumeration value="LunchInTime" />
+      <xs:enumeration value="ClockOutTime" />
+      <xs:enumeration value="DspClockOutTime" />
+      <xs:enumeration value="ActualClockOutTime" />
+      <xs:enumeration value="PayHours" />
+      <xs:enumeration value="FeedPayroll" />
+      <xs:enumeration value="TransferredToPayroll" />
+      <xs:enumeration value="LaborCollection" />
+      <xs:enumeration value="TranSet" />
+      <xs:enumeration value="ActiveTrans" />
+      <xs:enumeration value="ChkLink" />
+      <xs:enumeration value="BatchTotalHrsDisp" />
+      <xs:enumeration value="BatchHrsRemainDisp" />
+      <xs:enumeration value="BatchHrsRemainPctDisp" />
+      <xs:enumeration value="BatchSplitHrsMethod" />
+      <xs:enumeration value="BatchAssignTo" />
+      <xs:enumeration value="BatchComplete" />
+      <xs:enumeration value="BatchStartHrs" />
+      <xs:enumeration value="BatchEndHrs" />
+      <xs:enumeration value="BatchTotalHrs" />
+      <xs:enumeration value="BatchHrsRemain" />
+      <xs:enumeration value="BatchHrsRemainPct" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="Imported" />
+      <xs:enumeration value="ImportDate" />
+      <xs:enumeration value="BatchMode" />
+      <xs:enumeration value="HCMPayHoursCalcType" />
+      <xs:enumeration value="EmpBasicShift" />
+      <xs:enumeration value="EmpBasicSupervisorID" />
+      <xs:enumeration value="GetNewNoHdr" />
+      <xs:enumeration value="HCMTotPayHours" />
+      <xs:enumeration value="ImagePath" />
+      <xs:enumeration value="LunchBreak" />
+      <xs:enumeration value="MES" />
+      <xs:enumeration value="PayrollValuesForHCM" />
+      <xs:enumeration value="TimeDisableDelete" />
+      <xs:enumeration value="TimeDisableUpdate" />
+      <xs:enumeration value="TotBurHrs" />
+      <xs:enumeration value="TotLbrHrs" />
+      <xs:enumeration value="WipPosted" />
+      <xs:enumeration value="DspPayHours" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="EmployeeNumFirstName" />
+      <xs:enumeration value="EmployeeNumName" />
+      <xs:enumeration value="EmployeeNumLastName" />
+      <xs:enumeration value="HCMStatusStatus" />
+      <xs:enumeration value="PRSystHCMEnabled" />
+      <xs:enumeration value="ShiftDescription" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LaborHedRowColumnOrder" nillable="true" type="tns:LaborHedRowColumnOrder" />
+  <xs:complexType name="LaborPartTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LaborPartRow" nillable="true" type="tns:LaborPartRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaborPartTable" nillable="true" type="tns:LaborPartTable" />
+  <xs:complexType name="LaborPartRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Ice" base="q8:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:LaborPartRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborDtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborHedSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="MESProcessing" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestMove" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RevisionNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborPartRow" nillable="true" type="tns:LaborPartRow" />
+  <xs:simpleType name="LaborPartRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="LaborHedSeq" />
+      <xs:enumeration value="LaborDtlSeq" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="PartQty" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="MESProcessing" />
+      <xs:enumeration value="RequestMove" />
+      <xs:enumeration value="PartUOM" />
+      <xs:enumeration value="PartDescription" />
+      <xs:enumeration value="RevisionNum" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LaborPartRowColumnOrder" nillable="true" type="tns:LaborPartRowColumnOrder" />
+  <xs:complexType name="LbrScrapSerialNumbersTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LbrScrapSerialNumbersRow" nillable="true" type="tns:LbrScrapSerialNumbersRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LbrScrapSerialNumbersTable" nillable="true" type="tns:LbrScrapSerialNumbersTable" />
+  <xs:complexType name="LbrScrapSerialNumbersRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Ice" base="q9:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AssemblySeq" type="xs:int" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:LbrScrapSerialNumbersRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnableStatus" type="xs:boolean" />
+          <xs:element minOccurs="0" name="JobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborDtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborHedSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="OprSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNStatusDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Selected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LbrScrapSerialNumbersRow" nillable="true" type="tns:LbrScrapSerialNumbersRow" />
+  <xs:simpleType name="LbrScrapSerialNumbersRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="LaborHedSeq" />
+      <xs:enumeration value="LaborDtlSeq" />
+      <xs:enumeration value="SerialNumber" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="JobNum" />
+      <xs:enumeration value="AssemblySeq" />
+      <xs:enumeration value="OprSeq" />
+      <xs:enumeration value="EnableStatus" />
+      <xs:enumeration value="SNStatus" />
+      <xs:enumeration value="SNStatusDesc" />
+      <xs:enumeration value="Selected" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LbrScrapSerialNumbersRowColumnOrder" nillable="true" type="tns:LbrScrapSerialNumbersRowColumnOrder" />
+  <xs:complexType name="SNFormatTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SNFormatRow" nillable="true" type="tns:SNFormatRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNFormatTable" nillable="true" type="tns:SNFormatTable" />
+  <xs:complexType name="SNFormatRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Ice" base="q10:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:SNFormatRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HasSerialNumbers" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeadingZeroes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NumberOfDigits" type="xs:int" />
+          <xs:element minOccurs="0" name="PartIUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartPartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartPricePerCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartSalesUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartSellingFactor" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartTrackDimension" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartTrackLots" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartTrackSerialNum" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Plant" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNBaseDataType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNFormat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNLastUsedSeq" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNMask" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNMaskPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNMaskSuffix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialMaskDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialMaskExample" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialMaskMask" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialMaskMaskType" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SNFormatRow" nillable="true" type="tns:SNFormatRow" />
+  <xs:simpleType name="SNFormatRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="Plant" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="NumberOfDigits" />
+      <xs:enumeration value="SNMask" />
+      <xs:enumeration value="SNBaseDataType" />
+      <xs:enumeration value="SNFormat" />
+      <xs:enumeration value="LeadingZeroes" />
+      <xs:enumeration value="SNPrefix" />
+      <xs:enumeration value="SNMaskSuffix" />
+      <xs:enumeration value="SNMaskPrefix" />
+      <xs:enumeration value="SNLastUsedSeq" />
+      <xs:enumeration value="HasSerialNumbers" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="PartPricePerCode" />
+      <xs:enumeration value="PartTrackLots" />
+      <xs:enumeration value="PartTrackSerialNum" />
+      <xs:enumeration value="PartTrackDimension" />
+      <xs:enumeration value="PartSalesUM" />
+      <xs:enumeration value="PartIUM" />
+      <xs:enumeration value="PartSellingFactor" />
+      <xs:enumeration value="PartPartDescription" />
+      <xs:enumeration value="SerialMaskMaskType" />
+      <xs:enumeration value="SerialMaskMask" />
+      <xs:enumeration value="SerialMaskExample" />
+      <xs:enumeration value="SerialMaskDescription" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SNFormatRowColumnOrder" nillable="true" type="tns:SNFormatRowColumnOrder" />
+  <xs:complexType name="SelectedSerialNumbersTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SelectedSerialNumbersRow" nillable="true" type="tns:SelectedSerialNumbersRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SelectedSerialNumbersTable" nillable="true" type="tns:SelectedSerialNumbersTable" />
+  <xs:complexType name="SelectedSerialNumbersRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Ice" base="q11:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:SelectedSerialNumbersRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Deselected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="KBLbrAction" type="xs:int" />
+          <xs:element minOccurs="0" name="KBLbrActionDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KitWhseList" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NotSavedToDB" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassedInspection" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PreDeselected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PreventDeselect" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RawSerialNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReasonCodeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReasonCodeType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNBaseNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNMask" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SNPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Scrapped" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ScrappedReasonCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SourceRowID" type="ser:guid" />
+          <xs:element minOccurs="0" name="TransType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Voided" type="xs:boolean" />
+          <xs:element minOccurs="0" name="XRefPartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="XRefPartType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="poLinkValues" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SelectedSerialNumbersRow" nillable="true" type="tns:SelectedSerialNumbersRow" />
+  <xs:simpleType name="SelectedSerialNumbersRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="SerialNumber" />
+      <xs:enumeration value="Scrapped" />
+      <xs:enumeration value="ScrappedReasonCode" />
+      <xs:enumeration value="Voided" />
+      <xs:enumeration value="Reference" />
+      <xs:enumeration value="ReasonCodeType" />
+      <xs:enumeration value="ReasonCodeDesc" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="SNPrefix" />
+      <xs:enumeration value="SNBaseNumber" />
+      <xs:enumeration value="SourceRowID" />
+      <xs:enumeration value="TransType" />
+      <xs:enumeration value="PassedInspection" />
+      <xs:enumeration value="Deselected" />
+      <xs:enumeration value="KitWhseList" />
+      <xs:enumeration value="RawSerialNum" />
+      <xs:enumeration value="KBLbrAction" />
+      <xs:enumeration value="KBLbrActionDesc" />
+      <xs:enumeration value="PreventDeselect" />
+      <xs:enumeration value="XRefPartNum" />
+      <xs:enumeration value="XRefPartType" />
+      <xs:enumeration value="PreDeselected" />
+      <xs:enumeration value="poLinkValues" />
+      <xs:enumeration value="SNMask" />
+      <xs:enumeration value="NotSavedToDB" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SelectedSerialNumbersRowColumnOrder" nillable="true" type="tns:SelectedSerialNumbersRowColumnOrder" />
+  <xs:complexType name="TimeWeeklyViewTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TimeWeeklyViewRow" nillable="true" type="tns:TimeWeeklyViewRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeWeeklyViewTable" nillable="true" type="tns:TimeWeeklyViewTable" />
+  <xs:complexType name="TimeWeeklyViewRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/Ice" base="q12:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ASMdesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AllowDirLbr" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AssemblySeq" type="xs:int" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:TimeWeeklyViewRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Complete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DeleteRow" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DisLaborType" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DisPrjRoleCd" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DisTimeTypCd" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EmployeeNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnableCopy" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableRecall" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableSubmit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ExpenseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExpenseCodeDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HCMTotWeeklyPayHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoursFri" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoursMon" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoursSat" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoursSun" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoursThu" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoursTotal" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoursTue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoursWed" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IndirectCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndirectCodeDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JCDept" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborEntryMethod" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LaborType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborTypePseudo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MessageText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewRowType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OpCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OpComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OperDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OprSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="PhaseID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhaseIDDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QuickEntryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceGrpID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceGrpIDDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceIDDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleCd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleCdDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Shift" type="xs:int" />
+          <xs:element minOccurs="0" name="ShiftDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeAutoSubmit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TimeDisableUpdate" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TimeStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeTypCd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeTypCdDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WBSPhaseDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WeekBeginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="WeekDisplayText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WeekEndDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TimeWeeklyViewRow" nillable="true" type="tns:TimeWeeklyViewRow" />
+  <xs:simpleType name="TimeWeeklyViewRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="EmployeeNum" />
+      <xs:enumeration value="WeekBeginDate" />
+      <xs:enumeration value="WeekEndDate" />
+      <xs:enumeration value="QuickEntryCode" />
+      <xs:enumeration value="WeekDisplayText" />
+      <xs:enumeration value="LaborType" />
+      <xs:enumeration value="ProjectID" />
+      <xs:enumeration value="PhaseID" />
+      <xs:enumeration value="TimeTypCd" />
+      <xs:enumeration value="JobNum" />
+      <xs:enumeration value="AssemblySeq" />
+      <xs:enumeration value="OprSeq" />
+      <xs:enumeration value="RoleCd" />
+      <xs:enumeration value="IndirectCode" />
+      <xs:enumeration value="HoursSun" />
+      <xs:enumeration value="HoursMon" />
+      <xs:enumeration value="HoursTue" />
+      <xs:enumeration value="HoursWed" />
+      <xs:enumeration value="HoursThu" />
+      <xs:enumeration value="HoursFri" />
+      <xs:enumeration value="HoursSat" />
+      <xs:enumeration value="TimeTypCdDescription" />
+      <xs:enumeration value="RoleCdDescription" />
+      <xs:enumeration value="IndirectCodeDescription" />
+      <xs:enumeration value="PhaseIDDescription" />
+      <xs:enumeration value="HoursTotal" />
+      <xs:enumeration value="ExpenseCode" />
+      <xs:enumeration value="Complete" />
+      <xs:enumeration value="ResourceGrpID" />
+      <xs:enumeration value="ResourceID" />
+      <xs:enumeration value="OpCode" />
+      <xs:enumeration value="OpComplete" />
+      <xs:enumeration value="LaborEntryMethod" />
+      <xs:enumeration value="LaborRate" />
+      <xs:enumeration value="ResourceGrpIDDescription" />
+      <xs:enumeration value="JCDept" />
+      <xs:enumeration value="TimeDisableUpdate" />
+      <xs:enumeration value="ResourceIDDescription" />
+      <xs:enumeration value="ExpenseCodeDescription" />
+      <xs:enumeration value="LaborTypePseudo" />
+      <xs:enumeration value="Shift" />
+      <xs:enumeration value="ShiftDescription" />
+      <xs:enumeration value="MessageText" />
+      <xs:enumeration value="NewRowType" />
+      <xs:enumeration value="DisPrjRoleCd" />
+      <xs:enumeration value="DisTimeTypCd" />
+      <xs:enumeration value="DisLaborType" />
+      <xs:enumeration value="EnableSubmit" />
+      <xs:enumeration value="EnableCopy" />
+      <xs:enumeration value="EnableRecall" />
+      <xs:enumeration value="AllowDirLbr" />
+      <xs:enumeration value="TimeStatus" />
+      <xs:enumeration value="ProjDesc" />
+      <xs:enumeration value="WBSPhaseDesc" />
+      <xs:enumeration value="OperDesc" />
+      <xs:enumeration value="ASMdesc" />
+      <xs:enumeration value="TimeAutoSubmit" />
+      <xs:enumeration value="DeleteRow" />
+      <xs:enumeration value="HCMTotWeeklyPayHours" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TimeWeeklyViewRowColumnOrder" nillable="true" type="tns:TimeWeeklyViewRowColumnOrder" />
+  <xs:complexType name="TimeWorkHoursTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TimeWorkHoursRow" nillable="true" type="tns:TimeWorkHoursRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeWorkHoursTable" nillable="true" type="tns:TimeWorkHoursTable" />
+  <xs:complexType name="TimeWorkHoursRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Ice" base="q13:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CalendarDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CalendarID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:TimeWorkHoursRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FriBookedHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FriDiffHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FriDisplayDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FriWorkHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MonBookedHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MonDiffHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MonDisplayDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MonWorkHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SatBookedHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SatDiffHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SatDisplayDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SatWorkHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SunBookedHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SunDiffHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SunDisplayDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SunWorkHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ThuBookedHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ThuDiffHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ThuDisplayDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ThuWorkHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalBookedHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalDiffHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalWorkHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TueBookedHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TueDiffHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TueDisplayDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TueWorkHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WedBookedHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WedDiffHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WedDisplayDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WedWorkHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WeekBeginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="WeekDisplayText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WeekEndDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TimeWorkHoursRow" nillable="true" type="tns:TimeWorkHoursRow" />
+  <xs:simpleType name="TimeWorkHoursRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="CalendarID" />
+      <xs:enumeration value="WeekBeginDate" />
+      <xs:enumeration value="WeekEndDate" />
+      <xs:enumeration value="SunDisplayDate" />
+      <xs:enumeration value="MonDisplayDate" />
+      <xs:enumeration value="TueDisplayDate" />
+      <xs:enumeration value="WedDisplayDate" />
+      <xs:enumeration value="ThuDisplayDate" />
+      <xs:enumeration value="FriDisplayDate" />
+      <xs:enumeration value="SatDisplayDate" />
+      <xs:enumeration value="WeekDisplayText" />
+      <xs:enumeration value="SunWorkHours" />
+      <xs:enumeration value="MonWorkHours" />
+      <xs:enumeration value="TueWorkHours" />
+      <xs:enumeration value="WedWorkHours" />
+      <xs:enumeration value="ThuWorkHours" />
+      <xs:enumeration value="FriWorkHours" />
+      <xs:enumeration value="SatWorkHours" />
+      <xs:enumeration value="SunBookedHours" />
+      <xs:enumeration value="MonBookedHours" />
+      <xs:enumeration value="WedBookedHours" />
+      <xs:enumeration value="ThuBookedHours" />
+      <xs:enumeration value="FriBookedHours" />
+      <xs:enumeration value="SunDiffHours" />
+      <xs:enumeration value="MonDiffHours" />
+      <xs:enumeration value="SatBookedHours" />
+      <xs:enumeration value="TueBookedHours" />
+      <xs:enumeration value="TueDiffHours" />
+      <xs:enumeration value="WedDiffHours" />
+      <xs:enumeration value="ThuDiffHours" />
+      <xs:enumeration value="FriDiffHours" />
+      <xs:enumeration value="SatDiffHours" />
+      <xs:enumeration value="EmployeeNum" />
+      <xs:enumeration value="CalendarDescription" />
+      <xs:enumeration value="TotalWorkHours" />
+      <xs:enumeration value="TotalBookedHours" />
+      <xs:enumeration value="TotalDiffHours" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TimeWorkHoursRowColumnOrder" nillable="true" type="tns:TimeWorkHoursRowColumnOrder" />
+  <xs:complexType name="WorkQueueTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkQueueRow" nillable="true" type="tns:WorkQueueRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkQueueTable" nillable="true" type="tns:WorkQueueTable" />
+  <xs:complexType name="WorkQueueRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/Ice" base="q14:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AsmCommentText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AssemblySeq" type="xs:int" />
+          <xs:element minOccurs="0" name="CanRequest" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CanSelect" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CheckBox01" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CheckBox02" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CheckBox03" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CheckBox04" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CheckBox05" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:WorkQueueRowColumnOrder" />
+          <xs:element minOccurs="0" name="CommentText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Complete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CrewCount" type="xs:int" />
+          <xs:element minOccurs="0" name="CurQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Date01" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Date02" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Date03" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Date04" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Date05" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DiscrepQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DiscrepRsnCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DiscrepRsnDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DueDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DueHour" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EnableDiscrepQty" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableLaborQty" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnableScrapQty" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EstProdHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EstSetHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FirstCustID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstCustName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstCustNum" type="xs:int" />
+          <xs:element minOccurs="0" name="FirstShipViaCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstShipViaDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JCDept" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobHeadCommentText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobHeadPartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobHeadPartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborEntryMethod" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborEntryMethodDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LaborUOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Machines" type="xs:int" />
+          <xs:element minOccurs="0" name="MorePages" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Number01" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Number02" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Number03" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Number04" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Number05" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OpCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OpCodeOpDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OpComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OpDtlDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OpDtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="OpDtlType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OprCommentText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OprQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OprSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="OpsPerPart" type="xs:int" />
+          <xs:element minOccurs="0" name="PageNum" type="xs:int" />
+          <xs:element minOccurs="0" name="PartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProdCrewSize" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProdLoadHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProdStandard" type="xs:decimal" />
+          <xs:element minOccurs="0" name="QtyCompleted" type="xs:decimal" />
+          <xs:element minOccurs="0" name="QtyLeft" type="xs:decimal" />
+          <xs:element minOccurs="0" name="QtyPerCycle" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RegionCode" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestMove" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ResourceGrpDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceGrpID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RunQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SchResourceList" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SchedCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScrapQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ScrapRsnCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScrapRsnDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Selected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SetUpCrewSize" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SetupGroup" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SetupGrpDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SetupLeft" type="xs:int" />
+          <xs:element minOccurs="0" name="SetupLoadHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SetupOrProd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShortChar01" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShortChar02" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShortChar03" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShortChar04" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShortChar05" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SortDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SortHour" type="xs:decimal" />
+          <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDateNullCheck" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StartHour" type="xs:decimal" />
+          <xs:element minOccurs="0" name="StdBasis" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StdFormat" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubContract" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TotalRecords" type="xs:int" />
+          <xs:element minOccurs="0" name="WIPQty" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WIPQtyDetails" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WorkQueueRow" nillable="true" type="tns:WorkQueueRow" />
+  <xs:simpleType name="WorkQueueRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="JCDept" />
+      <xs:enumeration value="OpComplete" />
+      <xs:enumeration value="JobNum" />
+      <xs:enumeration value="AssemblySeq" />
+      <xs:enumeration value="OprSeq" />
+      <xs:enumeration value="OprQty" />
+      <xs:enumeration value="OpCode" />
+      <xs:enumeration value="EstSetHours" />
+      <xs:enumeration value="EstProdHours" />
+      <xs:enumeration value="ProdStandard" />
+      <xs:enumeration value="SchedCode" />
+      <xs:enumeration value="SetupLoadHrs" />
+      <xs:enumeration value="StdFormat" />
+      <xs:enumeration value="StdBasis" />
+      <xs:enumeration value="ProdLoadHrs" />
+      <xs:enumeration value="RegionCode" />
+      <xs:enumeration value="OpsPerPart" />
+      <xs:enumeration value="StartDate" />
+      <xs:enumeration value="StartHour" />
+      <xs:enumeration value="DueDate" />
+      <xs:enumeration value="DueHour" />
+      <xs:enumeration value="SortDate" />
+      <xs:enumeration value="WIPQty" />
+      <xs:enumeration value="CrewCount" />
+      <xs:enumeration value="QtyLeft" />
+      <xs:enumeration value="SetupLeft" />
+      <xs:enumeration value="WIPQtyDetails" />
+      <xs:enumeration value="Machines" />
+      <xs:enumeration value="CanRequest" />
+      <xs:enumeration value="CanSelect" />
+      <xs:enumeration value="SetUpCrewSize" />
+      <xs:enumeration value="JobHeadPartNum" />
+      <xs:enumeration value="ProdCrewSize" />
+      <xs:enumeration value="JobHeadPartDescription" />
+      <xs:enumeration value="QtyCompleted" />
+      <xs:enumeration value="OprCommentText" />
+      <xs:enumeration value="AsmCommentText" />
+      <xs:enumeration value="JobHeadCommentText" />
+      <xs:enumeration value="SubContract" />
+      <xs:enumeration value="RegionDescription" />
+      <xs:enumeration value="OpDtlSeq" />
+      <xs:enumeration value="OpDtlDescription" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="OpDtlType" />
+      <xs:enumeration value="Description" />
+      <xs:enumeration value="SortHour" />
+      <xs:enumeration value="CommentText" />
+      <xs:enumeration value="Selected" />
+      <xs:enumeration value="RunQty" />
+      <xs:enumeration value="PartDescription" />
+      <xs:enumeration value="SchResourceList" />
+      <xs:enumeration value="CurQty" />
+      <xs:enumeration value="LaborQty" />
+      <xs:enumeration value="ScrapQty" />
+      <xs:enumeration value="DiscrepQty" />
+      <xs:enumeration value="DiscrepRsnCode" />
+      <xs:enumeration value="ScrapRsnCode" />
+      <xs:enumeration value="ScrapRsnDesc" />
+      <xs:enumeration value="DiscrepRsnDesc" />
+      <xs:enumeration value="Complete" />
+      <xs:enumeration value="ResourceID" />
+      <xs:enumeration value="LaborEntryMethod" />
+      <xs:enumeration value="FirstCustNum" />
+      <xs:enumeration value="FirstCustID" />
+      <xs:enumeration value="FirstCustName" />
+      <xs:enumeration value="FirstShipViaCode" />
+      <xs:enumeration value="FirstShipViaDesc" />
+      <xs:enumeration value="SetupGrpDesc" />
+      <xs:enumeration value="SetupGroup" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="RequestMove" />
+      <xs:enumeration value="ResourceGrpID" />
+      <xs:enumeration value="SetupOrProd" />
+      <xs:enumeration value="StartDateNullCheck" />
+      <xs:enumeration value="CheckBox01" />
+      <xs:enumeration value="CheckBox02" />
+      <xs:enumeration value="CheckBox03" />
+      <xs:enumeration value="CheckBox04" />
+      <xs:enumeration value="QtyPerCycle" />
+      <xs:enumeration value="CheckBox05" />
+      <xs:enumeration value="Date01" />
+      <xs:enumeration value="Date02" />
+      <xs:enumeration value="Date03" />
+      <xs:enumeration value="Date04" />
+      <xs:enumeration value="Date05" />
+      <xs:enumeration value="Number01" />
+      <xs:enumeration value="Number02" />
+      <xs:enumeration value="Number03" />
+      <xs:enumeration value="Number04" />
+      <xs:enumeration value="Number05" />
+      <xs:enumeration value="ShortChar01" />
+      <xs:enumeration value="ShortChar02" />
+      <xs:enumeration value="ShortChar03" />
+      <xs:enumeration value="ShortChar04" />
+      <xs:enumeration value="ShortChar05" />
+      <xs:enumeration value="PageNum" />
+      <xs:enumeration value="TotalRecords" />
+      <xs:enumeration value="MorePages" />
+      <xs:enumeration value="LaborEntryMethodDesc" />
+      <xs:enumeration value="EnableLaborQty" />
+      <xs:enumeration value="EnableScrapQty" />
+      <xs:enumeration value="EnableDiscrepQty" />
+      <xs:enumeration value="ResourceGrpDesc" />
+      <xs:enumeration value="OpCodeOpDesc" />
+      <xs:enumeration value="LaborUOM" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WorkQueueRowColumnOrder" nillable="true" type="tns:WorkQueueRowColumnOrder" />
+  <xs:complexType name="HCMLaborDtlTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Ice" base="q15:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HCMLaborDtl" nillable="true" type="tns:HCMLaborDtlTable" />
+          <xs:element minOccurs="0" name="HCMLaborDtlSync" nillable="true" type="tns:HCMLaborDtlSyncTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HCMLaborDtlTableset" nillable="true" type="tns:HCMLaborDtlTableset" />
+  <xs:complexType name="HCMLaborDtlTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HCMLaborDtlRow" nillable="true" type="tns:HCMLaborDtlRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HCMLaborDtlTable" nillable="true" type="tns:HCMLaborDtlTable" />
+  <xs:complexType name="HCMLaborDtlRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/Ice" base="q16:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClockInDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:HCMLaborDtlRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspClockInTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspClockOutTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HCMEnabledAt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JCDept" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborDtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborHedSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LaborNote" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborTypePseudo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PayHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProjectID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Shift" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HCMLaborDtlRow" nillable="true" type="tns:HCMLaborDtlRow" />
+  <xs:simpleType name="HCMLaborDtlRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="EmployeeNum" />
+      <xs:enumeration value="LaborHedSeq" />
+      <xs:enumeration value="LaborDtlSeq" />
+      <xs:enumeration value="LaborTypePseudo" />
+      <xs:enumeration value="JCDept" />
+      <xs:enumeration value="LaborNote" />
+      <xs:enumeration value="ClockInDate" />
+      <xs:enumeration value="DspClockInTime" />
+      <xs:enumeration value="DspClockOutTime" />
+      <xs:enumeration value="ProjectID" />
+      <xs:enumeration value="Shift" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="PayHours" />
+      <xs:enumeration value="HCMEnabledAt" />
+      <xs:enumeration value="Status" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HCMLaborDtlRowColumnOrder" nillable="true" type="tns:HCMLaborDtlRowColumnOrder" />
+  <xs:complexType name="HCMLaborDtlSyncTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HCMLaborDtlSyncRow" nillable="true" type="tns:HCMLaborDtlSyncRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HCMLaborDtlSyncTable" nillable="true" type="tns:HCMLaborDtlSyncTable" />
+  <xs:complexType name="HCMLaborDtlSyncRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/Ice" base="q17:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:HCMLaborDtlSyncRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborDtlSysRowID" type="ser:guid" />
+          <xs:element minOccurs="0" name="LaborSource" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HCMLaborDtlSyncRow" nillable="true" type="tns:HCMLaborDtlSyncRow" />
+  <xs:simpleType name="HCMLaborDtlSyncRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="LaborDtlSysRowID" />
+      <xs:enumeration value="Status" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="LaborSource" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HCMLaborDtlSyncRowColumnOrder" nillable="true" type="tns:HCMLaborDtlSyncRowColumnOrder" />
+  <xs:complexType name="LaborHedListTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/Ice" base="q18:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LaborHedList" nillable="true" type="tns:LaborHedListTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborHedListTableset" nillable="true" type="tns:LaborHedListTableset" />
+  <xs:complexType name="LaborHedListTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LaborHedListRow" nillable="true" type="tns:LaborHedListRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaborHedListTable" nillable="true" type="tns:LaborHedListTable" />
+  <xs:complexType name="LaborHedListRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/Ice" base="q19:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActLunchInTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ActLunchOutTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ActiveTrans" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ActualClockInTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ActualClockOutTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ActualClockinDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ChkLink" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClockInDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ClockInTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ClockOutTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:LaborHedListRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspClockInTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspClockOutTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DspPayHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EmpBasicShift" type="xs:int" />
+          <xs:element minOccurs="0" name="EmpBasicSupervisorID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNumFirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNumLastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeNumName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FeedPayroll" type="xs:boolean" />
+          <xs:element minOccurs="0" name="GetNewNoHdr" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ImagePath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LaborCollection" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LaborHedSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="LunchBreak" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LunchInTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LunchOutTime" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LunchStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MES" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PayHours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PayrollDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Shift" type="xs:int" />
+          <xs:element minOccurs="0" name="ShiftDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="TimeDisableDelete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TimeDisableUpdate" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TotBurHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotLbrHrs" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TranSet" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransferredToPayroll" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WipPosted" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LaborHedListRow" nillable="true" type="tns:LaborHedListRow" />
+  <xs:simpleType name="LaborHedListRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="EmployeeNum" />
+      <xs:enumeration value="LaborHedSeq" />
+      <xs:enumeration value="PayrollDate" />
+      <xs:enumeration value="Shift" />
+      <xs:enumeration value="ClockInDate" />
+      <xs:enumeration value="ClockInTime" />
+      <xs:enumeration value="DspClockInTime" />
+      <xs:enumeration value="ActualClockInTime" />
+      <xs:enumeration value="ActualClockinDate" />
+      <xs:enumeration value="LunchStatus" />
+      <xs:enumeration value="ActLunchOutTime" />
+      <xs:enumeration value="LunchOutTime" />
+      <xs:enumeration value="ActLunchInTime" />
+      <xs:enumeration value="LunchInTime" />
+      <xs:enumeration value="ClockOutTime" />
+      <xs:enumeration value="DspClockOutTime" />
+      <xs:enumeration value="ActualClockOutTime" />
+      <xs:enumeration value="PayHours" />
+      <xs:enumeration value="FeedPayroll" />
+      <xs:enumeration value="TransferredToPayroll" />
+      <xs:enumeration value="LaborCollection" />
+      <xs:enumeration value="TranSet" />
+      <xs:enumeration value="ActiveTrans" />
+      <xs:enumeration value="ChkLink" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="TotLbrHrs" />
+      <xs:enumeration value="TotBurHrs" />
+      <xs:enumeration value="WipPosted" />
+      <xs:enumeration value="ImagePath" />
+      <xs:enumeration value="LunchBreak" />
+      <xs:enumeration value="EmpBasicShift" />
+      <xs:enumeration value="EmpBasicSupervisorID" />
+      <xs:enumeration value="DspPayHours" />
+      <xs:enumeration value="GetNewNoHdr" />
+      <xs:enumeration value="TimeDisableUpdate" />
+      <xs:enumeration value="TimeDisableDelete" />
+      <xs:enumeration value="MES" />
+      <xs:enumeration value="EmployeeNumLastName" />
+      <xs:enumeration value="EmployeeNumName" />
+      <xs:enumeration value="EmployeeNumFirstName" />
+      <xs:enumeration value="ShiftDescription" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LaborHedListRowColumnOrder" nillable="true" type="tns:LaborHedListRowColumnOrder" />
+  <xs:complexType name="UpdExtLaborTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/Ice" base="q20:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LaborDtl" nillable="true" type="tns:LaborDtlTable" />
+          <xs:element minOccurs="0" name="LaborDtlAttch" nillable="true" type="tns:LaborDtlAttchTable" />
+          <xs:element minOccurs="0" name="LaborDtlComment" nillable="true" type="tns:LaborDtlCommentTable" />
+          <xs:element minOccurs="0" name="LaborDtlGroup" nillable="true" type="tns:LaborDtlGroupTable" />
+          <xs:element minOccurs="0" name="LaborEquip" nillable="true" type="tns:LaborEquipTable" />
+          <xs:element minOccurs="0" name="LaborHed" nillable="true" type="tns:LaborHedTable" />
+          <xs:element minOccurs="0" name="LaborPart" nillable="true" type="tns:LaborPartTable" />
+          <xs:element minOccurs="0" name="LbrScrapSerialNumbers" nillable="true" type="tns:LbrScrapSerialNumbersTable" />
+          <xs:element minOccurs="0" name="SNFormat" nillable="true" type="tns:SNFormatTable" />
+          <xs:element minOccurs="0" name="SelectedSerialNumbers" nillable="true" type="tns:SelectedSerialNumbersTable" />
+          <xs:element minOccurs="0" name="TimeWeeklyView" nillable="true" type="tns:TimeWeeklyViewTable" />
+          <xs:element minOccurs="0" name="TimeWorkHours" nillable="true" type="tns:TimeWorkHoursTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdExtLaborTableset" nillable="true" type="tns:UpdExtLaborTableset" />
+</xs:schema>

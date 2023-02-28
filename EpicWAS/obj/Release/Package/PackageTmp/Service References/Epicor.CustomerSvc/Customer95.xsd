@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Ice.Extensions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Customer.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+  <xs:complexType name="ArrayOfExtensionTableData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtensionTableData" nillable="true" type="tns:ExtensionTableData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtensionTableData" nillable="true" type="tns:ArrayOfExtensionTableData" />
+  <xs:complexType name="ExtensionTableData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Table" nillable="true" type="tns:ExtensionTable" />
+      <xs:element minOccurs="0" name="SystemCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Columns" nillable="true" type="tns:ArrayOfExtensionTableColumn" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PrimaryKeyColumns" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="PeerTableSystemCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PeerTableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtensionTableData" nillable="true" type="tns:ExtensionTableData" />
+  <xs:complexType name="ExtensionTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtensionRow" nillable="true" type="tns:ExtensionRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtensionTable" nillable="true" type="tns:ExtensionTable" />
+  <xs:complexType name="ExtensionRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Ice" base="q2:IceRow">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ColumnValues" nillable="true" type="q3:ArrayOfanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExtensionRow" nillable="true" type="tns:ExtensionRow" />
+  <xs:complexType name="ArrayOfExtensionTableColumn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtensionTableColumn" nillable="true" type="tns:ExtensionTableColumn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtensionTableColumn" nillable="true" type="tns:ArrayOfExtensionTableColumn" />
+  <xs:complexType name="ExtensionTableColumn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ColumnType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtensionTableColumn" nillable="true" type="tns:ExtensionTableColumn" />
+</xs:schema>

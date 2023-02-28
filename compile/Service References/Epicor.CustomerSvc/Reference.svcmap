@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="85ae4b02-4369-48ac-b090-7ab3b7ccfb5f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://bpocloudapp01/epicordemo/ERP/bo/Customer.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Customer.xsd" MetadataType="Schema" ID="577a1192-4c5c-4eab-a0d3-0c772051730a" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?xsd=xsd6" />
+    <MetadataFile FileName="Customer1.xsd" MetadataType="Schema" ID="215788d3-3e8f-4f0a-8db7-edcbed84d9bd" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?xsd=xsd1" />
+    <MetadataFile FileName="Customer2.xsd" MetadataType="Schema" ID="3ccdaab3-9ebe-4ad0-afcb-a07ee875e9db" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?xsd=xsd8" />
+    <MetadataFile FileName="Customer3.xsd" MetadataType="Schema" ID="ae6b945c-169e-490b-ba73-53e9f761f9fa" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?xsd=xsd3" />
+    <MetadataFile FileName="Customer4.xsd" MetadataType="Schema" ID="71987ac7-81aa-4152-8e07-22f9988621bf" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?xsd=xsd7" />
+    <MetadataFile FileName="Customer5.xsd" MetadataType="Schema" ID="e17250af-5ec1-4976-bfd9-cd5562d9c163" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?xsd=xsd4" />
+    <MetadataFile FileName="CustomerSvcFacade.wsdl" MetadataType="Wsdl" ID="5173d0fd-67ea-4f49-bddf-96ab92ee9b9d" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?wsdl" />
+    <MetadataFile FileName="Customer6.xsd" MetadataType="Schema" ID="9cb2e041-dea1-41c7-8030-e7f1ba1d66df" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?xsd=xsd0" />
+    <MetadataFile FileName="Customer.wsdl" MetadataType="Wsdl" ID="a9559831-b5a3-47d7-886b-37ca27c5bb58" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Customer7.xsd" MetadataType="Schema" ID="62631450-893c-41f4-bd89-85be423aa5f4" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?xsd=xsd2" />
+    <MetadataFile FileName="Customer8.xsd" MetadataType="Schema" ID="c7e76fa4-abb1-497d-bc91-5e11f5925754" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?xsd=xsd5" />
+    <MetadataFile FileName="Customer.disco" MetadataType="Disco" ID="9bc339fe-9189-44c8-bce1-457bea2bdcf2" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/Customer.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

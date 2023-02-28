@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3f4d46a7-8013-4af4-8290-811e7807fafe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IssueReturn9.xsd" MetadataType="Schema" ID="d29eea01-8812-4943-9909-20fc10940eed" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd6" />
+    <MetadataFile FileName="IssueReturn91.xsd" MetadataType="Schema" ID="bb3a005b-ff20-4985-9e19-3530c4226140" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd4" />
+    <MetadataFile FileName="IssueReturn92.xsd" MetadataType="Schema" ID="b5151405-ec38-4a2a-8eab-ec5f96917090" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd2" />
+    <MetadataFile FileName="IssueReturn93.xsd" MetadataType="Schema" ID="c82bacfa-4175-4c04-91d6-faa521c46520" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd1" />
+    <MetadataFile FileName="IssueReturn1.wsdl" MetadataType="Wsdl" ID="8086717d-c5b4-4964-821e-904440cc029a" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="IssueReturnSvcFacade1.wsdl" MetadataType="Wsdl" ID="5a89cc3d-46df-4b08-959f-46941881c0ef" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?wsdl" />
+    <MetadataFile FileName="IssueReturn1.disco" MetadataType="Disco" ID="bf76a885-8f56-4b4a-818d-af60840e4fa0" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?disco" />
+    <MetadataFile FileName="IssueReturn94.xsd" MetadataType="Schema" ID="1292b938-00c2-4652-9c68-e21994cc16d9" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd7" />
+    <MetadataFile FileName="IssueReturn95.xsd" MetadataType="Schema" ID="7e0ea080-55ad-49d3-a104-9f7507469385" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd5" />
+    <MetadataFile FileName="IssueReturn96.xsd" MetadataType="Schema" ID="df3704fd-9f2a-47b8-b835-8aa116c2ef03" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd0" />
+    <MetadataFile FileName="IssueReturn97.xsd" MetadataType="Schema" ID="295de3fd-895b-4ec7-b6c5-3b028cc192a8" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd3" />
+    <MetadataFile FileName="IssueReturn98.xsd" MetadataType="Schema" ID="2cf223b0-56cf-4d5b-94c2-bee4cc5ffed1" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/IssueReturn.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="Erp:BO:InventoryQtyAdj" elementFormDefault="qualified" targetNamespace="Erp:BO:InventoryQtyAdj" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+  <xs:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/InventoryQtyAdj.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="CheckSN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="warehouseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPCID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="serialNumbersRequired" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSNFSA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="warehouseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="binNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPCID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSNFSAResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="serialNumbersRequired" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPCIDAdjustmentInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pcid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="doStatusValidations" type="xs:boolean" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="inventoryQtyAdj" nillable="true" type="q1:InventoryQtyAdjTableset" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="inventoryQtyAdjBrw" nillable="true" type="q2:InventoryQtyAdjBrwTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPCIDAdjustmentInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="inventoryQtyAdj" nillable="true" type="q3:InventoryQtyAdjTableset" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="inventoryQtyAdjBrw" nillable="true" type="q4:InventoryQtyAdjBrwTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdjPCID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uomCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdjPCIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetInventoryQtyAdjPCIDResult" nillable="true" type="q5:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdj">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uomCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdjResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetInventoryQtyAdjResult" nillable="true" type="q6:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdjBrwInclManaged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="wareHouseCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdjBrwInclManagedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetInventoryQtyAdjBrwInclManagedResult" nillable="true" type="q7:InventoryQtyAdjBrwTableset" />
+        <xs:element minOccurs="0" name="primaryBin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdjBrwInclPCID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="attributeSetID" type="xs:int" />
+        <xs:element minOccurs="0" name="wareHouseCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdjBrwInclPCIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetInventoryQtyAdjBrwInclPCIDResult" nillable="true" type="q8:InventoryQtyAdjBrwTableset" />
+        <xs:element minOccurs="0" name="primaryBin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdjBrw">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="attributeSetID" type="xs:int" />
+        <xs:element minOccurs="0" name="wareHouseCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryQtyAdjBrwResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetInventoryQtyAdjBrwResult" nillable="true" type="q9:InventoryQtyAdjBrwTableset" />
+        <xs:element minOccurs="0" name="primaryBin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartXRefInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sysRowID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rowType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uomCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartXRefInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uomCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serialWarning" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="questionString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="multipleMatch" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelectSerialNumbersParams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipCompany" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipWareHseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipAdjustQuantity" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipBinNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipUnitOfMeasure" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ipSysRowID" type="q10:guid" />
+        <xs:element minOccurs="0" name="ipPCID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipLotNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelectSerialNumbersParamsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetSelectSerialNumbersParamsResult" nillable="true" type="q11:SelectSerialNumbersParamsTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KitPartStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KitPartStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="kitMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreSetInventoryQtyAdj">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q12:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreSetInventoryQtyAdjResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q13:InventoryQtyAdjTableset" />
+        <xs:element minOccurs="0" name="requiresUserInput" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetInventoryQtyAdj">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q14:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetInventoryQtyAdjResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q15:InventoryQtyAdjTableset" />
+        <xs:element minOccurs="0" name="partTranPKs" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateSN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q16:InventoryQtyAdjTableset" />
+        <xs:element minOccurs="0" name="serialNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateSNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q17:InventoryQtyAdjTableset" />
+        <xs:element minOccurs="0" name="isVoided" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailTranDocTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailTranDocTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AvailTypes" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NegativeInventoryTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pcPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcWhseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcBinNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcLotNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcAttributeSetID" type="xs:int" />
+        <xs:element minOccurs="0" name="pcPCID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcDimCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pdDimConvFactor" type="xs:int" />
+        <xs:element minOccurs="0" name="ipSellingQuantity" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NegativeInventoryTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pcNeqQtyAction" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPartNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opUOM" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opMatchType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartFromRowID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipRowType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipRowID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartFromRowIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opUOM" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeUOM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UOM" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q18:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeUOMResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q19:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnChangeUnitOfMeasure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ium" nillable="true" type="xs:string" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q20:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnChangeUnitOfMeasureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q21:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnChangeLotNum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lotNum" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q22:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnChangeLotNumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q23:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnChangePCID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pcid" nillable="true" type="xs:string" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q24:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnChangePCIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q25:InventoryQtyAdjTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

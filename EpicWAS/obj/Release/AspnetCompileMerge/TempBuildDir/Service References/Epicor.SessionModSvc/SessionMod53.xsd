@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Ice.Tablesets" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Ice.Tablesets" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://erp10/EPICOR_DEMO/Ice/Lib/SessionMod.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+  <xs:import schemaLocation="http://erp10/EPICOR_DEMO/Ice/Lib/SessionMod.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ModuleAccessTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Ice" base="q1:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ModuleAccess" nillable="true" type="tns:ModuleAccessTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModuleAccessTableset" nillable="true" type="tns:ModuleAccessTableset" />
+  <xs:complexType name="ModuleAccessTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModuleAccessRow" nillable="true" type="tns:ModuleAccessRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModuleAccessTable" nillable="true" type="tns:ModuleAccessTable" />
+  <xs:complexType name="ModuleAccessRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Ice" base="q2:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:ModuleAccessRowColumnOrder" />
+          <xs:element minOccurs="0" name="Identifier" type="ser:guid" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="isLicensed" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModuleAccessRow" nillable="true" type="tns:ModuleAccessRow" />
+  <xs:simpleType name="ModuleAccessRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Identifier" />
+      <xs:enumeration value="Name" />
+      <xs:enumeration value="isLicensed" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ModuleAccessRowColumnOrder" nillable="true" type="tns:ModuleAccessRowColumnOrder" />
+</xs:schema>

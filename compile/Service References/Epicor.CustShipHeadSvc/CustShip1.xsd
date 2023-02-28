@@ -1,0 +1,2459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="Erp:BO:CustShip" elementFormDefault="qualified" targetNamespace="Erp:BO:CustShip" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+  <xs:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/CustShip.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+  <xs:element name="CheckPackageCodeAllocNegQty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipcalledFrom" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ipPackNumList" nillable="true" type="q1:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="ipPkgCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPkgCodeQty" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPackageCodeAllocNegQtyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opWarning" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opAction" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opAllocWarning" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opAllocAction" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPkgCodeQtyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPkgCodeQtyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="opPkgCodeList" nillable="true" type="q2:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateDigitalSignature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q3:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateDigitalSignatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q4:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePCIDPackVerify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipSource" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPCID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q5:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePCIDPackVerifyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q6:CustShipTableset" />
+        <xs:element minOccurs="0" name="opAlreadyScannedPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="opPCIDCount" type="xs:int" />
+        <xs:element minOccurs="0" name="opItemPartNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PackVerifyCalcPackPCIDCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PackVerifyCalcPackPCIDCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PackVerifyCalcPackPCIDCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PackVerifyPerformPackVerification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PackVerifyPerformPackVerificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PackVerifyPerformPackVerificationResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="opErrorMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipHead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q7:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipHeadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q8:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipHeadAttch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q9:CustShipTableset" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipHeadAttchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q10:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewCartonTrkDtl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q11:CustShipTableset" />
+        <xs:element minOccurs="0" name="shipmentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewCartonTrkDtlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q12:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipDtl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q13:CustShipTableset" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipDtlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q14:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipDtlAttch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q15:CustShipTableset" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipDtlAttchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q16:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipCOO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q17:CustShipTableset" />
+        <xs:element minOccurs="0" name="relatedToFile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipCOOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q18:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipDtlTax">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q19:CustShipTableset" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="taxCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rateCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipDtlTaxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q20:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipMisc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q21:CustShipTableset" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="seqNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipMiscResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q22:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipUPS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q23:CustShipTableset" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewShipUPSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q24:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteByIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetByIDResult" nillable="true" type="q25:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereClause" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="absolutePage" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetListResult" nillable="true" type="q26:ShipHeadListTableset" />
+        <xs:element minOccurs="0" name="morePages" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereClauseShipHead" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipHeadAttch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseCartonTrkDtl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipDtl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipDtlAttch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipCOO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipDtlPackaging" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipDtlTax" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipMisc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseReplicatedPacks" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipUPS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseLegalNumberGenerate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseLegalNumGenOpts" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSalesKitCompIssue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSelectedIDNumbers" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSelectedSerialNumbers" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipTaxSum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSNFormat" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="absolutePage" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRowsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetRowsResult" nillable="true" type="q27:CustShipTableset" />
+        <xs:element minOccurs="0" name="morePages" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBySysRowID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q28:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBySysRowIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetBySysRowIDResult" nillable="true" type="q29:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBySysRowIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ids" nillable="true" type="q30:ArrayOfguid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBySysRowIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetBySysRowIDsResult" nillable="true" type="q31:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q32:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q33:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q34:UpdExtCustShipTableset" />
+        <xs:element minOccurs="0" name="continueProcessingOnError" type="xs:boolean" />
+        <xs:element minOccurs="0" name="rollbackParentOnChildError" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExtResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Ice" minOccurs="0" name="UpdateExtResult" nillable="true" type="q35:BOUpdErrorTableset" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q36:UpdExtCustShipTableset" />
+        <xs:element minOccurs="0" name="errorsOccurred" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpireDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EffectiveDAte" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Duration" type="xs:int" />
+        <xs:element minOccurs="0" name="modifier" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpireDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExpireDateResult" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCustomerCartons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipNbrCartonsToCreate" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPkgCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPkgLength" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipPkgWidth" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipPkgHeight" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipRecalcAmts" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ipZeroWeight" type="xs:boolean" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q37:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCustomerCartonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q38:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AllowUndoExternalDN">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AllowUndoExternalDNResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AskForShipToChange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="iOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="iOrderLine" type="xs:int" />
+        <xs:element minOccurs="0" name="iOrderRelNum" type="xs:int" />
+        <xs:element minOccurs="0" name="askUser" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AskForShipToChangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="askUser" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignLegalNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q39:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignLegalNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q40:CustShipTableset" />
+        <xs:element minOccurs="0" name="opLegalNumMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageControlPackVoid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageControlPackVoidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetPackageControlPackVoidResult" nillable="true" type="q41:PackageControlPackVoidTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoidPackSlip">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q42:PackageControlPackVoidTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoidPackSlipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q43:PackageControlPackVoidTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildCompSerMatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipRevNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipSerialNumbers" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildCompSerMatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="BuildCompSerMatchResult" nillable="true" type="q44:LLCompSerMatchTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildSerialMatchingParams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q45:SerialMatchingParamsTableset" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds1" nillable="true" type="q46:CustShipTableset" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildSerialMatchingParamsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q47:SerialMatchingParamsTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildShipToCustomerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildShipToCustomerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="shipToCustomerList" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildShipToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="iShipToCustNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildShipToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="shipToList" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateWeight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cartonNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateWeightResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="calculatedWeight" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelVoid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q48:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelVoidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q49:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CanStage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ipShipHedRowID" type="q50:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CanStageResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CartonValidateWeight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipWeight" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CartonValidateWeightResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipCmpl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q51:CustShipTableset" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="shipCmpl" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipCmplResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q52:CustShipTableset" />
+        <xs:element minOccurs="0" name="questionString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipDtlMFCustID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipMFCustID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q53:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipDtlMFCustIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q54:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipDtlMFShipToNum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProposedMFShipToNum" nillable="true" type="xs:string" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q55:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipDtlMFShipToNumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q56:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipDtlUseOTMF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q57:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipDtlUseOTMFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q58:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipHeadShipToCustID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iShipToCustID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q59:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipHeadShipToCustIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q60:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipMiscPrcnt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q61:CustShipTableset" />
+        <xs:element minOccurs="0" name="newPrcnt" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeShipMiscPrcntResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q62:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ipShipHedRowID" type="q63:guid" />
+        <xs:element minOccurs="0" name="ipStatus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipResetCODCharges" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ipResetInsCharges" type="xs:boolean" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q64:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q65:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePCID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipSource" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPCID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q66:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePCIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q67:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeWarrantyToFSA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q68:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeWarrantyToFSAResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q69:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePCID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipSource" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPCID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q70:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePCIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q71:CustShipTableset" />
+        <xs:element minOccurs="0" name="opPCIDCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckCompliance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q72:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckComplianceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opCompliant" type="xs:boolean" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q73:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckCOOPercents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="iPackLine" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckCOOPercentsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckOrderComplete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q74:CustShipTableset" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipShipmentType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckOrderCompleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q75:CustShipTableset" />
+        <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPrePartInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="orderLine" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPrePartInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vMsgText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vSubAvail" type="xs:boolean" />
+        <xs:element minOccurs="0" name="vMsgType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="origPartNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckReadyToInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="readyToInvoice" type="xs:boolean" />
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q76:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckReadyToInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="legalNumberMessage" nillable="true" type="xs:string" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q77:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckShipDtl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q78:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckShipDtlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q79:CustShipTableset" />
+        <xs:element minOccurs="0" name="releaseMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="completeMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="shippingMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lotMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inventoryMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockQtyMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="allocationMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckValidCartonWeight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckValidCartonWeightResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearConvertedManifestUOMFields">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearConvertedManifestUOMFieldsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertToManifestUOM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertToManifestUOMResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertUOM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="baseQty" type="xs:decimal" />
+        <xs:element minOccurs="0" name="baseUOM" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="convUOM" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertUOMResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="convQty" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMassShipDtl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q80:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMassShipDtlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q81:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhantomPacks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q82:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhantomPacksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q83:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRangePhantomPacks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipFromCase" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="ipToCase" nillable="true" type="xs:int" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q84:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRangePhantomPacksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q85:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpressShip">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpressShipResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCartonPackaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPkgCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCartonPackagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opPkgHeight" type="xs:decimal" />
+        <xs:element minOccurs="0" name="opPkgWidth" type="xs:decimal" />
+        <xs:element minOccurs="0" name="opPkgLength" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustShipOrdTrk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustShipOrdTrkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetCustShipOrdTrkResult" nillable="true" type="q86:CustShipOrdTrkTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHeadOrderInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q87:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHeadOrderInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="creditMessage" nillable="true" type="xs:string" />
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q88:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEnablePackageControl">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEnablePackageControlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetEnablePackageControlResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobDtlInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q89:CustShipTableset" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="jobNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobDtlInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q90:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jobNum" nillable="true" type="xs:string" />
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q91:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="creditMessage" nillable="true" type="xs:string" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q92:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobSupOpSeq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jobNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobSupOpSeqResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mtlSeq" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLegalNumGenOpts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q93:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLegalNumGenOptsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q94:CustShipTableset" />
+        <xs:element minOccurs="0" name="opPromptForNum" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POGetLegalNumGenOpts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q95:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POGetLegalNumGenOptsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q96:PackOutTableset" />
+        <xs:element minOccurs="0" name="opPromptForNum" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetManifestInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipSalesOrder" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q97:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetManifestInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q98:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewOrdrShipDtl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q99:CustShipTableset" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewOrdrShipDtlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q100:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewOrdrShipUPS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q101:CustShipTableset" />
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewOrdrShipUPSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q102:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q103:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="creditMessage" nillable="true" type="xs:string" />
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q104:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderLineInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q105:CustShipTableset" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="orderLine" type="xs:int" />
+        <xs:element minOccurs="0" name="subsPart" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderLineInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q106:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderRelInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q107:CustShipTableset" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="orderRelNum" type="xs:int" />
+        <xs:element minOccurs="0" name="allowNewShipTo" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderRelInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q108:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPkgCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q109:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q110:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackClass">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPkgClass" nillable="true" type="xs:string" />
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q111:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackClassResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q112:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackOutPartXRef">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q113:PackOutTableset" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element xmlns:q114="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="SysRowID" type="q114:guid" />
+        <xs:element minOccurs="0" name="rowType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackOutPartXRefResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q115:PackOutTableset" />
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serialWarning" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="questionString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="multipleMatch" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q116:CustShipTableset" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element xmlns:q117="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="SysRowID" type="q117:guid" />
+        <xs:element minOccurs="0" name="rowType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q118:CustShipTableset" />
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serialWarning" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="questionString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="multipleMatch" type="xs:boolean" />
+        <xs:element minOccurs="0" name="idWarning" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayBTFlagDefaults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPayFlag" nillable="true" type="xs:string" />
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q119:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayBTFlagDefaultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q120:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPOPackaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPkgCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q121:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPOPackagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q122:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPOPackClass">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPkgClass" nillable="true" type="xs:string" />
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q123:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPOPackClassResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q124:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQtyInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q125:CustShipTableset" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="displayInvQty" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ourJobShipQty" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQtyInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q126:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRowsContactTracker">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereClauseShipHead" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipHeadAttch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipDtl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipDtlAttch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipMisc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSelectedSerialNumbers" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSerialNumberSearch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSNFormat" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="contactName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="absolutePage" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRowsContactTrackerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetRowsContactTrackerResult" nillable="true" type="q127:CustShipCustTrkTableset" />
+        <xs:element minOccurs="0" name="morePages" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRowsCustomerTracker">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereClauseShipHead" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipHeadAttch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipDtl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipDtlAttch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseShipMisc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSelectedSerialNumbers" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSerialNumberSearch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClauseSNFormat" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="absolutePage" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRowsCustomerTrackerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetRowsCustomerTrackerResult" nillable="true" type="q128:CustShipCustTrkTableset" />
+        <xs:element minOccurs="0" name="morePages" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScale">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="workstationID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScaleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="scaleID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelectIDNumbersParams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="shipQty" type="xs:decimal" />
+        <xs:element minOccurs="0" name="shipUOM" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelectIDNumbersParamsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="convShipQty" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelectSerialNumbersParams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipQuantity" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipUOM" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackLine" type="xs:int" />
+        <xs:element minOccurs="0" name="ipTranType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipJobNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipWhseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipBinNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipLotNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipFromPO" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderLine" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderRelNum" type="xs:int" />
+        <xs:element xmlns:q129="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ipSysRowID" type="q129:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelectSerialNumbersParamsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GetSelectSerialNumbersParamsResult" nillable="true" type="q130:SelectSerialNumbersParamsTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateSelectIDNumParams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SNList" nillable="true" type="q131:ArrayOfstring" />
+        <xs:element minOccurs="0" name="ipPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackLine" type="xs:int" />
+        <xs:element minOccurs="0" name="ipJobNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipUom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipFromMfg" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateSelectIDNumParamsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="GenerateSelectIDNumParamsResult" nillable="true" type="q132:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateLocationIDNum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q133:CustShipTableset" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackLine" type="xs:int" />
+        <xs:element minOccurs="0" name="ipFromMfg" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateLocationIDNumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q134:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShipMiscDefaults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q135:CustShipTableset" />
+        <xs:element minOccurs="0" name="miscCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShipMiscDefaultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q136:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShipToAddr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q137:CustShipTableset" />
+        <xs:element minOccurs="0" name="shipToNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShipToAddrResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q138:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTranDocTypeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipTranDocTypeID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q139:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTranDocTypeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q140:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateWarrantyExpiration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q141:CustShipTableset" />
+        <xs:element minOccurs="0" name="orderLine" type="xs:int" />
+        <xs:element minOccurs="0" name="orderRelNum" type="xs:int" />
+        <xs:element minOccurs="0" name="effectiveDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateWarrantyExpirationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q142:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarrantyInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q143:CustShipTableset" />
+        <xs:element minOccurs="0" name="warrantyCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderLine" type="xs:int" />
+        <xs:element minOccurs="0" name="orderRelNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarrantyInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q144:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearWarrantyInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q145:CustShipTableset" />
+        <xs:element minOccurs="0" name="orderLine" type="xs:int" />
+        <xs:element minOccurs="0" name="orderRelNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearWarrantyInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q146:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWhseInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q147:CustShipTableset" />
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element minOccurs="0" name="whseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whseField" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWhseInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q148:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HHCreateMassShipDtl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q149:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HHCreateMassShipDtlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q150:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HHGetOrderInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q151:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HHGetOrderInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="creditMessage" nillable="true" type="xs:string" />
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q152:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HHSetDtlDefaultValues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q153:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HHSetDtlDefaultValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q154:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkShipmentLines">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q155:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkShipmentLinesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q156:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PhantomStatusCheck">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PhantomStatusCheckResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POChangeStage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q157:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POChangeStageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q158:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POChangeStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipStatus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipResetCODCharges" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ipResetInsCharges" type="xs:boolean" />
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q159:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POChangeStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q160:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POFindBuffer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q161:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POFindBufferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="found" type="xs:int" />
+        <xs:element xmlns:q162="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="rowident" type="q162:guid" />
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q163:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POFindBufWhseBinLot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q164:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POFindBufWhseBinLotResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="found" type="xs:int" />
+        <xs:element xmlns:q165="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="rowident" type="q165:guid" />
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q166:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POGetDtlList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPCID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackMode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POGetDtlListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="POGetDtlListResult" nillable="true" type="q167:PackOutTableset" />
+        <xs:element minOccurs="0" name="cWarning" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POPCIDGetDtlList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPCID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackMode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POPCIDGetDtlListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="POPCIDGetDtlListResult" nillable="true" type="q168:PackOutTableset" />
+        <xs:element minOccurs="0" name="cWarning" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POGetNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POGetNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="POGetNewResult" nillable="true" type="q169:PackOutTableset" />
+        <xs:element minOccurs="0" name="pcWarningMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteKitComponents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackLine" type="xs:int" />
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q170:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteKitComponentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q171:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrderRelOnKitChildren">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackLine" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderRelNum" type="xs:int" />
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q172:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrderRelOnKitChildrenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q173:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POGetShipTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q174:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POGetShipToResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q175:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q176="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ipSourceRowID" type="q176:guid" />
+        <xs:element minOccurs="0" name="poLinkValues" nillable="true" type="xs:string" />
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q177:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opPackNum" type="xs:int" />
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q178:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POUpdateAndDisplay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q179="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ipSourceRowID" type="q179:guid" />
+        <xs:element minOccurs="0" name="poLinkValues" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currLine" type="xs:int" />
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q180:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POUpdateAndDisplayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opPackNum" type="xs:int" />
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q181:PackOutTableset" />
+        <xs:element minOccurs="0" name="dspLegalNumMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POValidateOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipCustNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POValidateOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opVaildOrder" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POValidateOrderRel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderLine" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderRelNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POValidateOrderRelResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POValidatePart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q182:PackOutTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="POValidatePartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q183:PackOutTableset" />
+        <xs:element minOccurs="0" name="opValidPart" type="xs:boolean" />
+        <xs:element minOccurs="0" name="vMsgText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vSubAvail" type="xs:boolean" />
+        <xs:element minOccurs="0" name="vMsgType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreCreateMassShipDtl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element minOccurs="0" name="orderNum" type="xs:int" />
+        <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q184:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreCreateMassShipDtlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="warnMsg" nillable="true" type="xs:string" />
+        <xs:element xmlns:q185="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q185:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessKitChildern">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderLine" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessKitChildernResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessKitChildernResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrePickedOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q186:CustShipPickedOrdersTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrePickedOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PrePickedOrdersResult" type="xs:boolean" />
+        <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q187:CustShipPickedOrdersTableset" />
+        <xs:element minOccurs="0" name="vMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrintSlip">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packNum" type="xs:int" />
+        <xs:element minOccurs="0" name="printPreview" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrintSlipResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessMassShipKit">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessMassShipKitResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPickedOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pConsolidate" type="xs:boolean" />
+        <xs:element minOccurs="0" name="skipDelete" type="xs:boolean" />
+        <xs:element xmlns:q188="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q188:CustShipPickedOrdersTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPickedOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ProcessPickedOrderResult" nillable="true" type="q189:ShipHeadListTableset" />
+        <xs:element minOccurs="0" name="vMessage" nillable="true" type="xs:string" />
+        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q190:CustShipPickedOrdersTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPickedOrderHH">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pConsolidate" type="xs:boolean" />
+        <xs:element minOccurs="0" name="skipDelete" type="xs:boolean" />
+        <xs:element xmlns:q191="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q191:CustShipPickedOrdersTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPickedOrderHHResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q192="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ProcessPickedOrderHHResult" nillable="true" type="q192:ShipHeadListTableset" />
+        <xs:element minOccurs="0" name="vMessage" nillable="true" type="xs:string" />
+        <xs:element xmlns:q193="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q193:CustShipPickedOrdersTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RebuildShipUPS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q194:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RebuildShipUPSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q195:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetUPSQVEnable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipQVEnable" type="xs:boolean" />
+        <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q196:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetUPSQVEnableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q197="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q197:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetUPSQVShipStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipShipStatus" nillable="true" type="xs:string" />
+        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q198:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetUPSQVShipStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q199="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q199:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StageWarning">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipShipmentType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StageWarningResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iWarning" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UndoShipAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q200:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UndoShipAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q201="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q201:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateManifestChargeAmts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipAmountType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipAction" type="xs:boolean" />
+        <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q202:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateManifestChargeAmtsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q203="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q203:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q204:CustShipTableset" />
+        <xs:element minOccurs="0" name="doValidateCreditHold" type="xs:boolean" />
+        <xs:element minOccurs="0" name="doCheckShipDtl" type="xs:boolean" />
+        <xs:element minOccurs="0" name="doLotValidation" type="xs:boolean" />
+        <xs:element minOccurs="0" name="doCheckOrderComplete" type="xs:boolean" />
+        <xs:element minOccurs="0" name="doPostUpdate" type="xs:boolean" />
+        <xs:element minOccurs="0" name="doCheckCompliance" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ipShippedFlagChanged" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipBTCustNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q205="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q205:CustShipTableset" />
+        <xs:element minOccurs="0" name="opReleaseMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opCompleteMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opShippingMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opLotMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opInventoryMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opLockQtyMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opAllocationMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opPartListNeedsAttr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opLotListNeedsAttr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="shipCreditMsg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cError" type="xs:boolean" />
+        <xs:element minOccurs="0" name="compError" type="xs:boolean" />
+        <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opPostUpdMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="updateComplete" type="xs:boolean" />
+        <xs:element minOccurs="0" name="checkComplianceError" type="xs:boolean" />
+        <xs:element minOccurs="0" name="changeStatusError" type="xs:boolean" />
+        <xs:element minOccurs="0" name="checkShipDtlAgain" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePackCODWithCarton">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipCaseNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOldCOD" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipCOD" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipFlag" type="xs:boolean" />
+        <xs:element xmlns:q206="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q206:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePackCODWithCartonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q207="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q207:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePackDeclaredWithCarton">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipCaseNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOldDeclared" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipDeclared" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipDeclaredFlag" type="xs:boolean" />
+        <xs:element xmlns:q208="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q208:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePackDeclaredWithCartonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q209="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q209:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePackWeightWithCarton">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOldWeight" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipWeight" type="xs:decimal" />
+        <xs:element xmlns:q210="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q210:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePackWeightWithCartonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q211="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q211:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateBinCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipWhse" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipBinNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateBinCodeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidatePackNum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidatePackNumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_success" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateCreditHold">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipValPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipValBTCustNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateCreditHoldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opCreditMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opcError" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateCreditHoldPO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateCreditHoldPOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opCreditMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opAgingMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateCreditHoldSSC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipShipmentType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateCreditHoldSSCResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opCreditMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opcError" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateKitPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="packLine" type="xs:int" />
+        <xs:element xmlns:q212="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q212:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateKitPartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q213="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q213:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateLocationIDNumbers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q214="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDNumList" nillable="true" type="q214:ArrayOfstring" />
+        <xs:element minOccurs="0" name="ipPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipIDNumProposed" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipPackLine" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateLocationIDNumbersResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateSN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipSerialNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipJobNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipOurJobshipQty" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipOurInvShipQty" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipOrderNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderLine" type="xs:int" />
+        <xs:element minOccurs="0" name="ipOrderRelNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipShipFromWIP" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ipWarehouseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipBinNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateSNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isVoided" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoidLegalNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPackNum" type="xs:int" />
+        <xs:element minOccurs="0" name="ipVoidedReason" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoidLegalNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q215="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="VoidLegalNumberResult" nillable="true" type="q215:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailTranDocTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailTranDocTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AvailTranDocTypes" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeDescList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipTableName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipFieldName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeDescListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCodeDescListResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NegativeInventoryTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipPartNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipWarehouseCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipBinNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipLotNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipPCID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipDimCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipDimConvFactor" type="xs:decimal" />
+        <xs:element minOccurs="0" name="ipTranQty" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NegativeInventoryTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="opNegQtyAction" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPCBinOutLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q216="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q216:CustShipTableset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPCBinOutLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q217="http://schemas.datacontract.org/2004/07/Erp.Tablesets" minOccurs="0" name="ds" nillable="true" type="q217:CustShipTableset" />
+        <xs:element minOccurs="0" name="lineNum" type="xs:int" />
+        <xs:element minOccurs="0" name="belongToAnotherPC" type="xs:boolean" />
+        <xs:element minOccurs="0" name="pcOutsideMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

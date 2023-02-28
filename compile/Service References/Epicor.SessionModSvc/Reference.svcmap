@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ab1ba395-d019-4cd6-85c5-daeed07c8f44" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/ERPDEMO/ICE/Lib/SessionMod.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SessionMod.disco" MetadataType="Disco" ID="286a13f0-5257-4d54-a2bc-797227a63680" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Ice/Lib/SessionMod.svc?disco" />
+    <MetadataFile FileName="SessionMod.xsd" MetadataType="Schema" ID="c41c86ca-8e98-44f8-a841-cbf3c0d5de5c" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Ice/Lib/SessionMod.svc?xsd=xsd4" />
+    <MetadataFile FileName="SessionMod1.xsd" MetadataType="Schema" ID="1b4d9ee9-5b47-47f5-b894-3eb367e39b27" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Ice/Lib/SessionMod.svc?xsd=xsd1" />
+    <MetadataFile FileName="SessionMod.wsdl" MetadataType="Wsdl" ID="9cbc639e-7c07-430e-bab3-96178a47b213" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Ice/Lib/SessionMod.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SessionModSvcFacade.wsdl" MetadataType="Wsdl" ID="ad4460d1-a41c-4cb2-a15e-9341524d6f71" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Ice/Lib/SessionMod.svc?wsdl" />
+    <MetadataFile FileName="SessionMod2.xsd" MetadataType="Schema" ID="6d72987d-7beb-4ab9-9e84-12ff5d5ca98f" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Ice/Lib/SessionMod.svc?xsd=xsd0" />
+    <MetadataFile FileName="SessionMod3.xsd" MetadataType="Schema" ID="a045f664-3317-425d-9f9c-0fb2d58ae335" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Ice/Lib/SessionMod.svc?xsd=xsd3" />
+    <MetadataFile FileName="SessionMod4.xsd" MetadataType="Schema" ID="b6c55e53-33cf-4d9c-b9d7-15f16d6b177a" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Ice/Lib/SessionMod.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:ReportQty" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:ReportQty" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:ReportQty/Imports">
+      <xsd:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/ReportQty.svc?xsd=xsd0" namespace="Erp:BO:ReportQty" />
+      <xsd:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/ReportQty.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/ReportQty.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/ReportQty.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/ReportQty.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/ReportQty.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/ReportQty.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/ReportQty.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://epicorsi:84/ERP10/Erp/BO/ReportQty.svc?xsd=xsd8" namespace="http://epicor.com/UserDefinedColumns" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ReportQtySvcContract_CheckInspResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInspResults" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_CheckInspResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInspResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_CheckInspResults_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_DeleteLaborEquip_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLaborEquip" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_DeleteLaborEquip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLaborEquipResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_DeleteLaborEquip_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_GetNewLaborEquip_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborEquip" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_GetNewLaborEquip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborEquipResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_GetNewLaborEquip_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_GetNewReportQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewReportQty" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_GetNewReportQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewReportQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_GetNewReportQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeAsmSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeAsmSeq" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeAsmSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeAsmSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeAsmSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeEquipID_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeEquipID" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeEquipID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeEquipIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeEquipID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeJobNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeJobNum" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeJobNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeJobNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeJobNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeNextOprSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeNextOprSeq" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeNextOprSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeNextOprSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeNextOprSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeOprSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeOprSeq" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeOprSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeOprSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeOprSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangePCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePCID" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangePCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangePCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeResource" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_OnChangeResource_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_ReportQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportQuantity" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_ReportQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_ReportQuantity_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q12:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_UpdateLaborEquip_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLaborEquip" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_UpdateLaborEquip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLaborEquipResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_UpdateLaborEquip_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q13:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_ValidateSerialBeforeSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialBeforeSelect" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_ValidateSerialBeforeSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialBeforeSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_ValidateSerialBeforeSelect_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q14:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_GetSelectSerialNumbersParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParams" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_GetSelectSerialNumbersParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q15:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_ValidateSN_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSN" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_ValidateSN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSNResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportQtySvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q16:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="ReportQtySvcContract">
+    <wsdl:operation name="CheckInspResults">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/CheckInspResults" message="tns:ReportQtySvcContract_CheckInspResults_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/CheckInspResultsResponse" message="tns:ReportQtySvcContract_CheckInspResults_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/CheckInspResultsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_CheckInspResults_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLaborEquip">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/DeleteLaborEquip" message="tns:ReportQtySvcContract_DeleteLaborEquip_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/DeleteLaborEquipResponse" message="tns:ReportQtySvcContract_DeleteLaborEquip_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/DeleteLaborEquipEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_DeleteLaborEquip_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborEquip">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/GetNewLaborEquip" message="tns:ReportQtySvcContract_GetNewLaborEquip_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/GetNewLaborEquipResponse" message="tns:ReportQtySvcContract_GetNewLaborEquip_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/GetNewLaborEquipEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_GetNewLaborEquip_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReportQty">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/GetNewReportQty" message="tns:ReportQtySvcContract_GetNewReportQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/GetNewReportQtyResponse" message="tns:ReportQtySvcContract_GetNewReportQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/GetNewReportQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_GetNewReportQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeAsmSeq">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeAsmSeq" message="tns:ReportQtySvcContract_OnChangeAsmSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeAsmSeqResponse" message="tns:ReportQtySvcContract_OnChangeAsmSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeAsmSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_OnChangeAsmSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeEquipID">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeEquipID" message="tns:ReportQtySvcContract_OnChangeEquipID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeEquipIDResponse" message="tns:ReportQtySvcContract_OnChangeEquipID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeEquipIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_OnChangeEquipID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeJobNum">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeJobNum" message="tns:ReportQtySvcContract_OnChangeJobNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeJobNumResponse" message="tns:ReportQtySvcContract_OnChangeJobNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeJobNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_OnChangeJobNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeNextOprSeq">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeNextOprSeq" message="tns:ReportQtySvcContract_OnChangeNextOprSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeNextOprSeqResponse" message="tns:ReportQtySvcContract_OnChangeNextOprSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeNextOprSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_OnChangeNextOprSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeOprSeq">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeOprSeq" message="tns:ReportQtySvcContract_OnChangeOprSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeOprSeqResponse" message="tns:ReportQtySvcContract_OnChangeOprSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeOprSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_OnChangeOprSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangePCID">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangePCID" message="tns:ReportQtySvcContract_OnChangePCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangePCIDResponse" message="tns:ReportQtySvcContract_OnChangePCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangePCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_OnChangePCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeResource">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeResource" message="tns:ReportQtySvcContract_OnChangeResource_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeResourceResponse" message="tns:ReportQtySvcContract_OnChangeResource_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/OnChangeResourceEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_OnChangeResource_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportQuantity">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/ReportQuantity" message="tns:ReportQtySvcContract_ReportQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/ReportQuantityResponse" message="tns:ReportQtySvcContract_ReportQuantity_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/ReportQuantityEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_ReportQuantity_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLaborEquip">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/UpdateLaborEquip" message="tns:ReportQtySvcContract_UpdateLaborEquip_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/UpdateLaborEquipResponse" message="tns:ReportQtySvcContract_UpdateLaborEquip_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/UpdateLaborEquipEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_UpdateLaborEquip_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSerialBeforeSelect">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/ValidateSerialBeforeSelect" message="tns:ReportQtySvcContract_ValidateSerialBeforeSelect_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/ValidateSerialBeforeSelectResponse" message="tns:ReportQtySvcContract_ValidateSerialBeforeSelect_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/ValidateSerialBeforeSelectEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_ValidateSerialBeforeSelect_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectSerialNumbersParams">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/GetSelectSerialNumbersParams" message="tns:ReportQtySvcContract_GetSelectSerialNumbersParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/GetSelectSerialNumbersParamsResponse" message="tns:ReportQtySvcContract_GetSelectSerialNumbersParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/GetSelectSerialNumbersParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSN">
+      <wsdl:input wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/ValidateSN" message="tns:ReportQtySvcContract_ValidateSN_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/ValidateSNResponse" message="tns:ReportQtySvcContract_ValidateSN_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReportQty/ReportQtySvcContract/ValidateSNEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReportQtySvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

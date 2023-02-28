@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1a55b168-eed4-4b3f-a18a-c3fd6f85d0e9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://ERP10/epicor_demo/ice/bo/ud25.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UD259.xsd" MetadataType="Schema" ID="5d90f98a-542b-4dc9-9f4c-cbf0e091946e" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?xsd=xsd0" />
+    <MetadataFile FileName="UD2591.xsd" MetadataType="Schema" ID="0128ac68-bb6e-4838-b749-021aa057be0b" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?xsd=xsd1" />
+    <MetadataFile FileName="UD2592.xsd" MetadataType="Schema" ID="4c4983bc-6ccb-4bf0-9b30-5fb15fca2d27" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?xsd=xsd6" />
+    <MetadataFile FileName="UD2593.xsd" MetadataType="Schema" ID="8ee6bca9-60de-4a2e-b958-f93af3b2675a" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?xsd=xsd7" />
+    <MetadataFile FileName="UD251.disco" MetadataType="Disco" ID="66e6fb05-21a9-42c1-82ab-43e3f778af64" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?disco" />
+    <MetadataFile FileName="UD2594.xsd" MetadataType="Schema" ID="e1179710-2052-4c4e-bde2-c97554b55dba" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?xsd=xsd5" />
+    <MetadataFile FileName="UD2595.xsd" MetadataType="Schema" ID="0ef094fc-a6e6-4f3d-994e-9b95c8984606" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?xsd=xsd8" />
+    <MetadataFile FileName="UD2596.xsd" MetadataType="Schema" ID="872e0695-df26-4626-8515-cc050e8c662c" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?xsd=xsd4" />
+    <MetadataFile FileName="UD251.wsdl" MetadataType="Wsdl" ID="89211d71-462a-463c-90f5-e914a87634fc" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="UD25SvcFacade1.wsdl" MetadataType="Wsdl" ID="83e8d051-b8a9-4095-bda1-d3c2590dadca" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?wsdl" />
+    <MetadataFile FileName="UD2597.xsd" MetadataType="Schema" ID="79d295fa-37da-438f-8a83-a45fd94d8896" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?xsd=xsd2" />
+    <MetadataFile FileName="UD2598.xsd" MetadataType="Schema" ID="b9f8c453-015b-4360-907e-9fa627e6ef60" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Ice/BO/UD25.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

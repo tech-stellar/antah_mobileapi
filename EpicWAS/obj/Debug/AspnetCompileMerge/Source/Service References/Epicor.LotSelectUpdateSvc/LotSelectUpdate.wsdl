@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:LotSelectUpdate" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:LotSelectUpdate" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:LotSelectUpdate/Imports">
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd0" namespace="Erp:BO:LotSelectUpdate" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/LotSelectUpdate.svc?xsd=xsd8" namespace="http://epicor.com/UserDefinedColumns" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="LotSelectUpdateSvcContract_CheckDupLotNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDupLotNum" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_CheckDupLotNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDupLotNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_CheckDupLotNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_ChkForNeedsLotAttrs_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChkForNeedsLotAttrs" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_ChkForNeedsLotAttrs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChkForNeedsLotAttrsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_ChkForNeedsLotAttrs_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GenerateNewLotNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateNewLotNum" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GenerateNewLotNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateNewLotNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GenerateNewLotNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetListByBinNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListByBinNum" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetListByBinNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListByBinNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetListByBinNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetListByWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListByWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetListByWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListByWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetListByWarehouse_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_ValidateLotAttributes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateLotAttributes" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_ValidateLotAttributes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateLotAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_ValidateLotAttributes_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_ValidateShippingDocumentsAttached_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateShippingDocumentsAttached" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_ValidateShippingDocumentsAttached_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateShippingDocumentsAttachedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_ValidateShippingDocumentsAttached_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetNewPartLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartLot" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetNewPartLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetNewPartLot_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetNewPartLotAttch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartLotAttch" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetNewPartLotAttch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPartLotAttchResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetNewPartLotAttch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_DeleteByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByID" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_DeleteByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByID" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q12:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetRows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRows" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetRows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q13:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetBySysRowID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowID" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetBySysRowID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q14:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetBySysRowIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDs" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetBySysRowIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q15:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_Update_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q16:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_UpdateExt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExt" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_UpdateExt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotSelectUpdateSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q17:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="LotSelectUpdateSvcContract">
+    <wsdl:operation name="CheckDupLotNum">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/CheckDupLotNum" message="tns:LotSelectUpdateSvcContract_CheckDupLotNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/CheckDupLotNumResponse" message="tns:LotSelectUpdateSvcContract_CheckDupLotNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/CheckDupLotNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_CheckDupLotNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChkForNeedsLotAttrs">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/ChkForNeedsLotAttrs" message="tns:LotSelectUpdateSvcContract_ChkForNeedsLotAttrs_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/ChkForNeedsLotAttrsResponse" message="tns:LotSelectUpdateSvcContract_ChkForNeedsLotAttrs_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/ChkForNeedsLotAttrsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_ChkForNeedsLotAttrs_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateNewLotNum">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GenerateNewLotNum" message="tns:LotSelectUpdateSvcContract_GenerateNewLotNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GenerateNewLotNumResponse" message="tns:LotSelectUpdateSvcContract_GenerateNewLotNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GenerateNewLotNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GenerateNewLotNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListByBinNum">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetListByBinNum" message="tns:LotSelectUpdateSvcContract_GetListByBinNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetListByBinNumResponse" message="tns:LotSelectUpdateSvcContract_GetListByBinNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetListByBinNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GetListByBinNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListByWarehouse">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetListByWarehouse" message="tns:LotSelectUpdateSvcContract_GetListByWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetListByWarehouseResponse" message="tns:LotSelectUpdateSvcContract_GetListByWarehouse_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetListByWarehouseEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GetListByWarehouse_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLotAttributes">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/ValidateLotAttributes" message="tns:LotSelectUpdateSvcContract_ValidateLotAttributes_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/ValidateLotAttributesResponse" message="tns:LotSelectUpdateSvcContract_ValidateLotAttributes_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/ValidateLotAttributesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_ValidateLotAttributes_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateShippingDocumentsAttached">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/ValidateShippingDocumentsAttached" message="tns:LotSelectUpdateSvcContract_ValidateShippingDocumentsAttached_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/ValidateShippingDocumentsAttachedResponse" message="tns:LotSelectUpdateSvcContract_ValidateShippingDocumentsAttached_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/ValidateShippingDocumentsAttachedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_ValidateShippingDocumentsAttached_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPartLot">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetNewPartLot" message="tns:LotSelectUpdateSvcContract_GetNewPartLot_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetNewPartLotResponse" message="tns:LotSelectUpdateSvcContract_GetNewPartLot_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetNewPartLotEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GetNewPartLot_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPartLotAttch">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetNewPartLotAttch" message="tns:LotSelectUpdateSvcContract_GetNewPartLotAttch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetNewPartLotAttchResponse" message="tns:LotSelectUpdateSvcContract_GetNewPartLotAttch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetNewPartLotAttchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GetNewPartLotAttch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByID">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/DeleteByID" message="tns:LotSelectUpdateSvcContract_DeleteByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/DeleteByIDResponse" message="tns:LotSelectUpdateSvcContract_DeleteByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/DeleteByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetByID" message="tns:LotSelectUpdateSvcContract_GetByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetByIDResponse" message="tns:LotSelectUpdateSvcContract_GetByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetList" message="tns:LotSelectUpdateSvcContract_GetList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetListResponse" message="tns:LotSelectUpdateSvcContract_GetList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GetList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRows">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetRows" message="tns:LotSelectUpdateSvcContract_GetRows_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetRowsResponse" message="tns:LotSelectUpdateSvcContract_GetRows_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetRowsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowID">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetBySysRowID" message="tns:LotSelectUpdateSvcContract_GetBySysRowID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetBySysRowIDResponse" message="tns:LotSelectUpdateSvcContract_GetBySysRowID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetBySysRowIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowIDs">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetBySysRowIDs" message="tns:LotSelectUpdateSvcContract_GetBySysRowIDs_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetBySysRowIDsResponse" message="tns:LotSelectUpdateSvcContract_GetBySysRowIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/GetBySysRowIDsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/Update" message="tns:LotSelectUpdateSvcContract_Update_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/UpdateResponse" message="tns:LotSelectUpdateSvcContract_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/UpdateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_Update_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExt">
+      <wsdl:input wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/UpdateExt" message="tns:LotSelectUpdateSvcContract_UpdateExt_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/UpdateExtResponse" message="tns:LotSelectUpdateSvcContract_UpdateExt_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:LotSelectUpdate/LotSelectUpdateSvcContract/UpdateExtEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LotSelectUpdateSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

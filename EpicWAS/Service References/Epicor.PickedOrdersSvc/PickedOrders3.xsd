@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Tablesets" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+  <xs:complexType name="PickedOrdersTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Ice" base="q1:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MtlQueue" nillable="true" type="tns:MtlQueueTable" />
+          <xs:element minOccurs="0" name="PickedOrders" nillable="true" type="tns:PickedOrdersTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PickedOrdersTableset" nillable="true" type="tns:PickedOrdersTableset" />
+  <xs:complexType name="MtlQueueTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MtlQueueRow" nillable="true" type="tns:MtlQueueRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MtlQueueTable" nillable="true" type="tns:MtlQueueTable" />
+  <xs:complexType name="MtlQueueRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Ice" base="q2:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AssemblySeq" type="xs:int" />
+          <xs:element minOccurs="0" name="AssemblySeqDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AssignedToEmpID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:MtlQueueRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustRegionCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustTerritoryID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DisableTO" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DistributionType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EpicorFSA" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FSAServiceOrderNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="FSAServiceOrderResourceNum" type="xs:int" />
+          <xs:element minOccurs="0" name="FromBinNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromInv" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FromJob" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FromPCID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromPO" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FromTO" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FromWhse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromWhseDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HoldStatus" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNumPartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="JobSeqType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastMgrChangeEmpID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUsedPCID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadTime" type="xs:int" />
+          <xs:element minOccurs="0" name="Lock" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LotNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaxMfgLotSize" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MfgLeadTime" type="xs:int" />
+          <xs:element minOccurs="0" name="MinMfgLotSize" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MtlQueueSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="NCTranID" type="xs:int" />
+          <xs:element minOccurs="0" name="NeedByDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NeedByTime" type="xs:int" />
+          <xs:element minOccurs="0" name="NeedByTimeDisp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NextAssemblySeq" type="xs:int" />
+          <xs:element minOccurs="0" name="NextJobSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="NonStock" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OkToProcess" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OnHandQtySite" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OnHandQtyWhse" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OrderLine" type="xs:int" />
+          <xs:element minOccurs="0" name="OrderLineLineDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderNum" type="xs:int" />
+          <xs:element minOccurs="0" name="OrderNumCardMemberName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderNumCurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderRelNum" type="xs:int" />
+          <xs:element minOccurs="0" name="PCID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POLine" type="xs:int" />
+          <xs:element minOccurs="0" name="POLineLineDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POLinePartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POLineVenPartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PONum" type="xs:int" />
+          <xs:element minOccurs="0" name="PORelNum" type="xs:int" />
+          <xs:element minOccurs="0" name="PackLine" type="xs:int" />
+          <xs:element minOccurs="0" name="PackSlip" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PackStation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumIUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPricePerCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSalesUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSellingFactor" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartNumTrackDimension" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackLots" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackSerialNum" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Plant" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlantName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrimWhseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrimWhseDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Priority" type="xs:int" />
+          <xs:element minOccurs="0" name="PurPoint" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="QueueID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QueuePickSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="RMADisp" type="xs:int" />
+          <xs:element minOccurs="0" name="RMALine" type="xs:int" />
+          <xs:element minOccurs="0" name="RMALineLineDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RMANum" type="xs:int" />
+          <xs:element minOccurs="0" name="RMAReceipt" type="xs:int" />
+          <xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferencePrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReleaseForPickingSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="RequestError" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RequestMsg" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestedByEmpID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestedByEmpName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RevisionNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SameWhseGroupEmp" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SelectedByEmpID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SelectedByEmpName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SelectedForProcessing" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ShipToCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipToCountry" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipToName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipToNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipToState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipToZIP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SortByPriority" type="xs:int" />
+          <xs:element minOccurs="0" name="SourceTypeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="SysTime" type="xs:int" />
+          <xs:element minOccurs="0" name="TargetAssemblySeq" type="xs:int" />
+          <xs:element minOccurs="0" name="TargetJobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TargetMtlSeq" type="xs:int" />
+          <xs:element minOccurs="0" name="TargetTFOrdLine" type="xs:int" />
+          <xs:element minOccurs="0" name="TargetTFOrdNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ToBinNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ToPCID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ToWhse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ToWhseDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TranSource" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TranStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TranType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TranTypeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransferLeadTime" type="xs:int" />
+          <xs:element minOccurs="0" name="TransferPlant" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNum" type="xs:int" />
+          <xs:element minOccurs="0" name="VendorNumAddress1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumAddress2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumAddress3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumCountry" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumCurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumDefaultFOB" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumName_" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumTermsCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumVendorID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumVendorID_" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorNumZIP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Visible" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WarehouseGroupCodeWhseGroupDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WaveNum" type="xs:int" />
+          <xs:element minOccurs="0" name="WaveRelated" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WhseGroupCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MtlQueueRow" nillable="true" type="tns:MtlQueueRow" />
+  <xs:simpleType name="MtlQueueRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="SysDate" />
+      <xs:enumeration value="SysTime" />
+      <xs:enumeration value="MtlQueueSeq" />
+      <xs:enumeration value="Plant" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="Quantity" />
+      <xs:enumeration value="TranType" />
+      <xs:enumeration value="ReferencePrefix" />
+      <xs:enumeration value="Reference" />
+      <xs:enumeration value="RequestedByEmpID" />
+      <xs:enumeration value="SelectedByEmpID" />
+      <xs:enumeration value="JobNum" />
+      <xs:enumeration value="AssemblySeq" />
+      <xs:enumeration value="JobSeqType" />
+      <xs:enumeration value="JobSeq" />
+      <xs:enumeration value="FromWhse" />
+      <xs:enumeration value="FromBinNum" />
+      <xs:enumeration value="ToWhse" />
+      <xs:enumeration value="ToBinNum" />
+      <xs:enumeration value="NextAssemblySeq" />
+      <xs:enumeration value="NextJobSeq" />
+      <xs:enumeration value="NeedByDate" />
+      <xs:enumeration value="NeedByTime" />
+      <xs:enumeration value="VendorNum" />
+      <xs:enumeration value="PurPoint" />
+      <xs:enumeration value="PackSlip" />
+      <xs:enumeration value="PackLine" />
+      <xs:enumeration value="OrderNum" />
+      <xs:enumeration value="OrderLine" />
+      <xs:enumeration value="OrderRelNum" />
+      <xs:enumeration value="TargetJobNum" />
+      <xs:enumeration value="TargetAssemblySeq" />
+      <xs:enumeration value="TargetMtlSeq" />
+      <xs:enumeration value="RevisionNum" />
+      <xs:enumeration value="PartDescription" />
+      <xs:enumeration value="IUM" />
+      <xs:enumeration value="PONum" />
+      <xs:enumeration value="POLine" />
+      <xs:enumeration value="PORelNum" />
+      <xs:enumeration value="Visible" />
+      <xs:enumeration value="RMANum" />
+      <xs:enumeration value="RMALine" />
+      <xs:enumeration value="RMAReceipt" />
+      <xs:enumeration value="RMADisp" />
+      <xs:enumeration value="NCTranID" />
+      <xs:enumeration value="LotNum" />
+      <xs:enumeration value="Lock" />
+      <xs:enumeration value="QueueID" />
+      <xs:enumeration value="QueuePickSeq" />
+      <xs:enumeration value="ReleaseForPickingSeq" />
+      <xs:enumeration value="WhseGroupCode" />
+      <xs:enumeration value="TranStatus" />
+      <xs:enumeration value="WaveNum" />
+      <xs:enumeration value="Priority" />
+      <xs:enumeration value="TranSource" />
+      <xs:enumeration value="LastMgrChangeEmpID" />
+      <xs:enumeration value="AssignedToEmpID" />
+      <xs:enumeration value="TargetTFOrdNum" />
+      <xs:enumeration value="TargetTFOrdLine" />
+      <xs:enumeration value="PackStation" />
+      <xs:enumeration value="DistributionType" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="PCID" />
+      <xs:enumeration value="EpicorFSA" />
+      <xs:enumeration value="LastUsedPCID" />
+      <xs:enumeration value="FromPCID" />
+      <xs:enumeration value="ToPCID" />
+      <xs:enumeration value="CustID" />
+      <xs:enumeration value="CustTerritoryID" />
+      <xs:enumeration value="DisableTO" />
+      <xs:enumeration value="FromInv" />
+      <xs:enumeration value="FromJob" />
+      <xs:enumeration value="FromPO" />
+      <xs:enumeration value="FromTO" />
+      <xs:enumeration value="FromWhseDesc" />
+      <xs:enumeration value="FSAServiceOrderNumber" />
+      <xs:enumeration value="FSAServiceOrderResourceNum" />
+      <xs:enumeration value="HoldStatus" />
+      <xs:enumeration value="LeadTime" />
+      <xs:enumeration value="MaxMfgLotSize" />
+      <xs:enumeration value="MfgLeadTime" />
+      <xs:enumeration value="MinMfgLotSize" />
+      <xs:enumeration value="NeedByTimeDisp" />
+      <xs:enumeration value="NonStock" />
+      <xs:enumeration value="OkToProcess" />
+      <xs:enumeration value="OnHandQtySite" />
+      <xs:enumeration value="OnHandQtyWhse" />
+      <xs:enumeration value="PlantName" />
+      <xs:enumeration value="PrimWhseCode" />
+      <xs:enumeration value="PrimWhseDesc" />
+      <xs:enumeration value="RequestedByEmpName" />
+      <xs:enumeration value="RequestError" />
+      <xs:enumeration value="RequestMsg" />
+      <xs:enumeration value="SameWhseGroupEmp" />
+      <xs:enumeration value="SelectedByEmpName" />
+      <xs:enumeration value="SelectedForProcessing" />
+      <xs:enumeration value="ShipToCity" />
+      <xs:enumeration value="ShipToCountry" />
+      <xs:enumeration value="ShipToName" />
+      <xs:enumeration value="ShipToNum" />
+      <xs:enumeration value="ShipToState" />
+      <xs:enumeration value="ShipToZIP" />
+      <xs:enumeration value="SortByPriority" />
+      <xs:enumeration value="SourceTypeDesc" />
+      <xs:enumeration value="ToWhseDesc" />
+      <xs:enumeration value="TransferLeadTime" />
+      <xs:enumeration value="TransferPlant" />
+      <xs:enumeration value="TranTypeDesc" />
+      <xs:enumeration value="VendorNumName" />
+      <xs:enumeration value="VendorNumVendorID" />
+      <xs:enumeration value="WaveRelated" />
+      <xs:enumeration value="CustRegionCode" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="AssemblySeqDescription" />
+      <xs:enumeration value="JobNumPartDescription" />
+      <xs:enumeration value="OrderLineLineDesc" />
+      <xs:enumeration value="OrderNumCurrencyCode" />
+      <xs:enumeration value="OrderNumCardMemberName" />
+      <xs:enumeration value="PartNumSalesUM" />
+      <xs:enumeration value="PartNumPartDescription" />
+      <xs:enumeration value="PartNumTrackLots" />
+      <xs:enumeration value="PartNumPricePerCode" />
+      <xs:enumeration value="PartNumSellingFactor" />
+      <xs:enumeration value="PartNumIUM" />
+      <xs:enumeration value="PartNumTrackSerialNum" />
+      <xs:enumeration value="PartNumTrackDimension" />
+      <xs:enumeration value="POLinePartNum" />
+      <xs:enumeration value="POLineVenPartNum" />
+      <xs:enumeration value="POLineLineDesc" />
+      <xs:enumeration value="RMALineLineDesc" />
+      <xs:enumeration value="VendorNumAddress1" />
+      <xs:enumeration value="VendorNumCity" />
+      <xs:enumeration value="VendorNumAddress3" />
+      <xs:enumeration value="VendorNumDefaultFOB" />
+      <xs:enumeration value="VendorNumCurrencyCode" />
+      <xs:enumeration value="VendorNumTermsCode" />
+      <xs:enumeration value="VendorNumCountry" />
+      <xs:enumeration value="VendorNumVendorID_" />
+      <xs:enumeration value="VendorNumState" />
+      <xs:enumeration value="VendorNumZIP" />
+      <xs:enumeration value="VendorNumName_" />
+      <xs:enumeration value="VendorNumAddress2" />
+      <xs:enumeration value="WarehouseGroupCodeWhseGroupDesc" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MtlQueueRowColumnOrder" nillable="true" type="tns:MtlQueueRowColumnOrder" />
+  <xs:complexType name="PickedOrdersTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PickedOrdersRow" nillable="true" type="tns:PickedOrdersRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PickedOrdersTable" nillable="true" type="tns:PickedOrdersTable" />
+  <xs:complexType name="PickedOrdersRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Ice" base="q3:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BTConNum" type="xs:int" />
+          <xs:element minOccurs="0" name="BTCustNum" type="xs:int" />
+          <xs:element minOccurs="0" name="BinNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BinNumDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BitFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:PickedOrdersRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Complete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ConInvMeth" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustNum" type="xs:int" />
+          <xs:element minOccurs="0" name="CustNumBTName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustNumCustID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustNumName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HoldPrdInv" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsVisible" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LotNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OTSAddr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderLine" type="xs:int" />
+          <xs:element minOccurs="0" name="OrderLineLineDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderNum" type="xs:int" />
+          <xs:element minOccurs="0" name="OrderNumCardMemberName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderNumCurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderRelNum" type="xs:int" />
+          <xs:element minOccurs="0" name="PCID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentPCID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumIUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPricePerCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSalesUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSellingFactor" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartNumTrackDimension" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackLots" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackSerialNum" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Plant" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ReqDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ShipToCustNum" type="xs:int" />
+          <xs:element minOccurs="0" name="ShipToNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipViaCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipViaCodeDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipViaCodeWebDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SupplyJobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="UOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WarehouseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WarehouseCodeDescription" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PickedOrdersRow" nillable="true" type="tns:PickedOrdersRow" />
+  <xs:simpleType name="PickedOrdersRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="Plant" />
+      <xs:enumeration value="OrderNum" />
+      <xs:enumeration value="OrderLine" />
+      <xs:enumeration value="OrderRelNum" />
+      <xs:enumeration value="WarehouseCode" />
+      <xs:enumeration value="BinNum" />
+      <xs:enumeration value="SupplyJobNum" />
+      <xs:enumeration value="LotNum" />
+      <xs:enumeration value="Quantity" />
+      <xs:enumeration value="UOM" />
+      <xs:enumeration value="ReqDate" />
+      <xs:enumeration value="CustNum" />
+      <xs:enumeration value="ShipToNum" />
+      <xs:enumeration value="ShipViaCode" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="Complete" />
+      <xs:enumeration value="BTCustNum" />
+      <xs:enumeration value="BTConNum" />
+      <xs:enumeration value="ShipToCustNum" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="PCID" />
+      <xs:enumeration value="ConInvMeth" />
+      <xs:enumeration value="HoldPrdInv" />
+      <xs:enumeration value="IsSelected" />
+      <xs:enumeration value="IsVisible" />
+      <xs:enumeration value="OTSAddr" />
+      <xs:enumeration value="ProjectID" />
+      <xs:enumeration value="ParentPCID" />
+      <xs:enumeration value="BitFlag" />
+      <xs:enumeration value="BinNumDescription" />
+      <xs:enumeration value="CustNumName" />
+      <xs:enumeration value="CustNumBTName" />
+      <xs:enumeration value="CustNumCustID" />
+      <xs:enumeration value="OrderLineLineDesc" />
+      <xs:enumeration value="OrderNumCurrencyCode" />
+      <xs:enumeration value="OrderNumCardMemberName" />
+      <xs:enumeration value="PartNumTrackDimension" />
+      <xs:enumeration value="PartNumTrackSerialNum" />
+      <xs:enumeration value="PartNumSellingFactor" />
+      <xs:enumeration value="PartNumPartDescription" />
+      <xs:enumeration value="PartNumTrackLots" />
+      <xs:enumeration value="PartNumIUM" />
+      <xs:enumeration value="PartNumPricePerCode" />
+      <xs:enumeration value="PartNumSalesUM" />
+      <xs:enumeration value="ShipViaCodeWebDesc" />
+      <xs:enumeration value="ShipViaCodeDescription" />
+      <xs:enumeration value="WarehouseCodeDescription" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PickedOrdersRowColumnOrder" nillable="true" type="tns:PickedOrdersRowColumnOrder" />
+  <xs:complexType name="PickedOrdersListTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Ice" base="q4:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PickedOrdersList" nillable="true" type="tns:PickedOrdersListTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PickedOrdersListTableset" nillable="true" type="tns:PickedOrdersListTableset" />
+  <xs:complexType name="PickedOrdersListTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PickedOrdersListRow" nillable="true" type="tns:PickedOrdersListRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PickedOrdersListTable" nillable="true" type="tns:PickedOrdersListTable" />
+  <xs:complexType name="PickedOrdersListRow">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Ice" base="q5:IceRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BTConNum" type="xs:int" />
+          <xs:element minOccurs="0" name="BTCustNum" type="xs:int" />
+          <xs:element minOccurs="0" name="BinNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BinNumDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColumnNames" type="tns:PickedOrdersListRowColumnOrder" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Complete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ConInvMeth" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustNum" type="xs:int" />
+          <xs:element minOccurs="0" name="CustNumBTName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustNumCustID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustNumName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HoldPrdInv" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LotNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderLine" type="xs:int" />
+          <xs:element minOccurs="0" name="OrderLineLineDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderNum" type="xs:int" />
+          <xs:element minOccurs="0" name="OrderNumCardMemberName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderNumCurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderRelNum" type="xs:int" />
+          <xs:element minOccurs="0" name="PCID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumIUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPartDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumPricePerCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSalesUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumSellingFactor" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PartNumTrackDimension" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackLots" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartNumTrackSerialNum" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Plant" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ReqDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ShipToCustNum" type="xs:int" />
+          <xs:element minOccurs="0" name="ShipToNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipViaCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipViaCodeDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipViaCodeWebDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SupplyJobNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SysRevID" type="xs:long" />
+          <xs:element minOccurs="0" name="UOM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WarehouseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WarehouseCodeDescription" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PickedOrdersListRow" nillable="true" type="tns:PickedOrdersListRow" />
+  <xs:simpleType name="PickedOrdersListRowColumnOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="Plant" />
+      <xs:enumeration value="OrderNum" />
+      <xs:enumeration value="OrderLine" />
+      <xs:enumeration value="OrderRelNum" />
+      <xs:enumeration value="WarehouseCode" />
+      <xs:enumeration value="BinNum" />
+      <xs:enumeration value="SupplyJobNum" />
+      <xs:enumeration value="LotNum" />
+      <xs:enumeration value="Quantity" />
+      <xs:enumeration value="UOM" />
+      <xs:enumeration value="ReqDate" />
+      <xs:enumeration value="CustNum" />
+      <xs:enumeration value="ShipToNum" />
+      <xs:enumeration value="ShipViaCode" />
+      <xs:enumeration value="PartNum" />
+      <xs:enumeration value="Complete" />
+      <xs:enumeration value="BTCustNum" />
+      <xs:enumeration value="BTConNum" />
+      <xs:enumeration value="ShipToCustNum" />
+      <xs:enumeration value="SysRevID" />
+      <xs:enumeration value="SysRowID" />
+      <xs:enumeration value="PCID" />
+      <xs:enumeration value="IsSelected" />
+      <xs:enumeration value="ProjectID" />
+      <xs:enumeration value="ConInvMeth" />
+      <xs:enumeration value="HoldPrdInv" />
+      <xs:enumeration value="BinNumDescription" />
+      <xs:enumeration value="CustNumName" />
+      <xs:enumeration value="CustNumBTName" />
+      <xs:enumeration value="CustNumCustID" />
+      <xs:enumeration value="OrderLineLineDesc" />
+      <xs:enumeration value="OrderNumCardMemberName" />
+      <xs:enumeration value="OrderNumCurrencyCode" />
+      <xs:enumeration value="PartNumPartDescription" />
+      <xs:enumeration value="PartNumSellingFactor" />
+      <xs:enumeration value="PartNumTrackSerialNum" />
+      <xs:enumeration value="PartNumPricePerCode" />
+      <xs:enumeration value="PartNumTrackDimension" />
+      <xs:enumeration value="PartNumIUM" />
+      <xs:enumeration value="PartNumSalesUM" />
+      <xs:enumeration value="PartNumTrackLots" />
+      <xs:enumeration value="ShipViaCodeDescription" />
+      <xs:enumeration value="ShipViaCodeWebDesc" />
+      <xs:enumeration value="WarehouseCodeDescription" />
+      <xs:enumeration value="RowMod" />
+      <xs:enumeration value="SpecifiedProperties" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PickedOrdersListRowColumnOrder" nillable="true" type="tns:PickedOrdersListRowColumnOrder" />
+  <xs:complexType name="UpdExtPickedOrdersTableset">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Ice" base="q6:IceTableset">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MtlQueue" nillable="true" type="tns:MtlQueueTable" />
+          <xs:element minOccurs="0" name="PickedOrders" nillable="true" type="tns:PickedOrdersTable" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdExtPickedOrdersTableset" nillable="true" type="tns:UpdExtPickedOrdersTableset" />
+</xs:schema>

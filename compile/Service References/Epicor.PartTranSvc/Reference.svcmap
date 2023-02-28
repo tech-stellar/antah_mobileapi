@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a57570be-5a70-44e9-88b7-93ce0b20df66" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://bpocloudapp01/epicordemo/ERP/bo/PartTran.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PartTran.xsd" MetadataType="Schema" ID="bd5e0539-786e-4961-8f53-c9ba0036fb62" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?xsd=xsd4" />
+    <MetadataFile FileName="PartTran.disco" MetadataType="Disco" ID="a3a35f66-49fa-4ba5-bcb5-ccddf79ffc29" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?disco" />
+    <MetadataFile FileName="PartTranSvcFacade.wsdl" MetadataType="Wsdl" ID="f56c0a77-b37d-4cb9-ba42-1087d54904e2" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?wsdl" />
+    <MetadataFile FileName="PartTran1.xsd" MetadataType="Schema" ID="95ed7062-cd73-44bc-9300-85d1f7e807f0" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?xsd=xsd7" />
+    <MetadataFile FileName="PartTran2.xsd" MetadataType="Schema" ID="b4637b53-e0b3-46a6-8506-1eb3668cdf5d" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?xsd=xsd0" />
+    <MetadataFile FileName="PartTran.wsdl" MetadataType="Wsdl" ID="3b8a4c64-33f5-46ad-9090-db4b6e920f4f" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="PartTran3.xsd" MetadataType="Schema" ID="8e295c11-6b9d-4d62-91f6-a1bdfdd014d4" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?xsd=xsd3" />
+    <MetadataFile FileName="PartTran4.xsd" MetadataType="Schema" ID="002b1d13-dd28-43f2-aaf2-a510aa512e0f" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?xsd=xsd5" />
+    <MetadataFile FileName="PartTran5.xsd" MetadataType="Schema" ID="b2491622-eaf8-4cc5-86f4-73ef47036b31" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?xsd=xsd8" />
+    <MetadataFile FileName="PartTran6.xsd" MetadataType="Schema" ID="f04dc640-14b7-456d-9044-7bc8911902ff" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?xsd=xsd1" />
+    <MetadataFile FileName="PartTran7.xsd" MetadataType="Schema" ID="e44b5082-64b3-4695-b829-289ff37ad50a" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?xsd=xsd6" />
+    <MetadataFile FileName="PartTran8.xsd" MetadataType="Schema" ID="d8fc8221-6164-4b26-b99c-c5f66d31bf93" SourceId="1" SourceUrl="http://bpocloudapp01.bpocloud.local/EpicorDemo/Erp/BO/PartTran.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

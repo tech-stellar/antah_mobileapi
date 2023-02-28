@@ -1,0 +1,1072 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>G:\EpicWAS</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/HelpPage/HelpPage.css">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Api.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ApiGroup.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/CollectionModelDescription.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ComplexTypeModelDescription.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/DictionaryModelDescription.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/EnumTypeModelDescription.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/HelpPageApiModel.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ImageSample.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/InvalidSample.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/KeyValuePairModelDescription.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ModelDescriptionLink.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Parameters.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Samples.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/SimpleTypeModelDescription.cshtml">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/TextSample.cshtml">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Index.cshtml">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/ResourceModel.cshtml">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Shared/_Layout.cshtml">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Web.config">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/_ViewStart.cshtml">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>04/03/2019 11:52:28</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>04/03/2019 11:52:28</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>03/19/2019 15:34:32</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>03/19/2019 15:34:32</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.xml">
+      <publishTime>03/19/2019 15:34:32</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.xml">
+      <publishTime>03/19/2019 15:34:32</publishTime>
+    </File>
+    <File Include="bin/EpicWAS.dll">
+      <publishTime>04/03/2019 11:52:11</publishTime>
+    </File>
+    <File Include="bin/EpicWAS.dll.config">
+      <publishTime>04/01/2019 11:56:07</publishTime>
+    </File>
+    <File Include="bin/EpicWAS.pdb">
+      <publishTime>04/03/2019 11:52:11</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>03/19/2019 15:26:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.xml">
+      <publishTime>03/19/2019 15:26:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>03/19/2019 15:26:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.xml">
+      <publishTime>03/19/2019 15:26:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>03/19/2019 15:26:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.xml">
+      <publishTime>03/19/2019 15:26:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/19/2019 15:26:26</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.xml">
+      <publishTime>03/19/2019 15:26:26</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>03/19/2019 15:26:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="bin/System.Data.SQLite.dll">
+      <publishTime>03/19/2019 15:34:38</publishTime>
+    </File>
+    <File Include="bin/System.Data.SQLite.EF6.dll">
+      <publishTime>03/19/2019 15:34:41</publishTime>
+    </File>
+    <File Include="bin/System.Data.SQLite.Linq.dll">
+      <publishTime>03/19/2019 15:34:45</publishTime>
+    </File>
+    <File Include="bin/System.Data.SQLite.xml">
+      <publishTime>03/19/2019 15:34:38</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.xml">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.xml">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Owin.dll">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Owin.xml">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.xml">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.xml">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.xml">
+      <publishTime>03/19/2019 15:26:31</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.xml">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.xml">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.xml">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.xml">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.xml">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>03/19/2019 15:26:33</publishTime>
+    </File>
+    <File Include="bin/x64/SQLite.Interop.dll">
+      <publishTime>03/19/2019 15:34:38</publishTime>
+    </File>
+    <File Include="bin/x86/SQLite.Interop.dll">
+      <publishTime>03/19/2019 15:34:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>03/19/2019 15:26:26</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>03/19/2019 15:26:26</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="EpicWAS.csproj">
+      <publishTime>04/03/2019 11:52:00</publishTime>
+    </File>
+    <File Include="EpicWAS.csproj.user">
+      <publishTime>04/03/2019 11:52:00</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>03/19/2019 15:26:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>03/19/2019 15:26:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>03/19/2019 15:26:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>03/19/2019 15:26:26</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>03/19/2019 15:34:48</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>04/03/2019 11:52:25</publishTime>
+    </File>
+    <File Include="Project_Readme.html">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="Properties/PublishProfiles/EpicWAS.pubxml">
+      <publishTime>04/03/2019 11:29:32</publishTime>
+    </File>
+    <File Include="Properties/PublishProfiles/EpicWAS.pubxml.user">
+      <publishTime>04/03/2019 11:50:24</publishTime>
+    </File>
+    <File Include="roslyn/csc.exe">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/System.Collections.Immutable.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/System.Reflection.Metadata.dll">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/vbc.exe">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/VBCSCompiler.exe">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="roslyn/VBCSCompiler.exe.config">
+      <publishTime>03/19/2019 15:26:37</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>03/19/2019 15:26:26</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>03/19/2019 15:26:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.intellisense.js">
+      <publishTime>03/19/2019 15:26:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>03/19/2019 15:26:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>03/19/2019 15:26:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>03/19/2019 15:26:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate-vsdoc.js">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>03/19/2019 15:26:36</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>03/19/2019 15:26:33</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>03/19/2019 15:26:33</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>03/19/2019 15:26:32</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/configuration.svcinfo">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/configuration91.svcinfo">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.ChangeFromBinResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.ChangeFromWhseResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.ChangeLotResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.ChangeToBinResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.ChangeToWhseResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.ChangeUOMResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.CommitTransferResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.GetPartFromRowIDResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.GetPartXRefInfoResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.GetPrimaryBinResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.GetSelectSerialNumbersParamsResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.InvTransferTableset.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.MasterInventoryBinTestsResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.NegativeInventoryTestResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.PreCommitTransferResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.SelectSerialNumbersParamsTableset.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/EpicWAS.Epicor.InvTransferSvc.ValidateSNResponse.datasource">
+      <publishTime>03/19/2019 17:46:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer.disco">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer.wsdl">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer.xsd">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer1.xsd">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer2.xsd">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer3.xsd">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer4.xsd">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer5.xsd">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer6.xsd">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer7.xsd">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransfer8.xsd">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/InvTransferSvcFacade.wsdl">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.InvTransferSvc/Reference.svcmap">
+      <publishTime>03/19/2019 17:46:02</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/configuration.svcinfo">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/configuration91.svcinfo">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.CheckPackageCodeAllocNegQtyResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetInventoryQtyAdjBrwResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetListJobsResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetListResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetNewIssueReturnFromJobResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetNewIssueReturnResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetNewIssueReturnToJobResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetNewJobAsmblMultipleResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetNewJobAsmblSearchResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetNewPartMultipleResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetNewPartNumResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetNewPartSearchResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetPartXRefInfoResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetRowsResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetSelectSerialNumbersParamsResponse.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetUnissuedQtyResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.GetUnpickSettingsResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.InventoryQtyAdjBrwTableset.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.IssueReturnJobAsmblTableset.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.IssueReturnJobListTableset.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.IssueReturnTableset.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.JobExistsResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.MassUnpickByPCIDResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.MasterInventoryBinTestsResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.NegativeInventoryTestResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.NegativeInventoryTestTranResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeASTUomResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeFromAssemblySeqResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeFromBinNumResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeFromJobNumResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeFromJobSeqResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeFromWarehouseResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeLotNumResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangePartNumResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangePCIDResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeToAssemblySeqResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeToJobNumResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeToJobSeqResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeToWarehouseResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeTranQtyResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangeUMResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangingFromBinNumResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangingJobSeqResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.OnChangingToJobSeqResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.PerformMaterialMovementResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.PerformMaterialMovementWithLegalNumResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.PreGetNewIssueReturnResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.PrePerformMaterialMovementResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.SelectedJobAsmblTableset.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.SelectedPartTableset.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.SelectSerialNumbersParamsTableset.datasource">
+      <publishTime>03/19/2019 17:45:36</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/EpicWAS.Epicor.IssueReturnSvc.ValidateSNResponse.datasource">
+      <publishTime>03/19/2019 17:45:37</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn.disco">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn.wsdl">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn.xsd">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn1.xsd">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn2.xsd">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn3.xsd">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn4.xsd">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn5.xsd">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn6.xsd">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn7.xsd">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturn8.xsd">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/IssueReturnSvcFacade.wsdl">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.IssueReturnSvc/Reference.svcmap">
+      <publishTime>03/19/2019 17:45:31</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/configuration.svcinfo">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/configuration91.svcinfo">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.BOUpdErrorTableset.datasource">
+      <publishTime>04/01/2019 11:56:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.GetListByBinNumResponse.datasource">
+      <publishTime>04/01/2019 11:56:06</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.GetListResponse.datasource">
+      <publishTime>04/01/2019 11:56:06</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.GetNewPartLotAttchResponse.datasource">
+      <publishTime>04/01/2019 11:56:06</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.GetNewPartLotResponse.datasource">
+      <publishTime>04/01/2019 11:56:06</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.GetRowsResponse.datasource">
+      <publishTime>04/01/2019 11:56:07</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.LotSelectUpdateTableset.datasource">
+      <publishTime>04/01/2019 11:56:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.PartLotListTableset.datasource">
+      <publishTime>04/01/2019 11:56:06</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.UpdateExtResponse.datasource">
+      <publishTime>04/01/2019 11:56:07</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.UpdateResponse.datasource">
+      <publishTime>04/01/2019 11:56:07</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.UpdExtLotSelectUpdateTableset.datasource">
+      <publishTime>04/01/2019 11:56:05</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.ValidateLotAttributesResponse.datasource">
+      <publishTime>04/01/2019 11:56:06</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/EpicWAS.Epicor.LotSelectUpdateSvc.ValidateShippingDocumentsAttachedResponse.datasource">
+      <publishTime>04/01/2019 11:56:06</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate.disco">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate.wsdl">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate.xsd">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate1.xsd">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate2.xsd">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate3.xsd">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate4.xsd">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate5.xsd">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate6.xsd">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate7.xsd">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdate8.xsd">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/LotSelectUpdateSvcFacade.wsdl">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.LotSelectUpdateSvc/Reference.svcmap">
+      <publishTime>04/01/2019 11:56:00</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/configuration.svcinfo">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/configuration91.svcinfo">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.CheckPackageCodeAllocNegQtyResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.EnableSerialMatchingResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.GetDefaultWhseBinResponse.datasource">
+      <publishTime>03/19/2019 17:46:45</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.GetListResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.GetNewJobAsmblMultipleResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.GetNewJobAsmblSearchResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.GetNewReceiptsFromMfgJobAsmResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.GetNewReceiptsFromMfgMtlQueueResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.GetNewReceiptsFromMfgResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.GetRowsResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.GetSelectSerialNumbersParamsResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.NegativeInventoryTestResponse.datasource">
+      <publishTime>03/19/2019 17:46:45</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeActTranQtyResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeActTransUOMResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeAssemblySeq2Response.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeAssemblySeqResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeBinNumResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeJobNum2Response.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeJobNumResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeJobSeq2Response.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeLotNumResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeOverrideCostResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangePartNumResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangePlantResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeSalvageJobSeqResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeSalvagePartNumResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeTranQtyResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.OnChangeWareHouseCodeResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.PreProcessPCIDResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.PreUpdateResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.ProcessPCIDResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.ReceiptsFromMfgJobAsmblTableset.datasource">
+      <publishTime>03/19/2019 17:46:45</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.ReceiptsFromMfgTableset.datasource">
+      <publishTime>03/19/2019 17:46:45</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.ReceiveMfgPartToInventoryResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.ReceiveMfgPartToJobResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.ReceiveSalvagedPartToInventoryResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.SelectedReceiptsJobAsmblTableset.datasource">
+      <publishTime>03/19/2019 17:46:45</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.SelectSerialNumbersParamsTableset.datasource">
+      <publishTime>03/19/2019 17:46:45</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.ValidatePCIDResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.ValidateSNResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.ValidateWhsePCIDAndGetDefaultBinResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/EpicWAS.Epicor.ReceiptsFromMfgSvc.VerifySerialMatchAndPlanContractResponse.datasource">
+      <publishTime>03/19/2019 17:46:46</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg.disco">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg.wsdl">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg.xsd">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg1.xsd">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg2.xsd">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg3.xsd">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg4.xsd">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg5.xsd">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg6.xsd">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg7.xsd">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfg8.xsd">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/ReceiptsFromMfgSvcFacade.wsdl">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.ReceiptsFromMfgSvc/Reference.svcmap">
+      <publishTime>03/19/2019 17:46:41</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/configuration.svcinfo">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/configuration91.svcinfo">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/EpicWAS.Epicor.SessionModSvc.GetCurrentValuesResponse.datasource">
+      <publishTime>03/19/2019 17:38:12</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/EpicWAS.Epicor.SessionModSvc.GetLicenseResponse.datasource">
+      <publishTime>03/19/2019 17:38:12</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/EpicWAS.Epicor.SessionModSvc.SetCompanyResponse.datasource">
+      <publishTime>03/19/2019 17:38:12</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/EpicWAS.Epicor.SessionModSvc.SyncResponse.datasource">
+      <publishTime>03/19/2019 17:38:12</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/Reference.svcmap">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/SessionMod.disco">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/SessionMod.wsdl">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/SessionMod.xsd">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/SessionMod1.xsd">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/SessionMod2.xsd">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/SessionMod3.xsd">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/SessionMod4.xsd">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Service References/Epicor.SessionModSvc/SessionModSvcFacade.wsdl">
+      <publishTime>03/19/2019 17:38:09</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/03/2019 11:52:23</publishTime>
+    </File>
+    <File Include="Web.Debug.config">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+    <File Include="Web.Release.config">
+      <publishTime>03/19/2019 15:26:23</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

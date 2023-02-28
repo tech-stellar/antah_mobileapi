@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7b2d94dc-e26d-418b-912e-33f785bf8563" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ReceiptsFromMfgSvcFacade1.wsdl" MetadataType="Wsdl" ID="5e4292b8-1c43-481a-92be-3f0c912be514" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?wsdl" />
+    <MetadataFile FileName="ReceiptsFromMfg9.xsd" MetadataType="Schema" ID="64f83880-fd00-4db3-8bfb-6cb81d05188c" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd6" />
+    <MetadataFile FileName="ReceiptsFromMfg91.xsd" MetadataType="Schema" ID="b7fcb1a5-d2e7-41c4-89a3-00362e44981e" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd0" />
+    <MetadataFile FileName="ReceiptsFromMfg92.xsd" MetadataType="Schema" ID="3489223f-be8e-4991-b1f1-d310efe9f886" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd2" />
+    <MetadataFile FileName="ReceiptsFromMfg1.disco" MetadataType="Disco" ID="a79c3b75-8623-4a0b-9b24-d48ac9aad029" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?disco" />
+    <MetadataFile FileName="ReceiptsFromMfg1.wsdl" MetadataType="Wsdl" ID="f381a273-8e8f-4d5d-98db-d3e3b974bbe5" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ReceiptsFromMfg93.xsd" MetadataType="Schema" ID="d9adb261-548a-468c-9c51-39a54201ca26" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd8" />
+    <MetadataFile FileName="ReceiptsFromMfg94.xsd" MetadataType="Schema" ID="4daf5dd3-2b66-4465-b6e8-1e614a6ca442" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd5" />
+    <MetadataFile FileName="ReceiptsFromMfg95.xsd" MetadataType="Schema" ID="febc5e1e-5179-4318-8cd6-bd3ca2a83d41" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd7" />
+    <MetadataFile FileName="ReceiptsFromMfg96.xsd" MetadataType="Schema" ID="b2ce470f-1824-462b-a906-58bdb370184f" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd1" />
+    <MetadataFile FileName="ReceiptsFromMfg97.xsd" MetadataType="Schema" ID="523bfa2c-64c1-4217-8d9b-a49ed69d0c8d" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd3" />
+    <MetadataFile FileName="ReceiptsFromMfg98.xsd" MetadataType="Schema" ID="a34f18bf-98a2-4220-bcb3-907c71dc6a07" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

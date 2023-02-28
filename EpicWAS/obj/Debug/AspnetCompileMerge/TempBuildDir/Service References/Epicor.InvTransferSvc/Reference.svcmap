@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dc8b65fa-aca8-4285-8251-cb8e634d3dbd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InvTransfer.xsd" MetadataType="Schema" ID="e99bbdb1-d227-40da-b2ac-2b6ad97e6f16" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?xsd=xsd5" />
+    <MetadataFile FileName="InvTransferSvcFacade.wsdl" MetadataType="Wsdl" ID="04054ca2-66a1-43ec-aa7f-b49e0107a682" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?wsdl" />
+    <MetadataFile FileName="InvTransfer1.xsd" MetadataType="Schema" ID="d8e70d35-d9dc-428c-bda6-092320cdeceb" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?xsd=xsd3" />
+    <MetadataFile FileName="InvTransfer2.xsd" MetadataType="Schema" ID="8a553d0e-c76b-40ee-bb3e-b68ac384b5c9" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?xsd=xsd0" />
+    <MetadataFile FileName="InvTransfer3.xsd" MetadataType="Schema" ID="84feb33b-72a7-4a05-a6ac-e86a0ffe5c2e" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?xsd=xsd6" />
+    <MetadataFile FileName="InvTransfer4.xsd" MetadataType="Schema" ID="d1656524-1e5e-4b08-8786-23bf57fdca69" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?xsd=xsd4" />
+    <MetadataFile FileName="InvTransfer5.xsd" MetadataType="Schema" ID="1d109a04-91a1-4aa0-9e34-5e31279d9108" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?xsd=xsd8" />
+    <MetadataFile FileName="InvTransfer6.xsd" MetadataType="Schema" ID="ff315e55-d706-4acb-9cbb-bdc255e091e4" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?xsd=xsd2" />
+    <MetadataFile FileName="InvTransfer.disco" MetadataType="Disco" ID="87ab6937-26a3-408a-b5ba-3dab8a1d8ed6" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?disco" />
+    <MetadataFile FileName="InvTransfer7.xsd" MetadataType="Schema" ID="7147d3dc-bb9f-401e-9cb5-902124d49fee" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?xsd=xsd1" />
+    <MetadataFile FileName="InvTransfer.wsdl" MetadataType="Wsdl" ID="a85d12cd-e0b8-48c2-8bb0-5cd501926cac" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="InvTransfer8.xsd" MetadataType="Schema" ID="4d83d735-dae5-4326-a39a-c9b7df8dc725" SourceId="1" SourceUrl="http://erp10/ERPDEMO/Erp/BO/InvTransfer.svc?xsd=xsd7" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

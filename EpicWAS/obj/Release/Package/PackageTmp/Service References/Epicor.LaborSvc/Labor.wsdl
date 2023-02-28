@@ -1,0 +1,1740 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:Labor" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:Labor" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:Labor/Imports">
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd0" namespace="Erp:BO:Labor" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/Labor.svc?xsd=xsd8" namespace="http://epicor.com/UserDefinedColumns" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="LaborSvcContract_BuildJobOperPrjRoleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuildJobOperPrjRoleList" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_BuildJobOperPrjRoleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuildJobOperPrjRoleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_BuildJobOperPrjRoleList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeEquipID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeEquipID" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeEquipID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeEquipIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeEquipID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeIndirectCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeIndirectCode" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeIndirectCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeIndirectCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeIndirectCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeLaborType_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeLaborType" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeLaborType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeLaborTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeLaborType_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckResourceId_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckResourceId" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckResourceId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckResourceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckResourceId_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeResourceId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeResourceId" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeResourceId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeResourceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ChangeResourceId_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckEmployeeActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckEmployeeActivity" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckEmployeeActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckEmployeeActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckEmployeeActivity_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckNonConformance_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckNonConformance" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckNonConformance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckNonConformanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckNonConformance_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckFirstArticleWarning_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFirstArticleWarning" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckFirstArticleWarning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFirstArticleWarningResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckFirstArticleWarning_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckInspResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInspResults" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckInspResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInspResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckInspResults_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckResourceGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckResourceGroup" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckResourceGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckResourceGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckResourceGroup_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckWarnings_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckWarnings" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckWarnings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckWarningsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CheckWarnings_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q12:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_chkReportQtyShopWarn_InputMessage">
+    <wsdl:part name="parameters" element="tns:chkReportQtyShopWarn" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_chkReportQtyShopWarn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:chkReportQtyShopWarnResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_chkReportQtyShopWarn_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q13:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CopyLaborDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:CopyLaborDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CopyLaborDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CopyLaborDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CopyLaborDetail_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q14:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CopyTimeWeeklyView_InputMessage">
+    <wsdl:part name="parameters" element="tns:CopyTimeWeeklyView" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CopyTimeWeeklyView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CopyTimeWeeklyViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_CopyTimeWeeklyView_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q15:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultAssemblySeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultAssemblySeq" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultAssemblySeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultAssemblySeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultAssemblySeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q16:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultComplete" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultComplete_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q17:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultDate" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultDate_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q18:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultDiscrpRsnCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultDiscrpRsnCode" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultDiscrpRsnCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultDiscrpRsnCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultDiscrpRsnCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q19:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultReworkReasonCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultReworkReasonCode" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultReworkReasonCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultReworkReasonCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultReworkReasonCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q20:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultDtlTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultDtlTime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultDtlTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultDtlTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultDtlTime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q21:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultIndirect_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultIndirect" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultIndirect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultIndirectResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultIndirect_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q22:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SelectAllForWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllForWork" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SelectAllForWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllForWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SelectAllForWork_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q23:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultJobNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultJobNum" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultJobNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultJobNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultJobNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q24:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLaborHrs_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultLaborHrs" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLaborHrs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultLaborHrsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLaborHrs_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q25:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLaborQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultLaborQty" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLaborQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultLaborQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLaborQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q26:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_VerifyScrapQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyScrapQty" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_VerifyScrapQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyScrapQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_VerifyScrapQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q27:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangePartQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePartQty" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangePartQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePartQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangePartQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q28:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLaborType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultLaborType" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLaborType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultLaborTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLaborType_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q29:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLunchBreak_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultLunchBreak" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLunchBreak_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultLunchBreakResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultLunchBreak_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q30:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultNextOprSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultNextOprSeq" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultNextOprSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultNextOprSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultNextOprSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q31:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultOpCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultOpCode" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultOpCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultOpCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultOpCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q32:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultOprSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultOprSeq" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultOprSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultOprSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultOprSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q33:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlOnSelectForWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlOnSelectForWork" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlOnSelectForWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlOnSelectForWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlOnSelectForWork_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q34:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultPhaseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultPhaseID" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultPhaseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultPhaseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultPhaseID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q35:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultPhaseOprSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultPhaseOprSeq" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultPhaseOprSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultPhaseOprSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultPhaseOprSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q36:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultProjectID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultProjectID" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultProjectID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultProjectIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultProjectID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q37:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultResourceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultResourceID" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultResourceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultResourceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultResourceID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q38:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultRoleCd_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultRoleCd" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultRoleCd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultRoleCdResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultRoleCd_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q39:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultScrapReasonCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultScrapReasonCode" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultScrapReasonCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultScrapReasonCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultScrapReasonCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q40:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultSetupPctComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultSetupPctComplete" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultSetupPctComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultSetupPctCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultSetupPctComplete_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q41:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultShift" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultShift_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q42:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultTime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultTime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q43:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultTimeTypCd_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultTimeTypCd" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultTimeTypCd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultTimeTypCdResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultTimeTypCd_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q44:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultWCCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultWCCode" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultWCCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultWCCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DefaultWCCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q45:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DeleteLaborDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLaborDtl" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DeleteLaborDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLaborDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DeleteLaborDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q46:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_EndActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndActivity" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_EndActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_EndActivity_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q47:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_EndActivityComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndActivityComplete" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_EndActivityComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndActivityCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_EndActivityComplete_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q48:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetActiveLaborDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveLaborDtl" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetActiveLaborDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveLaborDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetActiveLaborDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q49:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_InitiateDowntime_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitiateDowntime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_InitiateDowntime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitiateDowntimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_InitiateDowntime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q50:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_EndDowntime_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndDowntime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_EndDowntime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndDowntimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_EndDowntime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q51:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetDetail_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q52:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_getElapsedTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:getElapsedTime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_getElapsedTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getElapsedTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_getElapsedTime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q53:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlNoHdr_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlNoHdr" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlNoHdr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlNoHdrResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlNoHdr_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q54="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q54:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlWithHdr_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlWithHdr" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlWithHdr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlWithHdrResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlWithHdr_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q55="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q55:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborHed1_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborHed1" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborHed1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborHed1Response" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborHed1_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q56="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q56:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLbrScrapSerialNumbers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLbrScrapSerialNumbers" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLbrScrapSerialNumbers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLbrScrapSerialNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLbrScrapSerialNumbers_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q57="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q57:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewTimeWeeklyView_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewTimeWeeklyView" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewTimeWeeklyView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewTimeWeeklyViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewTimeWeeklyView_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q58="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q58:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetRowsCalendarView_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsCalendarView" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetRowsCalendarView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsCalendarViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetRowsCalendarView_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q59="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q59:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetRowsWhoIsHere_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsWhoIsHere" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetRowsWhoIsHere_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsWhoIsHereResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetRowsWhoIsHere_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q60="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q60:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveApproved_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveApproved" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveApproved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveApprovedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveApproved_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q61="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q61:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveByOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveByOption" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveByOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveByOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveByOption_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q62="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q62:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveEntered_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveEntered" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveEntered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveEnteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveEntered_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q63="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q63:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrievePartiallyApproved_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrievePartiallyApproved" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrievePartiallyApproved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrievePartiallyApprovedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrievePartiallyApproved_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q64="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q64:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveRejected_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveRejected" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveRejected_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveRejectedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveRejected_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q65="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q65:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveSubmitted_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveSubmitted" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveSubmitted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTERetrieveSubmittedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetTERetrieveSubmitted_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q66="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q66:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_IsValidAssembly_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidAssembly" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_IsValidAssembly_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidAssemblyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_IsValidAssembly_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q67="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q67:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_LaborRateCalc_InputMessage">
+    <wsdl:part name="parameters" element="tns:LaborRateCalc" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_LaborRateCalc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LaborRateCalcResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_LaborRateCalc_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q68="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q68:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangeClockInDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeClockInDate" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangeClockInDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeClockInDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangeClockInDate_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q69="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q69:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangePCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePCID" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangePCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangePCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q70="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q70:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangeQuickEntryCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeQuickEntryCode" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangeQuickEntryCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeQuickEntryCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangeQuickEntryCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q71="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q71:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangeResourceGrpID_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeResourceGrpID" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangeResourceGrpID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeResourceGrpIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnChangeResourceGrpID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q72="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q72:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnLoadEndActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnLoadEndActivity" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnLoadEndActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnLoadEndActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OnLoadEndActivity_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q73="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q73:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_Overrides_InputMessage">
+    <wsdl:part name="parameters" element="tns:Overrides" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_Overrides_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OverridesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_Overrides_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q74="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q74:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OverridesResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:OverridesResource" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OverridesResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OverridesResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_OverridesResource_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q75="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q75:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_RecallFromApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecallFromApproval" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_RecallFromApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecallFromApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_RecallFromApproval_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q76="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q76:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SelectForWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectForWork" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SelectForWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectForWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SelectForWork_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q77="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q77:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SelectForWorkCheckWarnings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectForWorkCheckWarnings" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SelectForWorkCheckWarnings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectForWorkCheckWarningsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SelectForWorkCheckWarnings_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q78="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q78:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetClockInAndDisplayTimeMES_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetClockInAndDisplayTimeMES" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetClockInAndDisplayTimeMES_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetClockInAndDisplayTimeMESResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetClockInAndDisplayTimeMES_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q79="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q79:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveApproved_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveApproved" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveApproved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveApprovedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveApproved_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q80="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q80:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveByDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveByDay" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveByDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveByDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveByDay_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q81="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q81:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveByMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveByMonth" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveByMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveByMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveByMonth_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q82="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q82:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveByWeek_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveByWeek" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveByWeek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveByWeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveByWeek_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q83="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q83:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveEntered_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveEntered" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveEntered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveEnteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveEntered_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q84="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q84:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrievePartiallyApproved_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrievePartiallyApproved" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrievePartiallyApproved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrievePartiallyApprovedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrievePartiallyApproved_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q85="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q85:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveRejected_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveRejected" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveRejected_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveRejectedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveRejected_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q86="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q86:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveSubmitted_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveSubmitted" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveSubmitted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTERetrieveSubmittedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SetTERetrieveSubmitted_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q87="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q87:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_StartActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartActivity" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_StartActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_StartActivity_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q88="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q88:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SubmitForApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForApproval" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SubmitForApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_SubmitForApproval_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q89="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q89:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateIndirectCodeIsDowntime_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateIndirectCodeIsDowntime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateIndirectCodeIsDowntime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateIndirectCodeIsDowntimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateIndirectCodeIsDowntime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q90="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q90:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_validateNonConfProcessed_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateNonConfProcessed" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_validateNonConfProcessed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateNonConfProcessedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_validateNonConfProcessed_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q91="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q91:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateProjectClosed_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateProjectClosed" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateProjectClosed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateProjectClosedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateProjectClosed_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q92="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q92:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateSerialAfterSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialAfterSelect" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateSerialAfterSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialAfterSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateSerialAfterSelect_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q93="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q93:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateSerialScanInterface_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialScanInterface" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateSerialScanInterface_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialScanInterfaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateSerialScanInterface_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q94="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q94:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateSerialBeforeSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialBeforeSelect" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateSerialBeforeSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSerialBeforeSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateSerialBeforeSelect_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q95="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q95:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_VerifySerialMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifySerialMatch" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_VerifySerialMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifySerialMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_VerifySerialMatch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q96="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q96:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetClockTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClockTime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetClockTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClockTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetClockTime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q97="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q97:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetCodeDescList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeDescList" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetCodeDescList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeDescListResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetCodeDescList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q98="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q98:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetDspClockTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDspClockTime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetDspClockTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDspClockTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetDspClockTime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q99="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q99:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ReportPartQtyAllowed_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportPartQtyAllowed" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ReportPartQtyAllowed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportPartQtyAllowedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ReportPartQtyAllowed_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q100="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q100:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ExternalMESDowntime_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExternalMESDowntime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ExternalMESDowntime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExternalMESDowntimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ExternalMESDowntime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q101="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q101:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ExternalMESEndDowntime_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExternalMESEndDowntime" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ExternalMESEndDowntime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExternalMESEndDowntimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ExternalMESEndDowntime_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q102="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q102:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_HCMGetLaborRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:HCMGetLaborRecords" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_HCMGetLaborRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HCMGetLaborRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_HCMGetLaborRecords_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q103="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q103:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_HCMSetLaborStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:HCMSetLaborStatus" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_HCMSetLaborStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HCMSetLaborStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_HCMSetLaborStatus_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q104="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q104:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateChargeRateForTimeType_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateChargeRateForTimeType" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateChargeRateForTimeType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateChargeRateForTimeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ValidateChargeRateForTimeType_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q105="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q105:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ReviewIsDocumentLock_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReviewIsDocumentLock" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ReviewIsDocumentLock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReviewIsDocumentLockResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_ReviewIsDocumentLock_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q106="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q106:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_IsHCMEnabledAtCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsHCMEnabledAtCompany" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_IsHCMEnabledAtCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsHCMEnabledAtCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_IsHCMEnabledAtCompany_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q107="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q107:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_LaborDtlAfterGetRowsWrapper_InputMessage">
+    <wsdl:part name="parameters" element="tns:LaborDtlAfterGetRowsWrapper" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_LaborDtlAfterGetRowsWrapper_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LaborDtlAfterGetRowsWrapperResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_LaborDtlAfterGetRowsWrapper_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q108="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q108:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborHed_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborHed" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborHed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborHedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborHed_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q109="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q109:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtl" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtl_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q110="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q110:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlAttch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlAttch" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlAttch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlAttchResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlAttch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q111="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q111:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlComment" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlComment_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q112="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q112:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborEquip_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborEquip" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborEquip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborEquipResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborEquip_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q113="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q113:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborPart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborPart" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborPart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborPart_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q114="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q114:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlGroup" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewLaborDtlGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetNewLaborDtlGroup_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q115="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q115:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DeleteByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByID" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DeleteByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q116="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q116:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByID" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q117="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q117:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q118="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q118:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetRows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRows" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetRows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q119="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q119:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetBySysRowID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowID" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetBySysRowID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q120="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q120:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetBySysRowIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDs" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetBySysRowIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBySysRowIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q121="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q121:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_Update_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q122="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q122:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_UpdateExt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExt" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_UpdateExt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaborSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q123="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q123:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="LaborSvcContract">
+    <wsdl:operation name="BuildJobOperPrjRoleList">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/BuildJobOperPrjRoleList" message="tns:LaborSvcContract_BuildJobOperPrjRoleList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/BuildJobOperPrjRoleListResponse" message="tns:LaborSvcContract_BuildJobOperPrjRoleList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/BuildJobOperPrjRoleListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_BuildJobOperPrjRoleList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeEquipID">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeEquipID" message="tns:LaborSvcContract_ChangeEquipID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeEquipIDResponse" message="tns:LaborSvcContract_ChangeEquipID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeEquipIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ChangeEquipID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeIndirectCode">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeIndirectCode" message="tns:LaborSvcContract_ChangeIndirectCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeIndirectCodeResponse" message="tns:LaborSvcContract_ChangeIndirectCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeIndirectCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ChangeIndirectCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeLaborType">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeLaborType" message="tns:LaborSvcContract_ChangeLaborType_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeLaborTypeResponse" message="tns:LaborSvcContract_ChangeLaborType_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeLaborTypeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ChangeLaborType_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckResourceId">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckResourceId" message="tns:LaborSvcContract_CheckResourceId_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckResourceIdResponse" message="tns:LaborSvcContract_CheckResourceId_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckResourceIdEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_CheckResourceId_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeResourceId">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeResourceId" message="tns:LaborSvcContract_ChangeResourceId_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeResourceIdResponse" message="tns:LaborSvcContract_ChangeResourceId_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ChangeResourceIdEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ChangeResourceId_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmployeeActivity">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckEmployeeActivity" message="tns:LaborSvcContract_CheckEmployeeActivity_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckEmployeeActivityResponse" message="tns:LaborSvcContract_CheckEmployeeActivity_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckEmployeeActivityEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_CheckEmployeeActivity_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckNonConformance">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckNonConformance" message="tns:LaborSvcContract_CheckNonConformance_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckNonConformanceResponse" message="tns:LaborSvcContract_CheckNonConformance_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckNonConformanceEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_CheckNonConformance_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFirstArticleWarning">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckFirstArticleWarning" message="tns:LaborSvcContract_CheckFirstArticleWarning_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckFirstArticleWarningResponse" message="tns:LaborSvcContract_CheckFirstArticleWarning_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckFirstArticleWarningEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_CheckFirstArticleWarning_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInspResults">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckInspResults" message="tns:LaborSvcContract_CheckInspResults_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckInspResultsResponse" message="tns:LaborSvcContract_CheckInspResults_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckInspResultsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_CheckInspResults_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckResourceGroup">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckResourceGroup" message="tns:LaborSvcContract_CheckResourceGroup_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckResourceGroupResponse" message="tns:LaborSvcContract_CheckResourceGroup_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckResourceGroupEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_CheckResourceGroup_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckWarnings">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckWarnings" message="tns:LaborSvcContract_CheckWarnings_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckWarningsResponse" message="tns:LaborSvcContract_CheckWarnings_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/CheckWarningsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_CheckWarnings_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="chkReportQtyShopWarn">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/chkReportQtyShopWarn" message="tns:LaborSvcContract_chkReportQtyShopWarn_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/chkReportQtyShopWarnResponse" message="tns:LaborSvcContract_chkReportQtyShopWarn_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/chkReportQtyShopWarnEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_chkReportQtyShopWarn_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CopyLaborDetail">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/CopyLaborDetail" message="tns:LaborSvcContract_CopyLaborDetail_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/CopyLaborDetailResponse" message="tns:LaborSvcContract_CopyLaborDetail_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/CopyLaborDetailEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_CopyLaborDetail_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CopyTimeWeeklyView">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/CopyTimeWeeklyView" message="tns:LaborSvcContract_CopyTimeWeeklyView_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/CopyTimeWeeklyViewResponse" message="tns:LaborSvcContract_CopyTimeWeeklyView_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/CopyTimeWeeklyViewEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_CopyTimeWeeklyView_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultAssemblySeq">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultAssemblySeq" message="tns:LaborSvcContract_DefaultAssemblySeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultAssemblySeqResponse" message="tns:LaborSvcContract_DefaultAssemblySeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultAssemblySeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultAssemblySeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultComplete">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultComplete" message="tns:LaborSvcContract_DefaultComplete_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultCompleteResponse" message="tns:LaborSvcContract_DefaultComplete_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultCompleteEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultComplete_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultDate">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultDate" message="tns:LaborSvcContract_DefaultDate_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultDateResponse" message="tns:LaborSvcContract_DefaultDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultDateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultDate_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultDiscrpRsnCode">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultDiscrpRsnCode" message="tns:LaborSvcContract_DefaultDiscrpRsnCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultDiscrpRsnCodeResponse" message="tns:LaborSvcContract_DefaultDiscrpRsnCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultDiscrpRsnCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultDiscrpRsnCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultReworkReasonCode">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultReworkReasonCode" message="tns:LaborSvcContract_DefaultReworkReasonCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultReworkReasonCodeResponse" message="tns:LaborSvcContract_DefaultReworkReasonCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultReworkReasonCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultReworkReasonCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultDtlTime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultDtlTime" message="tns:LaborSvcContract_DefaultDtlTime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultDtlTimeResponse" message="tns:LaborSvcContract_DefaultDtlTime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultDtlTimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultDtlTime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultIndirect">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultIndirect" message="tns:LaborSvcContract_DefaultIndirect_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultIndirectResponse" message="tns:LaborSvcContract_DefaultIndirect_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultIndirectEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultIndirect_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllForWork">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SelectAllForWork" message="tns:LaborSvcContract_SelectAllForWork_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SelectAllForWorkResponse" message="tns:LaborSvcContract_SelectAllForWork_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SelectAllForWorkEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SelectAllForWork_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultJobNum">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultJobNum" message="tns:LaborSvcContract_DefaultJobNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultJobNumResponse" message="tns:LaborSvcContract_DefaultJobNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultJobNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultJobNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultLaborHrs">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLaborHrs" message="tns:LaborSvcContract_DefaultLaborHrs_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLaborHrsResponse" message="tns:LaborSvcContract_DefaultLaborHrs_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLaborHrsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultLaborHrs_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultLaborQty">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLaborQty" message="tns:LaborSvcContract_DefaultLaborQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLaborQtyResponse" message="tns:LaborSvcContract_DefaultLaborQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLaborQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultLaborQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyScrapQty">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/VerifyScrapQty" message="tns:LaborSvcContract_VerifyScrapQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/VerifyScrapQtyResponse" message="tns:LaborSvcContract_VerifyScrapQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/VerifyScrapQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_VerifyScrapQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangePartQty">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangePartQty" message="tns:LaborSvcContract_OnChangePartQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangePartQtyResponse" message="tns:LaborSvcContract_OnChangePartQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangePartQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_OnChangePartQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultLaborType">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLaborType" message="tns:LaborSvcContract_DefaultLaborType_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLaborTypeResponse" message="tns:LaborSvcContract_DefaultLaborType_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLaborTypeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultLaborType_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultLunchBreak">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLunchBreak" message="tns:LaborSvcContract_DefaultLunchBreak_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLunchBreakResponse" message="tns:LaborSvcContract_DefaultLunchBreak_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultLunchBreakEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultLunchBreak_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultNextOprSeq">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultNextOprSeq" message="tns:LaborSvcContract_DefaultNextOprSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultNextOprSeqResponse" message="tns:LaborSvcContract_DefaultNextOprSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultNextOprSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultNextOprSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultOpCode">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultOpCode" message="tns:LaborSvcContract_DefaultOpCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultOpCodeResponse" message="tns:LaborSvcContract_DefaultOpCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultOpCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultOpCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultOprSeq">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultOprSeq" message="tns:LaborSvcContract_DefaultOprSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultOprSeqResponse" message="tns:LaborSvcContract_DefaultOprSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultOprSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultOprSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborDtlOnSelectForWork">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlOnSelectForWork" message="tns:LaborSvcContract_GetNewLaborDtlOnSelectForWork_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlOnSelectForWorkResponse" message="tns:LaborSvcContract_GetNewLaborDtlOnSelectForWork_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlOnSelectForWorkEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborDtlOnSelectForWork_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultPhaseID">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultPhaseID" message="tns:LaborSvcContract_DefaultPhaseID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultPhaseIDResponse" message="tns:LaborSvcContract_DefaultPhaseID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultPhaseIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultPhaseID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultPhaseOprSeq">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultPhaseOprSeq" message="tns:LaborSvcContract_DefaultPhaseOprSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultPhaseOprSeqResponse" message="tns:LaborSvcContract_DefaultPhaseOprSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultPhaseOprSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultPhaseOprSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultProjectID">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultProjectID" message="tns:LaborSvcContract_DefaultProjectID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultProjectIDResponse" message="tns:LaborSvcContract_DefaultProjectID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultProjectIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultProjectID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultResourceID">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultResourceID" message="tns:LaborSvcContract_DefaultResourceID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultResourceIDResponse" message="tns:LaborSvcContract_DefaultResourceID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultResourceIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultResourceID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultRoleCd">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultRoleCd" message="tns:LaborSvcContract_DefaultRoleCd_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultRoleCdResponse" message="tns:LaborSvcContract_DefaultRoleCd_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultRoleCdEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultRoleCd_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultScrapReasonCode">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultScrapReasonCode" message="tns:LaborSvcContract_DefaultScrapReasonCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultScrapReasonCodeResponse" message="tns:LaborSvcContract_DefaultScrapReasonCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultScrapReasonCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultScrapReasonCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultSetupPctComplete">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultSetupPctComplete" message="tns:LaborSvcContract_DefaultSetupPctComplete_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultSetupPctCompleteResponse" message="tns:LaborSvcContract_DefaultSetupPctComplete_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultSetupPctCompleteEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultSetupPctComplete_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultShift">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultShift" message="tns:LaborSvcContract_DefaultShift_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultShiftResponse" message="tns:LaborSvcContract_DefaultShift_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultShiftEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultShift_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultTime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultTime" message="tns:LaborSvcContract_DefaultTime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultTimeResponse" message="tns:LaborSvcContract_DefaultTime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultTimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultTime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultTimeTypCd">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultTimeTypCd" message="tns:LaborSvcContract_DefaultTimeTypCd_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultTimeTypCdResponse" message="tns:LaborSvcContract_DefaultTimeTypCd_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultTimeTypCdEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultTimeTypCd_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultWCCode">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultWCCode" message="tns:LaborSvcContract_DefaultWCCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultWCCodeResponse" message="tns:LaborSvcContract_DefaultWCCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DefaultWCCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DefaultWCCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLaborDtl">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DeleteLaborDtl" message="tns:LaborSvcContract_DeleteLaborDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DeleteLaborDtlResponse" message="tns:LaborSvcContract_DeleteLaborDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DeleteLaborDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DeleteLaborDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndActivity">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/EndActivity" message="tns:LaborSvcContract_EndActivity_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/EndActivityResponse" message="tns:LaborSvcContract_EndActivity_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/EndActivityEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_EndActivity_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndActivityComplete">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/EndActivityComplete" message="tns:LaborSvcContract_EndActivityComplete_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/EndActivityCompleteResponse" message="tns:LaborSvcContract_EndActivityComplete_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/EndActivityCompleteEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_EndActivityComplete_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveLaborDtl">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetActiveLaborDtl" message="tns:LaborSvcContract_GetActiveLaborDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetActiveLaborDtlResponse" message="tns:LaborSvcContract_GetActiveLaborDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetActiveLaborDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetActiveLaborDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitiateDowntime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/InitiateDowntime" message="tns:LaborSvcContract_InitiateDowntime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/InitiateDowntimeResponse" message="tns:LaborSvcContract_InitiateDowntime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/InitiateDowntimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_InitiateDowntime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndDowntime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/EndDowntime" message="tns:LaborSvcContract_EndDowntime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/EndDowntimeResponse" message="tns:LaborSvcContract_EndDowntime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/EndDowntimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_EndDowntime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetail">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetDetail" message="tns:LaborSvcContract_GetDetail_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetDetailResponse" message="tns:LaborSvcContract_GetDetail_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetDetailEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetDetail_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getElapsedTime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/getElapsedTime" message="tns:LaborSvcContract_getElapsedTime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/getElapsedTimeResponse" message="tns:LaborSvcContract_getElapsedTime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/getElapsedTimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_getElapsedTime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborDtlNoHdr">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlNoHdr" message="tns:LaborSvcContract_GetNewLaborDtlNoHdr_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlNoHdrResponse" message="tns:LaborSvcContract_GetNewLaborDtlNoHdr_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlNoHdrEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborDtlNoHdr_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborDtlWithHdr">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlWithHdr" message="tns:LaborSvcContract_GetNewLaborDtlWithHdr_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlWithHdrResponse" message="tns:LaborSvcContract_GetNewLaborDtlWithHdr_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlWithHdrEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborDtlWithHdr_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborHed1">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborHed1" message="tns:LaborSvcContract_GetNewLaborHed1_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborHed1Response" message="tns:LaborSvcContract_GetNewLaborHed1_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborHed1EpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborHed1_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLbrScrapSerialNumbers">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLbrScrapSerialNumbers" message="tns:LaborSvcContract_GetNewLbrScrapSerialNumbers_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLbrScrapSerialNumbersResponse" message="tns:LaborSvcContract_GetNewLbrScrapSerialNumbers_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLbrScrapSerialNumbersEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLbrScrapSerialNumbers_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewTimeWeeklyView">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewTimeWeeklyView" message="tns:LaborSvcContract_GetNewTimeWeeklyView_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewTimeWeeklyViewResponse" message="tns:LaborSvcContract_GetNewTimeWeeklyView_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewTimeWeeklyViewEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewTimeWeeklyView_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRowsCalendarView">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetRowsCalendarView" message="tns:LaborSvcContract_GetRowsCalendarView_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetRowsCalendarViewResponse" message="tns:LaborSvcContract_GetRowsCalendarView_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetRowsCalendarViewEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetRowsCalendarView_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRowsWhoIsHere">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetRowsWhoIsHere" message="tns:LaborSvcContract_GetRowsWhoIsHere_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetRowsWhoIsHereResponse" message="tns:LaborSvcContract_GetRowsWhoIsHere_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetRowsWhoIsHereEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetRowsWhoIsHere_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTERetrieveApproved">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveApproved" message="tns:LaborSvcContract_GetTERetrieveApproved_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveApprovedResponse" message="tns:LaborSvcContract_GetTERetrieveApproved_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveApprovedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetTERetrieveApproved_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTERetrieveByOption">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveByOption" message="tns:LaborSvcContract_GetTERetrieveByOption_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveByOptionResponse" message="tns:LaborSvcContract_GetTERetrieveByOption_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveByOptionEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetTERetrieveByOption_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTERetrieveEntered">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveEntered" message="tns:LaborSvcContract_GetTERetrieveEntered_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveEnteredResponse" message="tns:LaborSvcContract_GetTERetrieveEntered_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveEnteredEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetTERetrieveEntered_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTERetrievePartiallyApproved">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrievePartiallyApproved" message="tns:LaborSvcContract_GetTERetrievePartiallyApproved_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrievePartiallyApprovedResponse" message="tns:LaborSvcContract_GetTERetrievePartiallyApproved_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrievePartiallyApprovedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetTERetrievePartiallyApproved_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTERetrieveRejected">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveRejected" message="tns:LaborSvcContract_GetTERetrieveRejected_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveRejectedResponse" message="tns:LaborSvcContract_GetTERetrieveRejected_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveRejectedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetTERetrieveRejected_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTERetrieveSubmitted">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveSubmitted" message="tns:LaborSvcContract_GetTERetrieveSubmitted_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveSubmittedResponse" message="tns:LaborSvcContract_GetTERetrieveSubmitted_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetTERetrieveSubmittedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetTERetrieveSubmitted_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidAssembly">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/IsValidAssembly" message="tns:LaborSvcContract_IsValidAssembly_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/IsValidAssemblyResponse" message="tns:LaborSvcContract_IsValidAssembly_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/IsValidAssemblyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_IsValidAssembly_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LaborRateCalc">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/LaborRateCalc" message="tns:LaborSvcContract_LaborRateCalc_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/LaborRateCalcResponse" message="tns:LaborSvcContract_LaborRateCalc_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/LaborRateCalcEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_LaborRateCalc_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeClockInDate">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangeClockInDate" message="tns:LaborSvcContract_OnChangeClockInDate_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangeClockInDateResponse" message="tns:LaborSvcContract_OnChangeClockInDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangeClockInDateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_OnChangeClockInDate_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangePCID">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangePCID" message="tns:LaborSvcContract_OnChangePCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangePCIDResponse" message="tns:LaborSvcContract_OnChangePCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangePCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_OnChangePCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeQuickEntryCode">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangeQuickEntryCode" message="tns:LaborSvcContract_OnChangeQuickEntryCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangeQuickEntryCodeResponse" message="tns:LaborSvcContract_OnChangeQuickEntryCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangeQuickEntryCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_OnChangeQuickEntryCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeResourceGrpID">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangeResourceGrpID" message="tns:LaborSvcContract_OnChangeResourceGrpID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangeResourceGrpIDResponse" message="tns:LaborSvcContract_OnChangeResourceGrpID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnChangeResourceGrpIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_OnChangeResourceGrpID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnLoadEndActivity">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnLoadEndActivity" message="tns:LaborSvcContract_OnLoadEndActivity_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnLoadEndActivityResponse" message="tns:LaborSvcContract_OnLoadEndActivity_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/OnLoadEndActivityEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_OnLoadEndActivity_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Overrides">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/Overrides" message="tns:LaborSvcContract_Overrides_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/OverridesResponse" message="tns:LaborSvcContract_Overrides_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/OverridesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_Overrides_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OverridesResource">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/OverridesResource" message="tns:LaborSvcContract_OverridesResource_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/OverridesResourceResponse" message="tns:LaborSvcContract_OverridesResource_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/OverridesResourceEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_OverridesResource_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecallFromApproval">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/RecallFromApproval" message="tns:LaborSvcContract_RecallFromApproval_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/RecallFromApprovalResponse" message="tns:LaborSvcContract_RecallFromApproval_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/RecallFromApprovalEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_RecallFromApproval_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectForWork">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SelectForWork" message="tns:LaborSvcContract_SelectForWork_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SelectForWorkResponse" message="tns:LaborSvcContract_SelectForWork_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SelectForWorkEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SelectForWork_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectForWorkCheckWarnings">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SelectForWorkCheckWarnings" message="tns:LaborSvcContract_SelectForWorkCheckWarnings_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SelectForWorkCheckWarningsResponse" message="tns:LaborSvcContract_SelectForWorkCheckWarnings_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SelectForWorkCheckWarningsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SelectForWorkCheckWarnings_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetClockInAndDisplayTimeMES">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetClockInAndDisplayTimeMES" message="tns:LaborSvcContract_SetClockInAndDisplayTimeMES_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetClockInAndDisplayTimeMESResponse" message="tns:LaborSvcContract_SetClockInAndDisplayTimeMES_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetClockInAndDisplayTimeMESEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SetClockInAndDisplayTimeMES_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTERetrieveApproved">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveApproved" message="tns:LaborSvcContract_SetTERetrieveApproved_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveApprovedResponse" message="tns:LaborSvcContract_SetTERetrieveApproved_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveApprovedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SetTERetrieveApproved_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTERetrieveByDay">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveByDay" message="tns:LaborSvcContract_SetTERetrieveByDay_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveByDayResponse" message="tns:LaborSvcContract_SetTERetrieveByDay_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveByDayEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SetTERetrieveByDay_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTERetrieveByMonth">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveByMonth" message="tns:LaborSvcContract_SetTERetrieveByMonth_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveByMonthResponse" message="tns:LaborSvcContract_SetTERetrieveByMonth_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveByMonthEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SetTERetrieveByMonth_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTERetrieveByWeek">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveByWeek" message="tns:LaborSvcContract_SetTERetrieveByWeek_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveByWeekResponse" message="tns:LaborSvcContract_SetTERetrieveByWeek_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveByWeekEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SetTERetrieveByWeek_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTERetrieveEntered">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveEntered" message="tns:LaborSvcContract_SetTERetrieveEntered_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveEnteredResponse" message="tns:LaborSvcContract_SetTERetrieveEntered_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveEnteredEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SetTERetrieveEntered_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTERetrievePartiallyApproved">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrievePartiallyApproved" message="tns:LaborSvcContract_SetTERetrievePartiallyApproved_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrievePartiallyApprovedResponse" message="tns:LaborSvcContract_SetTERetrievePartiallyApproved_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrievePartiallyApprovedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SetTERetrievePartiallyApproved_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTERetrieveRejected">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveRejected" message="tns:LaborSvcContract_SetTERetrieveRejected_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveRejectedResponse" message="tns:LaborSvcContract_SetTERetrieveRejected_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveRejectedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SetTERetrieveRejected_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTERetrieveSubmitted">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveSubmitted" message="tns:LaborSvcContract_SetTERetrieveSubmitted_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveSubmittedResponse" message="tns:LaborSvcContract_SetTERetrieveSubmitted_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SetTERetrieveSubmittedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SetTERetrieveSubmitted_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartActivity">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/StartActivity" message="tns:LaborSvcContract_StartActivity_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/StartActivityResponse" message="tns:LaborSvcContract_StartActivity_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/StartActivityEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_StartActivity_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForApproval">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/SubmitForApproval" message="tns:LaborSvcContract_SubmitForApproval_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/SubmitForApprovalResponse" message="tns:LaborSvcContract_SubmitForApproval_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/SubmitForApprovalEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_SubmitForApproval_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateIndirectCodeIsDowntime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateIndirectCodeIsDowntime" message="tns:LaborSvcContract_ValidateIndirectCodeIsDowntime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateIndirectCodeIsDowntimeResponse" message="tns:LaborSvcContract_ValidateIndirectCodeIsDowntime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateIndirectCodeIsDowntimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ValidateIndirectCodeIsDowntime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateNonConfProcessed">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/validateNonConfProcessed" message="tns:LaborSvcContract_validateNonConfProcessed_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/validateNonConfProcessedResponse" message="tns:LaborSvcContract_validateNonConfProcessed_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/validateNonConfProcessedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_validateNonConfProcessed_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProjectClosed">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateProjectClosed" message="tns:LaborSvcContract_ValidateProjectClosed_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateProjectClosedResponse" message="tns:LaborSvcContract_ValidateProjectClosed_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateProjectClosedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ValidateProjectClosed_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSerialAfterSelect">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateSerialAfterSelect" message="tns:LaborSvcContract_ValidateSerialAfterSelect_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateSerialAfterSelectResponse" message="tns:LaborSvcContract_ValidateSerialAfterSelect_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateSerialAfterSelectEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ValidateSerialAfterSelect_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSerialScanInterface">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateSerialScanInterface" message="tns:LaborSvcContract_ValidateSerialScanInterface_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateSerialScanInterfaceResponse" message="tns:LaborSvcContract_ValidateSerialScanInterface_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateSerialScanInterfaceEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ValidateSerialScanInterface_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSerialBeforeSelect">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateSerialBeforeSelect" message="tns:LaborSvcContract_ValidateSerialBeforeSelect_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateSerialBeforeSelectResponse" message="tns:LaborSvcContract_ValidateSerialBeforeSelect_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateSerialBeforeSelectEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ValidateSerialBeforeSelect_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifySerialMatch">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/VerifySerialMatch" message="tns:LaborSvcContract_VerifySerialMatch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/VerifySerialMatchResponse" message="tns:LaborSvcContract_VerifySerialMatch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/VerifySerialMatchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_VerifySerialMatch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClockTime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetClockTime" message="tns:LaborSvcContract_GetClockTime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetClockTimeResponse" message="tns:LaborSvcContract_GetClockTime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetClockTimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetClockTime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeDescList">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetCodeDescList" message="tns:LaborSvcContract_GetCodeDescList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetCodeDescListResponse" message="tns:LaborSvcContract_GetCodeDescList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetCodeDescListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetCodeDescList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDspClockTime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetDspClockTime" message="tns:LaborSvcContract_GetDspClockTime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetDspClockTimeResponse" message="tns:LaborSvcContract_GetDspClockTime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetDspClockTimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetDspClockTime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportPartQtyAllowed">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ReportPartQtyAllowed" message="tns:LaborSvcContract_ReportPartQtyAllowed_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ReportPartQtyAllowedResponse" message="tns:LaborSvcContract_ReportPartQtyAllowed_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ReportPartQtyAllowedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ReportPartQtyAllowed_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExternalMESDowntime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ExternalMESDowntime" message="tns:LaborSvcContract_ExternalMESDowntime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ExternalMESDowntimeResponse" message="tns:LaborSvcContract_ExternalMESDowntime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ExternalMESDowntimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ExternalMESDowntime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExternalMESEndDowntime">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ExternalMESEndDowntime" message="tns:LaborSvcContract_ExternalMESEndDowntime_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ExternalMESEndDowntimeResponse" message="tns:LaborSvcContract_ExternalMESEndDowntime_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ExternalMESEndDowntimeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ExternalMESEndDowntime_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HCMGetLaborRecords">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/HCMGetLaborRecords" message="tns:LaborSvcContract_HCMGetLaborRecords_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/HCMGetLaborRecordsResponse" message="tns:LaborSvcContract_HCMGetLaborRecords_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/HCMGetLaborRecordsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_HCMGetLaborRecords_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HCMSetLaborStatus">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/HCMSetLaborStatus" message="tns:LaborSvcContract_HCMSetLaborStatus_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/HCMSetLaborStatusResponse" message="tns:LaborSvcContract_HCMSetLaborStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/HCMSetLaborStatusEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_HCMSetLaborStatus_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateChargeRateForTimeType">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateChargeRateForTimeType" message="tns:LaborSvcContract_ValidateChargeRateForTimeType_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateChargeRateForTimeTypeResponse" message="tns:LaborSvcContract_ValidateChargeRateForTimeType_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ValidateChargeRateForTimeTypeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ValidateChargeRateForTimeType_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReviewIsDocumentLock">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/ReviewIsDocumentLock" message="tns:LaborSvcContract_ReviewIsDocumentLock_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/ReviewIsDocumentLockResponse" message="tns:LaborSvcContract_ReviewIsDocumentLock_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/ReviewIsDocumentLockEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_ReviewIsDocumentLock_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsHCMEnabledAtCompany">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/IsHCMEnabledAtCompany" message="tns:LaborSvcContract_IsHCMEnabledAtCompany_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/IsHCMEnabledAtCompanyResponse" message="tns:LaborSvcContract_IsHCMEnabledAtCompany_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/IsHCMEnabledAtCompanyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_IsHCMEnabledAtCompany_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LaborDtlAfterGetRowsWrapper">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/LaborDtlAfterGetRowsWrapper" message="tns:LaborSvcContract_LaborDtlAfterGetRowsWrapper_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/LaborDtlAfterGetRowsWrapperResponse" message="tns:LaborSvcContract_LaborDtlAfterGetRowsWrapper_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/LaborDtlAfterGetRowsWrapperEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_LaborDtlAfterGetRowsWrapper_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborHed">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborHed" message="tns:LaborSvcContract_GetNewLaborHed_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborHedResponse" message="tns:LaborSvcContract_GetNewLaborHed_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborHedEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborHed_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborDtl">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtl" message="tns:LaborSvcContract_GetNewLaborDtl_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlResponse" message="tns:LaborSvcContract_GetNewLaborDtl_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborDtl_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborDtlAttch">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlAttch" message="tns:LaborSvcContract_GetNewLaborDtlAttch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlAttchResponse" message="tns:LaborSvcContract_GetNewLaborDtlAttch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlAttchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborDtlAttch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborDtlComment">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlComment" message="tns:LaborSvcContract_GetNewLaborDtlComment_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlCommentResponse" message="tns:LaborSvcContract_GetNewLaborDtlComment_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlCommentEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborDtlComment_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborEquip">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborEquip" message="tns:LaborSvcContract_GetNewLaborEquip_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborEquipResponse" message="tns:LaborSvcContract_GetNewLaborEquip_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborEquipEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborEquip_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborPart">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborPart" message="tns:LaborSvcContract_GetNewLaborPart_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborPartResponse" message="tns:LaborSvcContract_GetNewLaborPart_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborPartEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborPart_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewLaborDtlGroup">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlGroup" message="tns:LaborSvcContract_GetNewLaborDtlGroup_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlGroupResponse" message="tns:LaborSvcContract_GetNewLaborDtlGroup_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetNewLaborDtlGroupEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetNewLaborDtlGroup_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByID">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/DeleteByID" message="tns:LaborSvcContract_DeleteByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/DeleteByIDResponse" message="tns:LaborSvcContract_DeleteByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/DeleteByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_DeleteByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetByID" message="tns:LaborSvcContract_GetByID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetByIDResponse" message="tns:LaborSvcContract_GetByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetByIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetByID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetList" message="tns:LaborSvcContract_GetList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetListResponse" message="tns:LaborSvcContract_GetList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRows">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetRows" message="tns:LaborSvcContract_GetRows_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetRowsResponse" message="tns:LaborSvcContract_GetRows_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetRowsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowID">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetBySysRowID" message="tns:LaborSvcContract_GetBySysRowID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetBySysRowIDResponse" message="tns:LaborSvcContract_GetBySysRowID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetBySysRowIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetBySysRowID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBySysRowIDs">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetBySysRowIDs" message="tns:LaborSvcContract_GetBySysRowIDs_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetBySysRowIDsResponse" message="tns:LaborSvcContract_GetBySysRowIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/GetBySysRowIDsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_GetBySysRowIDs_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/Update" message="tns:LaborSvcContract_Update_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/UpdateResponse" message="tns:LaborSvcContract_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/UpdateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_Update_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExt">
+      <wsdl:input wsaw:Action="Erp:BO:Labor/LaborSvcContract/UpdateExt" message="tns:LaborSvcContract_UpdateExt_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:Labor/LaborSvcContract/UpdateExtResponse" message="tns:LaborSvcContract_UpdateExt_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:Labor/LaborSvcContract/UpdateExtEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:LaborSvcContract_UpdateExt_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

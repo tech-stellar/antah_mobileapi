@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:ReceiptsFromMfg" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:ReceiptsFromMfg" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:ReceiptsFromMfg/Imports">
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd0" namespace="Erp:BO:ReceiptsFromMfg" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://erp10/ERPDEMO/Erp/BO/ReceiptsFromMfg.svc?xsd=xsd8" namespace="http://epicor.com/UserDefinedColumns" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_NegativeInventoryTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTest" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_NegativeInventoryTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetAvailTranDocTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailTranDocTypes" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetAvailTranDocTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailTranDocTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetAvailTranDocTypes_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetDefaultTranDocTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultTranDocTypeID" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetDefaultTranDocTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultTranDocTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetDefaultTranDocTypeID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetDefaultWhseBin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultWhseBin" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetDefaultWhseBin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultWhseBinResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetDefaultWhseBin_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetCodeDescList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeDescList" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetCodeDescList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeDescListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetCodeDescList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_EnableSerialMatching_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnableSerialMatching" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_EnableSerialMatching_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnableSerialMatchingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_EnableSerialMatching_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetList_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewJobAsmblMultiple_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewJobAsmblMultiple" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewJobAsmblMultiple_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewJobAsmblMultipleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewJobAsmblMultiple_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewJobAsmblSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewJobAsmblSearch" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewJobAsmblSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewJobAsmblSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewJobAsmblSearch_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfg_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewReceiptsFromMfg" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewReceiptsFromMfgResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfg_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgJobAsm_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewReceiptsFromMfgJobAsm" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgJobAsm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewReceiptsFromMfgJobAsmResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgJobAsm_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgMtlQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewReceiptsFromMfgMtlQueue" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgMtlQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewReceiptsFromMfgMtlQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgMtlQueue_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q12:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetRows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRows" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetRows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q13:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetSelectSerialNumbersParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParams" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetSelectSerialNumbersParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectSerialNumbersParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q14:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_IsValidAssembly_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidAssembly" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_IsValidAssembly_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidAssemblyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_IsValidAssembly_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q15:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeActTranQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeActTranQty" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeActTranQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeActTranQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeActTranQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q16:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeActTransUOM_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeActTransUOM" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeActTransUOM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeActTransUOMResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeActTransUOM_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q17:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeAssemblySeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeAssemblySeq" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeAssemblySeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeAssemblySeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeAssemblySeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q18:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeAssemblySeq2_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeAssemblySeq2" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeAssemblySeq2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeAssemblySeq2Response" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeAssemblySeq2_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q19:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeBinNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeBinNum" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeBinNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeBinNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeBinNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q20:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeJobNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeJobNum" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeJobNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeJobNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeJobNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q21:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeJobNum2_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeJobNum2" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeJobNum2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeJobNum2Response" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeJobNum2_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q22:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeJobSeq2_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeJobSeq2" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeJobSeq2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeJobSeq2Response" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeJobSeq2_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q23:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeLotNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeLotNum" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeLotNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeLotNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeLotNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q24:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeOverrideCost_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeOverrideCost" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeOverrideCost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeOverrideCostResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeOverrideCost_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q25:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangePartNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePartNum" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangePartNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePartNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangePartNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q26:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangePlant_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePlant" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangePlant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangePlantResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangePlant_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q27:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeWareHouseCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeWareHouseCode" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeWareHouseCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeWareHouseCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeWareHouseCode_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q28:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeSalvageJobSeq_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeSalvageJobSeq" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeSalvageJobSeq_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeSalvageJobSeqResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeSalvageJobSeq_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q29:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeSalvagePartNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeSalvagePartNum" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeSalvagePartNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeSalvagePartNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeSalvagePartNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q30:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeTranQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeTranQty" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeTranQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeTranQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_OnChangeTranQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q31:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_PreUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_PreUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_PreUpdate_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q32:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ReceiveMfgPartToInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveMfgPartToInventory" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ReceiveMfgPartToInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveMfgPartToInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ReceiveMfgPartToInventory_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q33:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ReceiveMfgPartToJob_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveMfgPartToJob" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ReceiveMfgPartToJob_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveMfgPartToJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ReceiveMfgPartToJob_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q34:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ReceiveSalvagedPartToInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveSalvagedPartToInventory" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ReceiveSalvagedPartToInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveSalvagedPartToInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ReceiveSalvagedPartToInventory_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q35:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateSN_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSN" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateSN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSNResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q36:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_VerifySerialMatchAndPlanContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifySerialMatchAndPlanContract" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_VerifySerialMatchAndPlanContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifySerialMatchAndPlanContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_VerifySerialMatchAndPlanContract_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q37:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateWhsePCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateWhsePCID" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateWhsePCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateWhsePCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateWhsePCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q38:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateWhsePCIDAndGetDefaultBin_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateWhsePCIDAndGetDefaultBin" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateWhsePCIDAndGetDefaultBin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateWhsePCIDAndGetDefaultBinResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateWhsePCIDAndGetDefaultBin_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q39:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateWhseBinPCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateWhseBinPCID" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateWhseBinPCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateWhseBinPCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidateWhseBinPCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q40:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidatePCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePCID" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidatePCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ValidatePCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q41:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_PreProcessPCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreProcessPCID" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_PreProcessPCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreProcessPCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_PreProcessPCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q42:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ProcessPCID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPCID" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ProcessPCID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPCIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_ProcessPCID_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q43:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_CheckPackageCodeAllocNegQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPackageCodeAllocNegQty" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_CheckPackageCodeAllocNegQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPackageCodeAllocNegQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiptsFromMfgSvcContract_CheckPackageCodeAllocNegQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q44:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="ReceiptsFromMfgSvcContract">
+    <wsdl:operation name="NegativeInventoryTest">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/NegativeInventoryTest" message="tns:ReceiptsFromMfgSvcContract_NegativeInventoryTest_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/NegativeInventoryTestResponse" message="tns:ReceiptsFromMfgSvcContract_NegativeInventoryTest_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/NegativeInventoryTestEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailTranDocTypes">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetAvailTranDocTypes" message="tns:ReceiptsFromMfgSvcContract_GetAvailTranDocTypes_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetAvailTranDocTypesResponse" message="tns:ReceiptsFromMfgSvcContract_GetAvailTranDocTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetAvailTranDocTypesEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetAvailTranDocTypes_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultTranDocTypeID">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetDefaultTranDocTypeID" message="tns:ReceiptsFromMfgSvcContract_GetDefaultTranDocTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetDefaultTranDocTypeIDResponse" message="tns:ReceiptsFromMfgSvcContract_GetDefaultTranDocTypeID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetDefaultTranDocTypeIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetDefaultTranDocTypeID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultWhseBin">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetDefaultWhseBin" message="tns:ReceiptsFromMfgSvcContract_GetDefaultWhseBin_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetDefaultWhseBinResponse" message="tns:ReceiptsFromMfgSvcContract_GetDefaultWhseBin_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetDefaultWhseBinEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetDefaultWhseBin_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeDescList">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetCodeDescList" message="tns:ReceiptsFromMfgSvcContract_GetCodeDescList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetCodeDescListResponse" message="tns:ReceiptsFromMfgSvcContract_GetCodeDescList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetCodeDescListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetCodeDescList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnableSerialMatching">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/EnableSerialMatching" message="tns:ReceiptsFromMfgSvcContract_EnableSerialMatching_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/EnableSerialMatchingResponse" message="tns:ReceiptsFromMfgSvcContract_EnableSerialMatching_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/EnableSerialMatchingEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_EnableSerialMatching_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetList" message="tns:ReceiptsFromMfgSvcContract_GetList_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetListResponse" message="tns:ReceiptsFromMfgSvcContract_GetList_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetListEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetList_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewJobAsmblMultiple">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewJobAsmblMultiple" message="tns:ReceiptsFromMfgSvcContract_GetNewJobAsmblMultiple_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewJobAsmblMultipleResponse" message="tns:ReceiptsFromMfgSvcContract_GetNewJobAsmblMultiple_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewJobAsmblMultipleEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetNewJobAsmblMultiple_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewJobAsmblSearch">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewJobAsmblSearch" message="tns:ReceiptsFromMfgSvcContract_GetNewJobAsmblSearch_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewJobAsmblSearchResponse" message="tns:ReceiptsFromMfgSvcContract_GetNewJobAsmblSearch_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewJobAsmblSearchEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetNewJobAsmblSearch_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReceiptsFromMfg">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewReceiptsFromMfg" message="tns:ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfg_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewReceiptsFromMfgResponse" message="tns:ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfg_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewReceiptsFromMfgEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfg_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReceiptsFromMfgJobAsm">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewReceiptsFromMfgJobAsm" message="tns:ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgJobAsm_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewReceiptsFromMfgJobAsmResponse" message="tns:ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgJobAsm_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewReceiptsFromMfgJobAsmEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgJobAsm_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReceiptsFromMfgMtlQueue">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewReceiptsFromMfgMtlQueue" message="tns:ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgMtlQueue_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewReceiptsFromMfgMtlQueueResponse" message="tns:ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgMtlQueue_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetNewReceiptsFromMfgMtlQueueEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetNewReceiptsFromMfgMtlQueue_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRows">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetRows" message="tns:ReceiptsFromMfgSvcContract_GetRows_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetRowsResponse" message="tns:ReceiptsFromMfgSvcContract_GetRows_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetRowsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetRows_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectSerialNumbersParams">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetSelectSerialNumbersParams" message="tns:ReceiptsFromMfgSvcContract_GetSelectSerialNumbersParams_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetSelectSerialNumbersParamsResponse" message="tns:ReceiptsFromMfgSvcContract_GetSelectSerialNumbersParams_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/GetSelectSerialNumbersParamsEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_GetSelectSerialNumbersParams_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidAssembly">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/IsValidAssembly" message="tns:ReceiptsFromMfgSvcContract_IsValidAssembly_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/IsValidAssemblyResponse" message="tns:ReceiptsFromMfgSvcContract_IsValidAssembly_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/IsValidAssemblyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_IsValidAssembly_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeActTranQty">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeActTranQty" message="tns:ReceiptsFromMfgSvcContract_OnChangeActTranQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeActTranQtyResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeActTranQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeActTranQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeActTranQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeActTransUOM">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeActTransUOM" message="tns:ReceiptsFromMfgSvcContract_OnChangeActTransUOM_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeActTransUOMResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeActTransUOM_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeActTransUOMEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeActTransUOM_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeAssemblySeq">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeAssemblySeq" message="tns:ReceiptsFromMfgSvcContract_OnChangeAssemblySeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeAssemblySeqResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeAssemblySeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeAssemblySeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeAssemblySeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeAssemblySeq2">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeAssemblySeq2" message="tns:ReceiptsFromMfgSvcContract_OnChangeAssemblySeq2_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeAssemblySeq2Response" message="tns:ReceiptsFromMfgSvcContract_OnChangeAssemblySeq2_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeAssemblySeq2EpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeAssemblySeq2_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeBinNum">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeBinNum" message="tns:ReceiptsFromMfgSvcContract_OnChangeBinNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeBinNumResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeBinNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeBinNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeBinNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeJobNum">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeJobNum" message="tns:ReceiptsFromMfgSvcContract_OnChangeJobNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeJobNumResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeJobNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeJobNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeJobNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeJobNum2">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeJobNum2" message="tns:ReceiptsFromMfgSvcContract_OnChangeJobNum2_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeJobNum2Response" message="tns:ReceiptsFromMfgSvcContract_OnChangeJobNum2_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeJobNum2EpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeJobNum2_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeJobSeq2">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeJobSeq2" message="tns:ReceiptsFromMfgSvcContract_OnChangeJobSeq2_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeJobSeq2Response" message="tns:ReceiptsFromMfgSvcContract_OnChangeJobSeq2_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeJobSeq2EpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeJobSeq2_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeLotNum">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeLotNum" message="tns:ReceiptsFromMfgSvcContract_OnChangeLotNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeLotNumResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeLotNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeLotNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeLotNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeOverrideCost">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeOverrideCost" message="tns:ReceiptsFromMfgSvcContract_OnChangeOverrideCost_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeOverrideCostResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeOverrideCost_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeOverrideCostEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeOverrideCost_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangePartNum">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangePartNum" message="tns:ReceiptsFromMfgSvcContract_OnChangePartNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangePartNumResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangePartNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangePartNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangePartNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangePlant">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangePlant" message="tns:ReceiptsFromMfgSvcContract_OnChangePlant_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangePlantResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangePlant_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangePlantEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangePlant_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeWareHouseCode">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeWareHouseCode" message="tns:ReceiptsFromMfgSvcContract_OnChangeWareHouseCode_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeWareHouseCodeResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeWareHouseCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeWareHouseCodeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeWareHouseCode_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeSalvageJobSeq">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeSalvageJobSeq" message="tns:ReceiptsFromMfgSvcContract_OnChangeSalvageJobSeq_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeSalvageJobSeqResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeSalvageJobSeq_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeSalvageJobSeqEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeSalvageJobSeq_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeSalvagePartNum">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeSalvagePartNum" message="tns:ReceiptsFromMfgSvcContract_OnChangeSalvagePartNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeSalvagePartNumResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeSalvagePartNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeSalvagePartNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeSalvagePartNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeTranQty">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeTranQty" message="tns:ReceiptsFromMfgSvcContract_OnChangeTranQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeTranQtyResponse" message="tns:ReceiptsFromMfgSvcContract_OnChangeTranQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/OnChangeTranQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_OnChangeTranQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreUpdate">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/PreUpdate" message="tns:ReceiptsFromMfgSvcContract_PreUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/PreUpdateResponse" message="tns:ReceiptsFromMfgSvcContract_PreUpdate_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/PreUpdateEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_PreUpdate_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMfgPartToInventory">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ReceiveMfgPartToInventory" message="tns:ReceiptsFromMfgSvcContract_ReceiveMfgPartToInventory_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ReceiveMfgPartToInventoryResponse" message="tns:ReceiptsFromMfgSvcContract_ReceiveMfgPartToInventory_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ReceiveMfgPartToInventoryEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_ReceiveMfgPartToInventory_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveMfgPartToJob">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ReceiveMfgPartToJob" message="tns:ReceiptsFromMfgSvcContract_ReceiveMfgPartToJob_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ReceiveMfgPartToJobResponse" message="tns:ReceiptsFromMfgSvcContract_ReceiveMfgPartToJob_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ReceiveMfgPartToJobEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_ReceiveMfgPartToJob_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSalvagedPartToInventory">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ReceiveSalvagedPartToInventory" message="tns:ReceiptsFromMfgSvcContract_ReceiveSalvagedPartToInventory_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ReceiveSalvagedPartToInventoryResponse" message="tns:ReceiptsFromMfgSvcContract_ReceiveSalvagedPartToInventory_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ReceiveSalvagedPartToInventoryEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_ReceiveSalvagedPartToInventory_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSN">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateSN" message="tns:ReceiptsFromMfgSvcContract_ValidateSN_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateSNResponse" message="tns:ReceiptsFromMfgSvcContract_ValidateSN_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateSNEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_ValidateSN_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifySerialMatchAndPlanContract">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/VerifySerialMatchAndPlanContract" message="tns:ReceiptsFromMfgSvcContract_VerifySerialMatchAndPlanContract_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/VerifySerialMatchAndPlanContractResponse" message="tns:ReceiptsFromMfgSvcContract_VerifySerialMatchAndPlanContract_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/VerifySerialMatchAndPlanContractEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_VerifySerialMatchAndPlanContract_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateWhsePCID">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateWhsePCID" message="tns:ReceiptsFromMfgSvcContract_ValidateWhsePCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateWhsePCIDResponse" message="tns:ReceiptsFromMfgSvcContract_ValidateWhsePCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateWhsePCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_ValidateWhsePCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateWhsePCIDAndGetDefaultBin">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateWhsePCIDAndGetDefaultBin" message="tns:ReceiptsFromMfgSvcContract_ValidateWhsePCIDAndGetDefaultBin_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateWhsePCIDAndGetDefaultBinResponse" message="tns:ReceiptsFromMfgSvcContract_ValidateWhsePCIDAndGetDefaultBin_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateWhsePCIDAndGetDefaultBinEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_ValidateWhsePCIDAndGetDefaultBin_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateWhseBinPCID">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateWhseBinPCID" message="tns:ReceiptsFromMfgSvcContract_ValidateWhseBinPCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateWhseBinPCIDResponse" message="tns:ReceiptsFromMfgSvcContract_ValidateWhseBinPCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidateWhseBinPCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_ValidateWhseBinPCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePCID">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidatePCID" message="tns:ReceiptsFromMfgSvcContract_ValidatePCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidatePCIDResponse" message="tns:ReceiptsFromMfgSvcContract_ValidatePCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ValidatePCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_ValidatePCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreProcessPCID">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/PreProcessPCID" message="tns:ReceiptsFromMfgSvcContract_PreProcessPCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/PreProcessPCIDResponse" message="tns:ReceiptsFromMfgSvcContract_PreProcessPCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/PreProcessPCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_PreProcessPCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPCID">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ProcessPCID" message="tns:ReceiptsFromMfgSvcContract_ProcessPCID_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ProcessPCIDResponse" message="tns:ReceiptsFromMfgSvcContract_ProcessPCID_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/ProcessPCIDEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_ProcessPCID_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackageCodeAllocNegQty">
+      <wsdl:input wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/CheckPackageCodeAllocNegQty" message="tns:ReceiptsFromMfgSvcContract_CheckPackageCodeAllocNegQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/CheckPackageCodeAllocNegQtyResponse" message="tns:ReceiptsFromMfgSvcContract_CheckPackageCodeAllocNegQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:ReceiptsFromMfg/ReceiptsFromMfgSvcContract/CheckPackageCodeAllocNegQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:ReceiptsFromMfgSvcContract_CheckPackageCodeAllocNegQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8e853d1a-3d9e-4ac1-9aa9-4fd40d6a48bc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EmpBasic.xsd" MetadataType="Schema" ID="8657c9cb-b07b-4798-8f10-894a5c786916" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd7" />
+    <MetadataFile FileName="EmpBasic1.xsd" MetadataType="Schema" ID="0ebd724c-3edf-40c4-adb1-6ed69d9cce1f" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd4" />
+    <MetadataFile FileName="EmpBasic2.xsd" MetadataType="Schema" ID="24caa83f-cf72-4bd4-9bf0-6d9369a78813" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd5" />
+    <MetadataFile FileName="EmpBasicSvcFacade.wsdl" MetadataType="Wsdl" ID="6beba34a-9624-42d8-95ba-9182e5d0a166" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?wsdl" />
+    <MetadataFile FileName="EmpBasic.wsdl" MetadataType="Wsdl" ID="8ef47337-1e3f-4405-8294-ed3baf0ea1a8" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="EmpBasic3.xsd" MetadataType="Schema" ID="5a696ffa-0df4-40d2-ad58-9ffa2124a9d7" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd8" />
+    <MetadataFile FileName="EmpBasic.disco" MetadataType="Disco" ID="be7d34e2-6694-4ecc-b5eb-fafb402bfca2" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?disco" />
+    <MetadataFile FileName="EmpBasic4.xsd" MetadataType="Schema" ID="28f4df5c-b7b8-41a2-93cd-3e5224b37fb0" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd2" />
+    <MetadataFile FileName="EmpBasic5.xsd" MetadataType="Schema" ID="33969e02-db4a-40b5-ab0a-5c7513ccfee5" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd3" />
+    <MetadataFile FileName="EmpBasic6.xsd" MetadataType="Schema" ID="34ec6742-7aff-44e1-9b80-c75e779bb090" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd0" />
+    <MetadataFile FileName="EmpBasic7.xsd" MetadataType="Schema" ID="a5a542e3-e312-4adf-b368-38adaded006d" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd1" />
+    <MetadataFile FileName="EmpBasic8.xsd" MetadataType="Schema" ID="a4264390-73be-4fd6-8fa6-ab8e02b01ca4" SourceId="1" SourceUrl="http://erp10/EPICOR_DEMO/Erp/BO/EmpBasic.svc?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b2ecb11-ed62-4d70-bfd8-814c2d19aac3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/E102Test/Erp/BO/MaterialQueue.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MaterialQueue.xsd" MetadataType="Schema" ID="fccaf1f0-8437-4a1e-a5ac-a2135edc78aa" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd6" />
+    <MetadataFile FileName="MaterialQueue.disco" MetadataType="Disco" ID="4117a6cb-db72-4894-b8bb-430d69fc1131" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?disco" />
+    <MetadataFile FileName="MaterialQueueSvcFacade.wsdl" MetadataType="Wsdl" ID="53c8f57b-faf9-4d0c-95ef-171eabb2e119" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?wsdl" />
+    <MetadataFile FileName="MaterialQueue.wsdl" MetadataType="Wsdl" ID="82db0fdb-131b-44c6-a281-175ef54aba75" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="MaterialQueue1.xsd" MetadataType="Schema" ID="c789410e-421f-4441-9151-4cfba7a87db4" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd7" />
+    <MetadataFile FileName="MaterialQueue2.xsd" MetadataType="Schema" ID="ddaeefe9-ec14-43f6-a827-3e555a448665" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd4" />
+    <MetadataFile FileName="MaterialQueue3.xsd" MetadataType="Schema" ID="9ac5f820-d525-4ff4-b093-96e4552b4ffa" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd5" />
+    <MetadataFile FileName="MaterialQueue4.xsd" MetadataType="Schema" ID="341d149f-017f-4545-8b80-b7433f5418a0" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd2" />
+    <MetadataFile FileName="MaterialQueue5.xsd" MetadataType="Schema" ID="ac59bb8e-9bd0-4a7f-a69f-a77b0096d61f" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd3" />
+    <MetadataFile FileName="MaterialQueue6.xsd" MetadataType="Schema" ID="afc84a49-9016-46c7-9536-b7c02b172e96" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd0" />
+    <MetadataFile FileName="MaterialQueue7.xsd" MetadataType="Schema" ID="4f996cc2-5604-47d0-94a8-0f87b4a2153b" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd1" />
+    <MetadataFile FileName="MaterialQueue8.xsd" MetadataType="Schema" ID="ffeff8ee-4997-4140-ba77-e4d86d578520" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/MaterialQueue.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

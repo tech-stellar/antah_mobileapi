@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bcbf2763-5944-40f3-b4ee-da3be4efb528" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://EpicorSI/erp10/ice/bo/ud18.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UD18.wsdl" MetadataType="Wsdl" ID="d943980d-5deb-4934-b24b-14b74d79193b" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="UD18.disco" MetadataType="Disco" ID="8bfa6df7-6179-4bbf-aaaa-afd1efb066d1" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?disco" />
+    <MetadataFile FileName="UD18SvcFacade.wsdl" MetadataType="Wsdl" ID="7349a3c2-535f-4321-acd7-e18034487b9b" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?wsdl" />
+    <MetadataFile FileName="UD18.xsd" MetadataType="Schema" ID="3c290da7-79db-4e2b-99e2-7acd8b0c4498" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?xsd=xsd5" />
+    <MetadataFile FileName="UD181.xsd" MetadataType="Schema" ID="b072a15e-f3e8-4355-a1ba-23f5829db3e2" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?xsd=xsd4" />
+    <MetadataFile FileName="UD182.xsd" MetadataType="Schema" ID="547d0393-6c91-4347-8d8a-8477e23402cb" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?xsd=xsd7" />
+    <MetadataFile FileName="UD183.xsd" MetadataType="Schema" ID="d8cdcfd5-d290-4be2-9c76-8f1a727b87ab" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?xsd=xsd6" />
+    <MetadataFile FileName="UD184.xsd" MetadataType="Schema" ID="a2a9b7f8-ab37-4695-882c-b7bea6c147b7" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?xsd=xsd1" />
+    <MetadataFile FileName="UD185.xsd" MetadataType="Schema" ID="4c6e7a82-813d-43e3-98d7-faa14ef94e06" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?xsd=xsd0" />
+    <MetadataFile FileName="UD186.xsd" MetadataType="Schema" ID="e1ebdb5c-4fdc-4f45-9b46-e3ea99fcbba1" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?xsd=xsd3" />
+    <MetadataFile FileName="UD187.xsd" MetadataType="Schema" ID="fe1819e3-323b-49f5-9915-cd039958997b" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?xsd=xsd2" />
+    <MetadataFile FileName="UD188.xsd" MetadataType="Schema" ID="bd048c77-cf18-4731-ac6c-79eb389afb5a" SourceId="1" SourceUrl="http://epicorsi:84/ERP10/Ice/BO/UD18.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

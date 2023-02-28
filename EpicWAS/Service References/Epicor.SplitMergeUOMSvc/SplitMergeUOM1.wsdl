@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Erp:BO:SplitMergeUOM" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Erp:BO:SplitMergeUOM" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Erp:BO:SplitMergeUOM/Imports">
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd0" namespace="Erp:BO:SplitMergeUOM" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Ice.Common" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Erp.Tablesets" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Ice" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Ice.Extensions" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Epicor.Data" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd6" namespace="http://epicor.com/UserDefinedColumns" />
+      <xsd:import schemaLocation="http://erp10/EPICOR_DEMO/Erp/BO/SplitMergeUOM.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SplitMergeUOMSvcContract_CalculateRemainQty_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateRemainQty" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_CalculateRemainQty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateRemainQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_CalculateRemainQty_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q1:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_GetPartXRefInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartXRefInfo" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_GetPartXRefInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartXRefInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_GetPartXRefInfo_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q2:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_GetSplitMergeHeadData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSplitMergeHeadData" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_GetSplitMergeHeadData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSplitMergeHeadDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_GetSplitMergeHeadData_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q3:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeBinNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeBinNum" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeBinNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeBinNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeBinNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q4:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeLotNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeLotNum" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeLotNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeLotNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeLotNum_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q5:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeProcType_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeProcType" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeProcType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeProcTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeProcType_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q6:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeQuantity" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeQuantity_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q7:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeUOM_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeUOM" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeUOM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeUOMResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeUOM_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q8:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnChangeWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_OnChangeWarehouse_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q9:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_ProcessType_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessType" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_ProcessType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_ProcessType_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q10:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_NegativeInventoryTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTest" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_NegativeInventoryTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NegativeInventoryTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SplitMergeUOMSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Ice.Common" name="detail" element="q11:EpicorFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="SplitMergeUOMSvcContract">
+    <wsdl:operation name="CalculateRemainQty">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/CalculateRemainQty" message="tns:SplitMergeUOMSvcContract_CalculateRemainQty_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/CalculateRemainQtyResponse" message="tns:SplitMergeUOMSvcContract_CalculateRemainQty_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/CalculateRemainQtyEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_CalculateRemainQty_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartXRefInfo">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/GetPartXRefInfo" message="tns:SplitMergeUOMSvcContract_GetPartXRefInfo_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/GetPartXRefInfoResponse" message="tns:SplitMergeUOMSvcContract_GetPartXRefInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/GetPartXRefInfoEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_GetPartXRefInfo_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSplitMergeHeadData">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/GetSplitMergeHeadData" message="tns:SplitMergeUOMSvcContract_GetSplitMergeHeadData_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/GetSplitMergeHeadDataResponse" message="tns:SplitMergeUOMSvcContract_GetSplitMergeHeadData_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/GetSplitMergeHeadDataEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_GetSplitMergeHeadData_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeBinNum">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeBinNum" message="tns:SplitMergeUOMSvcContract_OnChangeBinNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeBinNumResponse" message="tns:SplitMergeUOMSvcContract_OnChangeBinNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeBinNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_OnChangeBinNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeLotNum">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeLotNum" message="tns:SplitMergeUOMSvcContract_OnChangeLotNum_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeLotNumResponse" message="tns:SplitMergeUOMSvcContract_OnChangeLotNum_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeLotNumEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_OnChangeLotNum_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeProcType">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeProcType" message="tns:SplitMergeUOMSvcContract_OnChangeProcType_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeProcTypeResponse" message="tns:SplitMergeUOMSvcContract_OnChangeProcType_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeProcTypeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_OnChangeProcType_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeQuantity">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeQuantity" message="tns:SplitMergeUOMSvcContract_OnChangeQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeQuantityResponse" message="tns:SplitMergeUOMSvcContract_OnChangeQuantity_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeQuantityEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_OnChangeQuantity_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeUOM">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeUOM" message="tns:SplitMergeUOMSvcContract_OnChangeUOM_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeUOMResponse" message="tns:SplitMergeUOMSvcContract_OnChangeUOM_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeUOMEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_OnChangeUOM_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnChangeWarehouse">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeWarehouse" message="tns:SplitMergeUOMSvcContract_OnChangeWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeWarehouseResponse" message="tns:SplitMergeUOMSvcContract_OnChangeWarehouse_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/OnChangeWarehouseEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_OnChangeWarehouse_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessType">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/ProcessType" message="tns:SplitMergeUOMSvcContract_ProcessType_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/ProcessTypeResponse" message="tns:SplitMergeUOMSvcContract_ProcessType_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/ProcessTypeEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_ProcessType_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NegativeInventoryTest">
+      <wsdl:input wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/NegativeInventoryTest" message="tns:SplitMergeUOMSvcContract_NegativeInventoryTest_InputMessage" />
+      <wsdl:output wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/NegativeInventoryTestResponse" message="tns:SplitMergeUOMSvcContract_NegativeInventoryTest_OutputMessage" />
+      <wsdl:fault wsaw:Action="Erp:BO:SplitMergeUOM/SplitMergeUOMSvcContract/NegativeInventoryTestEpicorFaultDetailFault" name="EpicorFaultDetailFault" message="tns:SplitMergeUOMSvcContract_NegativeInventoryTest_EpicorFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

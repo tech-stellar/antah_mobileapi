@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2e528568-02d3-4b0c-8549-2a75f6ca562a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/E102Test/Erp/BO/PickedOrders.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PickedOrders.xsd" MetadataType="Schema" ID="79c2c7c9-8a07-4652-942b-46901f44db65" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd5" />
+    <MetadataFile FileName="PickedOrders1.xsd" MetadataType="Schema" ID="497b3317-7312-4037-b54c-671abe4cfbc5" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd3" />
+    <MetadataFile FileName="PickedOrders2.xsd" MetadataType="Schema" ID="c1038ffe-f737-4ac5-8521-ddfcecfdfaf8" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd1" />
+    <MetadataFile FileName="PickedOrders.disco" MetadataType="Disco" ID="c7330fb4-222e-4e93-a1b1-15e17bf93062" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?disco" />
+    <MetadataFile FileName="PickedOrders3.xsd" MetadataType="Schema" ID="0cf2144c-405e-4d2f-a188-49b5182a3b0d" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd2" />
+    <MetadataFile FileName="PickedOrders4.xsd" MetadataType="Schema" ID="8ea921f8-797b-499b-9dc5-1b653543b7af" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd8" />
+    <MetadataFile FileName="PickedOrders5.xsd" MetadataType="Schema" ID="906a3ea4-ac6e-4e2d-94ed-ed842b6a4b5a" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd6" />
+    <MetadataFile FileName="PickedOrders6.xsd" MetadataType="Schema" ID="69b2a108-f776-485b-a2d5-4fcd284c279a" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd7" />
+    <MetadataFile FileName="PickedOrders7.xsd" MetadataType="Schema" ID="1d307fb7-163c-4228-aec6-95a4b4f8611a" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd4" />
+    <MetadataFile FileName="PickedOrders.wsdl" MetadataType="Wsdl" ID="bdac2a01-d1a5-4539-90c4-6d1d44fa0ec6" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="PickedOrders8.xsd" MetadataType="Schema" ID="82c95580-e394-4e2c-823c-213ca45718c1" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?xsd=xsd0" />
+    <MetadataFile FileName="PickedOrdersSvcFacade.wsdl" MetadataType="Wsdl" ID="a281f72e-f545-470d-aabd-2f886069c63d" SourceId="1" SourceUrl="http://ahcg-appsvr.ahcg.com.my/E102Test/ERP/BO/PickedOrders.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
