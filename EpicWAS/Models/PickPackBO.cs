@@ -465,25 +465,6 @@ namespace EpicWAS.Models
 
 			try
 			{
-
-                //string _strSQL = "select tblX.*, o.AP_BumiAgDONum_c, o.AP_UrgentOrder_c, p.AP_SerialNo_c, s.Description, s.ShipViaCode, ";
-                //_strSQL += "(select top 1 MQ_SysRowID from dbo.PickPack pp1 where pp1.MQ_Company = tblX.MQ_Company and pp1.MQ_OrderNum = tblX.MQ_OrderNum and pp1.MQ_PartNum = tblX.MQ_PartNum  ) as mq_sysrowid, ";
-                //_strSQL += "(select top 1 U14_SysRowID from dbo.PickPack pp1 where pp1.MQ_Company = tblX.MQ_Company and pp1.MQ_OrderNum = tblX.MQ_OrderNum and pp1.MQ_PartNum = tblX.MQ_PartNum ) as u14_sysrowid ";
-                //_strSQL += "from ( ";
-                //_strSQL += "select pp.MQ_Company, pp.U14_Key5, pp.MQ_OrderNum, pp.MQ_PartNum, pp.MQ_PartDescription, pp.MQ_IUM ";
-                //_strSQL += ", pp.MQ_LotNum, isnull(SUM(pp.MQ_Quantity),0) as quantity,  pp.U14_Character09 as customer ";
-                //_strSQL += ", pp.U14_Character10 as OrderComment, pp.U14_ShortChar11 as packer, pp.U14_ShortChar12 as pallet ";
-                //_strSQL += ", pp.U14_ShortChar13 as consignment, pp.U14_ShortChar14 as transporter, pp.U14_Number18 as total_weight ";
-                //_strSQL += ", pp.U14_Number19 as total_carton, pp.U14_Date01 as expired_date, '" + strTagNum + "' as tagno ";
-                //_strSQL += "from PickPack pp ";
-                //_strSQL += "group by pp.MQ_Company, pp.U14_Key5, pp.MQ_OrderNum, pp.MQ_PartNum, pp.MQ_PartDescription, pp.MQ_IUM, pp.MQ_LotNum ";
-                //_strSQL += ", pp.U14_Character09, pp.U14_Character10, pp.U14_ShortChar11, pp.U14_ShortChar12, pp.U14_ShortChar13, pp.U14_ShortChar14 ";
-                //_strSQL += ", pp.U14_Number18, pp.U14_Number19, pp.U14_Date01 ";
-                //_strSQL += ") tblX ";
-                //_strSQL += "left join OrderHed o on tblX.MQ_Company = o.Company and tblX.MQ_OrderNum = o.OrderNum ";
-                //_strSQL += "left join Part p on tblX.MQ_Company = p.Company and tblX.MQ_PartNum = p.PartNum ";
-                //_strSQL += "left join erp.ShipVia s on o.Company = s.Company and o.ShipViaCode = s.ShipViaCode ";
-                //_strSQL += "Where tblX.MQ_Company = '" + strCompany + "' ";
                 string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, SD_OrderNum_c as OrderNum, SD_PartNum_c as PartNum, PartDescription, ";
                 _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, SD_AllocateQuantity_c as AllocateQuantity, SD_CustID_c as Customer, oh.OrderComment, ";
 				_strSQL += "UD103.SD_PackedBy_c as PackedBy, UD103.SD_PalletNum_c as PalletNum, SD_Consignment_c as Consignment, ";

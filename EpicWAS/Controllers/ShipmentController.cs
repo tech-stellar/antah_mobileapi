@@ -14,7 +14,7 @@ namespace EpicWAS.Controllers
     {
 
         [HttpGet]
-        public HttpResponseMessage LoadPickPackSlip(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId,  string strCustID, string strCustName, string strPickNum, string strTagNum)
+        public HttpResponseMessage LoadPickPackSlip(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId,  string strCustID, string strCustName, string strPickNum, string strTagNum, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -41,8 +41,15 @@ namespace EpicWAS.Controllers
                     PickPackBO oPickPackBO = new PickPackBO();
                     IList<PickPack2> PickPackL = new List<PickPack2>();
                     
-
-                    IsLoadPickPackOK = oPickPackBO._LoadPickPacksV2(ref oEpicorEnv, strCurCompany, strCustID, strCustName, ref PickPackL, strPickNum, strTagNum, strUID, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsLoadPickPackOK = oPickPackBO._LoadPickPacksUD103(ref oEpicorEnv, strCurCompany, strCustID, strCustName, ref PickPackL, strPickNum, strTagNum, strUID, out strReturnMsg);
+					}
+                    else
+                    {
+						IsLoadPickPackOK = oPickPackBO._LoadPickPacksV2(ref oEpicorEnv, strCurCompany, strCustID, strCustName, ref PickPackL, strPickNum, strTagNum, strUID, out strReturnMsg);
+					}
+                    
 
 
                     if (IsLoadPickPackOK)
