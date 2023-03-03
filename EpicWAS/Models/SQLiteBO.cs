@@ -85,14 +85,14 @@ namespace EpicWAS.Models
 
         private void _chkLocalDBFileExist()
         {
-            //if (!File.Exists(@"C:\\inetpub\\wwwroot\\epicwas\\EpicWAS.db"))
-            //{
-            //    SQLiteConnection.CreateFile(@"C:\\inetpub\\wwwroot\\epicwas\\EpicWAS.db");
-            //} // end if
-            if (!File.Exists(@"C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\EpicWAS.db"))
+            if (!File.Exists(@"C:\\inetpub\\wwwroot\\epicwas\\EpicWAS.db"))
             {
-                SQLiteConnection.CreateFile(@"C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\EpicWAS.db");
+                SQLiteConnection.CreateFile(@"C:\\inetpub\\wwwroot\\epicwas\\EpicWAS.db");
             } // end if
+            //if (!File.Exists(@"C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\EpicWAS.db"))
+            //{
+            //    SQLiteConnection.CreateFile(@"C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\EpicWAS.db");
+            //} // end if
 
         }
 
