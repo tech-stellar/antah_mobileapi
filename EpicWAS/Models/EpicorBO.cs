@@ -3443,11 +3443,13 @@ namespace EpicWAS.Models
                         newRow.Date02 = Convert.ToDateTime(oPickPackEscalate.EscalateDateTime);
 
                         newRow.Character01 = oPickPackEscalate.PickPackRemarks;
-                        
-                        newRow.UserDefinedColumns["SD_MQGUID_c"] = Guid.Parse(oPickPackEscalate.MQ_SysRowID);
-                        newRow.UserDefinedColumns["SD_UD14GUID_c"] = Guid.Parse(oPickPackEscalate.U14_SysRowID);
+
+                        Guid sysRowID;
+                        newRow.UserDefinedColumns["SD_MQGUID_c"] = Guid.TryParse(oPickPackEscalate.MQ_SysRowID, out sysRowID) ? sysRowID : Guid.NewGuid();
+                        newRow.UserDefinedColumns["SD_UD14GUID_c"] = Guid.TryParse(oPickPackEscalate.U14_SysRowID, out sysRowID) ? sysRowID : Guid.NewGuid();
                         //newRow["SD_MQGUID_c"] = oPickPackEscalate.MQ_SysRowID;
                         //newRow["SD_UD14GUID_c"] = oPickPackEscalate.U14_SysRowID;
+                        newRow.UserDefinedColumns["SD_PickListNum_c"] = oPickPackEscalate.PickListNo;
                         ud18Client.Update(ref ts);
                     }
 

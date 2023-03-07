@@ -716,7 +716,7 @@ namespace EpicWAS.Controllers
 
 
         [HttpPost]
-        public HttpResponseMessage LoadPickPackRevert(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strMQSysRowID, string strU14SysRowID, string strRemark, string strPicker, string strReason, DateTime dtEscalateDt, string strCurrentStage = "" )
+        public HttpResponseMessage LoadPickPackRevert(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strMQSysRowID, string strU14SysRowID, string strRemark, string strPicker, string strReason, DateTime dtEscalateDt, string strCurrentStage = "", string pickListNo = "" )
         {
             string strReturnMsg;
             bool IsComplete = false;
@@ -754,6 +754,7 @@ namespace EpicWAS.Controllers
                 oPickPackES.EscalateDateTime = dtEscalateDt.ToString();
                 oPickPackES.Picker = strPicker;
                 oPickPackES.CurrentStage = strCurrentStage;
+                oPickPackES.PickListNo = pickListNo;
                
                 EpicorBO oEpicor = new EpicorBO();
 
