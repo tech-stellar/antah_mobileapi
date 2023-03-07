@@ -1853,7 +1853,7 @@ namespace EpicWAS.Models
                     {
                         PickPackEscalate oEscalate = new PickPackEscalate();
                         oEscalate.Company = row["Company"].ToString();
-                        oEscalate.EscalateDateTime = DBNull.Value.Equals(row["ShortChar18"]) || row["ShortChar18"].Equals("") ? "1999-01-01" : Convert.ToDateTime((row["ShortChar18"].ToString().Replace("PTG",""))).ToString("yyyy-MM-dd hh:mm:ss");  
+                        oEscalate.EscalateDateTime = DBNull.Value.Equals(row["ShortChar18"]) || row["ShortChar18"].Equals("") ? "1999-01-01" : Convert.ToDateTime((row["ShortChar18"].ToString().Replace("PTG","").Replace("PG", ""))).ToString("yyyy-MM-dd hh:mm:ss");  
                         oEscalate.MQ_SysRowID = (row["SD_MQGUID_C"].ToString());
                         oEscalate.Picker = (row["ShortChar02"].ToString());
                         oEscalate.PickPackRemarks = (row["Character01"].ToString());
