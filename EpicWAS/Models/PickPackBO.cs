@@ -469,7 +469,7 @@ namespace EpicWAS.Models
                 _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, SD_AllocateQuantity_c as AllocateQuantity, SD_CustID_c as Customer, oh.OrderComment, ";
 				_strSQL += "UD103.SD_PackedBy_c as PackedBy, UD103.SD_PalletNum_c as PalletNum, SD_Consignment_c as Consignment, ";
 				_strSQL += "SD_Transporter_c as Transporter, SD_TotalWeight_c as TotalWeight, SD_TotalCarton_c as TotalCarton, pl.ExpirationDate, ";
-				_strSQL += "oh.AP_BumiAgDONum_c as BumiAgDONum, oh.AP_UrgentOrder_c as Urgent, UD103.SD_TagNum_c as TagNum ";
+				_strSQL += "oh.AP_BumiAgDONum_c as BumiAgDONum, oh.AP_UrgentOrder_c as Urgent, UD103.SD_TagNum_c as TagNum, ";
                 _strSQL += "oh.ShipViaCode, sv.Description as ShipViaDesc ";
 				_strSQL += "from UD103 join UD103A ";
 				_strSQL += "on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
@@ -503,7 +503,7 @@ namespace EpicWAS.Models
 				}
 
 				_strSQL += " and UD103.Key1 in (select distinct UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ) ";
-				_strSQL += " order by cast(UD103A.SD_OrderNum_c as int) ";
+				_strSQL += " order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";
 
 
 				SQLServerBO _MSSQL = new SQLServerBO();
@@ -1454,7 +1454,111 @@ namespace EpicWAS.Models
             return (IsError ? false : true);
         }
 
-        public bool _ResolvedEscalate(ref EpicEnv oEpicEnv, string strCompany, string strPickNum, string strReason, string strRemark, out string strMessage)
+		public bool _SavePackListUD103(ref EpicEnv oEpicEnv, string strCompany, string strRemark, string strTransporter, string strConsignment, string strPallet, decimal dTotalWeight, decimal dTotalBox, string strPickListNum, string strPacker, string strStation, string strUID, string strPass, string strCurPlant, string strPackPallet, out string strMessage)
+		{
+			bool IsError = false;
+			bool IsUpdated;
+			string _strSQL;
+			//int lastRunning;
+			DataSet _dts;
+
+			try
+			{
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+                _strSQL = "select SD_PartNum_c as PartNum, SD_LotNum_c as LotNum, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_OrderNum_c as OrderNum, ";
+                _strSQL += "SD_OrderLine_c as OrderLine, SD_OrderRel_c as OrderRel, SD_UOM_c as UOM, SD_AllocateQuantity_c as Quantity, ";
+                _strSQL += "p.PartDescription, p.SalesUM, p.NetWeightUOM, oh.CustNum, oh.ShipToNum ";
+                _strSQL += "from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
+                _strSQL += "join erp.Part p on UD103.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
+                _strSQL += "join erp.OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c ";
+                _strSQL += "where UD103.Key1 = '" + strPickListNum + "' ";
+
+
+				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				EpicorBO oEpicor = new EpicorBO();
+				IList<Order> OrderList = new List<Order>();
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						// clear the mtl queue
+						//oEpicor._AMMIssueReturn(ref oEpicEnv, out strMessage, strUID, strPass, strCompany, strCurPlant, row["mq_sysrowid"].ToString());
+
+						Order ord = new Order();
+						ord.Company = strCompany;
+						ord.OrderNum = int.Parse(row["OrderNum"].ToString());
+						ord.OrderLine = int.Parse(row["OrderLine"].ToString());
+						ord.OrderRel = int.Parse(row["OrderRel"].ToString());
+						ord.PartNum = row["Partnum"].ToString();
+						ord.PartDescription = row["PartDescription"].ToString();
+						ord.OrderQty = Decimal.Parse(row["Quantity"].ToString());
+						ord.Warehouse = row["Warehouse"].ToString();
+						ord.Bin = row["BinNum"].ToString();
+						ord.Lot = row["LotNum"].ToString();
+						//ord.Warehouse = row["MQ_ToWhse"].ToString();
+						//ord.Bin = row["MQ_ToBinNum"].ToString();
+						ord.IUM = DBNull.Value.Equals(row["UOM"]) ? string.Empty : (row["UOM"].ToString());
+						ord.SalesUM = DBNull.Value.Equals(row["SalesUM"]) ? string.Empty : (row["SalesUM"].ToString());
+						ord.NetWeightUOM = DBNull.Value.Equals(row["NetWeightUOM"]) ? string.Empty : (row["NetWeightUOM"].ToString());
+						ord.CustNum = DBNull.Value.Equals(row["CustNum"]) ? string.Empty : (row["CustNum"].ToString());
+						ord.ShipToNum = row["ShipToNum"].ToString();
+
+						OrderList.Add(ord);
+
+					}
+				}
+
+                // update UD103 table
+                _strSQL = "update UD103 ";
+                _strSQL += "set SD_Transporter_c = '" + strTransporter + "' ";
+                _strSQL += ", SD_Consignment_c = '" + strConsignment + "' ";
+                _strSQL += ", SD_PalletNum_c = '" + strPallet + "' ";
+                _strSQL += ", SD_PackedBy_c = '" + strPacker + "' ";
+                _strSQL += ", SD_StationId_c = '" + strStation + "' ";
+                _strSQL += ", SD_TotalWeight_c = '" + Math.Round(dTotalWeight, 1) + " ";
+                _strSQL += ", SD_TotalCarton_c = '" + dTotalBox + " ";
+                _strSQL += ", SD_PackedCompleteDate_c = getdate() "; 
+                _strSQL += "where Company = '" + strCompany + "' ";
+                _strSQL += "and Key1 = '" + strPickListNum + "' ";
+
+				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+
+				IsUpdated = oEpicor._PickedOrder(ref oEpicEnv, out strMessage, ref OrderList, strUID, strPass, strCompany, strCurPlant, strPickListNum, strConsignment, Math.Round(dTotalWeight, 1), strTransporter, dTotalBox, strStation);
+
+				if (IsUpdated)
+				{
+					_MSSQL._exeSDSCreateLabelSP_Reprint(_strSQLCon, strCompany, strUID, "SHP-LBL", DateTime.Now, "", "", "", 0, Convert.ToInt32(dTotalBox), "", "", "", strPickListNum);
+				}
+
+				if (IsUpdated)
+				{
+					strMessage = "";
+					IsError = false;
+				}
+				else
+				{
+					strMessage = "Can't perform update.";
+					IsError = true;
+
+				}
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+			return (IsError ? false : true);
+		}
+
+		public bool _ResolvedEscalate(ref EpicEnv oEpicEnv, string strCompany, string strPickNum, string strReason, string strRemark, out string strMessage)
         {
             bool IsError = false;
             bool IsUpdated;

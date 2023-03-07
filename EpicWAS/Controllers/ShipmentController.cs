@@ -820,7 +820,7 @@ namespace EpicWAS.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage SavePacking(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strRemark, string strTransporter, string strConsignment, string strPallet, decimal dTotalWeight, decimal dTotalBox, string strPickListNum, string strPacker, string strStation = "", string strPackPallet ="")
+        public HttpResponseMessage SavePacking(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strRemark, string strTransporter, string strConsignment, string strPallet, decimal dTotalWeight, decimal dTotalBox, string strPickListNum, string strPacker, string strStation = "", string strPackPallet ="", string ud = "")
         {
             string strReturnMsg;
             bool IsComplete = false;
@@ -835,9 +835,17 @@ namespace EpicWAS.Controllers
             {
                 PickPackBO oPickPack = new PickPackBO();
 
-                IsTrxComplete = oPickPack._SavePackList(ref oEpicorEnv, strCurCompany, strRemark, strTransporter, strConsignment, strPallet, dTotalWeight, dTotalBox, strPickListNum, strPacker, strStation, strUID, strPass, strCurPlant, strPackPallet, out strReturnMsg);
+                if (ud == "UD103")
+                {
+                    IsTrxComplete = oPickPack._SavePackListUD103(ref oEpicorEnv, strCurCompany, strRemark, strTransporter, strConsignment, strPallet, dTotalWeight, dTotalBox, strPickListNum, strPacker, strStation, strUID, strPass, strCurPlant, strPackPallet, out strReturnMsg);
+                }
+                else
+                {
+					IsTrxComplete = oPickPack._SavePackList(ref oEpicorEnv, strCurCompany, strRemark, strTransporter, strConsignment, strPallet, dTotalWeight, dTotalBox, strPickListNum, strPacker, strStation, strUID, strPass, strCurPlant, strPackPallet, out strReturnMsg);
+				}
 
-                if (IsTrxComplete)
+
+				if (IsTrxComplete)
                 {
 
                     return Request.CreateResponse(HttpStatusCode.OK);
