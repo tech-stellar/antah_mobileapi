@@ -1522,7 +1522,9 @@ namespace EpicWAS.Models
                 _strSQL += ", SD_StationId_c = '" + strStation + "' ";
                 _strSQL += ", SD_TotalWeight_c = '" + Math.Round(dTotalWeight, 1) + " ";
                 _strSQL += ", SD_TotalCarton_c = '" + dTotalBox + " ";
-                _strSQL += ", SD_PackedCompleteDate_c = getdate() "; 
+                _strSQL += ", SD_PackedComplete_c = 1 ";
+                _strSQL += ", SD_PackedCompleteDate_c = getdate() ";
+                _strSQL += ", SD_Status_c = 'PACKED'";
                 _strSQL += "where Company = '" + strCompany + "' ";
                 _strSQL += "and Key1 = '" + strPickListNum + "' ";
 
@@ -1606,7 +1608,71 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _ScanSignedDO(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strInvoiceNum, out string strMessage)
+		public bool _ResolvedEscalateUD103(ref EpicEnv oEpicEnv, string strCompany, string strPickNum, string strReason, string strRemark, out string strMessage)
+		{
+			bool IsError = false;
+			bool IsUpdated;
+
+			try
+			{
+                //string _strSQL = "SDS_ResolveEscalate";
+
+                //IDataParameter[] parameters = new IDataParameter[]
+                //{
+                //	new SqlParameter("@Company",strCompany),
+                //	new SqlParameter("@PickListNum",strPickNum),
+                //	new SqlParameter("@Reason",strReason),
+                //	new SqlParameter("@Remark",strRemark)
+                //};
+
+
+
+                SQLServerBO _MSSQL = new SQLServerBO();
+                string _strSQLCon = _MSSQL._retSQLConnectionString();
+                _strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+                //IsUpdated = _MSSQL._exeStoredProcedureCommand(_strSQL, _strSQLCon, parameters);
+
+                string _strSQL = "update UD103 ";
+                _strSQL += "set SD_Status_c = 'PICKING'";
+                _strSQL += "where Company = '" + strCompany + "' ";
+                _strSQL += "and Key1 = '" + strPickNum + "' ";
+                _strSQL += "and SD_Status_c = 'ESCALATE PICKING'";
+
+				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+				_strSQL = "update UD103 ";
+				_strSQL += "set SD_Status_c = 'PACKING'";
+				_strSQL += "where Company = '" + strCompany + "' ";
+				_strSQL += "and Key1 = '" + strPickNum + "' ";
+				_strSQL += "and SD_Status_c = 'ESCALATE PACKING'";
+
+				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+				if (IsUpdated)
+				{
+					strMessage = "";
+					IsError = false;
+				}
+				else
+				{
+					strMessage = "Can't perform update.";
+					IsError = true;
+
+				}
+			}
+
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+			return (IsError ? false : true);
+
+		}
+
+		public bool _ScanSignedDO(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strInvoiceNum, out string strMessage)
         {
             bool IsError = false;
             bool IsUpdated;
