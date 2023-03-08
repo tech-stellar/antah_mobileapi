@@ -432,7 +432,7 @@ namespace EpicWAS.Controllers
 
 
         [HttpGet]
-        public HttpResponseMessage LoadInvoiceForReprint(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strInvoice, string strLegalNumber)
+        public HttpResponseMessage LoadInvoiceForReprint(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strInvoice, string strLegalNumber, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -459,7 +459,14 @@ namespace EpicWAS.Controllers
                     PickPackBO oPickPackBO = new PickPackBO();
                     IList<ReprintInvoice> InvoicesL = new List<ReprintInvoice>();
 
-                    IsLoadInvoiceOK = oPickPackBO._LoadInvoicesForReprint(ref oEpicorEnv, strCurCompany, strInvoice, strLegalNumber, ref InvoicesL, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsLoadInvoiceOK = oPickPackBO._LoadInvoicesForReprintUD103(ref oEpicorEnv, strCurCompany, strInvoice, strLegalNumber, ref InvoicesL, out strReturnMsg);
+					}
+                    else
+                    {
+						IsLoadInvoiceOK = oPickPackBO._LoadInvoicesForReprint(ref oEpicorEnv, strCurCompany, strInvoice, strLegalNumber, ref InvoicesL, out strReturnMsg);
+					}
 
                     if (IsLoadInvoiceOK)
                     {

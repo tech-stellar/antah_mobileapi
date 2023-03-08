@@ -2228,7 +2228,118 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _ReAssignDO(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strInvoiceNum, decimal dWeight, decimal dCarton, string strTransporter, string strPackNum, string strRemark,out string strMessage)
+		public bool _LoadInvoicesForReprintUD103(ref EpicEnv oEpicEnv, string strCompany, string strInvoiceNum, string strLegalNumber, ref IList<ReprintInvoice> InvoicesList, out string strMessage)
+		{
+			bool IsError = false;
+
+			try
+			{
+
+				string _strSQL = "select ih.Company, ih.InvoiceNum, ih.InvoiceDate, ih.LegalNumber, ih.InvoiceComment ";
+				_strSQL += ", id.OrderNum, id.OrderLine, id.OrderRelNum, id.PackNum, id.PackLine, id.OurShipQty ";
+				_strSQL += ", sd.WarehouseCode, sd.BinNum, sd.LotNum, sd.PartNum, sd.LineDesc, sd.InventoryShipUOM ";
+				_strSQL += ", sh.Weight, sh.ShipViaCode, sh.SD_CartonNum_c, sh.TrackingNumber, sh.FS_PickListNo_c ";
+				_strSQL += ", tUD103.SD_PickedBy_c, tUD103.SD_PackedBy_c ";
+				_strSQL += ", st.Name, st.Address1, st.Address2, st.Address3, st.State, st.City, st.ZIP, st.Country, pl.ExpirationDate ";
+				_strSQL += "from InvcHead ih ";
+				_strSQL += "left join InvcDtl id on id.Company = ih.Company and id.InvoiceNum = ih.InvoiceNum  ";
+				_strSQL += "left join ShipDtl sd on sd.Company = id.Company and sd.PackNum = id.PackNum and sd.PackLine = id.PackLine ";
+				_strSQL += "left join ShipHead sh on sh.Company = sd.Company and sh.PackNum = sd.PackNum ";
+				// _strSQL += "left join ( select distinct u14.Company, u14.Key5, u14.ShortChar16 as picker, u14.shortchar11 as packer from ud14 u14) tu14 on tu14.Company = sh.Company and tu14.Key5 = sh.FS_PickListNo_c ";
+                _strSQL += "left join ( select distinct Company, Key1, SD_PickedBy_c, SD_PackedBy_c from UD103) tUD103 on tUD103.Company = sh.Company and tUD103.Key1 = sh.FS_PickListNo_c ";
+				_strSQL += "left join ShipTo st on st.Company = sd.Company and st.CustNum = id.ShipToCustNum and st.ShipToNum = id.ShipToNum ";
+				_strSQL += "left join PartLot pl on pl.Company = sd.Company and pl.PartNum = sd.PartNum and pl.LotNum = sd.LotNum ";
+
+				string _strWHERE = "";
+
+
+				if (strCompany != null && strCompany != "")
+				{ _strWHERE += "AND ih.Company = '" + strCompany + "' "; }
+
+				if (strInvoiceNum != null && strInvoiceNum != "")
+				{ _strWHERE += "AND ih.InvoiceNum = " + strInvoiceNum + " "; }
+
+				if (strLegalNumber != null && strLegalNumber != "")
+				{ _strWHERE += "AND ih.LegalNumber = '" + strLegalNumber + "' "; }
+
+				if (_strWHERE != null && _strWHERE != "")
+				{ _strSQL = _strSQL + " WHERE " + _strWHERE.Substring(3, _strWHERE.Length - 3); }
+
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						ReprintInvoice oReprintInvoice = new ReprintInvoice();
+
+						oReprintInvoice.Company = row["Company"].ToString();
+						oReprintInvoice.InvoiceNum = row["InvoiceNum"].ToString();
+						oReprintInvoice.InvoiceDate = DBNull.Value.Equals(row["InvoiceDate"]) ? "1999-01-01" : Convert.ToDateTime((row["InvoiceDate"])).ToString("yyyy-MM-dd");
+						oReprintInvoice.LegalNumber = row["LegalNumber"].ToString();
+						oReprintInvoice.InvoiceComment = row["InvoiceComment"].ToString();
+
+						oReprintInvoice.OrderNum = DBNull.Value.Equals(row["OrderNum"]) ? 0 : int.Parse(row["OrderNum"].ToString());
+						oReprintInvoice.OrderLine = DBNull.Value.Equals(row["OrderLine"]) ? 0 : int.Parse(row["OrderLine"].ToString());
+						oReprintInvoice.OrderRel = DBNull.Value.Equals(row["OrderRelNum"]) ? 0 : int.Parse(row["OrderRelNum"].ToString());
+						oReprintInvoice.PackNum = DBNull.Value.Equals(row["PackNum"]) ? 0 : int.Parse(row["PackNum"].ToString());
+						oReprintInvoice.PackLine = DBNull.Value.Equals(row["PackLine"]) ? 0 : int.Parse(row["PackLine"].ToString());
+						oReprintInvoice.Quantity = DBNull.Value.Equals(row["OurShipQty"]) ? 0 : decimal.Parse(row["OurShipQty"].ToString());
+
+						oReprintInvoice.Warehouse = row["WarehouseCode"].ToString();
+						oReprintInvoice.BinNum = row["BinNum"].ToString();
+						oReprintInvoice.LotNum = row["LotNum"].ToString();
+						oReprintInvoice.PartNum = row["PartNum"].ToString();
+						oReprintInvoice.PartDescription = row["LineDesc"].ToString();
+						oReprintInvoice.UOM = row["InventoryShipUOM"].ToString();
+						oReprintInvoice.Weight = DBNull.Value.Equals(row["Weight"]) ? 0 : decimal.Parse(row["Weight"].ToString());
+						oReprintInvoice.ShipVia = row["ShipViaCode"].ToString();
+						oReprintInvoice.Carton = DBNull.Value.Equals(row["SD_CartonNum_c"]) ? 0 : int.Parse(row["SD_CartonNum_c"].ToString());
+						oReprintInvoice.TrackingNum = row["TrackingNumber"].ToString();
+						oReprintInvoice.PickListNum = row["FS_PickListNo_c"].ToString();
+
+						oReprintInvoice.Picker = row["SD_PickedBy_c"].ToString();
+						oReprintInvoice.Packer = row["SD_PackedBy_c"].ToString();
+						oReprintInvoice.ShipToName = row["Name"].ToString();
+						oReprintInvoice.ShipToAddr1 = row["Address1"].ToString();
+						oReprintInvoice.ShipToAddr2 = row["Address2"].ToString();
+						oReprintInvoice.ShipToAddr3 = row["Address3"].ToString();
+						oReprintInvoice.ShipToState = row["State"].ToString();
+						oReprintInvoice.ShipToCity = row["City"].ToString();
+						oReprintInvoice.ShipToZip = row["ZIP"].ToString();
+						oReprintInvoice.ShipToCountry = row["Country"].ToString();
+						oReprintInvoice.ExpiryDate = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd");
+
+						InvoicesList.Add(oReprintInvoice);
+					}
+
+					strMessage = "";
+					IsError = false;
+				}
+				else
+				{
+					strMessage = "Invoice not found.";
+					IsError = true;
+				}
+
+			} // ending for try
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+			return (IsError ? false : true);
+
+
+		}
+
+		public bool _ReAssignDO(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strInvoiceNum, decimal dWeight, decimal dCarton, string strTransporter, string strPackNum, string strRemark,out string strMessage)
         {
             bool IsError = false;
             bool IsUpdated;
