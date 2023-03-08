@@ -195,7 +195,7 @@ namespace EpicWAS.Controllers
 
 
         [HttpGet]
-        public HttpResponseMessage LoadEscalateList(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPickNum, string strCust)
+        public HttpResponseMessage LoadEscalateList(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPickNum, string strCust, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -222,8 +222,14 @@ namespace EpicWAS.Controllers
                     PickPackBO oPickPackBO = new PickPackBO();
                     IList<PickPackEscalate> EscalateL = new List<PickPackEscalate>();
 
-
-                    IsLoadPickPackOK = oPickPackBO._LoadEscalateList(ref oEpicorEnv, strCurCompany, strCust, ref EscalateL, strPickNum, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsLoadPickPackOK = oPickPackBO._LoadEscalateListUD103(ref oEpicorEnv, strCurCompany, strCust, ref EscalateL, strPickNum, out strReturnMsg);
+					}
+                    else
+                    {
+						IsLoadPickPackOK = oPickPackBO._LoadEscalateList(ref oEpicorEnv, strCurCompany, strCust, ref EscalateL, strPickNum, out strReturnMsg);
+					}
 
 
                     if (IsLoadPickPackOK)
@@ -758,7 +764,7 @@ namespace EpicWAS.Controllers
                
                 EpicorBO oEpicor = new EpicorBO();
 
-                if (ud == "UD103")
+                if (ud != "UD103")
                 {
 					IsTrxComplete = oEpicor._InsertInToUD18(ref oEpicorEnv, ref oPickPackES, out strReturnMsg, strUID, strPass);
 				}
