@@ -876,7 +876,7 @@ namespace EpicWAS.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage ResolvedEscalate(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strPickListNum, string strReason = "", string strRemark = "")
+        public HttpResponseMessage ResolvedEscalate(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strPickListNum, string strReason = "", string strRemark = "", string ud = "")
         {
             string strReturnMsg;
             bool IsComplete = false;
@@ -891,7 +891,14 @@ namespace EpicWAS.Controllers
             {
                 PickPackBO oPickPack = new PickPackBO();
 
-                IsTrxComplete = oPickPack._ResolvedEscalate(ref oEpicorEnv, strCurCompany, strPickListNum, strReason, strRemark, out strReturnMsg);
+                if (ud == "UD103")
+                {
+                    IsTrxComplete = oPickPack._ResolvedEscalateUD103(ref oEpicorEnv, strCurCompany, strPickListNum, strReason, strRemark, out strReturnMsg);
+				}
+                else
+                {
+					IsTrxComplete = oPickPack._ResolvedEscalate(ref oEpicorEnv, strCurCompany, strPickListNum, strReason, strRemark, out strReturnMsg);
+				}
 
                 if (IsTrxComplete)
                 {
