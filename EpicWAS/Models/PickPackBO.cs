@@ -918,7 +918,273 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _LoadUDReasonCodes(ref EpicEnv oEpicEnv, string strCompany, string strCodeTypeId, ref IList<ReasonCodes> ReasonCodesList, out string strMessage)
+		public bool _AssignPickPacksUD103(ref EpicEnv oEpicEnv, string strCompany, string strPicker, ref IList<PickPack> oPickPackList, out string strMessage)
+		{
+			bool IsError = false;
+
+			try
+			{
+
+                // string _strSQL = "SDS_AssignPickPack";
+
+                string _strSQL = "select SD_OrderNum_c, SD_OrderLine_c, SD_OrderRel_c, SD_PartNum_c, ";
+                _strSQL += "PartDescription, SD_UOM_c, SD_AllocateQuantity_c, ExpirationDate, ";
+				_strSQL += "SD_LotNum_c, SD_Warehouse_c, SD_BinNum_c, SD_Urgent_c, SD_CustID_c, ";
+				_strSQL += "CustID + ' - ' + Name + CHAR(10) + CHAR(13) + Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + ";
+				_strSQL += "Address3 + CHAR(10) + CHAR(13) + Zip + ' ' + City + ' ' + State + ' ' + Country as 'CustDetails', ";
+				_strSQL += "OrderComment, UD103.Key1, SD_Transporter_c from UD103 join UD103A ";
+				_strSQL += "on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
+				_strSQL += "on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
+				_strSQL += "join Part p on UD103.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
+				_strSQL += "join PartLot pl on UD103.Company = pl.Company and UD103A.SD_PartNum_c = pl.PartNum and SD_LotNum_c = LotNum ";
+				_strSQL += "join Customer c on UD103.Company = c.Company and c.CustNum = UD103.SD_CustNum_c ";
+				_strSQL += "join OrderHed oh on UD103.Company = oh.Company and UD103A.SD_OrderNum_c = oh.OrderNum ";
+				_strSQL += "where SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') ";
+				_strSQL += "order by SD_Urgent_c desc ";
+
+				IDataParameter[] parameters = new IDataParameter[]
+				{
+					new SqlParameter("@Company",strCompany),
+					new SqlParameter("@Picker",strPicker)
+				};
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				DataSet _dts = _MSSQL._MSSQLDataSetResultStoreProcedure(_strSQL, _strSQLCon, parameters);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						PickPack oPickPack = new PickPack();
+						oPickPack.Company = row["MQ_Company"].ToString();
+						//oPickPack.MQ_AssemblySeq = DBNull.Value.Equals(row["MQ_AssemblySeq"]) ? 0 : int.Parse(row["MQ_AssemblySeq"].ToString());
+						//oPickPack.MQ_AssignedToEmpID = (row["MQ_AssignedToEmpID"].ToString());
+						//oPickPack.MQ_DistributionType = (row["MQ_DistributionType"].ToString());
+						//oPickPack.MQ_EpicorFSA = (row["MQ_EpicorFSA"].ToString());
+						//oPickPack.MQ_ForeignSysRowID = (row["MQ_ForeignSysRowID"].ToString());
+						oPickPack.MQ_FromBinNum = (row["MQ_FromBinNum"].ToString());
+						oPickPack.MQ_FromPCID = (row["MQ_FromPCID"].ToString());
+						oPickPack.MQ_FromWhse = (row["MQ_FromWhse"].ToString());
+						//oPickPack.MQ_FS_PrintStatus_c = (row["MQ_FS_PrintStatus_c"].ToString());
+						oPickPack.MQ_IUM = (row["MQ_IUM"].ToString());
+						//oPickPack.MQ_JobNum = (row["MQ_JobNum"].ToString());
+						//oPickPack.MQ_JobSeq = DBNull.Value.Equals(row["MQ_JobSeq"]) ? 0 : int.Parse(row["MQ_JobSeq"].ToString());
+						//oPickPack.MQ_JobSeqType = (row["MQ_JobSeqType"].ToString());
+						//oPickPack.MQ_LastMgrChangeEmpID = (row["MQ_LastMgrChangeEmpID"].ToString());
+						//oPickPack.MQ_LastUsedPCID = (row["MQ_LastUsedPCID"].ToString());
+						oPickPack.MQ_Lock = row["MQ_Lock"].ToString() == "True" ? true : false;
+						oPickPack.MQ_LotNum = (row["MQ_LotNum"].ToString());
+						//oPickPack.MQ_MtlQueueSeq = DBNull.Value.Equals(row["MQ_MtlQueueSeq"]) ? 0 : int.Parse(row["MQ_MtlQueueSeq"].ToString());
+						//oPickPack.MQ_NCTranID = (row["MQ_NCTranID"].ToString());
+						//oPickPack.MQ_NeedByDate = (row["MQ_NeedByDate"].ToString());
+						//oPickPack.MQ_NeedByTime = (row["MQ_NeedByTime"].ToString());
+						//oPickPack.MQ_NextAssemblySeq = DBNull.Value.Equals(row["MQ_NextAssemblySeq"]) ? 0 : int.Parse(row["MQ_NextAssemblySeq"].ToString());
+						//oPickPack.MQ_NextJobSeq = DBNull.Value.Equals(row["MQ_NextJobSeq"]) ? 0 : int.Parse(row["MQ_NextJobSeq"].ToString());
+						//oPickPack.MQ_Obs10_PkgLine = (row["MQ_Obs10_PkgLine"].ToString());
+						//oPickPack.MQ_Obs10_PkgNum = (row["MQ_Obs10_PkgNum"].ToString());
+						oPickPack.MQ_OrderLine = DBNull.Value.Equals(row["MQ_OrderLine"]) ? 0 : int.Parse(row["MQ_OrderLine"].ToString());
+						oPickPack.MQ_OrderNum = DBNull.Value.Equals(row["MQ_OrderNum"]) ? 0 : int.Parse(row["MQ_OrderNum"].ToString());
+						oPickPack.MQ_OrderRelNum = DBNull.Value.Equals(row["MQ_OrderRelNum"]) ? 0 : int.Parse(row["MQ_OrderRelNum"].ToString());
+						//oPickPack.MQ_PackLine = (row["MQ_PackLine"].ToString());
+						//oPickPack.MQ_PackSlip = (row["MQ_PackSlip"].ToString());
+						oPickPack.MQ_PackStation = (row["MQ_PackStation"].ToString());
+						oPickPack.MQ_PartDescription = (row["MQ_PartDescription"].ToString());
+						oPickPack.MQ_PartNum = (row["MQ_PartNum"].ToString());
+						//oPickPack.MQ_PCID = (row["MQ_PCID"].ToString());
+
+						oPickPack.MQ_Plant = (row["MQ_Plant"].ToString());
+						//oPickPack.MQ_POLine = DBNull.Value.Equals(row["MQ_POLine"]) ? 0 : int.Parse(row["MQ_POLine"].ToString());
+						//oPickPack.MQ_PONum = DBNull.Value.Equals(row["MQ_PONum"]) ? 0 : int.Parse(row["MQ_PONum"].ToString());
+						//oPickPack.MQ_PORelNum = DBNull.Value.Equals(row["MQ_PORelNum"]) ? 0 : int.Parse(row["MQ_PORelNum"].ToString());
+						//oPickPack.MQ_Priority = (row["MQ_Priority"].ToString());
+						//oPickPack.MQ_PurPoint = (row["MQ_PurPoint"].ToString());
+						oPickPack.MQ_Quantity = DBNull.Value.Equals(row["MQ_Quantity"]) ? 0 : decimal.Parse(row["MQ_Quantity"].ToString());
+						//oPickPack.MQ_QueueID = (row["MQ_QueueID"].ToString());
+						//oPickPack.MQ_QueuePickSeq = DBNull.Value.Equals(row["MQ_QueuePickSeq"]) ? 0 : int.Parse(row["MQ_QueuePickSeq"].ToString());
+						//oPickPack.MQ_Reference = (row["MQ_Reference"].ToString());
+						//oPickPack.MQ_ReferencePrefix = (row["MQ_ReferencePrefix"].ToString());
+						//oPickPack.MQ_ReleaseForPickingSeq = DBNull.Value.Equals(row["MQ_ReleaseForPickingSeq"]) ? 0 : int.Parse(row["MQ_ReleaseForPickingSeq"].ToString());
+						//oPickPack.MQ_RequestedByEmpID = (row["MQ_RequestedByEmpID"].ToString());
+						//oPickPack.MQ_RevisionNum = (row["MQ_RevisionNum"].ToString());
+						//oPickPack.MQ_RMADisp = (row["MQ_RMADisp"].ToString());
+						//oPickPack.MQ_RMALine = DBNull.Value.Equals(row["MQ_RMALine"]) ? 0 : int.Parse(row["MQ_RMALine"].ToString());
+						//oPickPack.MQ_RMANum = (row["MQ_RMANum"].ToString());
+						//oPickPack.MQ_RMAReceipt = row["MQ_RMAReceipt"].ToString() == "True" ? true : false;
+
+
+						//oPickPack.MQ_SelectedByEmpID = (row["MQ_SelectedByEmpID"].ToString());
+						//oPickPack.MQ_SysDate = (row["MQ_SysDate"].ToString());
+						//oPickPack.MQ_SysRevID = (row["MQ_SysRevID"].ToString());
+						//oPickPack.MQ_SysRowID = (row["MQ_SysRowID"].ToString());
+						//oPickPack.MQ_SysTime = (row["MQ_SysTime"].ToString());
+
+						//oPickPack.MQ_TargetAssemblySeq = DBNull.Value.Equals(row["MQ_TargetAssemblySeq"]) ? 0 : int.Parse(row["MQ_TargetAssemblySeq"].ToString());
+						//oPickPack.MQ_TargetJobNum = DBNull.Value.Equals(row["MQ_TargetJobNum"]) ? string.Empty : row["MQ_TargetJobNum"].ToString();
+						//oPickPack.MQ_TargetMtlSeq = DBNull.Value.Equals(row["MQ_TargetMtlSeq"]) ? 0 : int.Parse(row["MQ_TargetMtlSeq"].ToString());
+						//oPickPack.MQ_TargetTFOrdLine = DBNull.Value.Equals(row["MQ_TargetTFOrdLine"]) ? 0 : int.Parse(row["MQ_TargetTFOrdLine"].ToString());
+						//oPickPack.MQ_TargetTFOrdNum = DBNull.Value.Equals(row["MQ_TargetTFOrdNum"]) ? string.Empty : (row["MQ_TargetTFOrdNum"].ToString());
+
+						//oPickPack.MQ_ToBinNum = (row["MQ_ToBinNum"].ToString());
+						//oPickPack.MQ_ToPCID = (row["MQ_ToPCID"].ToString());
+						//oPickPack.MQ_ToWhse = (row["MQ_ToWhse"].ToString());
+						//oPickPack.MQ_TranSource = (row["MQ_TranSource"].ToString());
+						//oPickPack.MQ_TranStatus = (row["MQ_TranStatus"].ToString());
+						//oPickPack.MQ_TranType = (row["MQ_TranType"].ToString());
+						//oPickPack.MQ_UD_SysRevID = (row["MQ_UD_SysRevID"].ToString());
+
+
+						//oPickPack.MQ_Updated_c = (row["MQ_Updated_c"].ToString());
+						//oPickPack.MQ_VendorNum = DBNull.Value.Equals(row["MQ_VendorNum"]) ? 0 : int.Parse(row["MQ_VendorNum"].ToString());
+						//oPickPack.MQ_Visible = (row["MQ_Visible"].ToString() == "True" ? true : false);
+						//oPickPack.MQ_WaveNum = DBNull.Value.Equals(row["MQ_WaveNum"]) ? 0 : int.Parse(row["MQ_WaveNum"].ToString());
+						//oPickPack.MQ_WhseGroupCode = (row["MQ_WhseGroupCode"].ToString());
+
+						//oPickPack.U14_Character01 = (row["U14_Character01"].ToString());
+						//oPickPack.U14_Character02 = (row["U14_Character02"].ToString());
+						//oPickPack.U14_Character03 = (row["U14_Character03"].ToString());
+						//oPickPack.U14_Character04 = (row["U14_Character04"].ToString());
+						//oPickPack.U14_Character05 = (row["U14_Character05"].ToString());
+						//oPickPack.U14_Character06 = (row["U14_Character06"].ToString());
+						//oPickPack.U14_Character07 = (row["U14_Character07"].ToString());
+						//oPickPack.U14_Character08 = (row["U14_Character08"].ToString());
+						//oPickPack.U14_Character09 = (row["U14_Character09"].ToString());
+						//oPickPack.U14_Character10 = (row["U14_Character10"].ToString());
+						//oPickPack.U14_CheckBox01 = (row["U14_CheckBox01"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox02 = (row["U14_CheckBox02"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox03 = (row["U14_CheckBox03"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox04 = (row["U14_CheckBox04"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox05 = (row["U14_CheckBox05"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox06 = (row["U14_CheckBox06"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox07 = (row["U14_CheckBox07"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox08 = (row["U14_CheckBox08"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox09 = (row["U14_CheckBox09"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox10 = (row["U14_CheckBox10"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox11 = (row["U14_CheckBox11"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox12 = (row["U14_CheckBox12"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox13 = (row["U14_CheckBox13"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox14 = (row["U14_CheckBox14"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox15 = (row["U14_CheckBox15"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox16 = (row["U14_CheckBox16"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox17 = (row["U14_CheckBox17"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox18 = (row["U14_CheckBox18"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox19 = (row["U14_CheckBox19"].ToString() == "True" ? true : false);
+						//oPickPack.U14_CheckBox20 = (row["U14_CheckBox20"].ToString() == "True" ? true : false);
+
+						//oPickPack.SerialNum = (row["AP_SerialNo_c"].ToString() == "True" ? true : false);
+
+						//oPickPack.U14_Company = (row["U14_Company"].ToString());
+						//oPickPack.U14_Date01 = DBNull.Value.Equals(row["U14_Date01"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date01"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date02 = DBNull.Value.Equals(row["U14_Date02"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date02"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date03 = DBNull.Value.Equals(row["U14_Date03"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date03"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date04 = DBNull.Value.Equals(row["U14_Date04"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date04"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date05 = DBNull.Value.Equals(row["U14_Date05"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date05"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date06 = DBNull.Value.Equals(row["U14_Date06"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date06"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date07 = DBNull.Value.Equals(row["U14_Date07"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date07"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date08 = DBNull.Value.Equals(row["U14_Date08"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date08"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date09 = DBNull.Value.Equals(row["U14_Date09"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date09"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date10 = DBNull.Value.Equals(row["U14_Date10"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date10"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date11 = DBNull.Value.Equals(row["U14_Date11"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date11"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date12 = DBNull.Value.Equals(row["U14_Date12"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date12"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date13 = DBNull.Value.Equals(row["U14_Date13"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date13"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date14 = DBNull.Value.Equals(row["U14_Date14"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date14"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date15 = DBNull.Value.Equals(row["U14_Date15"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date15"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date16 = DBNull.Value.Equals(row["U14_Date16"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date16"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date17 = DBNull.Value.Equals(row["U14_Date17"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date17"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date18 = DBNull.Value.Equals(row["U14_Date18"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date18"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date19 = DBNull.Value.Equals(row["U14_Date19"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date19"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_Date20 = DBNull.Value.Equals(row["U14_Date20"]) ? "1999-01-01" : Convert.ToDateTime((row["U14_Date20"])).ToString("yyyy-MM-dd");
+						//oPickPack.U14_GlobalLock = (row["U14_GlobalLock"].ToString());
+						//oPickPack.U14_GlobalUD14 = (row["U14_GlobalUD14"].ToString());
+						oPickPack.U14_Key1 = (row["U14_Key1"].ToString());
+						//oPickPack.U14_Key2 = (row["U14_Key2"].ToString());
+						//oPickPack.U14_Key3 = (row["U14_Key3"].ToString());
+						//oPickPack.U14_Key4 = (row["U14_Key4"].ToString());
+						//oPickPack.U14_Key5 = (row["U14_Key5"].ToString());
+
+						//oPickPack.U14_Number01 = DBNull.Value.Equals(row["U14_Number01"]) ? 0M : decimal.Parse(row["U14_Number01"].ToString());
+						//oPickPack.U14_Number02 = DBNull.Value.Equals(row["U14_Number02"]) ? 0M : decimal.Parse(row["U14_Number02"].ToString());
+						//oPickPack.U14_Number03 = DBNull.Value.Equals(row["U14_Number03"]) ? 0M : decimal.Parse(row["U14_Number03"].ToString());
+						//oPickPack.U14_Number04 = DBNull.Value.Equals(row["U14_Number04"]) ? 0M : decimal.Parse(row["U14_Number04"].ToString());
+
+
+						//oPickPack.U14_Number05 = DBNull.Value.Equals(row["U14_Number05"]) ? 0M : decimal.Parse(row["U14_Number05"].ToString());
+						//oPickPack.U14_Number06 = DBNull.Value.Equals(row["U14_Number06"]) ? 0M : decimal.Parse(row["U14_Number06"].ToString());
+						//oPickPack.U14_Number07 = DBNull.Value.Equals(row["U14_Number07"]) ? 0M : decimal.Parse(row["U14_Number07"].ToString());
+						//oPickPack.U14_Number08 = DBNull.Value.Equals(row["U14_Number08"]) ? 0M : decimal.Parse(row["U14_Number08"].ToString());
+						//oPickPack.U14_Number09 = DBNull.Value.Equals(row["U14_Number09"]) ? 0M : decimal.Parse(row["U14_Number09"].ToString());
+						//oPickPack.U14_Number10 = DBNull.Value.Equals(row["U14_Number10"]) ? 0M : decimal.Parse(row["U14_Number10"].ToString());
+						//oPickPack.U14_Number11 = DBNull.Value.Equals(row["U14_Number11"]) ? 0M : decimal.Parse(row["U14_Number11"].ToString());
+						//oPickPack.U14_Number12 = DBNull.Value.Equals(row["U14_Number12"]) ? 0M : decimal.Parse(row["U14_Number12"].ToString());
+						//oPickPack.U14_Number13 = DBNull.Value.Equals(row["U14_Number13"]) ? 0M : decimal.Parse(row["U14_Number13"].ToString());
+						//oPickPack.U14_Number14 = DBNull.Value.Equals(row["U14_Number14"]) ? 0M : decimal.Parse(row["U14_Number14"].ToString());
+						//oPickPack.U14_Number15 = DBNull.Value.Equals(row["U14_Number15"]) ? 0M : decimal.Parse(row["U14_Number15"].ToString());
+						//oPickPack.U14_Number16 = DBNull.Value.Equals(row["U14_Number16"]) ? 0M : decimal.Parse(row["U14_Number16"].ToString());
+						//oPickPack.U14_Number17 = DBNull.Value.Equals(row["U14_Number17"]) ? 0M : decimal.Parse(row["U14_Number17"].ToString());
+						//oPickPack.U14_Number18 = DBNull.Value.Equals(row["U14_Number18"]) ? 0M : decimal.Parse(row["U14_Number18"].ToString());
+						//oPickPack.U14_Number19 = DBNull.Value.Equals(row["U14_Number19"]) ? 0M : decimal.Parse(row["U14_Number19"].ToString());
+						//oPickPack.U14_Number20 = DBNull.Value.Equals(row["U14_Number20"]) ? 0M : decimal.Parse(row["U14_Number20"].ToString());
+
+
+						//oPickPack.U14_ShortChar01 = (row["U14_ShortChar01"].ToString());
+						//oPickPack.U14_ShortChar02 = (row["U14_ShortChar02"].ToString());
+						//oPickPack.U14_ShortChar03 = (row["U14_ShortChar03"].ToString());
+						//oPickPack.U14_ShortChar04 = (row["U14_ShortChar04"].ToString());
+						//oPickPack.U14_ShortChar05 = (row["U14_ShortChar05"].ToString());
+						//oPickPack.U14_ShortChar06 = (row["U14_ShortChar06"].ToString());
+						//oPickPack.U14_ShortChar07 = (row["U14_ShortChar07"].ToString());
+						//oPickPack.U14_ShortChar08 = (row["U14_ShortChar08"].ToString());
+						//oPickPack.U14_ShortChar09 = (row["U14_ShortChar09"].ToString());
+						//oPickPack.U14_ShortChar10 = (row["U14_ShortChar10"].ToString());
+						//oPickPack.U14_ShortChar11 = (row["U14_ShortChar11"].ToString());
+						//oPickPack.U14_ShortChar12 = (row["U14_ShortChar12"].ToString());
+						//oPickPack.U14_ShortChar13 = (row["U14_ShortChar13"].ToString());
+						//oPickPack.U14_ShortChar14 = (row["U14_ShortChar14"].ToString() == "" ? row["ShipViaCode"].ToString() : row["U14_ShortChar14"].ToString());
+						//oPickPack.U14_ShortChar15 = (row["U14_ShortChar15"].ToString());
+						//oPickPack.U14_ShortChar16 = (row["U14_ShortChar16"].ToString());
+						//oPickPack.U14_ShortChar17 = (row["U14_ShortChar17"].ToString());
+						//oPickPack.U14_ShortChar18 = (row["U14_ShortChar18"].ToString());
+						//oPickPack.U14_ShortChar19 = (row["U14_ShortChar19"].ToString());
+						//oPickPack.U14_ShortChar20 = (row["U14_ShortChar20"].ToString());
+						//oPickPack.U14_SysRevID = (row["U14_SysRevID"].ToString());
+						//oPickPack.U14_SysRowID = (row["U14_SysRowID"].ToString());
+
+						oPickPack.BumiAgDONum = (row["AP_BumiAgDONum_c"].ToString());
+						oPickPack.UrgentOrder = (row["AP_UrgentOrder_c"].ToString() == "True" ? true : false);
+
+
+						//oPickPack.Approve = row["Approve"].ToString() == "True" ? true : false;
+						//oPurOrd.DocTotalOrder = decimal.Parse(row["DocTotalOrder"].ToString());
+						//oPurOrd.PODate = Convert.ToDateTime((row["OrderDate"]));
+
+
+						oPickPackList.Add(oPickPack);
+					}
+					strMessage = "";
+					IsError = false;
+
+				}
+				else
+				{
+					strMessage = "No picking list generated";
+					IsError = true;
+				}
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+
+			return (IsError ? false : true);
+
+		}
+
+		public bool _LoadUDReasonCodes(ref EpicEnv oEpicEnv, string strCompany, string strCodeTypeId, ref IList<ReasonCodes> ReasonCodesList, out string strMessage)
         {
             bool IsError = false;
 
