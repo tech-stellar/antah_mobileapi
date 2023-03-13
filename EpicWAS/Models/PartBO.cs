@@ -1090,18 +1090,21 @@ namespace EpicWAS.Models
         }
 
 
-        public bool _StockReplenishment2(ref EpicEnv oEpicEnv, string strCompany, string strPartNum, string strWhseCode, string strAgency, ref IList<StkRepl2> StkRepls, out string strMessage)
+        public bool _StockReplenishment2(ref EpicEnv oEpicEnv, string strCompany, string strUID, string strPartNum, string strWhseCode, string strAgency, ref IList<StkRepl2> StkRepls, out string strMessage)
         {
             bool IsError = false;
 
             try
             {
-                string _strSQL = "SELECT s.Company, s.PartNum, s.WarehouseCode, s.OnhandQty, s.DimCode, s.MinimumQty, s.SOQty, s.SugQty, p.ProdCode, p.PartDescription ";
+                string _strSQL = "SELECT s.Company, w.Plant, s.PartNum, s.WarehouseCode, s.OnhandQty, s.DimCode, s.MinimumQty, s.SOQty, s.SugQty, p.ProdCode, p.PartDescription ";
                 _strSQL += "FROM StockReplenishment s ";
                 _strSQL += "inner join erp.Part p on s.Company = p.Company and s.PartNum = p.PartNum ";
+                _strSQL += "inner join erp.Warehse w on s.Company = w.Company and s.WarehouseCode = w.WarehouseCode ";
                 _strSQL += "WHERE s.Company = '" + strCompany + "' ";
+                _strSQL += "AND w.Plant in (select value from Erp.UserComp cross apply string_split(PlantList, '~') ";
+                _strSQL += "where DcdUserID = '" + strUID + "' and Company = '" + strCompany + "')";
 
-                if (strPartNum != null)
+				if (strPartNum != null)
                 {
                     _strSQL += "and s.Partnum = '" + oSpecialChar.replaceSpecialChar(strPartNum) + "' ";
                 }
