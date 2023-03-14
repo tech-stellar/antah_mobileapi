@@ -80,7 +80,7 @@ namespace EpicWAS.Controllers
 
 
         [HttpGet]
-        public HttpResponseMessage RetrievePickPack(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPicker)
+        public HttpResponseMessage RetrievePickPack(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPicker, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -107,7 +107,15 @@ namespace EpicWAS.Controllers
                     PickPackBO oPickPackBO = new PickPackBO();
                     IList<PickPack> PickPackL = new List<PickPack>();
 
-                    IsLoadPickPackOK = oPickPackBO._AssignPickPacks(ref oEpicorEnv, strCurCompany, strPicker, ref PickPackL, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsLoadPickPackOK = oPickPackBO._AssignPickPacksUD103(ref oEpicorEnv, strCurCompany, strPicker, ref PickPackL, out strReturnMsg);
+					}
+                    else
+                    {
+						IsLoadPickPackOK = oPickPackBO._AssignPickPacks(ref oEpicorEnv, strCurCompany, strPicker, ref PickPackL, out strReturnMsg);
+					}
+                    
 
                     if (IsLoadPickPackOK)
                     {
@@ -317,7 +325,7 @@ namespace EpicWAS.Controllers
 
 
         [HttpGet]
-        public HttpResponseMessage VerifyTag(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strPackListNum, string strTag)
+        public HttpResponseMessage VerifyTag(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strPackListNum, string strTag, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -343,8 +351,14 @@ namespace EpicWAS.Controllers
                 {
                     PickPackBO oPickPackBO = new PickPackBO();
                     
-
-                    IsTagOK = oPickPackBO._Verify_Tag(ref oEpicorEnv, strCurCompany, strPackListNum, strTag, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsTagOK = oPickPackBO._Verify_TagUD103(ref oEpicorEnv, strCurCompany, strPackListNum, strTag, out strReturnMsg);
+					}
+                    else
+                    {
+						IsTagOK = oPickPackBO._Verify_Tag(ref oEpicorEnv, strCurCompany, strPackListNum, strTag, out strReturnMsg);
+					}
 
                     if (IsTagOK)
                     {
@@ -803,7 +817,7 @@ namespace EpicWAS.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage SavePickPack(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strU14SysRowID, string strLotNum, string strWarehouse, string strBinNum, decimal dQuantity, string strTag, string strPallet="")
+        public HttpResponseMessage SavePickPack(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strU14SysRowID, string strLotNum, string strWarehouse, string strBinNum, decimal dQuantity, string strTag, string strPallet="", string ud = "", string pickNum = "", string pickLine = "")
         {
             string strReturnMsg;
             bool IsComplete = false;
@@ -818,7 +832,14 @@ namespace EpicWAS.Controllers
             {
                 PickPackBO oPickPack = new PickPackBO();
                 
-                IsTrxComplete = oPickPack._SavePickPack(ref oEpicorEnv, strCurCompany, strCurPlant, strUID, strPass,strLotNum, strWarehouse, strBinNum, strU14SysRowID, dQuantity, strTag, strPallet, out strReturnMsg);
+                if (ud == "UD103")
+                {
+					IsTrxComplete = oPickPack._SavePickPackUD103(ref oEpicorEnv, strCurCompany, strCurPlant, strUID, strPass, strLotNum, strWarehouse, strBinNum, dQuantity, strTag, strPallet, pickNum, pickLine, out strReturnMsg);
+				}
+                else
+                {
+					IsTrxComplete = oPickPack._SavePickPack(ref oEpicorEnv, strCurCompany, strCurPlant, strUID, strPass, strLotNum, strWarehouse, strBinNum, strU14SysRowID, dQuantity, strTag, strPallet, out strReturnMsg);
+				}
 
                 if (IsTrxComplete)
                 {
