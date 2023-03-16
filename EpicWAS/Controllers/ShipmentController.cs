@@ -143,8 +143,63 @@ namespace EpicWAS.Controllers
 
         }
 
+		[HttpGet]
+		public HttpResponseMessage RetrieveBackPickPack(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPicker, string strPartNum)
+		{
+			string strReturnMsg;
+			bool IsLogin = false;
+			bool IsComplete = false;
+			bool IsLoadPickPackOK = false;
 
-        [HttpGet]
+			EpicEnv oEpicorEnv = new EpicEnv();
+			EpicUser oEpicUser = new EpicUser();
+
+			oEpicUser.Epic_UserId = strUID;
+			oEpicUser.Epic_PassKey = strPass;
+
+			EpicEnvBO oEpicorEnvBO = new EpicEnvBO();
+			IsComplete = oEpicorEnvBO._LoadEpicEnvById(strEnvId, ref oEpicorEnv, out strReturnMsg);
+
+			if (IsComplete)
+			{
+				EpicUserBO oEpicUserBO = new EpicUserBO();
+
+				IsLogin = oEpicUserBO._VerifyEpicorLogin(ref oEpicorEnv, ref oEpicUser, out strReturnMsg);
+
+				if (IsLogin)
+				{
+					PickPackBO oPickPackBO = new PickPackBO();
+					IList<PickPack> PickPackL = new List<PickPack>();
+
+					IsLoadPickPackOK = oPickPackBO._AssignBackPickPacks(ref oEpicorEnv, strCurCompany, strPicker, strPartNum, ref PickPackL, out strReturnMsg);
+
+					if (IsLoadPickPackOK)
+					{
+						return Request.CreateResponse(HttpStatusCode.OK, PickPackL);
+					}
+					else
+					{
+						HttpError err = new HttpError(strReturnMsg);
+						return Request.CreateResponse(HttpStatusCode.NotFound, err);
+					}
+
+				}
+				else
+				{
+					HttpError err = new HttpError(strReturnMsg);
+					return Request.CreateResponse(HttpStatusCode.Unauthorized, err);
+				} // end if for Islogin
+
+			}
+			else
+			{
+				HttpError err = new HttpError(strReturnMsg);
+				return Request.CreateResponse(HttpStatusCode.NotFound, err);
+			} // end if for iscomplete
+
+		}
+
+		[HttpGet]
         public HttpResponseMessage LoadUserDefineReasonCodes(string strUID, string strPass, string strCurCompany, string strCodeTypeId, string strEnvId)
         {
             string strReturnMsg;
