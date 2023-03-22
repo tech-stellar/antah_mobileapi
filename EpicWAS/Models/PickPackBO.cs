@@ -503,7 +503,7 @@ namespace EpicWAS.Models
 				}
 
 				_strSQL += " and UD103.Key1 in (select distinct UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ) ";
-                _strSQL += " and UD103.SD_Status_c = 'PACKING'";
+                _strSQL += " and (UD103.SD_Status_c = 'PICKED' or UD103.SD_Status_c = 'PACKING')";
 				_strSQL += " order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";
 
 
@@ -522,7 +522,15 @@ namespace EpicWAS.Models
 						oPickPack.Company = row["Company"].ToString();
 						oPickPack.CartonNum = DBNull.Value.Equals(row["TotalCarton"]) ? 0M : decimal.Parse(row["TotalCarton"].ToString());
 						oPickPack.Customer = (row["Customer"].ToString());
-						oPickPack.ExpiryDate = DBNull.Value.Equals(row["ExpiratonDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd");
+                        if (row["ExpirationDate"] == DBNull.Value)
+                        {
+                            oPickPack.ExpiryDate = "1999-01-01";
+                        }
+                        else
+                        {
+                            oPickPack.ExpiryDate = Convert.ToDateTime(row["ExpirationDate"]).ToString("yyyy-MM-dd");
+						}
+                        // oPickPack.ExpiryDate = (row["ExpiratonDate"] == DBNull.Value) ? "1999-01-01" : Convert.ToDateTime(row["ExpirationDate"]).ToString("yyyy-MM-dd");
 						oPickPack.LotNum = (row["LotNum"].ToString());
 						oPickPack.OrderNum = (row["OrderNum"].ToString());
 						oPickPack.PalletNum = (row["PalletNum"].ToString());
@@ -554,7 +562,8 @@ namespace EpicWAS.Models
 
 					// update to ud103 table
 					_strSQL = "update UD103 ";
-					_strSQL += "set SD_PickedBy_c = '" + strUserID + "' ";
+					_strSQL += "set SD_PackedBy_c = '" + strUserID + "', ";
+                    _strSQL += "SD_Status_c = 'PACKING' "; 
 					_strSQL += "where Company = '" + strCompany + "' ";
 					_strSQL += "and Key1 = '" + strPickingNum + "' ";
 
@@ -569,14 +578,12 @@ namespace EpicWAS.Models
 					//_strSQL += "where x.Key5 = '" + strPickingNum + "' ";
 					//_strSQL += "and x.Company = '" + strCompany + "' ";
 
-                    _strSQL = "update UD103 ";
-                    _strSQL += "set SD_PackedComplete_c = getdate() ";
-                    _strSQL += "where Key1 = '" + strPickingNum + "' ";
-                    _strSQL += "and Company = '" + strCompany + "' ";
+     //               _strSQL = "update UD103 ";
+     //               _strSQL += "set SD_PackedComplete_c = getdate() ";
+     //               _strSQL += "where Key1 = '" + strPickingNum + "' ";
+     //               _strSQL += "and Company = '" + strCompany + "' ";
 
-					_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
-
-
+					//_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 
 
 					strMessage = "";
@@ -928,7 +935,7 @@ namespace EpicWAS.Models
                 string _strSQL = "select distinct UD103.Key1, SD_Urgent_c, oh.OrderDate, oh.OrderNum, case when UD103.SD_PickedBy_c = 'manager' then 1 " +
 					"when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
 					"join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = 'manager') " +
-					"and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 0 " +
+					"and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 0 " + 
 					"order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
@@ -1469,7 +1476,7 @@ namespace EpicWAS.Models
                 _strSQL += "SD_BinNum_c = '" + strBinNum + "', ";
                 _strSQL += "SD_LotNUm_c = '" + strLotNum + "', ";
                 _strSQL += "SD_AllocateQuantity_c = " + dQuantity.ToString() + ", ";
-                _strSQL += "SD_TagNUm_c = '" + strTag + "', ";
+                _strSQL += "SD_TagNum_c = '" + strTag + "', ";
                 _strSQL += "SD_PickedBy_c = '" + strUID + "', ";
 				_strSQL += "SD_PickedDate_c = getdate(), ";
 				_strSQL += "SD_PickedTime_c = getdate() ";
@@ -1521,9 +1528,10 @@ namespace EpicWAS.Models
 
 				if (totalCount == pickedCount)
 				{
-					_strSQL += ", SD_PickedComplete_c = 1, " +
-						"SD_PickedCompleteDate = getdate(), " +
-						"SD_PickedCompleteTime_c = getdate(), ";
+                    _strSQL += ", SD_PickedComplete_c = 1, " +
+                        "SD_PickedCompleteDate_c = getdate(), " +
+                        "SD_PickedCompleteTime_c = getdate(), " +
+                        "SD_Status_c = 'PICKED' ";
 				}
 
 				_strSQL += "where Key1 = '" + pickNum + "' ";
@@ -1895,7 +1903,8 @@ namespace EpicWAS.Models
                 _strSQL += ", SD_TotalCarton_c = '" + dTotalBox + " ";
                 _strSQL += ", SD_PackedComplete_c = 1 ";
                 _strSQL += ", SD_PackedCompleteDate_c = getdate() ";
-                _strSQL += ", SD_Status_c = 'PACKED'";
+				_strSQL += ", SD_PackedCompleteTime_c = getdate() ";
+				_strSQL += ", SD_Status_c = 'PACKED'";
                 _strSQL += "where Company = '" + strCompany + "' ";
                 _strSQL += "and Key1 = '" + strPickListNum + "' ";
 
