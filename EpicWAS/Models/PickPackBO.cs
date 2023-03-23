@@ -466,7 +466,7 @@ namespace EpicWAS.Models
 			try
 			{
                 string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, SD_OrderNum_c as OrderNum, SD_PartNum_c as PartNum, PartDescription, ";
-                _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, SD_AllocateQuantity_c as AllocateQuantity, SD_CustID_c as Customer, oh.OrderComment, ";
+                _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, SD_AllocateQuantity_c as iAllocateQuantity, SD_CustID_c as Customer, oh.OrderComment, ";
 				_strSQL += "UD103.SD_PackedBy_c as PackedBy, UD103.SD_PalletNum_c as PalletNum, SD_Consignment_c as Consignment, ";
 				_strSQL += "SD_Transporter_c as Transporter, SD_TotalWeight_c as TotalWeight, SD_TotalCarton_c as TotalCarton, pl.ExpirationDate, ";
 				_strSQL += "oh.AP_BumiAgDONum_c as BumiAgDONum, oh.AP_UrgentOrder_c as Urgent, UD103.SD_TagNum_c as TagNum, ";
@@ -502,10 +502,15 @@ namespace EpicWAS.Models
 
 				}
 
-				_strSQL += " and UD103.Key1 in (select distinct UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ) ";
+				_strSQL += " and UD103.Key1 in (select distinct top 1 UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ) ";
                 _strSQL += " and (UD103.SD_Status_c = 'PICKED' or UD103.SD_Status_c = 'PACKING')";
-				_strSQL += " order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";
+                // _strSQL += " order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";    // can't be used if nested in another sql query
 
+
+                _strSQL = "select Company, PickListNum, OrderNum, PartNum, PartDescription, UOM, LotNum, sum(iAllocateQuantity) as AllocateQuantity, Customer, OrderComment, PackedBy, " +
+                    "PalletNum, Consignment, Transporter, TotalWeight, TotalCarton, ExpirationDate, BumiAgDONum, Urgent, TagNum, ShipViaCode, ShipViaDesc from (" + _strSQL +
+					") p group by Company, PickListNum, OrderNum, PartNum, PartDescription, UOM, LotNum, Customer, OrderComment, PackedBy, PalletNum, Consignment, Transporter, TotalWeight, " +
+					"TotalCarton, ExpirationDate, BumiAgDONum, Urgent, TagNum, ShipViaCode, ShipViaDesc";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
 				string _strSQLCon = _MSSQL._retSQLConnectionString();
@@ -1899,12 +1904,12 @@ namespace EpicWAS.Models
                 _strSQL += ", SD_PalletNum_c = '" + strPallet + "' ";
                 _strSQL += ", SD_PackedBy_c = '" + strPacker + "' ";
                 _strSQL += ", SD_StationId_c = '" + strStation + "' ";
-                _strSQL += ", SD_TotalWeight_c = '" + Math.Round(dTotalWeight, 1) + " ";
-                _strSQL += ", SD_TotalCarton_c = '" + dTotalBox + " ";
+                _strSQL += ", SD_TotalWeight_c = " + Math.Round(dTotalWeight, 1) + " ";
+                _strSQL += ", SD_TotalCarton_c = " + dTotalBox + " ";
                 _strSQL += ", SD_PackedComplete_c = 1 ";
                 _strSQL += ", SD_PackedCompleteDate_c = getdate() ";
 				_strSQL += ", SD_PackedCompleteTime_c = getdate() ";
-				_strSQL += ", SD_Status_c = 'PACKED'";
+				_strSQL += ", SD_Status_c = 'PACKED' ";
                 _strSQL += "where Company = '" + strCompany + "' ";
                 _strSQL += "and Key1 = '" + strPickListNum + "' ";
 
@@ -1912,7 +1917,7 @@ namespace EpicWAS.Models
 
 
 				IsUpdated = oEpicor._PickedOrder(ref oEpicEnv, out strMessage, ref OrderList, strUID, strPass, strCompany, strCurPlant, strPickListNum, strConsignment, Math.Round(dTotalWeight, 1), strTransporter, dTotalBox, strStation);
-
+                // current issue is that consignment is null
 				if (IsUpdated)
 				{
 					_MSSQL._exeSDSCreateLabelSP_Reprint(_strSQLCon, strCompany, strUID, "SHP-LBL", DateTime.Now, "", "", "", 0, Convert.ToInt32(dTotalBox), "", "", "", strPickListNum);
