@@ -323,7 +323,6 @@ namespace EpicWAS.Models
 
             try
             {
-
                 string _strSQL = "select tblX.*, o.AP_BumiAgDONum_c, o.AP_UrgentOrder_c, p.AP_SerialNo_c, s.Description, s.ShipViaCode, ";
                 _strSQL += "(select top 1 MQ_SysRowID from dbo.PickPack pp1 where pp1.MQ_Company = tblX.MQ_Company and pp1.MQ_OrderNum = tblX.MQ_OrderNum and pp1.MQ_PartNum = tblX.MQ_PartNum  ) as mq_sysrowid, ";
                 _strSQL += "(select top 1 U14_SysRowID from dbo.PickPack pp1 where pp1.MQ_Company = tblX.MQ_Company and pp1.MQ_OrderNum = tblX.MQ_OrderNum and pp1.MQ_PartNum = tblX.MQ_PartNum ) as u14_sysrowid ";
@@ -465,11 +464,11 @@ namespace EpicWAS.Models
 
 			try
 			{
-                string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, SD_OrderNum_c as OrderNum, SD_PartNum_c as PartNum, PartDescription, ";
-                _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, SD_AllocateQuantity_c as iAllocateQuantity, SD_CustID_c as Customer, oh.OrderComment, ";
+				string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, SD_OrderNum_c as OrderNum, OrderDate, SD_PartNum_c as PartNum, PartDescription, ";
+                _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, sum(SD_AllocateQuantity_c) as AllocateQuantity, SD_CustID_c as Customer, oh.OrderComment, ";
 				_strSQL += "UD103.SD_PackedBy_c as PackedBy, UD103.SD_PalletNum_c as PalletNum, SD_Consignment_c as Consignment, ";
 				_strSQL += "SD_Transporter_c as Transporter, SD_TotalWeight_c as TotalWeight, SD_TotalCarton_c as TotalCarton, pl.ExpirationDate, ";
-				_strSQL += "oh.AP_BumiAgDONum_c as BumiAgDONum, oh.AP_UrgentOrder_c as Urgent, UD103.SD_TagNum_c as TagNum, ";
+				_strSQL += "oh.AP_BumiAgDONum_c as BumiAgDONum, SD_Urgent_c as Urgent, UD103.SD_TagNum_c as TagNum, ";
                 _strSQL += "oh.ShipViaCode, sv.Description as ShipViaDesc ";
 				_strSQL += "from UD103 join UD103A ";
 				_strSQL += "on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
@@ -502,15 +501,13 @@ namespace EpicWAS.Models
 
 				}
 
-				_strSQL += " and UD103.Key1 in (select distinct top 1 UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ) ";
-                _strSQL += " and (UD103.SD_Status_c = 'PICKED' or UD103.SD_Status_c = 'PACKING')";
-                // _strSQL += " order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";    // can't be used if nested in another sql query
+				_strSQL += " and UD103.Key1 in (select distinct top 1 UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ";
+                _strSQL += " and UD103.SD_Status_c = 'PICKED' or UD103.SD_Status_c = 'PACKING') ";
 
-
-                _strSQL = "select Company, PickListNum, OrderNum, PartNum, PartDescription, UOM, LotNum, sum(iAllocateQuantity) as AllocateQuantity, Customer, OrderComment, PackedBy, " +
-                    "PalletNum, Consignment, Transporter, TotalWeight, TotalCarton, ExpirationDate, BumiAgDONum, Urgent, TagNum, ShipViaCode, ShipViaDesc from (" + _strSQL +
-					") p group by Company, PickListNum, OrderNum, PartNum, PartDescription, UOM, LotNum, Customer, OrderComment, PackedBy, PalletNum, Consignment, Transporter, TotalWeight, " +
-					"TotalCarton, ExpirationDate, BumiAgDONum, Urgent, TagNum, ShipViaCode, ShipViaDesc";
+                _strSQL += "group by UD103.Company, UD103.Key1, SD_OrderNum_c, OrderDate, SD_PartNum_c, PartDescription, SD_UOM_c, SD_LotNum_c, SD_CustID_c, OrderComment, UD103.SD_PackedBy_c, " +
+					"UD103.SD_PalletNum_c, SD_Consignment_c, SD_Transporter_c, SD_TotalWeight_c, " +
+					"SD_TotalCarton_c, ExpirationDate, AP_BumiAgDONum_c, SD_Urgent_c, UD103.SD_TagNum_c, oh.ShipViaCode, sv.Description ";
+				_strSQL += "order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
 				string _strSQLCon = _MSSQL._retSQLConnectionString();
@@ -935,19 +932,38 @@ namespace EpicWAS.Models
 			bool IsError = false;
             bool IsUpdated = false;
             var pickListNum = "";
+            string strPickGrps = "";
 			try
 			{
-                string _strSQL = "select distinct UD103.Key1, SD_Urgent_c, oh.OrderDate, oh.OrderNum, case when UD103.SD_PickedBy_c = 'manager' then 1 " +
-					"when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
-					"join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = 'manager') " +
-					"and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 0 " + 
-					"order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
+				string _strSQL = "select top 1 SD_ProdGrps_c as ProductGroups from UD20 where Key1 = '" + strPicker + "' and SD_ProdGrps_c != ''";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
 				string _strSQLCon = _MSSQL._retSQLConnectionString();
 				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
 
 				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						strPickGrps = row["ProductGroups"].ToString().Replace("~", "\',\'");
+						strPickGrps = "(\'" + strPickGrps + "\')";
+					}
+
+				}
+
+				_strSQL = "select distinct UD103.Key1, SD_Urgent_c, oh.OrderDate, oh.OrderNum, case when UD103.SD_PickedBy_c = 'manager' then 1 " +
+					"when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
+					"join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = 'manager') " +
+					"and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 0 and SD_PickListGroup_c in " + strPickGrps +  
+					" order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
+
+				//SQLServerBO _MSSQL = new SQLServerBO();
+				//string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
 
                 if (_dts.Tables[0].Rows.Count > 0)
                 {
@@ -1843,7 +1859,7 @@ namespace EpicWAS.Models
 			bool IsError = false;
 			bool IsUpdated;
 			string _strSQL;
-			//int lastRunning;
+			int lastRunning;
 			DataSet _dts;
 
 			try
@@ -1852,7 +1868,126 @@ namespace EpicWAS.Models
 				string _strSQLCon = _MSSQL._retSQLConnectionString();
 				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
 
-                _strSQL = "select SD_PartNum_c as PartNum, SD_LotNum_c as LotNum, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_OrderNum_c as OrderNum, ";
+				// get the next running number
+				if (strConsignment == "" || strConsignment == null)
+				{
+					_strSQL = "Select Company, ShipViaCode, Active01_c, PreFix01_c, BeginNum01_c, EndNum01_c, LastRunNum01_c, EndNum01_c - LastRunNum01_c as Balance01, Active02_c, PreFix02_c, BeginNum02_c, EndNum02_c, LastRunNum02_c, EndNum02_c - LastRunNum02_c as Balance02, Suffix01_c, Suffix02_c ";
+					_strSQL += "from ShipVia ";
+					_strSQL += "Where ShipViaCode = '" + strTransporter + "' ";
+					_strSQL += "And company = '" + strCompany + "' ";
+
+
+					_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+					if (_dts.Tables[0].Rows.Count > 0)
+					{
+						foreach (DataRow row in _dts.Tables[0].Rows)
+						{
+							if (bool.Parse(row["Active01_c"].ToString()) == true)
+							{
+								if (int.Parse(row["Balance01"].ToString()) > 0)
+								{
+									if (int.Parse(row["LastRunNum01_c"].ToString()) == 0)
+									{
+										lastRunning = int.Parse(row["BeginNum01_c"].ToString());
+									}
+									else
+									{
+										lastRunning = int.Parse(row["LastRunNum01_c"].ToString());
+										lastRunning++;
+									}
+									_strSQL = "update shipvia set LastRunNum01_c = '" + lastRunning.ToString() + "' ";
+									_strSQL += "where company = '" + strCompany + "' and shipviacode = '" + strTransporter + "' ";
+
+									_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+									strConsignment = row["PreFix01_c"].ToString() + lastRunning.ToString() + row["Suffix01_c"].ToString();
+								}
+								else if (int.Parse(row["Balance02"].ToString()) > 0)
+								{
+									if (int.Parse(row["LastRunNum02_c"].ToString()) == 0)
+									{
+										lastRunning = int.Parse(row["BeginNum02_c"].ToString());
+									}
+									else
+									{
+										lastRunning = int.Parse(row["LastRunNum02_c"].ToString());
+										lastRunning++;
+									}
+
+									_strSQL = "update shipvia set LastRunNum02_c = '" + lastRunning.ToString() + "', Active02_c = 1, Active01_c = 0 ";
+									_strSQL += "where company = '" + strCompany + "' and shipviacode = '" + strTransporter + "' ";
+
+									_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+									strConsignment = row["PreFix02_c"].ToString() + lastRunning.ToString() + row["Suffix02_c"].ToString();
+
+								}
+								else
+								{
+									//IsError = true;
+									strMessage = "Not able to generate consignment number.";
+									return false;
+								}
+							}
+							else
+							{
+								if (int.Parse(row["Balance02"].ToString()) > 0)
+								{
+									if (int.Parse(row["LastRunNum02_c"].ToString()) == 0)
+									{
+										lastRunning = int.Parse(row["BeginNum02_c"].ToString());
+									}
+									else
+									{
+										lastRunning = int.Parse(row["LastRunNum02_c"].ToString());
+										lastRunning++;
+									}
+
+									_strSQL = "update shipvia set LastRunNum02_c = '" + lastRunning.ToString() + "' ";
+									_strSQL += "where company = '" + strCompany + "' and shipviacode = '" + strTransporter + "' ";
+
+									_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+									strConsignment = row["PreFix02_c"].ToString() + lastRunning.ToString() + row["Suffix02_c"].ToString();
+
+								}
+								else if (int.Parse(row["Balance01"].ToString()) > 0)
+								{
+									if (int.Parse(row["LastRunNum01_c"].ToString()) == 0)
+									{
+										lastRunning = int.Parse(row["BeginNum01_c"].ToString());
+									}
+									else
+									{
+										lastRunning = int.Parse(row["LastRunNum01_c"].ToString());
+										lastRunning++;
+									}
+
+									_strSQL = "update shipvia set LastRunNum01_c = '" + lastRunning.ToString() + "', Active01_c = 1, Active02_c = 0 ";
+									_strSQL += "where company = '" + strCompany + "' and shipviacode = '" + strTransporter + "' ";
+
+									_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+									strConsignment = row["PreFix01_c"].ToString() + lastRunning.ToString() + row["Suffix01_c"].ToString();
+								}
+								else
+								{
+									strMessage = "Not able to generate consignment number.";
+									return false;
+
+								}
+
+							}
+
+						}
+
+					}
+
+
+				}
+
+				_strSQL = "select SD_PartNum_c as PartNum, SD_LotNum_c as LotNum, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_OrderNum_c as OrderNum, ";
                 _strSQL += "SD_OrderLine_c as OrderLine, SD_OrderRel_c as OrderRel, SD_UOM_c as UOM, SD_AllocateQuantity_c as Quantity, ";
                 _strSQL += "p.PartDescription, p.SalesUM, p.NetWeightUOM, oh.CustNum, oh.ShipToNum ";
                 _strSQL += "from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
