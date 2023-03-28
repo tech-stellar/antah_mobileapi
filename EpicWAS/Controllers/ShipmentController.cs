@@ -43,7 +43,7 @@ namespace EpicWAS.Controllers
                     
                     if (ud == "UD103")
                     {
-						IsLoadPickPackOK = oPickPackBO._LoadPickPacksUD103(ref oEpicorEnv, strCurCompany, strCustID, strCustName, ref PickPackL, strPickNum, strTagNum, strUID, out strReturnMsg);
+						IsLoadPickPackOK = oPickPackBO._LoadPickPacksUD103(ref oEpicorEnv, strCurCompany, strCurPlant, strCustID, strCustName, ref PickPackL, strPickNum, strTagNum, strUID, out strReturnMsg);
 					}
                     else
                     {
@@ -109,7 +109,7 @@ namespace EpicWAS.Controllers
 
                     if (ud == "UD103")
                     {
-						IsLoadPickPackOK = oPickPackBO._AssignPickPacksUD103(ref oEpicorEnv, strCurCompany, strPicker, ref PickPackL, out strReturnMsg);
+						IsLoadPickPackOK = oPickPackBO._AssignPickPacksUD103(ref oEpicorEnv, strCurCompany, strCurPlant, strPicker, ref PickPackL, out strReturnMsg);
 					}
                     else
                     {
@@ -171,7 +171,7 @@ namespace EpicWAS.Controllers
 					PickPackBO oPickPackBO = new PickPackBO();
 					IList<PickPack> PickPackL = new List<PickPack>();
 
-					IsLoadPickPackOK = oPickPackBO._AssignBackPickPacks(ref oEpicorEnv, strCurCompany, strPicker, strPartNum, ref PickPackL, out strReturnMsg);
+					IsLoadPickPackOK = oPickPackBO._AssignBackPickPacks(ref oEpicorEnv, strCurCompany, strCurPlant, strPicker, strPartNum, ref PickPackL, out strReturnMsg);
 
 					if (IsLoadPickPackOK)
 					{

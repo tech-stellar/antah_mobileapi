@@ -457,7 +457,7 @@ namespace EpicWAS.Models
 
         }
 
-		public bool _LoadPickPacksUD103(ref EpicEnv oEpicEnv, string strCompany, string strCustID, string strCustName, ref IList<PickPack2> oPickPackList, string strPickNum, string strTagNum, string strUserID, out string strMessage)
+		public bool _LoadPickPacksUD103(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strCustID, string strCustName, ref IList<PickPack2> oPickPackList, string strPickNum, string strTagNum, string strUserID, out string strMessage)
 		{
 			bool IsError = false;
 			string strPickingNum = "";
@@ -465,7 +465,9 @@ namespace EpicWAS.Models
 			try
 			{
 				string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, SD_OrderNum_c as OrderNum, OrderDate, SD_PartNum_c as PartNum, PartDescription, ";
-                _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, sum(SD_AllocateQuantity_c) as AllocateQuantity, SD_CustID_c as Customer, oh.OrderComment, ";
+                _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, sum(SD_AllocateQuantity_c) as AllocateQuantity, SD_CustID_c + ' - ' + Name + CHAR(10) + CHAR(13) + " +
+					"Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + Address3 + CHAR(10) + CHAR(13) + Zip + ' ' + City + ' ' + State + ' ' + " +
+					"Country as Customer, oh.OrderComment, ";
 				_strSQL += "UD103.SD_PackedBy_c as PackedBy, UD103.SD_PalletNum_c as PalletNum, SD_Consignment_c as Consignment, ";
 				_strSQL += "SD_Transporter_c as Transporter, SD_TotalWeight_c as TotalWeight, SD_TotalCarton_c as TotalCarton, pl.ExpirationDate, ";
 				_strSQL += "oh.AP_BumiAgDONum_c as BumiAgDONum, SD_Urgent_c as Urgent, UD103.SD_TagNum_c as TagNum, ";
@@ -474,10 +476,11 @@ namespace EpicWAS.Models
 				_strSQL += "on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
 				_strSQL += "join Part p on UD103A.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
 				_strSQL += "join OrderHed oh on UD103A.Company = oh.Company and UD103A.SD_OrderNum_c = oh.OrderNum ";
+                _strSQL += "join Customer c on UD103.Company = c.Company and UD103.SD_CustID_c = c.CustID ";
 				_strSQL += "join PartLot pl on UD103A.Company = pl.Company and pl.LotNum = UD103A.SD_LotNum_c and pl.PartNum = UD103A.SD_PartNum_c ";
                 _strSQL += "join ShipVia sv on oh.Company = sv.Company and oh.ShipViaCode = sv.ShipViaCode ";
 
-				_strSQL += "where UD103.Company = '" + strCompany + "' ";
+				_strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' ";
 
 				if (strCustID != "" && strCustID != null)
 				{
@@ -506,7 +509,7 @@ namespace EpicWAS.Models
 
                 _strSQL += "group by UD103.Company, UD103.Key1, SD_OrderNum_c, OrderDate, SD_PartNum_c, PartDescription, SD_UOM_c, SD_LotNum_c, SD_CustID_c, OrderComment, UD103.SD_PackedBy_c, " +
 					"UD103.SD_PalletNum_c, SD_Consignment_c, SD_Transporter_c, SD_TotalWeight_c, " +
-					"SD_TotalCarton_c, ExpirationDate, AP_BumiAgDONum_c, SD_Urgent_c, UD103.SD_TagNum_c, oh.ShipViaCode, sv.Description ";
+					"SD_TotalCarton_c, ExpirationDate, AP_BumiAgDONum_c, SD_Urgent_c, UD103.SD_TagNum_c, oh.ShipViaCode, sv.Description, Name, Address1, Address2, Address3, Zip, City, State, Country ";
 				_strSQL += "order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
@@ -927,12 +930,12 @@ namespace EpicWAS.Models
 
         }
 
-		public bool _AssignPickPacksUD103(ref EpicEnv oEpicEnv, string strCompany, string strPicker, ref IList<PickPack> oPickPackList, out string strMessage)
+		public bool _AssignPickPacksUD103(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strPicker, ref IList<PickPack> oPickPackList, out string strMessage)
 		{
 			bool IsError = false;
             bool IsUpdated = false;
             var pickListNum = "";
-            string strPickGrps = "";
+            string strPickGrps = "''";
 			try
 			{
 				string _strSQL = "select top 1 SD_ProdGrps_c as ProductGroups from UD20 where Key1 = '" + strPicker + "' and SD_ProdGrps_c != ''";
@@ -948,16 +951,18 @@ namespace EpicWAS.Models
 					foreach (DataRow row in _dts.Tables[0].Rows)
 					{
 						strPickGrps = row["ProductGroups"].ToString().Replace("~", "\',\'");
-						strPickGrps = "(\'" + strPickGrps + "\')";
+						strPickGrps = "\'" + strPickGrps + "\'";
 					}
 
 				}
 
-				_strSQL = "select distinct UD103.Key1, SD_Urgent_c, oh.OrderDate, oh.OrderNum, case when UD103.SD_PickedBy_c = 'manager' then 1 " +
-					"when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
-					"join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = 'manager') " +
-					"and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 0 and SD_PickListGroup_c in " + strPickGrps +  
-					" order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
+                _strSQL = "select distinct UD103.Key1, SD_Urgent_c, oh.OrderDate, oh.OrderNum, case when UD103.SD_PickedBy_c = '" + strPicker + "' then 1 " +
+                    "when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
+                    "join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = '" + strPicker + "') " +
+                    "and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 0 ";
+				_strSQL += "and SD_PickListGroup_c in (" + strPickGrps + ") ";
+				_strSQL += "and UD103.Company = '" + strCompany + "' and SD_Plant_c = '" + strCurPlant + "' ";   // add company and plant filter
+				_strSQL += "order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
 
 				//SQLServerBO _MSSQL = new SQLServerBO();
 				//string _strSQLCon = _MSSQL._retSQLConnectionString();
@@ -1049,24 +1054,44 @@ namespace EpicWAS.Models
 
 		}
 
-		public bool _AssignBackPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strPicker, string strPartNum, ref IList<PickPack> oPickPackList, out string strMessage)
+		public bool _AssignBackPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strPicker, string strPartNum, ref IList<PickPack> oPickPackList, out string strMessage)
 		{
 			bool IsError = false;
 			bool IsUpdated = false;
 			var pickListNum = "";
+            var strPickGrps = "";
 			try
 			{
-				string _strSQL = "select distinct UD103.Key1, SD_Urgent_c, oh.OrderDate, oh.OrderNum, case when UD103.SD_PickedBy_c = 'manager' then 1 " +
-					"when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
-					"join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = 'manager') " +
-					"and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 1 and SD_PartNum_c = '" + strPartNum + "' " +
-					"order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
+				string _strSQL = "select top 1 SD_ProdGrps_c as ProductGroups from UD20 where Key1 = '" + strPicker + "' and SD_ProdGrps_c != ''";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
 				string _strSQLCon = _MSSQL._retSQLConnectionString();
 				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
 
 				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						strPickGrps = row["ProductGroups"].ToString().Replace("~", "\',\'");
+						strPickGrps = "\'" + strPickGrps + "\'";
+					}
+
+				}
+
+                _strSQL = "select distinct UD103.Key1, SD_Urgent_c, oh.OrderDate, oh.OrderNum, case when UD103.SD_PickedBy_c = '" + strPicker + "' then 1 " +
+                    "when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
+                    "join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = '" + strPicker + "') " +
+                    "and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 1 ";
+                _strSQL += "and SD_PickListGroup_c in (" + strPickGrps + ") and UD103.Company = '" + strCompany + "' and SD_Plant_c = '" + strCurPlant + "' ";
+				_strSQL += "and SD_PartNum_c = '" + strPartNum + "' order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
+
+				//SQLServerBO _MSSQL = new SQLServerBO();
+				//string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
 
 				if (_dts.Tables[0].Rows.Count > 0)
 				{
@@ -2067,6 +2092,11 @@ namespace EpicWAS.Models
 				{
 					strMessage = "Can't perform update.";
 					IsError = true;
+
+                    _strSQL = "update UD103 set SD_PackedComplete_c = 0, SD_PackedCompleteDate_c = NULL, SD_PackedCompleteTime_c = NULL, " +
+						"SD_Status_c = 'PACKING', SD_PackedBy_c = '' where Key1 = '" + strPickListNum + "' ";
+
+					bool rollbackSuccess = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 
 				}
 
