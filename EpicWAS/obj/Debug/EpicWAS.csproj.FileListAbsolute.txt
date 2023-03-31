@@ -1034,7 +1034,6 @@ C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\bin\System.Web
 C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\bin\WebGrease.dll
 C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\bin\EntityFramework.xml
 C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\bin\EntityFramework.SqlServer.xml
-C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\bin\Epicor.ServiceModel.xml
 C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\bin\Newtonsoft.Json.xml
 C:\Users\User\Documents\Work\Antah\MWSAPI\antah_mobileapi\EpicWAS\bin\System.Data.SQLite.xml

@@ -461,7 +461,6 @@ namespace EpicWAS.Models
 		{
 			bool IsError = false;
 			string strPickingNum = "";
-
 			try
 			{
 				string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, SD_OrderNum_c as OrderNum, OrderDate, SD_PartNum_c as PartNum, PartDescription, ";
@@ -510,7 +509,10 @@ namespace EpicWAS.Models
                 _strSQL += "group by UD103.Company, UD103.Key1, SD_OrderNum_c, OrderDate, SD_PartNum_c, PartDescription, SD_UOM_c, SD_LotNum_c, SD_CustID_c, OrderComment, UD103.SD_PackedBy_c, " +
 					"UD103.SD_PalletNum_c, SD_Consignment_c, SD_Transporter_c, SD_TotalWeight_c, " +
 					"SD_TotalCarton_c, ExpirationDate, AP_BumiAgDONum_c, SD_Urgent_c, UD103.SD_TagNum_c, oh.ShipViaCode, sv.Description, Name, Address1, Address2, Address3, Zip, City, State, Country ";
-				_strSQL += "order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";
+
+                _strSQL = "select *, (select top 1 SysRowID from UD103A a where x.Company = a.Company and x.OrderNum = a.SD_OrderNum_c and x.PartNum = a.SD_PartNum_c ) as SysRowID from (" + _strSQL + ") x ";
+				// _strSQL += "order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";
+				_strSQL += "order by Urgent desc, OrderDate, cast(OrderNum as int) ";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
 				string _strSQLCon = _MSSQL._retSQLConnectionString();
@@ -559,7 +561,7 @@ namespace EpicWAS.Models
 						oPickPack.BumiAgDONum = (row["BumiAgDONum"].ToString());
 						oPickPack.UrgentOrder = (row["Urgent"].ToString() == "True" ? true : false);
 
-						//oPickPack.U14_SysRowId = (row["u14_sysrowid"].ToString());
+						oPickPack.U14_SysRowId = (row["SysRowID"].ToString());
 						//oPickPack.MQ_SysRowId = (row["mq_sysrowid"].ToString());
 
 						oPickPackList.Add(oPickPack);
@@ -986,7 +988,7 @@ namespace EpicWAS.Models
 					_strSQL += "SD_LotNum_c, SD_Warehouse_c, SD_BinNum_c, SD_Urgent_c, SD_CustID_c, ";
 					_strSQL += "CustID + ' - ' + Name + CHAR(10) + CHAR(13) + Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + ";
 					_strSQL += "Address3 + CHAR(10) + CHAR(13) + Zip + ' ' + City + ' ' + State + ' ' + Country as 'CustDetails', ";
-					_strSQL += "OrderComment, UD103.Key1, UD103A.ChildKey2, SD_Transporter_c, SD_ShipVia_c, UD103A.SD_PickedBy_c, AP_BumiAgDONum_c ";
+					_strSQL += "OrderComment, UD103.Key1, UD103A.ChildKey2, SD_Transporter_c, SD_ShipVia_c, UD103A.SD_PickedBy_c, AP_BumiAgDONum_c, UD103A.SysRowID ";
 					_strSQL += "from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
 					_strSQL += "join Part p on UD103.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
 					_strSQL += "join PartLot pl on UD103.Company = pl.Company and UD103A.SD_PartNum_c = pl.PartNum and SD_LotNum_c = LotNum ";
@@ -1021,6 +1023,8 @@ namespace EpicWAS.Models
 
 							oPickPack.BumiAgDONum = (row["AP_BumiAgDONum_c"].ToString());
 							oPickPack.UrgentOrder = (row["SD_Urgent_c"].ToString() == "True" ? true : false);
+
+                            oPickPack.U14_SysRowID = row["SysRowID"].ToString();
 
 
 							oPickPackList.Add(oPickPack);
@@ -2184,18 +2188,23 @@ namespace EpicWAS.Models
                 //IsUpdated = _MSSQL._exeStoredProcedureCommand(_strSQL, _strSQLCon, parameters);
 
                 string _strSQL = "update UD103 ";
-                _strSQL += "set SD_Status_c = 'PICKING'";
+                _strSQL += "set SD_Status_c = SUBSTRING(SD_Status_c, 11, 7)";
                 _strSQL += "where Company = '" + strCompany + "' ";
                 _strSQL += "and Key1 = '" + strPickNum + "' ";
-                _strSQL += "and SD_Status_c = 'ESCALATE PICKING'";
+                _strSQL += "and SD_Status_c like '%ESCALATED%'";
 
 				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 
-				_strSQL = "update UD103 ";
-				_strSQL += "set SD_Status_c = 'PACKING'";
-				_strSQL += "where Company = '" + strCompany + "' ";
-				_strSQL += "and Key1 = '" + strPickNum + "' ";
-				_strSQL += "and SD_Status_c = 'ESCALATE PACKING'";
+				//_strSQL = "update UD103 ";
+				//_strSQL += "set SD_Status_c = 'PACKING'";
+				//_strSQL += "where Company = '" + strCompany + "' ";
+				//_strSQL += "and Key1 = '" + strPickNum + "' ";
+				//_strSQL += "and SD_Status_c = 'ESCALATED PACKING'";
+
+				//IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+                _strSQL = "update x set x.CheckBox01 = 1, x.Character02 = '" + strReason + "', x.shortchar20 = cast( FORMAT(getdate(), 'yyyy-MM-dd hh:mm:ss tt')  as nvarchar(40)), " +
+					"x.Character03 = '" + strRemark + "' from ud18 x inner join ud103a on ud103a.sysrowid = x.sd_ud14guid_c where SD_PickListNum_c = '" + strPickNum + "' and x.Company = '" + strCompany + "'";
 
 				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 
@@ -2266,6 +2275,8 @@ namespace EpicWAS.Models
                             _strSQL += "and i.LegalNumber = '" + strInvoiceNum + "' ";
 
                             IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+                            //_strSQL = "update ud103 set SD_ChoppedDate_c = '" + DateTime.Today.ToString("yyyy/MM/dd") + "' ";
 
                             if (IsUpdated)
                             {
@@ -2528,11 +2539,11 @@ namespace EpicWAS.Models
 
 				string _strSQL = "select UD18.*, UD103A.*, SD_StationId_c, SD_CustID_c, pl.ExpirationDate, u.CodeDesc, p.PartDescription from UD18 ";
 				_strSQL += "join UD103 on UD18.Company = UD103.Company and UD18.SD_PickListNum_c = UD103.Key1 ";
-				_strSQL += "join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
+				_strSQL += "join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 and UD103A.SysRowID = UD18.SD_UD14GUID_c ";
                 _strSQL += "join erp.Part p on UD103A.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
 				_strSQL += "join erp.PartLot pl on UD18.Company = pl.Company and pl.PartNum = UD103A.SD_PartNum_c and pl.LotNum = UD103A.SD_LotNum_c ";
 				_strSQL += "join ice.UDCodes u on UD18.Company = u.Company and UD18.ShortChar03 = u.CodeID ";
-				_strSQL += "where UD18.Company = '" + strCompany + "' and UD103.SD_Status_c like '%ESCALATED%' ";
+				_strSQL += "where UD18.Company = '" + strCompany + "' and UD103.SD_Status_c like '%ESCALATED%' and UD18.CheckBox01 = 0 ";
 				
 
 
@@ -2585,6 +2596,8 @@ namespace EpicWAS.Models
 						oEscalate.AllocatedQuantity = DBNull.Value.Equals(row["SD_AllocateQuantity_c"]) ? 0 : decimal.Parse(row["SD_AllocateQuantity_c"].ToString());
 						oEscalate.ExpiryDate = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd");
 						oEscalate.Station = row["SD_StationId_c"].ToString();
+
+						oEscalate.U14_SysRowID = (row["SD_UD14GUID_C"].ToString());
 
 						oEscalateList.Add(oEscalate);
 					}
