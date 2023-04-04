@@ -5,12 +5,85 @@ using System.Web;
 
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Configuration;
 
 namespace EpicWAS.Models
 {
     public class PickPackBO
     {
-        public bool _LoadPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strCustID, string strCustName, ref IList<PickPack> oPickPackList, string strPickNum, string strTagNum, string strUserID, out string strMessage)
+		public bool _LoadSummary(ref EpicEnv oEpicEnv, string strCompany, ref IList<Summary> oSummaryList, out string strMessage)
+		{
+			bool IsError = false;
+
+			try
+			{
+
+				string _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, SD_OrderNum_c as OrderNum, SD_Status_c as Status, " +
+					"ChildKey2 as PickListLine, SD_PartNum_c as PartNum, PartDescription, SD_UOM_c as UOM, SD_AllocateQuantity_c as AllocatedQty, " +
+					"SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
+					"ISNULL(OnhandQty, 0) as OnhandQty, ISNULL(OnhandQty - pb.AllocatedQty_c, 0) as AvailableQty, SD_BackOrder_c as BackOrder from UD103 u " +
+					"join UD103A ua on u.Company = ua.Company and u.Key1 = ua.Key1 join OrderRel orl on orl.Company = u.Company and orl.OrderNum = ua.SD_OrderNum_c " +
+					"and orl.OrderLine = ua.SD_OrderLine_c and orl.OrderRelNum = ua.SD_OrderRel_c join Part p on p.Company = u.Company and p.PartNum = ua.SD_PartNum_c " +
+					"join PartLot pl on pl.Company = u.Company and pl.PartNum = ua.SD_PartNum_c and SD_LotNum_c = pl.LotNum left join PartBin pb on pb.Company = u.Company " +
+					"and pb.WarehouseCode = ua.SD_Warehouse_c and pb.BinNum = ua.SD_BinNum_c and pb.LotNum = ua.SD_LotNum_c and pb.PartNum = ua.SD_PartNum_c order by PickListNum, PickListLine";
+
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+                    foreach (DataRow row in _dts.Tables[0].Rows)
+                    {
+                        Summary oSummary = new Summary
+                        {
+                            PickListDate = DBNull.Value.Equals(row["PickListDate"]) ? "1999-01-01" : Convert.ToDateTime((row["PickListDate"])).ToString("yyyy-MM-dd"),
+                            PickListNum = row["PickListNum"].ToString(),
+                            OrderNum = row["OrderNum"].ToString(),
+                            Status = row["Status"].ToString(),
+                            PickListLine = row["PickListLine"].ToString(),
+                            PartNum = row["PartNum"].ToString(),
+                            PartDescription = row["PartDescription"].ToString(),
+                            UOM = row["UOM"].ToString(),
+                            AllocatedQty = Decimal.Parse(row["UOM"].ToString()),
+                            Warehouse = row["Warehouse"].ToString(),
+                            BinNum = row["BinNum"].ToString(),
+                            LotNum = row["LotNum"].ToString(),
+                            ExpirationDate = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd"),
+                            ManualAlloc = row["ManualAlloc"].ToString() == "True" ? true : false,
+                            OnhandQty = Decimal.Parse(row["OnhandQty"].ToString()),
+                            AvailableQty = Decimal.Parse(row["AvailableQty"].ToString()),
+                            BackOrder = row["BackOrder"].ToString() == "True" ? true : false
+						};
+
+                        oSummaryList.Add(oSummary);
+                    }
+					strMessage = "";
+					IsError = false;
+
+				}
+				else
+				{
+					strMessage = "No picking list generated";
+					IsError = true;
+				}
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+
+			return (IsError ? false : true);
+
+		}
+
+		public bool _LoadPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strCustID, string strCustName, ref IList<PickPack> oPickPackList, string strPickNum, string strTagNum, string strUserID, out string strMessage)
         {
             bool IsError = false;
             string strPickingNum = "";
@@ -681,7 +754,7 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _AssignPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strPicker, ref IList<PickPack> oPickPackList,  out string strMessage)
+		public bool _AssignPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strPicker, ref IList<PickPack> oPickPackList,  out string strMessage)
         {
             bool IsError = false;
 
@@ -2077,11 +2150,10 @@ namespace EpicWAS.Models
                 _strSQL += "where Company = '" + strCompany + "' ";
                 _strSQL += "and Key1 = '" + strPickListNum + "' ";
 
-				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+				bool IsUpdatedUD = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 
 
 				IsUpdated = oEpicor._PickedOrder(ref oEpicEnv, out strMessage, ref OrderList, strUID, strPass, strCompany, strCurPlant, strPickListNum, strConsignment, Math.Round(dTotalWeight, 1), strTransporter, dTotalBox, strStation);
-                // current issue is that consignment is null
 				if (IsUpdated)
 				{
 					_MSSQL._exeSDSCreateLabelSP_Reprint(_strSQLCon, strCompany, strUID, "SHP-LBL", DateTime.Now, "", "", "", 0, Convert.ToInt32(dTotalBox), "", "", "", strPickListNum);
@@ -2094,13 +2166,15 @@ namespace EpicWAS.Models
 				}
 				else
 				{
-					strMessage = "Can't perform update.";
+					// strMessage = "Can't perform update.";
 					IsError = true;
 
                     _strSQL = "update UD103 set SD_PackedComplete_c = 0, SD_PackedCompleteDate_c = NULL, SD_PackedCompleteTime_c = NULL, " +
 						"SD_Status_c = 'PACKING', SD_PackedBy_c = '' where Key1 = '" + strPickListNum + "' ";
 
 					bool rollbackSuccess = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+                    strMessage += " Created shipment will not be invoiced due to the error.";
 
 				}
 
@@ -2275,8 +2349,6 @@ namespace EpicWAS.Models
                             _strSQL += "and i.LegalNumber = '" + strInvoiceNum + "' ";
 
                             IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
-
-                            //_strSQL = "update ud103 set SD_ChoppedDate_c = '" + DateTime.Today.ToString("yyyy/MM/dd") + "' ";
 
                             if (IsUpdated)
                             {

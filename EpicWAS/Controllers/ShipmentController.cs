@@ -12,8 +12,65 @@ namespace EpicWAS.Controllers
 {
     public class ShipmentController : ApiController
     {
+		[HttpGet]
+		public HttpResponseMessage LoadSummary(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId)
+		{
+			string strReturnMsg;
+			bool IsLogin = false;
+			bool IsComplete = false;
+			bool IsLoadSummaryOk = false;
 
-        [HttpGet]
+			EpicEnv oEpicorEnv = new EpicEnv();
+			EpicUser oEpicUser = new EpicUser();
+
+			oEpicUser.Epic_UserId = strUID;
+			oEpicUser.Epic_PassKey = strPass;
+
+			EpicEnvBO oEpicorEnvBO = new EpicEnvBO();
+			IsComplete = oEpicorEnvBO._LoadEpicEnvById(strEnvId, ref oEpicorEnv, out strReturnMsg);
+
+			if (IsComplete)
+			{
+				EpicUserBO oEpicUserBO = new EpicUserBO();
+
+				IsLogin = oEpicUserBO._VerifyEpicorLogin(ref oEpicorEnv, ref oEpicUser, out strReturnMsg);
+
+				if (IsLogin)
+				{
+					PickPackBO oPickPackBO = new PickPackBO();
+					IList<Summary> SummaryL = new List<Summary>();
+
+					IsLoadSummaryOk = oPickPackBO._LoadSummary(ref oEpicorEnv, strCurCompany, ref SummaryL, out strReturnMsg);
+
+
+
+					if (IsLoadSummaryOk)
+					{
+						return Request.CreateResponse(HttpStatusCode.OK, SummaryL);
+					}
+					else
+					{
+						HttpError err = new HttpError(strReturnMsg);
+						return Request.CreateResponse(HttpStatusCode.NotFound, err);
+					}
+
+				}
+				else
+				{
+					HttpError err = new HttpError(strReturnMsg);
+					return Request.CreateResponse(HttpStatusCode.Unauthorized, err);
+				} // end if for Islogin
+
+			}
+			else
+			{
+				HttpError err = new HttpError(strReturnMsg);
+				return Request.CreateResponse(HttpStatusCode.NotFound, err);
+			} // end if for iscomplete
+
+		}
+
+		[HttpGet]
         public HttpResponseMessage LoadPickPackSlip(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId,  string strCustID, string strCustName, string strPickNum, string strTagNum, string ud = "")
         {
             string strReturnMsg;
@@ -797,7 +854,7 @@ namespace EpicWAS.Controllers
 
 
 
-        [HttpPost]
+		[HttpPost]
         public HttpResponseMessage LoadPickPackRevert(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strMQSysRowID, string strU14SysRowID, string strRemark, string strPicker, string strReason, DateTime dtEscalateDt, string strCurrentStage = "", string pickListNo = "", string ud = "" )
         {
             string strReturnMsg;
