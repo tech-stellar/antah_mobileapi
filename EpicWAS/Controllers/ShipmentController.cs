@@ -13,7 +13,8 @@ namespace EpicWAS.Controllers
     public class ShipmentController : ApiController
     {
 		[HttpGet]
-		public HttpResponseMessage LoadSummary(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId)
+		public HttpResponseMessage LoadSummary(string strUID, string strPass, string strCurCompany, string strOrderNum, string strPartNum, string strPickListNum, string strWarehouse, string strStatus, bool backOrder, 
+            string strFromPickDate, string strToPickDate, string strCurPlant, string strEnvId)
 		{
 			string strReturnMsg;
 			bool IsLogin = false;
@@ -40,7 +41,14 @@ namespace EpicWAS.Controllers
 					PickPackBO oPickPackBO = new PickPackBO();
 					IList<Summary> SummaryL = new List<Summary>();
 
-					IsLoadSummaryOk = oPickPackBO._LoadSummary(ref oEpicorEnv, strCurCompany, ref SummaryL, out strReturnMsg);
+                    strOrderNum = strOrderNum == null ? "" : strOrderNum;
+                    strPartNum = strPartNum == null ? "" : strPartNum;
+                    strPickListNum = strPickListNum == null ? "" : strPickListNum;
+                    strWarehouse = strWarehouse == null ? "" : strWarehouse;
+                    strStatus = strStatus == null ? "" : strStatus;
+
+					IsLoadSummaryOk = oPickPackBO._LoadSummary(ref oEpicorEnv, strCurCompany, strUID, strOrderNum, strPartNum, strPickListNum, 
+                        strWarehouse, strStatus, backOrder, strFromPickDate, strToPickDate, ref SummaryL, out strReturnMsg);
 
 
 

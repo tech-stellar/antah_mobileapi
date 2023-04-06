@@ -6,27 +6,21 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
+using System.Runtime.InteropServices;
 
 namespace EpicWAS.Models
 {
     public class PickPackBO
     {
-		public bool _LoadSummary(ref EpicEnv oEpicEnv, string strCompany, ref IList<Summary> oSummaryList, out string strMessage)
+		public bool _LoadSummary(ref EpicEnv oEpicEnv, string strCompany, string strUID, string strOrderNum, string strPartNum, string strPickListNum, string strWarehouse, string strStatus, bool backOrder, 
+            string strFromPickDate, string strToPickDate, ref IList<Summary> oSummaryList, out string strMessage)
 		{
 			bool IsError = false;
+            var strPickGrps = "";
 
 			try
 			{
-
-				string _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, SD_OrderNum_c as OrderNum, SD_Status_c as Status, " +
-					"ChildKey2 as PickListLine, SD_PartNum_c as PartNum, PartDescription, SD_UOM_c as UOM, SD_AllocateQuantity_c as AllocatedQty, " +
-					"SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
-					"ISNULL(OnhandQty, 0) as OnhandQty, ISNULL(OnhandQty - pb.AllocatedQty_c, 0) as AvailableQty, SD_BackOrder_c as BackOrder from UD103 u " +
-					"join UD103A ua on u.Company = ua.Company and u.Key1 = ua.Key1 join OrderRel orl on orl.Company = u.Company and orl.OrderNum = ua.SD_OrderNum_c " +
-					"and orl.OrderLine = ua.SD_OrderLine_c and orl.OrderRelNum = ua.SD_OrderRel_c join Part p on p.Company = u.Company and p.PartNum = ua.SD_PartNum_c " +
-					"join PartLot pl on pl.Company = u.Company and pl.PartNum = ua.SD_PartNum_c and SD_LotNum_c = pl.LotNum left join PartBin pb on pb.Company = u.Company " +
-					"and pb.WarehouseCode = ua.SD_Warehouse_c and pb.BinNum = ua.SD_BinNum_c and pb.LotNum = ua.SD_LotNum_c and pb.PartNum = ua.SD_PartNum_c order by PickListNum, PickListLine";
-
+				string _strSQL = "select top 1 SD_ProdGrps_c as ProductGroups from UD20 where Key1 = '" + strUID + "' and SD_ProdGrps_c != ''";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
 				string _strSQLCon = _MSSQL._retSQLConnectionString();
@@ -36,30 +30,71 @@ namespace EpicWAS.Models
 
 				if (_dts.Tables[0].Rows.Count > 0)
 				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						strPickGrps = row["ProductGroups"].ToString().Replace("~", "\',\'");
+						strPickGrps = "\'" + strPickGrps + "\'";
+					}
+
+				}
+
+				string backOrderStatus = backOrder ? "1" : "0";
+                _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, SD_OrderNum_c as OrderNum, SD_Status_c as Status, " +
+                    "ChildKey2 as PickListLine, SD_PartNum_c as PartNum, PartDescription, SD_UOM_c as UOM, SD_AllocateQuantity_c as AllocatedQty, " +
+                    "SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
+                    "ISNULL(OnhandQty, 0) as OnhandQty, ISNULL(OnhandQty - pb.AllocatedQty_c, 0) as AvailableQty, SD_BackOrder_c as BackOrder from UD103 u " +
+                    "join UD103A ua on u.Company = ua.Company and u.Key1 = ua.Key1 join OrderRel orl on orl.Company = u.Company and orl.OrderNum = ua.SD_OrderNum_c " +
+                    "and orl.OrderLine = ua.SD_OrderLine_c and orl.OrderRelNum = ua.SD_OrderRel_c join Part p on p.Company = u.Company and p.PartNum = ua.SD_PartNum_c " +
+                    "join PartLot pl on pl.Company = u.Company and pl.PartNum = ua.SD_PartNum_c and SD_LotNum_c = pl.LotNum left join PartBin pb on pb.Company = u.Company " +
+                    "and pb.WarehouseCode = ua.SD_Warehouse_c and pb.BinNum = ua.SD_BinNum_c and pb.LotNum = ua.SD_LotNum_c and pb.PartNum = ua.SD_PartNum_c " +
+                    "where SD_OrderNum_c like '%" + strOrderNum + "%' and SD_PartNum_c like '%" + strPartNum + "%' and u.Key1 like '%" + strPickListNum + "%' " +
+                    "and SD_Warehouse_c like '%" + strWarehouse + "%' and SD_Status_c like '" + strStatus + "%' and SD_BackOrder_c = '" + backOrderStatus + "' " +
+                    "and SD_PickListGroup_c in (" + strPickGrps + ") ";
+					
+
+                if (!String.IsNullOrEmpty(strFromPickDate))
+                {
+                    _strSQL += "and SD_PickListDate_c >= '" + strFromPickDate + "' "; 
+                }
+				if (!String.IsNullOrEmpty(strToPickDate))
+				{
+					_strSQL += "and SD_PickListDate_c < '" + strToPickDate + "' ";
+				}
+
+                _strSQL += "order by PickListNum, PickListLine";
+
+
+				// SQLServerBO _MSSQL = new SQLServerBO();
+				// string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
                     foreach (DataRow row in _dts.Tables[0].Rows)
                     {
-                        Summary oSummary = new Summary
-                        {
-                            PickListDate = DBNull.Value.Equals(row["PickListDate"]) ? "1999-01-01" : Convert.ToDateTime((row["PickListDate"])).ToString("yyyy-MM-dd"),
-                            PickListNum = row["PickListNum"].ToString(),
-                            OrderNum = row["OrderNum"].ToString(),
-                            Status = row["Status"].ToString(),
-                            PickListLine = row["PickListLine"].ToString(),
-                            PartNum = row["PartNum"].ToString(),
-                            PartDescription = row["PartDescription"].ToString(),
-                            UOM = row["UOM"].ToString(),
-                            AllocatedQty = Decimal.Parse(row["UOM"].ToString()),
-                            Warehouse = row["Warehouse"].ToString(),
-                            BinNum = row["BinNum"].ToString(),
-                            LotNum = row["LotNum"].ToString(),
-                            ExpirationDate = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd"),
-                            ManualAlloc = row["ManualAlloc"].ToString() == "True" ? true : false,
-                            OnhandQty = Decimal.Parse(row["OnhandQty"].ToString()),
-                            AvailableQty = Decimal.Parse(row["AvailableQty"].ToString()),
-                            BackOrder = row["BackOrder"].ToString() == "True" ? true : false
-						};
+                        Summary oSummary = new Summary();
+                        oSummary.PickListDate = DBNull.Value.Equals(row["PickListDate"]) ? "1999-01-01" : Convert.ToDateTime((row["PickListDate"])).ToString("yyyy-MM-dd");
+						oSummary.PickListNum = row["PickListNum"].ToString();
+						oSummary.OrderNum = row["OrderNum"].ToString();
+						oSummary.Status = row["Status"].ToString();
+						oSummary.PickListLine = row["PickListLine"].ToString();
+						oSummary.PartNum = row["PartNum"].ToString();
+						oSummary.PartDescription = row["PartDescription"].ToString();
+						oSummary.UOM = row["UOM"].ToString();
+						oSummary.AllocatedQty = Decimal.Parse(row["AllocatedQty"].ToString());
+						oSummary.Warehouse = row["Warehouse"].ToString();
+						oSummary.BinNum = row["BinNum"].ToString();
+						oSummary.LotNum = row["LotNum"].ToString();
+						oSummary.ExpirationDate = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd");
+						oSummary.ManualAlloc = row["ManualAlloc"].ToString() == "True" ? true : false;
+						oSummary.OnhandQty = Decimal.Parse(row["OnhandQty"].ToString());
+						oSummary.AvailableQty = Decimal.Parse(row["AvailableQty"].ToString());
+						oSummary.BackOrder = row["BackOrder"].ToString() == "True" ? true : false;
 
-                        oSummaryList.Add(oSummary);
+
+						oSummaryList.Add(oSummary);
                     }
 					strMessage = "";
 					IsError = false;
@@ -67,7 +102,7 @@ namespace EpicWAS.Models
 				}
 				else
 				{
-					strMessage = "No picking list generated";
+					strMessage = "No list generated";
 					IsError = true;
 				}
 
