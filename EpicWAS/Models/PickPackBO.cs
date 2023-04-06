@@ -39,7 +39,7 @@ namespace EpicWAS.Models
 				}
 
 				string backOrderStatus = backOrder ? "1" : "0";
-                _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, SD_OrderNum_c as OrderNum, SD_Status_c as Status, " +
+                _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, SD_OrderNum_c as OrderNum, (case when ua.SD_PickedBy_c != '' then 1 else 0 end) as Picked, " +
                     "ChildKey2 as PickListLine, SD_PartNum_c as PartNum, PartDescription, SD_UOM_c as UOM, SD_AllocateQuantity_c as AllocatedQty, " +
                     "SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
                     "ISNULL(OnhandQty, 0) as OnhandQty, ISNULL(OnhandQty - pb.AllocatedQty_c, 0) as AvailableQty, SD_BackOrder_c as BackOrder from UD103 u " +
@@ -78,7 +78,7 @@ namespace EpicWAS.Models
                         oSummary.PickListDate = DBNull.Value.Equals(row["PickListDate"]) ? "1999-01-01" : Convert.ToDateTime((row["PickListDate"])).ToString("yyyy-MM-dd");
 						oSummary.PickListNum = row["PickListNum"].ToString();
 						oSummary.OrderNum = row["OrderNum"].ToString();
-						oSummary.Status = row["Status"].ToString();
+						oSummary.Picked = row["Picked"].ToString().ToLower() == "1" ? true : false;
 						oSummary.PickListLine = row["PickListLine"].ToString();
 						oSummary.PartNum = row["PartNum"].ToString();
 						oSummary.PartDescription = row["PartDescription"].ToString();
@@ -91,7 +91,7 @@ namespace EpicWAS.Models
 						oSummary.ManualAlloc = row["ManualAlloc"].ToString() == "True" ? true : false;
 						oSummary.OnhandQty = Decimal.Parse(row["OnhandQty"].ToString());
 						oSummary.AvailableQty = Decimal.Parse(row["AvailableQty"].ToString());
-						oSummary.BackOrder = row["BackOrder"].ToString() == "True" ? true : false;
+						oSummary.BackOrder = row["BackOrder"].ToString().ToLower() == "1" ? true : false;
 
 
 						oSummaryList.Add(oSummary);
