@@ -1090,7 +1090,7 @@ namespace EpicWAS.Models
         }
 
 
-        public bool _StockReplenishment2(ref EpicEnv oEpicEnv, string strCompany, string strUID, string strPartNum, string strWhseCode, string strAgency, ref IList<StkRepl2> StkRepls, out string strMessage)
+        public bool _StockReplenishment2(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strPartNum, string strWhseCode, string strAgency, ref IList<StkRepl2> StkRepls, out string strMessage)
         {
             bool IsError = false;
 
@@ -1101,8 +1101,9 @@ namespace EpicWAS.Models
                 _strSQL += "inner join erp.Part p on s.Company = p.Company and s.PartNum = p.PartNum ";
                 _strSQL += "inner join erp.Warehse w on s.Company = w.Company and s.WarehouseCode = w.WarehouseCode ";
                 _strSQL += "WHERE s.Company = '" + strCompany + "' ";
-                _strSQL += "AND w.Plant in (select value from Erp.UserComp cross apply string_split(PlantList, '~') ";
-                _strSQL += "where DcdUserID = '" + strUID + "' and Company = '" + strCompany + "')";
+				// _strSQL += "AND w.Plant in (select value from Erp.UserComp cross apply string_split(PlantList, '~') ";
+				_strSQL += "AND w.Plant = '" + strCurPlant + "' ";
+				// _strSQL += "where DcdUserID = '" + strUID + "' and Company = '" + strCompany + "')";
 
 				if (strPartNum != null)
                 {
