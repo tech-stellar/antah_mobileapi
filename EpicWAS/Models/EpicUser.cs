@@ -62,6 +62,14 @@ namespace EpicWAS.Models
         public string OrderType { get; set; }
 
 
-
-    }
+        public bool IsEnable_NewMenu { get; set; }
+        public bool IsEnable_NewPick { get; set; }
+        public bool IsEnable_NewPack { get; set; }
+        public bool IsEnable_NewEsc { get; set; }
+        public bool IsEnable_NewReprReass { get; set; }
+        public bool IsEnable_NewScanSign { get; set; }
+		public bool IsEnable_NewConfirmDel { get; set; }
+		public bool IsEnable_NewReprintLabel { get; set; }
+		public bool IsEnable_NewSummDash { get; set; }
+	}
 }

@@ -103,7 +103,17 @@ namespace EpicWAS.Models
                         oEpicUser.IsEnable_UserDefine10 = Convert.ToBoolean(row["IsEnable_UserDefine10_c"]);
                         oEpicUser.OrderType = row["OrderType_c"].ToString();
 
-                    }
+                        // new menu control
+                        oEpicUser.IsEnable_NewMenu = Convert.ToBoolean(row["IsEnable_NewMenu_c"]);
+						oEpicUser.IsEnable_NewPick = Convert.ToBoolean(row["IsEnable_NewPick_c"]);
+						oEpicUser.IsEnable_NewPack = Convert.ToBoolean(row["IsEnable_NewPack_c"]);
+						oEpicUser.IsEnable_NewEsc = Convert.ToBoolean(row["IsEnable_NewEsc_c"]);
+						oEpicUser.IsEnable_NewReprReass = Convert.ToBoolean(row["IsEnable_NewReprReass_c"]);
+						oEpicUser.IsEnable_NewScanSign = Convert.ToBoolean(row["IsEnable_NewScanSign_c"]);
+						oEpicUser.IsEnable_NewConfirmDel = Convert.ToBoolean(row["IsEnable_NewConfirmDel_c"]);
+						oEpicUser.IsEnable_NewReprintLabel = Convert.ToBoolean(row["IsEnable_NewReprintLabel_c"]);
+						oEpicUser.IsEnable_NewSummDash = Convert.ToBoolean(row["IsEnable_NewSummDash_c"]);
+					}
 
                     strMessage = "";
                     IsError = false;
