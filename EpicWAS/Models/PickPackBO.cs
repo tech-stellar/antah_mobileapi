@@ -40,8 +40,8 @@ namespace EpicWAS.Models
 
 				string backOrderStatus = backOrder ? "1" : "0";
                 _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, SD_OrderNum_c as OrderNum, (case when ua.SD_PickedBy_c != '' then 1 else 0 end) as Picked, " +
-                    "ChildKey2 as PickListLine, SD_PartNum_c as PartNum, PartDescription, SD_UOM_c as UOM, SD_AllocateQuantity_c as AllocatedQty, " +
-                    "SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
+                    "(case when u.SD_Status_c like 'ESCALATED%' then 1 else 0 end) as Escalated, ChildKey2 as PickListLine, SD_PartNum_c as PartNum, PartDescription, SD_UOM_c as UOM, " +
+					"SD_AllocateQuantity_c as AllocatedQty, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
                     "ISNULL(OnhandQty, 0) as OnhandQty, ISNULL(OnhandQty - pb.AllocatedQty_c, 0) as AvailableQty, SD_BackOrder_c as BackOrder from UD103 u " +
                     "join UD103A ua on u.Company = ua.Company and u.Key1 = ua.Key1 join OrderRel orl on orl.Company = u.Company and orl.OrderNum = ua.SD_OrderNum_c " +
                     "and orl.OrderLine = ua.SD_OrderLine_c and orl.OrderRelNum = ua.SD_OrderRel_c join Part p on p.Company = u.Company and p.PartNum = ua.SD_PartNum_c " +
@@ -79,6 +79,7 @@ namespace EpicWAS.Models
 						oSummary.PickListNum = row["PickListNum"].ToString();
 						oSummary.OrderNum = row["OrderNum"].ToString();
 						oSummary.Picked = row["Picked"].ToString().ToLower() == "1" ? true : false;
+                        oSummary.Escalated = row["Escalated"].ToString().ToLower() == "1" ? true : false;
 						oSummary.PickListLine = row["PickListLine"].ToString();
 						oSummary.PartNum = row["PartNum"].ToString();
 						oSummary.PartDescription = row["PartDescription"].ToString();

@@ -8,6 +8,7 @@ namespace EpicWAS.Models
 		public string PickListNum { get; set; }
 		public string OrderNum { get; set; }
 		public bool Picked { get; set; }
+		public bool Escalated { get; set; }
 		public string PickListLine { get; set; }
 		public string PartNum { get; set; }
 		public string PartDescription { get; set; }
