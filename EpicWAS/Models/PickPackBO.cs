@@ -39,7 +39,7 @@ namespace EpicWAS.Models
 				}
 
 				string backOrderStatus = backOrder ? "1" : "0";
-                _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, SD_OrderNum_c as OrderNum, (case when ua.SD_PickedBy_c != '' then 1 else 0 end) as Picked, " +
+                _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, ua.SD_OrderNum_c as OrderNum, (case when ua.SD_PickedBy_c != '' then 1 else 0 end) as Picked, " +
                     "(case when u.SD_Status_c like 'ESCALATED%' then 1 else 0 end) as Escalated, ChildKey2 as PickListLine, SD_PartNum_c as PartNum, PartDescription, SD_UOM_c as UOM, " +
 					"SD_AllocateQuantity_c as AllocatedQty, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
                     "ISNULL(OnhandQty, 0) as OnhandQty, ISNULL(OnhandQty - pb.AllocatedQty_c, 0) as AvailableQty, SD_BackOrder_c as BackOrder from UD103 u " +
@@ -47,7 +47,7 @@ namespace EpicWAS.Models
                     "and orl.OrderLine = ua.SD_OrderLine_c and orl.OrderRelNum = ua.SD_OrderRel_c join Part p on p.Company = u.Company and p.PartNum = ua.SD_PartNum_c " +
                     "join PartLot pl on pl.Company = u.Company and pl.PartNum = ua.SD_PartNum_c and SD_LotNum_c = pl.LotNum left join PartBin pb on pb.Company = u.Company " +
                     "and pb.WarehouseCode = ua.SD_Warehouse_c and pb.BinNum = ua.SD_BinNum_c and pb.LotNum = ua.SD_LotNum_c and pb.PartNum = ua.SD_PartNum_c " +
-                    "where SD_OrderNum_c like '%" + strOrderNum + "%' and SD_PartNum_c like '%" + strPartNum + "%' and u.Key1 like '%" + strPickListNum + "%' " +
+                    "where ua.SD_OrderNum_c like '%" + strOrderNum + "%' and SD_PartNum_c like '%" + strPartNum + "%' and u.Key1 like '%" + strPickListNum + "%' " +
                     "and SD_Warehouse_c like '%" + strWarehouse + "%' and SD_Status_c like '" + strStatus + "%' and SD_BackOrder_c = '" + backOrderStatus + "' " +
                     "and SD_PickListGroup_c in (" + strPickGrps + ") ";
 					
@@ -572,7 +572,7 @@ namespace EpicWAS.Models
 			string strPickingNum = "";
 			try
 			{
-				string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, SD_OrderNum_c as OrderNum, OrderDate, SD_PartNum_c as PartNum, PartDescription, ";
+				string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, UD103A.SD_OrderNum_c as OrderNum, OrderDate, SD_PartNum_c as PartNum, PartDescription, ";
                 _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, sum(SD_AllocateQuantity_c) as AllocateQuantity, SD_CustID_c + ' - ' + Name + CHAR(10) + CHAR(13) + " +
 					"Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + Address3 + CHAR(10) + CHAR(13) + Zip + ' ' + City + ' ' + State + ' ' + " +
 					"Country as Customer, oh.OrderComment, ";
@@ -615,7 +615,7 @@ namespace EpicWAS.Models
 				_strSQL += " and UD103.Key1 in (select distinct top 1 UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ";
                 _strSQL += " and UD103.SD_Status_c = 'PICKED' or UD103.SD_Status_c = 'PACKING') ";
 
-                _strSQL += "group by UD103.Company, UD103.Key1, SD_OrderNum_c, OrderDate, SD_PartNum_c, PartDescription, SD_UOM_c, SD_LotNum_c, SD_CustID_c, OrderComment, UD103.SD_PackedBy_c, " +
+                _strSQL += "group by UD103.Company, UD103.Key1, UD103A.SD_OrderNum_c, OrderDate, SD_PartNum_c, PartDescription, SD_UOM_c, SD_LotNum_c, SD_CustID_c, OrderComment, UD103.SD_PackedBy_c, " +
 					"UD103.SD_PalletNum_c, SD_Consignment_c, SD_Transporter_c, SD_TotalWeight_c, " +
 					"SD_TotalCarton_c, ExpirationDate, AP_BumiAgDONum_c, SD_Urgent_c, UD103.SD_TagNum_c, oh.ShipViaCode, sv.Description, Name, Address1, Address2, Address3, Zip, City, State, Country ";
 
@@ -1092,7 +1092,7 @@ namespace EpicWAS.Models
 
                 if (IsUpdated)
                 {
-					_strSQL = "select SD_OrderNum_c, SD_OrderLine_c, SD_OrderRel_c, SD_PartNum_c, ";
+					_strSQL = "select UD103.SD_OrderNum_c, SD_OrderLine_c, SD_OrderRel_c, SD_PartNum_c, ";
 					_strSQL += "PartDescription, SD_UOM_c, SD_AllocateQuantity_c, ExpirationDate, ";
 					_strSQL += "SD_LotNum_c, SD_Warehouse_c, SD_BinNum_c, SD_Urgent_c, SD_CustID_c, ";
 					_strSQL += "CustID + ' - ' + Name + CHAR(10) + CHAR(13) + Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + ";
@@ -1217,7 +1217,7 @@ namespace EpicWAS.Models
 
 				if (IsUpdated)
 				{
-					_strSQL = "select SD_OrderNum_c, SD_OrderLine_c, SD_OrderRel_c, SD_PartNum_c, ";
+					_strSQL = "select UD103.SD_OrderNum_c, SD_OrderLine_c, SD_OrderRel_c, SD_PartNum_c, ";
 					_strSQL += "PartDescription, SD_UOM_c, SD_AllocateQuantity_c, ExpirationDate, ";
 					_strSQL += "SD_LotNum_c, SD_Warehouse_c, SD_BinNum_c, SD_Urgent_c, SD_CustID_c, ";
 					_strSQL += "CustID + ' - ' + Name + CHAR(10) + CHAR(13) + Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + ";
@@ -2125,7 +2125,7 @@ namespace EpicWAS.Models
 
 				}
 
-				_strSQL = "select SD_PartNum_c as PartNum, SD_LotNum_c as LotNum, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_OrderNum_c as OrderNum, ";
+				_strSQL = "select SD_PartNum_c as PartNum, SD_LotNum_c as LotNum, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, UD103A.SD_OrderNum_c as OrderNum, ";
                 _strSQL += "SD_OrderLine_c as OrderLine, SD_OrderRel_c as OrderRel, SD_UOM_c as UOM, SD_AllocateQuantity_c as Quantity, ";
                 _strSQL += "p.PartDescription, p.SalesUM, p.NetWeightUOM, oh.CustNum, oh.ShipToNum ";
                 _strSQL += "from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
