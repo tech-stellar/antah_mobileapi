@@ -41,6 +41,7 @@ namespace EpicWAS.Models
         public string ExpiryDate { get; set; }
       
         public string Station { get; set; }
+        public string PickListNo { get; set; }
 
 
     }

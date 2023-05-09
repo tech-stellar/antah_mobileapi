@@ -5,12 +5,121 @@ using System.Web;
 
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Configuration;
+using System.Runtime.InteropServices;
 
 namespace EpicWAS.Models
 {
     public class PickPackBO
     {
-        public bool _LoadPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strCustID, string strCustName, ref IList<PickPack> oPickPackList, string strPickNum, string strTagNum, string strUserID, out string strMessage)
+		public bool _LoadSummary(ref EpicEnv oEpicEnv, string strCompany, string strUID, string strOrderNum, string strPartNum, string strPickListNum, string strWarehouse, string strStatus, bool backOrder, 
+            string strFromPickDate, string strToPickDate, ref IList<Summary> oSummaryList, out string strMessage)
+		{
+			bool IsError = false;
+            var strPickGrps = "";
+
+			try
+			{
+				string _strSQL = "select top 1 SD_ProdGrps_c as ProductGroups from UD20 where Key1 = '" + strUID + "' and SD_ProdGrps_c != ''";
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						strPickGrps = row["ProductGroups"].ToString().Replace("~", "\',\'");
+						strPickGrps = "\'" + strPickGrps + "\'";
+					}
+
+				}
+
+				string backOrderStatus = backOrder ? "1" : "0";
+                _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, ua.SD_OrderNum_c as OrderNum, (case when ua.SD_PickedBy_c != '' then 1 else 0 end) as Picked, " +
+                    "(case when u.SD_Status_c like 'ESCALATED%' then 1 else 0 end) as Escalated, ChildKey2 as PickListLine, SD_PartNum_c as PartNum, PartDescription, SD_UOM_c as UOM, " +
+					"SD_AllocateQuantity_c as AllocatedQty, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
+                    "ISNULL(OnhandQty, 0) as OnhandQty, ISNULL(OnhandQty - pb.AllocatedQty_c, 0) as AvailableQty, SD_BackOrder_c as BackOrder from UD103 u " +
+                    "join UD103A ua on u.Company = ua.Company and u.Key1 = ua.Key1 join OrderRel orl on orl.Company = u.Company and orl.OrderNum = ua.SD_OrderNum_c " +
+                    "and orl.OrderLine = ua.SD_OrderLine_c and orl.OrderRelNum = ua.SD_OrderRel_c join Part p on p.Company = u.Company and p.PartNum = ua.SD_PartNum_c " +
+                    "join PartLot pl on pl.Company = u.Company and pl.PartNum = ua.SD_PartNum_c and SD_LotNum_c = pl.LotNum left join PartBin pb on pb.Company = u.Company " +
+                    "and pb.WarehouseCode = ua.SD_Warehouse_c and pb.BinNum = ua.SD_BinNum_c and pb.LotNum = ua.SD_LotNum_c and pb.PartNum = ua.SD_PartNum_c " +
+                    "where ua.SD_OrderNum_c like '%" + strOrderNum + "%' and SD_PartNum_c like '%" + strPartNum + "%' and u.Key1 like '%" + strPickListNum + "%' " +
+                    "and SD_Warehouse_c like '%" + strWarehouse + "%' and SD_Status_c like '" + strStatus + "%' and SD_BackOrder_c = '" + backOrderStatus + "' " +
+                    "and SD_PickListGroup_c in (" + strPickGrps + ") ";
+					
+
+                if (!String.IsNullOrEmpty(strFromPickDate))
+                {
+                    _strSQL += "and SD_PickListDate_c >= '" + strFromPickDate + "' "; 
+                }
+				if (!String.IsNullOrEmpty(strToPickDate))
+				{
+					_strSQL += "and SD_PickListDate_c < '" + strToPickDate + "' ";
+				}
+
+                _strSQL += "order by PickListNum, PickListLine";
+
+
+				// SQLServerBO _MSSQL = new SQLServerBO();
+				// string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+                    foreach (DataRow row in _dts.Tables[0].Rows)
+                    {
+                        Summary oSummary = new Summary();
+                        oSummary.PickListDate = DBNull.Value.Equals(row["PickListDate"]) ? "1999-01-01" : Convert.ToDateTime((row["PickListDate"])).ToString("yyyy-MM-dd");
+						oSummary.PickListNum = row["PickListNum"].ToString();
+						oSummary.OrderNum = row["OrderNum"].ToString();
+						oSummary.Picked = row["Picked"].ToString().ToLower() == "1" ? true : false;
+                        oSummary.Escalated = row["Escalated"].ToString().ToLower() == "1" ? true : false;
+						oSummary.PickListLine = row["PickListLine"].ToString();
+						oSummary.PartNum = row["PartNum"].ToString();
+						oSummary.PartDescription = row["PartDescription"].ToString();
+						oSummary.UOM = row["UOM"].ToString();
+						oSummary.AllocatedQty = Decimal.Parse(row["AllocatedQty"].ToString());
+						oSummary.Warehouse = row["Warehouse"].ToString();
+						oSummary.BinNum = row["BinNum"].ToString();
+						oSummary.LotNum = row["LotNum"].ToString();
+						oSummary.ExpirationDate = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd");
+						oSummary.ManualAlloc = row["ManualAlloc"].ToString() == "True" ? true : false;
+						oSummary.OnhandQty = Decimal.Parse(row["OnhandQty"].ToString());
+						oSummary.AvailableQty = Decimal.Parse(row["AvailableQty"].ToString());
+						oSummary.BackOrder = row["BackOrder"].ToString().ToLower() == "1" ? true : false;
+
+
+						oSummaryList.Add(oSummary);
+                    }
+					strMessage = "";
+					IsError = false;
+
+				}
+				else
+				{
+					strMessage = "No list generated";
+					IsError = true;
+				}
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+
+			return (IsError ? false : true);
+
+		}
+
+		public bool _LoadPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strCustID, string strCustName, ref IList<PickPack> oPickPackList, string strPickNum, string strTagNum, string strUserID, out string strMessage)
         {
             bool IsError = false;
             string strPickingNum = "";
@@ -323,7 +432,6 @@ namespace EpicWAS.Models
 
             try
             {
-
                 string _strSQL = "select tblX.*, o.AP_BumiAgDONum_c, o.AP_UrgentOrder_c, p.AP_SerialNo_c, s.Description, s.ShipViaCode, ";
                 _strSQL += "(select top 1 MQ_SysRowID from dbo.PickPack pp1 where pp1.MQ_Company = tblX.MQ_Company and pp1.MQ_OrderNum = tblX.MQ_OrderNum and pp1.MQ_PartNum = tblX.MQ_PartNum  ) as mq_sysrowid, ";
                 _strSQL += "(select top 1 U14_SysRowID from dbo.PickPack pp1 where pp1.MQ_Company = tblX.MQ_Company and pp1.MQ_OrderNum = tblX.MQ_OrderNum and pp1.MQ_PartNum = tblX.MQ_PartNum ) as u14_sysrowid ";
@@ -458,7 +566,165 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _LoadPalletNum(ref EpicEnv oEpicEnv, string strCompany, string strOwnership, ref IList<Pallets> PalletsList, out string strMessage)
+		public bool _LoadPickPacksUD103(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strCustID, string strCustName, ref IList<PickPack2> oPickPackList, string strPickNum, string strTagNum, string strUserID, out string strMessage)
+		{
+			bool IsError = false;
+			string strPickingNum = "";
+			try
+			{
+				string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, UD103A.SD_OrderNum_c as OrderNum, OrderDate, SD_PartNum_c as PartNum, PartDescription, ";
+                _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, sum(SD_AllocateQuantity_c) as AllocateQuantity, SD_CustID_c + ' - ' + Name + CHAR(10) + CHAR(13) + " +
+					"Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + Address3 + CHAR(10) + CHAR(13) + Zip + ' ' + City + ' ' + State + ' ' + " +
+					"Country as Customer, oh.OrderComment, ";
+				_strSQL += "UD103.SD_PackedBy_c as PackedBy, UD103.SD_PalletNum_c as PalletNum, SD_Consignment_c as Consignment, ";
+				_strSQL += "SD_Transporter_c as Transporter, SD_TotalWeight_c as TotalWeight, SD_TotalCarton_c as TotalCarton, pl.ExpirationDate, ";
+				_strSQL += "oh.AP_BumiAgDONum_c as BumiAgDONum, SD_Urgent_c as Urgent, UD103.SD_TagNum_c as TagNum, ";
+                _strSQL += "oh.ShipViaCode, sv.Description as ShipViaDesc ";
+				_strSQL += "from UD103 join UD103A ";
+				_strSQL += "on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
+				_strSQL += "join Part p on UD103A.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
+				_strSQL += "join OrderHed oh on UD103A.Company = oh.Company and UD103A.SD_OrderNum_c = oh.OrderNum ";
+                _strSQL += "join Customer c on UD103.Company = c.Company and UD103.SD_CustID_c = c.CustID ";
+				_strSQL += "join PartLot pl on UD103A.Company = pl.Company and pl.LotNum = UD103A.SD_LotNum_c and pl.PartNum = UD103A.SD_PartNum_c ";
+                _strSQL += "join ShipVia sv on oh.Company = sv.Company and oh.ShipViaCode = sv.ShipViaCode ";
+
+				_strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' ";
+
+				if (strCustID != "" && strCustID != null)
+				{
+					_strSQL += " and UD103.SD_CustID_c like '" + strCustID + "%' ";
+				}
+
+				if (strCustName != "" && strCustName != null)
+				{
+					_strSQL += " and UD103.SD_CustID_c like  '%" + strCustName + "%' ";
+				}
+
+				if (strPickNum != "" && strPickNum != null)
+				{
+					_strSQL += " and UD103.Key1 = '" + strPickNum + "' ";
+				}
+
+				if (strTagNum != "" && strTagNum != null)
+				{
+					_strSQL += " and UD103.Key1 in (select distinct top 1 UD103.Key1 from UD103 where UD103.SD_TagNum_c = '" + strTagNum + "') ";
+					_strSQL += " and 0 = isnull((select top 1 case when s.ShipStatus = 'INVOICED' then 1 else 0 end from ShipHead s where s.Company = UD103.Company and s.FS_PickListNo_c = UD103.Key1 ),0) ";
+
+				}
+
+				_strSQL += " and UD103.Key1 in (select distinct top 1 UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ";
+                _strSQL += " and UD103.SD_Status_c = 'PICKED' or UD103.SD_Status_c = 'PACKING') ";
+
+                _strSQL += "group by UD103.Company, UD103.Key1, UD103A.SD_OrderNum_c, OrderDate, SD_PartNum_c, PartDescription, SD_UOM_c, SD_LotNum_c, SD_CustID_c, OrderComment, UD103.SD_PackedBy_c, " +
+					"UD103.SD_PalletNum_c, SD_Consignment_c, SD_Transporter_c, SD_TotalWeight_c, " +
+					"SD_TotalCarton_c, ExpirationDate, AP_BumiAgDONum_c, SD_Urgent_c, UD103.SD_TagNum_c, oh.ShipViaCode, sv.Description, Name, Address1, Address2, Address3, Zip, City, State, Country ";
+
+                _strSQL = "select *, (select top 1 SysRowID from UD103A a where x.Company = a.Company and x.OrderNum = a.SD_OrderNum_c and x.PartNum = a.SD_PartNum_c ) as SysRowID from (" + _strSQL + ") x ";
+				// _strSQL += "order by UD103.SD_Urgent_c desc, oh.OrderDate, cast(UD103A.SD_OrderNum_c as int) ";
+				_strSQL += "order by Urgent desc, OrderDate, cast(OrderNum as int) ";
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						PickPack2 oPickPack = new PickPack2();
+
+						oPickPack.Company = row["Company"].ToString();
+						oPickPack.CartonNum = DBNull.Value.Equals(row["TotalCarton"]) ? 0M : decimal.Parse(row["TotalCarton"].ToString());
+						oPickPack.Customer = (row["Customer"].ToString());
+                        if (row["ExpirationDate"] == DBNull.Value)
+                        {
+                            oPickPack.ExpiryDate = "1999-01-01";
+                        }
+                        else
+                        {
+                            oPickPack.ExpiryDate = Convert.ToDateTime(row["ExpirationDate"]).ToString("yyyy-MM-dd");
+						}
+                        // oPickPack.ExpiryDate = (row["ExpiratonDate"] == DBNull.Value) ? "1999-01-01" : Convert.ToDateTime(row["ExpirationDate"]).ToString("yyyy-MM-dd");
+						oPickPack.LotNum = (row["LotNum"].ToString());
+						oPickPack.OrderNum = (row["OrderNum"].ToString());
+						oPickPack.PalletNum = (row["PalletNum"].ToString());
+						oPickPack.PartDesc = (row["PartDescription"].ToString());
+						oPickPack.PartNum = row["PartNum"].ToString();
+						oPickPack.Picker = row["PackedBy"].ToString();
+						oPickPack.PickListNum = row["PickListNum"].ToString();
+						strPickingNum = row["PickListNum"].ToString();
+						oPickPack.PickQty = DBNull.Value.Equals(row["AllocateQuantity"]) ? 0 : decimal.Parse(row["AllocateQuantity"].ToString()); ;
+						oPickPack.Remark = (row["OrderComment"].ToString());
+
+						// oPickPack.SerialNum = (row["AP_SerialNo_c"].ToString());
+						oPickPack.ShipVia = (row["ShipViaCode"].ToString());
+						oPickPack.ShipViaDesc = (row["ShipViaDesc"].ToString());
+						//oPickPack.StationId = (row[""].ToString()); //
+						oPickPack.TagNum = (row["TagNum"].ToString());
+						oPickPack.TotalWeight = DBNull.Value.Equals(row["TotalWeight"]) ? 0M : decimal.Parse(row["TotalWeight"].ToString());
+						oPickPack.Transporter = (row["Transporter"].ToString());
+						oPickPack.UOM = (row["UOM"].ToString());
+
+						oPickPack.BumiAgDONum = (row["BumiAgDONum"].ToString());
+						oPickPack.UrgentOrder = (row["Urgent"].ToString() == "True" ? true : false);
+
+						oPickPack.U14_SysRowId = (row["SysRowID"].ToString());
+						//oPickPack.MQ_SysRowId = (row["mq_sysrowid"].ToString());
+
+						oPickPackList.Add(oPickPack);
+					}
+
+					// update to ud103 table
+					_strSQL = "update UD103 ";
+					_strSQL += "set SD_PackedBy_c = '" + strUserID + "', ";
+                    _strSQL += "SD_Status_c = 'PACKING' "; 
+					_strSQL += "where Company = '" + strCompany + "' ";
+					_strSQL += "and Key1 = '" + strPickingNum + "' ";
+
+					_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+
+					// update packer complete date
+					//_strSQL = "update xd ";
+					//_strSQL += "set xd.DateTime03_c = getdate() ";
+					//_strSQL += "from ice.ud14_UD xd ";
+					//_strSQL += "inner join ice.UD14 x on x.SysRowID = xd.foreignSysrowid ";
+					//_strSQL += "where x.Key5 = '" + strPickingNum + "' ";
+					//_strSQL += "and x.Company = '" + strCompany + "' ";
+
+     //               _strSQL = "update UD103 ";
+     //               _strSQL += "set SD_PackedComplete_c = getdate() ";
+     //               _strSQL += "where Key1 = '" + strPickingNum + "' ";
+     //               _strSQL += "and Company = '" + strCompany + "' ";
+
+					//_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+
+					strMessage = "";
+					IsError = false;
+
+				}
+				else
+				{
+					strMessage = "No picking list generated";
+					IsError = true;
+				}
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+
+			return (IsError ? false : true);
+
+		}
+
+		public bool _LoadPalletNum(ref EpicEnv oEpicEnv, string strCompany, string strOwnership, ref IList<Pallets> PalletsList, out string strMessage)
         {
             bool IsError = false;
 
@@ -524,7 +790,7 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _AssignPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strPicker, ref IList<PickPack> oPickPackList,  out string strMessage)
+		public bool _AssignPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strPicker, ref IList<PickPack> oPickPackList,  out string strMessage)
         {
             bool IsError = false;
 
@@ -775,7 +1041,256 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _LoadUDReasonCodes(ref EpicEnv oEpicEnv, string strCompany, string strCodeTypeId, ref IList<ReasonCodes> ReasonCodesList, out string strMessage)
+		public bool _AssignPickPacksUD103(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strPicker, ref IList<PickPack> oPickPackList, out string strMessage)
+		{
+			bool IsError = false;
+            bool IsUpdated = false;
+            var pickListNum = "";
+            string strPickGrps = "''";
+			try
+			{
+				string _strSQL = "select top 1 SD_ProdGrps_c as ProductGroups from UD20 where Key1 = '" + strPicker + "' and SD_ProdGrps_c != ''";
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						strPickGrps = row["ProductGroups"].ToString().Replace("~", "\',\'");
+						strPickGrps = "\'" + strPickGrps + "\'";
+					}
+
+				}
+
+                _strSQL = "select distinct UD103.Key1, SD_Urgent_c, oh.OrderDate, oh.OrderNum, case when UD103.SD_PickedBy_c = '" + strPicker + "' then 1 " +
+                    "when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
+                    "join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = '" + strPicker + "') " +
+                    "and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 0 ";
+				_strSQL += "and SD_PickListGroup_c in (" + strPickGrps + ") ";
+				_strSQL += "and UD103.Company = '" + strCompany + "' and SD_Plant_c = '" + strCurPlant + "' ";   // add company and plant filter
+				_strSQL += "order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
+
+				//SQLServerBO _MSSQL = new SQLServerBO();
+				//string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+                if (_dts.Tables[0].Rows.Count > 0)
+                {
+                    DataRow row = _dts.Tables[0].Rows[0];
+                    _strSQL = "update UD103 set SD_PickedBy_c = '" + strPicker + "', SD_Status_c = 'PICKING' where Key1 = '" + row["Key1"].ToString() + "' ";
+                    pickListNum = row["Key1"].ToString();
+
+					IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+				}
+
+                if (IsUpdated)
+                {
+					_strSQL = "select UD103.SD_OrderNum_c, SD_OrderLine_c, SD_OrderRel_c, SD_PartNum_c, ";
+					_strSQL += "PartDescription, SD_UOM_c, SD_AllocateQuantity_c, ExpirationDate, ";
+					_strSQL += "SD_LotNum_c, SD_Warehouse_c, SD_BinNum_c, SD_Urgent_c, SD_CustID_c, ";
+					_strSQL += "CustID + ' - ' + Name + CHAR(10) + CHAR(13) + Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + ";
+					_strSQL += "Address3 + CHAR(10) + CHAR(13) + Zip + ' ' + City + ' ' + State + ' ' + Country as 'CustDetails', ";
+					_strSQL += "OrderComment, UD103.Key1, UD103A.ChildKey2, SD_Transporter_c, SD_ShipVia_c, UD103A.SD_PickedBy_c, AP_BumiAgDONum_c, UD103A.SysRowID ";
+					_strSQL += "from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
+					_strSQL += "join Part p on UD103.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
+					_strSQL += "join PartLot pl on UD103.Company = pl.Company and UD103A.SD_PartNum_c = pl.PartNum and SD_LotNum_c = LotNum ";
+					_strSQL += "join Customer c on UD103.Company = c.Company and c.CustNum = UD103.SD_CustNum_c ";
+					_strSQL += "join OrderHed oh on UD103.Company = oh.Company and UD103A.SD_OrderNum_c = oh.OrderNum ";
+					_strSQL += "where UD103.Key1 = '" + pickListNum + "' ";
+
+					_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+					if (_dts.Tables[0].Rows.Count > 0)
+					{
+						foreach (DataRow row in _dts.Tables[0].Rows)
+						{
+							PickPack oPickPack = new PickPack();
+							oPickPack.MQ_FromBinNum = (row["SD_BinNum_c"].ToString());
+							oPickPack.MQ_FromWhse = (row["SD_Warehouse_c"].ToString());
+							oPickPack.MQ_IUM = (row["SD_UOM_c"].ToString());
+							oPickPack.MQ_LotNum = (row["SD_LotNum_c"].ToString());
+							oPickPack.MQ_OrderLine = DBNull.Value.Equals(row["SD_OrderLine_c"]) ? 0 : int.Parse(row["SD_OrderLine_C"].ToString());
+							oPickPack.MQ_OrderNum = DBNull.Value.Equals(row["SD_OrderNum_c"]) ? 0 : int.Parse(row["SD_OrderNum_c"].ToString());
+							oPickPack.MQ_OrderRelNum = DBNull.Value.Equals(row["SD_OrderRel_c"]) ? 0 : int.Parse(row["SD_OrderRel_c"].ToString());
+							oPickPack.MQ_PartDescription = (row["PartDescription"].ToString());
+							oPickPack.MQ_PartNum = (row["SD_PartNum_c"].ToString());
+							oPickPack.MQ_Quantity = DBNull.Value.Equals(row["SD_AllocateQuantity_c"]) ? 0 : decimal.Parse(row["SD_AllocateQuantity_c"].ToString());
+							oPickPack.U14_Character09 = (row["CustDetails"].ToString());
+							oPickPack.U14_Character10 = (row["OrderComment"].ToString());
+							oPickPack.U14_CheckBox18 = (row["SD_PickedBy_c"].ToString() == "" ? false : true);
+							oPickPack.U14_Date01 = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd");
+							oPickPack.U14_Key4 = (row["ChildKey2"].ToString());     // picklistline
+							oPickPack.U14_Key5 = (row["Key1"].ToString());   // picklistnum
+							oPickPack.U14_ShortChar14 = (row["SD_Transporter_c"].ToString() == "" ? row["SD_ShipVia_c"].ToString() : row["SD_Transporter_c"].ToString());
+
+							oPickPack.BumiAgDONum = (row["AP_BumiAgDONum_c"].ToString());
+							oPickPack.UrgentOrder = (row["SD_Urgent_c"].ToString() == "True" ? true : false);
+
+                            oPickPack.U14_SysRowID = row["SysRowID"].ToString();
+
+
+							oPickPackList.Add(oPickPack);
+						}
+
+						strMessage = "";
+						IsError = false;
+
+					}
+					else
+					{
+						strMessage = "No picking list generated";
+						IsError = true;
+					}
+				}
+                else
+                {
+                    strMessage = "No picking list generated";
+                    IsError = true;
+                }
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+
+			return (IsError ? false : true);
+
+		}
+
+		public bool _AssignBackPickPacks(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strPicker, string strPartNum, ref IList<PickPack> oPickPackList, out string strMessage)
+		{
+			bool IsError = false;
+			bool IsUpdated = false;
+			var pickListNum = "";
+            var strPickGrps = "";
+			try
+			{
+				string _strSQL = "select top 1 SD_ProdGrps_c as ProductGroups from UD20 where Key1 = '" + strPicker + "' and SD_ProdGrps_c != ''";
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						strPickGrps = row["ProductGroups"].ToString().Replace("~", "\',\'");
+						strPickGrps = "\'" + strPickGrps + "\'";
+					}
+
+				}
+
+                _strSQL = "select distinct UD103.Key1, SD_Urgent_c, oh.OrderDate, oh.OrderNum, case when UD103.SD_PickedBy_c = '" + strPicker + "' then 1 " +
+                    "when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
+                    "join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = '" + strPicker + "') " +
+                    "and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 1 ";
+                _strSQL += "and SD_PickListGroup_c in (" + strPickGrps + ") and UD103.Company = '" + strCompany + "' and SD_Plant_c = '" + strCurPlant + "' ";
+				_strSQL += "and SD_PartNum_c = '" + strPartNum + "' order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
+
+				//SQLServerBO _MSSQL = new SQLServerBO();
+				//string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					DataRow row = _dts.Tables[0].Rows[0];
+					_strSQL = "update UD103 set SD_PickedBy_c = '" + strPicker + "', SD_Status_c = 'PICKING' where Key1 = '" + row["Key1"].ToString() + "' ";
+					pickListNum = row["Key1"].ToString();
+
+					IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+				}
+
+				if (IsUpdated)
+				{
+					_strSQL = "select UD103.SD_OrderNum_c, SD_OrderLine_c, SD_OrderRel_c, SD_PartNum_c, ";
+					_strSQL += "PartDescription, SD_UOM_c, SD_AllocateQuantity_c, ExpirationDate, ";
+					_strSQL += "SD_LotNum_c, SD_Warehouse_c, SD_BinNum_c, SD_Urgent_c, SD_CustID_c, ";
+					_strSQL += "CustID + ' - ' + Name + CHAR(10) + CHAR(13) + Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + ";
+					_strSQL += "Address3 + CHAR(10) + CHAR(13) + Zip + ' ' + City + ' ' + State + ' ' + Country as 'CustDetails', ";
+					_strSQL += "OrderComment, UD103.Key1, UD103A.ChildKey2, SD_Transporter_c, SD_ShipVia_c, UD103A.SD_PickedBy_c, AP_BumiAgDONum_c ";
+					_strSQL += "from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
+					_strSQL += "join Part p on UD103.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
+					_strSQL += "join PartLot pl on UD103.Company = pl.Company and UD103A.SD_PartNum_c = pl.PartNum and SD_LotNum_c = LotNum ";
+					_strSQL += "join Customer c on UD103.Company = c.Company and c.CustNum = UD103.SD_CustNum_c ";
+					_strSQL += "join OrderHed oh on UD103.Company = oh.Company and UD103A.SD_OrderNum_c = oh.OrderNum ";
+					_strSQL += "where UD103.Key1 = '" + pickListNum + "' ";
+
+					_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+					if (_dts.Tables[0].Rows.Count > 0)
+					{
+						foreach (DataRow row in _dts.Tables[0].Rows)
+						{
+							PickPack oPickPack = new PickPack();
+							oPickPack.MQ_FromBinNum = (row["SD_BinNum_c"].ToString());
+							oPickPack.MQ_FromWhse = (row["SD_Warehouse_c"].ToString());
+							oPickPack.MQ_IUM = (row["SD_UOM_c"].ToString());
+							oPickPack.MQ_LotNum = (row["SD_LotNum_c"].ToString());
+							oPickPack.MQ_OrderLine = DBNull.Value.Equals(row["SD_OrderLine_c"]) ? 0 : int.Parse(row["SD_OrderLine_C"].ToString());
+							oPickPack.MQ_OrderNum = DBNull.Value.Equals(row["SD_OrderNum_c"]) ? 0 : int.Parse(row["SD_OrderNum_c"].ToString());
+							oPickPack.MQ_OrderRelNum = DBNull.Value.Equals(row["SD_OrderRel_c"]) ? 0 : int.Parse(row["SD_OrderRel_c"].ToString());
+							oPickPack.MQ_PartDescription = (row["PartDescription"].ToString());
+							oPickPack.MQ_PartNum = (row["SD_PartNum_c"].ToString());
+							oPickPack.MQ_Quantity = DBNull.Value.Equals(row["SD_AllocateQuantity_c"]) ? 0 : decimal.Parse(row["SD_AllocateQuantity_c"].ToString());
+							oPickPack.U14_Character09 = (row["CustDetails"].ToString());
+							oPickPack.U14_Character10 = (row["OrderComment"].ToString());
+							oPickPack.U14_CheckBox18 = (row["SD_PickedBy_c"].ToString() == "" ? false : true);
+							oPickPack.U14_Date01 = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd");
+							oPickPack.U14_Key4 = (row["ChildKey2"].ToString());     // picklistline
+							oPickPack.U14_Key5 = (row["Key1"].ToString());   // picklistnum
+							oPickPack.U14_ShortChar14 = (row["SD_Transporter_c"].ToString() == "" ? row["SD_ShipVia_c"].ToString() : row["SD_Transporter_c"].ToString());
+
+							oPickPack.BumiAgDONum = (row["AP_BumiAgDONum_c"].ToString());
+							oPickPack.UrgentOrder = (row["SD_Urgent_c"].ToString() == "True" ? true : false);
+
+
+							oPickPackList.Add(oPickPack);
+						}
+
+						strMessage = "";
+						IsError = false;
+
+					}
+					else
+					{
+						strMessage = "No picking list generated";
+						IsError = true;
+					}
+				}
+				else
+				{
+					strMessage = "No picking list generated";
+					IsError = true;
+				}
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+
+			return (IsError ? false : true);
+
+		}
+
+		public bool _LoadUDReasonCodes(ref EpicEnv oEpicEnv, string strCompany, string strCodeTypeId, ref IList<ReasonCodes> ReasonCodesList, out string strMessage)
         {
             bool IsError = false;
 
@@ -963,7 +1478,7 @@ namespace EpicWAS.Models
                         }
                         else
                         {
-                            strMessage = "Tag number in used";
+                            strMessage = "Tag number in use";
                             IsError = true;
                         }
 
@@ -986,7 +1501,70 @@ namespace EpicWAS.Models
             return (IsError ? false : true);
         }
 
-        public bool _SavePickPack(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strPass, string strLotNum, string strWarehouse, string strBinNum, string strSysRowId, decimal dQuantity, string strTag, string strPallet, out string strMessage)
+		public bool _Verify_TagUD103(ref EpicEnv oEpicEnv, string strCompany, string strPackListNum, string strTag, out string strMessage)
+		{
+			bool IsError = false;
+			strMessage = string.Empty;
+
+			try
+			{
+                //string _strSQL = "SDS_VerifyTag";
+
+                //IDataParameter[] parameters = new IDataParameter[]
+                //{
+                //	new SqlParameter("@Company",strCompany),
+                //	new SqlParameter("@PickListNum",strPackListNum),
+                //	new SqlParameter("@TagNum",strTag)
+                //};
+
+                string _strSQL = "select Count(*) as TagCount from ";
+                _strSQL += "(select distinct Company, Key1 from UD103 ";
+                _strSQL += "where Company = '" + strCompany + "' ";
+                _strSQL += "and SD_TagNum_c = '" + strTag + "' ";
+                _strSQL += "and Key1 <> '" + strPackListNum + "') ud103  ";
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+                //DataSet _dts = _MSSQL._MSSQLDataSetResultStoreProcedure(_strSQL, _strSQLCon, parameters);
+                DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						if (int.Parse(row["TagCount"].ToString()) == 0)
+						{
+							strMessage = string.Empty;
+							IsError = false;
+						}
+						else
+						{
+							strMessage = "Tag number in use";
+							IsError = true;
+						}
+
+					}
+				}
+				else
+				{
+					strMessage = "Unable to verify tag.";
+					IsError = true;
+				}
+
+			}
+
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+			return (IsError ? false : true);
+		}
+
+		public bool _SavePickPack(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strPass, string strLotNum, string strWarehouse, string strBinNum, string strSysRowId, decimal dQuantity, string strTag, string strPallet, out string strMessage)
         {
             bool IsError = false;
             bool IsUpdated;
@@ -1039,7 +1617,109 @@ namespace EpicWAS.Models
             return (IsError ? false : true);
         }
 
-        public bool _SavePackList(ref EpicEnv oEpicEnv, string strCompany, string strRemark, string strTransporter, string strConsignment, string strPallet, decimal dTotalWeight, decimal dTotalBox,  string strPickListNum, string strPacker, string strStation, string strUID, string strPass, string strCurPlant, string strPackPallet, out string strMessage)
+		public bool _SavePickPackUD103(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strPass, string strLotNum, string strWarehouse, string strBinNum, decimal dQuantity, string strTag, string strPallet, string pickNum, string pickLine, out string strMessage)
+		{
+			bool IsError = false;
+			bool IsUpdated;
+
+			try
+			{
+				string _strSQL;
+
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				_strSQL = "update UD103A set SD_Warehouse_c = '" + strWarehouse + "', ";
+                _strSQL += "SD_BinNum_c = '" + strBinNum + "', ";
+                _strSQL += "SD_LotNUm_c = '" + strLotNum + "', ";
+                _strSQL += "SD_AllocateQuantity_c = " + dQuantity.ToString() + ", ";
+                _strSQL += "SD_TagNum_c = '" + strTag + "', ";
+                _strSQL += "SD_PickedBy_c = '" + strUID + "', ";
+				_strSQL += "SD_PickedDate_c = getdate(), ";
+				_strSQL += "SD_PickedTime_c = getdate() ";
+                _strSQL += "where Key1 = '" + pickNum + "' and ChildKey2 = '"+ pickLine + "' ";
+
+                IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+				if (IsUpdated)
+				{
+					strMessage = "";
+					IsError = false;
+				}
+				else
+				{
+					strMessage = "Can't perform update.";
+					IsError = true;
+
+				}
+
+                // update UD103 (PICKING)
+
+                // get count of picked lines for the picklist, compare with total count for the picklist
+                _strSQL = "select count(*) as PickedCount from UD103A where Key1 = '" + pickNum + "' ";
+
+                DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+                var totalCount = 0;
+                if (_dts.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow row in _dts.Tables[0].Rows)
+                    {
+                        totalCount = Int32.Parse(row["PickedCount"].ToString());
+                    }
+                }
+
+                _strSQL += "and SD_PickedBy_c != '' ";
+				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+				var pickedCount = 0;
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						pickedCount = Int32.Parse(row["PickedCount"].ToString());
+					}
+				}
+
+                // update UD103 again if counts are equal (PICKED)
+
+                _strSQL = "update UD103 set SD_PickedBy_c = '" + strUID + "' ";
+
+				if (totalCount == pickedCount)
+				{
+                    _strSQL += ", SD_PickedComplete_c = 1, " +
+                        "SD_PickedCompleteDate_c = getdate(), " +
+                        "SD_PickedCompleteTime_c = getdate(), " +
+                        "SD_Status_c = 'PICKED' ";
+				}
+
+				_strSQL += "where Key1 = '" + pickNum + "' ";
+
+				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+				if (IsUpdated)
+				{
+					strMessage = "";
+					IsError = false;
+				}
+				else
+				{
+					strMessage = "Can't perform update.";
+					IsError = true;
+
+				}
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+			return (IsError ? false : true);
+		}
+
+		public bool _SavePackList(ref EpicEnv oEpicEnv, string strCompany, string strRemark, string strTransporter, string strConsignment, string strPallet, decimal dTotalWeight, decimal dTotalBox,  string strPickListNum, string strPacker, string strStation, string strUID, string strPass, string strCurPlant, string strPackPallet, out string strMessage)
         {
             bool IsError = false;
             bool IsUpdated;
@@ -1312,7 +1992,239 @@ namespace EpicWAS.Models
             return (IsError ? false : true);
         }
 
-        public bool _ResolvedEscalate(ref EpicEnv oEpicEnv, string strCompany, string strPickNum, string strReason, string strRemark, out string strMessage)
+		public bool _SavePackListUD103(ref EpicEnv oEpicEnv, string strCompany, string strRemark, string strTransporter, string strConsignment, string strPallet, decimal dTotalWeight, decimal dTotalBox, string strPickListNum, string strPacker, string strStation, string strUID, string strPass, string strCurPlant, string strPackPallet, out string strMessage)
+		{
+			bool IsError = false;
+			bool IsUpdated;
+			string _strSQL;
+			int lastRunning;
+			DataSet _dts;
+
+			try
+			{
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				// get the next running number
+				if (strConsignment == "" || strConsignment == null)
+				{
+					_strSQL = "Select Company, ShipViaCode, Active01_c, PreFix01_c, BeginNum01_c, EndNum01_c, LastRunNum01_c, EndNum01_c - LastRunNum01_c as Balance01, Active02_c, PreFix02_c, BeginNum02_c, EndNum02_c, LastRunNum02_c, EndNum02_c - LastRunNum02_c as Balance02, Suffix01_c, Suffix02_c ";
+					_strSQL += "from ShipVia ";
+					_strSQL += "Where ShipViaCode = '" + strTransporter + "' ";
+					_strSQL += "And company = '" + strCompany + "' ";
+
+
+					_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+					if (_dts.Tables[0].Rows.Count > 0)
+					{
+						foreach (DataRow row in _dts.Tables[0].Rows)
+						{
+							if (bool.Parse(row["Active01_c"].ToString()) == true)
+							{
+								if (int.Parse(row["Balance01"].ToString()) > 0)
+								{
+									if (int.Parse(row["LastRunNum01_c"].ToString()) == 0)
+									{
+										lastRunning = int.Parse(row["BeginNum01_c"].ToString());
+									}
+									else
+									{
+										lastRunning = int.Parse(row["LastRunNum01_c"].ToString());
+										lastRunning++;
+									}
+									_strSQL = "update shipvia set LastRunNum01_c = '" + lastRunning.ToString() + "' ";
+									_strSQL += "where company = '" + strCompany + "' and shipviacode = '" + strTransporter + "' ";
+
+									_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+									strConsignment = row["PreFix01_c"].ToString() + lastRunning.ToString() + row["Suffix01_c"].ToString();
+								}
+								else if (int.Parse(row["Balance02"].ToString()) > 0)
+								{
+									if (int.Parse(row["LastRunNum02_c"].ToString()) == 0)
+									{
+										lastRunning = int.Parse(row["BeginNum02_c"].ToString());
+									}
+									else
+									{
+										lastRunning = int.Parse(row["LastRunNum02_c"].ToString());
+										lastRunning++;
+									}
+
+									_strSQL = "update shipvia set LastRunNum02_c = '" + lastRunning.ToString() + "', Active02_c = 1, Active01_c = 0 ";
+									_strSQL += "where company = '" + strCompany + "' and shipviacode = '" + strTransporter + "' ";
+
+									_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+									strConsignment = row["PreFix02_c"].ToString() + lastRunning.ToString() + row["Suffix02_c"].ToString();
+
+								}
+								else
+								{
+									//IsError = true;
+									strMessage = "Not able to generate consignment number.";
+									return false;
+								}
+							}
+							else
+							{
+								if (int.Parse(row["Balance02"].ToString()) > 0)
+								{
+									if (int.Parse(row["LastRunNum02_c"].ToString()) == 0)
+									{
+										lastRunning = int.Parse(row["BeginNum02_c"].ToString());
+									}
+									else
+									{
+										lastRunning = int.Parse(row["LastRunNum02_c"].ToString());
+										lastRunning++;
+									}
+
+									_strSQL = "update shipvia set LastRunNum02_c = '" + lastRunning.ToString() + "' ";
+									_strSQL += "where company = '" + strCompany + "' and shipviacode = '" + strTransporter + "' ";
+
+									_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+									strConsignment = row["PreFix02_c"].ToString() + lastRunning.ToString() + row["Suffix02_c"].ToString();
+
+								}
+								else if (int.Parse(row["Balance01"].ToString()) > 0)
+								{
+									if (int.Parse(row["LastRunNum01_c"].ToString()) == 0)
+									{
+										lastRunning = int.Parse(row["BeginNum01_c"].ToString());
+									}
+									else
+									{
+										lastRunning = int.Parse(row["LastRunNum01_c"].ToString());
+										lastRunning++;
+									}
+
+									_strSQL = "update shipvia set LastRunNum01_c = '" + lastRunning.ToString() + "', Active01_c = 1, Active02_c = 0 ";
+									_strSQL += "where company = '" + strCompany + "' and shipviacode = '" + strTransporter + "' ";
+
+									_MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+									strConsignment = row["PreFix01_c"].ToString() + lastRunning.ToString() + row["Suffix01_c"].ToString();
+								}
+								else
+								{
+									strMessage = "Not able to generate consignment number.";
+									return false;
+
+								}
+
+							}
+
+						}
+
+					}
+
+
+				}
+
+				_strSQL = "select SD_PartNum_c as PartNum, SD_LotNum_c as LotNum, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, UD103A.SD_OrderNum_c as OrderNum, ";
+                _strSQL += "SD_OrderLine_c as OrderLine, SD_OrderRel_c as OrderRel, SD_UOM_c as UOM, SD_AllocateQuantity_c as Quantity, ";
+                _strSQL += "p.PartDescription, p.SalesUM, p.NetWeightUOM, oh.CustNum, oh.ShipToNum ";
+                _strSQL += "from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 ";
+                _strSQL += "join erp.Part p on UD103.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
+                _strSQL += "join erp.OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c ";
+                _strSQL += "where UD103.Key1 = '" + strPickListNum + "' ";
+
+
+				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				EpicorBO oEpicor = new EpicorBO();
+				IList<Order> OrderList = new List<Order>();
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						// clear the mtl queue
+						//oEpicor._AMMIssueReturn(ref oEpicEnv, out strMessage, strUID, strPass, strCompany, strCurPlant, row["mq_sysrowid"].ToString());
+
+						Order ord = new Order();
+						ord.Company = strCompany;
+						ord.OrderNum = int.Parse(row["OrderNum"].ToString());
+						ord.OrderLine = int.Parse(row["OrderLine"].ToString());
+						ord.OrderRel = int.Parse(row["OrderRel"].ToString());
+						ord.PartNum = row["Partnum"].ToString();
+						ord.PartDescription = row["PartDescription"].ToString();
+						ord.OrderQty = Decimal.Parse(row["Quantity"].ToString());
+						ord.Warehouse = row["Warehouse"].ToString();
+						ord.Bin = row["BinNum"].ToString();
+						ord.Lot = row["LotNum"].ToString();
+						//ord.Warehouse = row["MQ_ToWhse"].ToString();
+						//ord.Bin = row["MQ_ToBinNum"].ToString();
+						ord.IUM = DBNull.Value.Equals(row["UOM"]) ? string.Empty : (row["UOM"].ToString());
+						ord.SalesUM = DBNull.Value.Equals(row["SalesUM"]) ? string.Empty : (row["SalesUM"].ToString());
+						ord.NetWeightUOM = DBNull.Value.Equals(row["NetWeightUOM"]) ? string.Empty : (row["NetWeightUOM"].ToString());
+						ord.CustNum = DBNull.Value.Equals(row["CustNum"]) ? string.Empty : (row["CustNum"].ToString());
+						ord.ShipToNum = row["ShipToNum"].ToString();
+
+						OrderList.Add(ord);
+
+					}
+				}
+
+                // update UD103 table
+                _strSQL = "update UD103 ";
+                _strSQL += "set SD_Transporter_c = '" + strTransporter + "' ";
+                _strSQL += ", SD_Consignment_c = '" + strConsignment + "' ";
+                _strSQL += ", SD_PalletNum_c = '" + strPallet + "' ";
+                _strSQL += ", SD_PackedBy_c = '" + strPacker + "' ";
+                _strSQL += ", SD_StationId_c = '" + strStation + "' ";
+                _strSQL += ", SD_TotalWeight_c = " + Math.Round(dTotalWeight, 1) + " ";
+                _strSQL += ", SD_TotalCarton_c = " + dTotalBox + " ";
+                _strSQL += ", SD_PackedComplete_c = 1 ";
+                _strSQL += ", SD_PackedCompleteDate_c = getdate() ";
+				_strSQL += ", SD_PackedCompleteTime_c = getdate() ";
+				_strSQL += ", SD_Status_c = 'PACKED' ";
+                _strSQL += "where Company = '" + strCompany + "' ";
+                _strSQL += "and Key1 = '" + strPickListNum + "' ";
+
+				bool IsUpdatedUD = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+
+				IsUpdated = oEpicor._PickedOrder(ref oEpicEnv, out strMessage, ref OrderList, strUID, strPass, strCompany, strCurPlant, strPickListNum, strConsignment, Math.Round(dTotalWeight, 1), strTransporter, dTotalBox, strStation);
+				if (IsUpdated)
+				{
+					_MSSQL._exeSDSCreateLabelSP_Reprint(_strSQLCon, strCompany, strUID, "SHP-LBL", DateTime.Now, "", "", "", 0, Convert.ToInt32(dTotalBox), "", "", "", strPickListNum);
+				}
+
+				if (IsUpdated)
+				{
+					strMessage = "";
+					IsError = false;
+				}
+				else
+				{
+					// strMessage = "Can't perform update.";
+					IsError = true;
+
+                    _strSQL = "update UD103 set SD_PackedComplete_c = 0, SD_PackedCompleteDate_c = NULL, SD_PackedCompleteTime_c = NULL, " +
+						"SD_Status_c = 'PACKING', SD_PackedBy_c = '' where Key1 = '" + strPickListNum + "' ";
+
+					bool rollbackSuccess = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+                    strMessage += " Created shipment will not be invoiced due to the error.";
+
+				}
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+			return (IsError ? false : true);
+		}
+
+		public bool _ResolvedEscalate(ref EpicEnv oEpicEnv, string strCompany, string strPickNum, string strReason, string strRemark, out string strMessage)
         {
             bool IsError = false;
             bool IsUpdated;
@@ -1360,7 +2272,76 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _ScanSignedDO(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strInvoiceNum, out string strMessage)
+		public bool _ResolvedEscalateUD103(ref EpicEnv oEpicEnv, string strCompany, string strPickNum, string strReason, string strRemark, out string strMessage)
+		{
+			bool IsError = false;
+			bool IsUpdated;
+
+			try
+			{
+                //string _strSQL = "SDS_ResolveEscalate";
+
+                //IDataParameter[] parameters = new IDataParameter[]
+                //{
+                //	new SqlParameter("@Company",strCompany),
+                //	new SqlParameter("@PickListNum",strPickNum),
+                //	new SqlParameter("@Reason",strReason),
+                //	new SqlParameter("@Remark",strRemark)
+                //};
+
+
+
+                SQLServerBO _MSSQL = new SQLServerBO();
+                string _strSQLCon = _MSSQL._retSQLConnectionString();
+                _strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+                //IsUpdated = _MSSQL._exeStoredProcedureCommand(_strSQL, _strSQLCon, parameters);
+
+                string _strSQL = "update UD103 ";
+                _strSQL += "set SD_Status_c = SUBSTRING(SD_Status_c, 11, 7)";
+                _strSQL += "where Company = '" + strCompany + "' ";
+                _strSQL += "and Key1 = '" + strPickNum + "' ";
+                _strSQL += "and SD_Status_c like '%ESCALATED%'";
+
+				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+				//_strSQL = "update UD103 ";
+				//_strSQL += "set SD_Status_c = 'PACKING'";
+				//_strSQL += "where Company = '" + strCompany + "' ";
+				//_strSQL += "and Key1 = '" + strPickNum + "' ";
+				//_strSQL += "and SD_Status_c = 'ESCALATED PACKING'";
+
+				//IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+                _strSQL = "update x set x.CheckBox01 = 1, x.Character02 = '" + strReason + "', x.shortchar20 = cast( FORMAT(getdate(), 'yyyy-MM-dd hh:mm:ss tt')  as nvarchar(40)), " +
+					"x.Character03 = '" + strRemark + "' from ud18 x inner join ud103a on ud103a.sysrowid = x.sd_ud14guid_c where SD_PickListNum_c = '" + strPickNum + "' and x.Company = '" + strCompany + "'";
+
+				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+				if (IsUpdated)
+				{
+					strMessage = "";
+					IsError = false;
+				}
+				else
+				{
+					strMessage = "Can't perform update.";
+					IsError = true;
+
+				}
+			}
+
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+			return (IsError ? false : true);
+
+		}
+
+		public bool _ScanSignedDO(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strInvoiceNum, out string strMessage)
         {
             bool IsError = false;
             bool IsUpdated;
@@ -1607,7 +2588,7 @@ namespace EpicWAS.Models
                     {
                         PickPackEscalate oEscalate = new PickPackEscalate();
                         oEscalate.Company = row["Company"].ToString();
-                        oEscalate.EscalateDateTime = DBNull.Value.Equals(row["ShortChar18"]) || row["ShortChar18"].Equals("") ? "1999-01-01" : Convert.ToDateTime((row["ShortChar18"].ToString().Replace("PTG",""))).ToString("yyyy-MM-dd hh:mm:ss");  
+                        oEscalate.EscalateDateTime = DBNull.Value.Equals(row["ShortChar18"]) || row["ShortChar18"].Equals("") ? "1999-01-01" : Convert.ToDateTime((row["ShortChar18"].ToString().Replace("PTG","").Replace("PG", ""))).ToString("yyyy-MM-dd hh:mm:ss");  
                         oEscalate.MQ_SysRowID = (row["SD_MQGUID_C"].ToString());
                         oEscalate.Picker = (row["ShortChar02"].ToString());
                         oEscalate.PickPackRemarks = (row["Character01"].ToString());
@@ -1657,7 +2638,100 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _LoadShipVia(ref EpicEnv oEpicEnv, string strCompany, string strShipViaCode, ref IList<ShipVia> oShipViaList,  out string strMessage)
+		public bool _LoadEscalateListUD103(ref EpicEnv oEpicEnv, string strCompany, string strCust, ref IList<PickPackEscalate> oEscalateList, string strPickNum, out string strMessage)
+		{
+			bool IsError = false;
+
+			try
+			{
+
+				string _strSQL = "select UD18.*, UD103A.*, SD_StationId_c, SD_CustID_c, pl.ExpirationDate, u.CodeDesc, p.PartDescription from UD18 ";
+				_strSQL += "join UD103 on UD18.Company = UD103.Company and UD18.SD_PickListNum_c = UD103.Key1 ";
+				_strSQL += "join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 and UD103A.SysRowID = UD18.SD_UD14GUID_c ";
+                _strSQL += "join erp.Part p on UD103A.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
+				_strSQL += "join erp.PartLot pl on UD18.Company = pl.Company and pl.PartNum = UD103A.SD_PartNum_c and pl.LotNum = UD103A.SD_LotNum_c ";
+				_strSQL += "join ice.UDCodes u on UD18.Company = u.Company and UD18.ShortChar03 = u.CodeID ";
+				_strSQL += "where UD18.Company = '" + strCompany + "' and UD103.SD_Status_c like '%ESCALATED%' and UD18.CheckBox01 = 0 ";
+				
+
+
+				if (strPickNum != "" && strPickNum != null)
+				{
+					_strSQL += " and UD103.Key1 = '" + strPickNum + "' ";
+				}
+
+				//if (strCust != "" && strCust != null)
+				//{
+				//	_strSQL += " and pp.ShortChar09 like '%" + strCust + "%' ";
+				//}
+
+
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						PickPackEscalate oEscalate = new PickPackEscalate();
+						oEscalate.Company = row["Company"].ToString();
+						oEscalate.EscalateDateTime = DBNull.Value.Equals(row["ShortChar18"]) || row["ShortChar18"].Equals("") ? "1999-01-01" : Convert.ToDateTime((row["ShortChar18"].ToString().Replace("PTG", "").Replace("PG", ""))).ToString("yyyy-MM-dd hh:mm:ss");
+						//oEscalate.MQ_SysRowID = (row["SD_MQGUID_C"].ToString());
+						oEscalate.Picker = (row["ShortChar02"].ToString());
+						oEscalate.PickPackRemarks = (row["Character01"].ToString());
+						oEscalate.Reason = row["codedesc"].ToString();
+						//oEscalate.U14_SysRowID = (row["SD_UD14GUID_C"].ToString());
+						oEscalate.PickingNo = row["SD_PickListNum_c"].ToString();
+						oEscalate.EntryPerson = row["ShortChar01"].ToString();
+						oEscalate.CurrentStage = row["ShortChar04"].ToString();
+						oEscalate.Customer = row["SD_CustID_c"].ToString();
+						oEscalate.OrderNum = DBNull.Value.Equals(row["SD_OrderNum_c"]) ? 0 : int.Parse(row["SD_OrderNum_c"].ToString());
+						oEscalate.OrderLine = DBNull.Value.Equals(row["SD_OrderLine_c"]) ? 0 : int.Parse(row["SD_OrderLine_c"].ToString());
+						oEscalate.OrderRel = DBNull.Value.Equals(row["SD_OrderRel_c"]) ? 0 : int.Parse(row["SD_OrderRel_c"].ToString());
+						oEscalate.Key1 = row["Key1"].ToString();
+						oEscalate.AssignResolvedBy = row["ShortChar05"].ToString();
+						oEscalate.AssignedDateTime = DBNull.Value.Equals(row["ShortChar19"]) || row["ShortChar19"].Equals("") ? "1999-01-01" : Convert.ToDateTime((row["ShortChar19"])).ToString("yyyy-MM-dd hh:mm:ss");
+
+						oEscalate.PartNum = row["SD_PartNum_c"].ToString();
+						oEscalate.PartDesc = row["PartDescription"].ToString();
+						oEscalate.AllocatedWarehouse = row["SD_Warehouse_c"].ToString();
+						oEscalate.AllocatedBin = row["SD_BinNum_c"].ToString();
+						oEscalate.AllocatedLot = row["SD_LotNum_c"].ToString();
+						oEscalate.AllocatedQuantity = DBNull.Value.Equals(row["SD_AllocateQuantity_c"]) ? 0 : decimal.Parse(row["SD_AllocateQuantity_c"].ToString());
+						oEscalate.ExpiryDate = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd");
+						oEscalate.Station = row["SD_StationId_c"].ToString();
+
+						oEscalate.U14_SysRowID = (row["SD_UD14GUID_C"].ToString());
+
+						oEscalateList.Add(oEscalate);
+					}
+					strMessage = "";
+					IsError = false;
+
+				}
+				else
+				{
+					strMessage = "Escalate listing not found ";
+					IsError = true;
+				}
+
+			}
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+
+			return (IsError ? false : true);
+
+		}
+
+		public bool _LoadShipVia(ref EpicEnv oEpicEnv, string strCompany, string strShipViaCode, ref IList<ShipVia> oShipViaList,  out string strMessage)
         {
             bool IsError = false;
 
@@ -1824,7 +2898,118 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _ReAssignDO(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strInvoiceNum, decimal dWeight, decimal dCarton, string strTransporter, string strPackNum, string strRemark,out string strMessage)
+		public bool _LoadInvoicesForReprintUD103(ref EpicEnv oEpicEnv, string strCompany, string strInvoiceNum, string strLegalNumber, ref IList<ReprintInvoice> InvoicesList, out string strMessage)
+		{
+			bool IsError = false;
+
+			try
+			{
+
+				string _strSQL = "select ih.Company, ih.InvoiceNum, ih.InvoiceDate, ih.LegalNumber, ih.InvoiceComment ";
+				_strSQL += ", id.OrderNum, id.OrderLine, id.OrderRelNum, id.PackNum, id.PackLine, id.OurShipQty ";
+				_strSQL += ", sd.WarehouseCode, sd.BinNum, sd.LotNum, sd.PartNum, sd.LineDesc, sd.InventoryShipUOM ";
+				_strSQL += ", sh.Weight, sh.ShipViaCode, sh.SD_CartonNum_c, sh.TrackingNumber, sh.FS_PickListNo_c ";
+				_strSQL += ", tUD103.SD_PickedBy_c, tUD103.SD_PackedBy_c ";
+				_strSQL += ", st.Name, st.Address1, st.Address2, st.Address3, st.State, st.City, st.ZIP, st.Country, pl.ExpirationDate ";
+				_strSQL += "from InvcHead ih ";
+				_strSQL += "left join InvcDtl id on id.Company = ih.Company and id.InvoiceNum = ih.InvoiceNum  ";
+				_strSQL += "left join ShipDtl sd on sd.Company = id.Company and sd.PackNum = id.PackNum and sd.PackLine = id.PackLine ";
+				_strSQL += "left join ShipHead sh on sh.Company = sd.Company and sh.PackNum = sd.PackNum ";
+				// _strSQL += "left join ( select distinct u14.Company, u14.Key5, u14.ShortChar16 as picker, u14.shortchar11 as packer from ud14 u14) tu14 on tu14.Company = sh.Company and tu14.Key5 = sh.FS_PickListNo_c ";
+                _strSQL += "left join ( select distinct Company, Key1, SD_PickedBy_c, SD_PackedBy_c from UD103) tUD103 on tUD103.Company = sh.Company and tUD103.Key1 = sh.FS_PickListNo_c ";
+				_strSQL += "left join ShipTo st on st.Company = sd.Company and st.CustNum = id.ShipToCustNum and st.ShipToNum = id.ShipToNum ";
+				_strSQL += "left join PartLot pl on pl.Company = sd.Company and pl.PartNum = sd.PartNum and pl.LotNum = sd.LotNum ";
+
+				string _strWHERE = "";
+
+
+				if (strCompany != null && strCompany != "")
+				{ _strWHERE += "AND ih.Company = '" + strCompany + "' "; }
+
+				if (strInvoiceNum != null && strInvoiceNum != "")
+				{ _strWHERE += "AND ih.InvoiceNum = " + strInvoiceNum + " "; }
+
+				if (strLegalNumber != null && strLegalNumber != "")
+				{ _strWHERE += "AND ih.LegalNumber = '" + strLegalNumber + "' "; }
+
+				if (_strWHERE != null && _strWHERE != "")
+				{ _strSQL = _strSQL + " WHERE " + _strWHERE.Substring(3, _strWHERE.Length - 3); }
+
+
+				SQLServerBO _MSSQL = new SQLServerBO();
+				string _strSQLCon = _MSSQL._retSQLConnectionString();
+				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+				DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+				if (_dts.Tables[0].Rows.Count > 0)
+				{
+					foreach (DataRow row in _dts.Tables[0].Rows)
+					{
+						ReprintInvoice oReprintInvoice = new ReprintInvoice();
+
+						oReprintInvoice.Company = row["Company"].ToString();
+						oReprintInvoice.InvoiceNum = row["InvoiceNum"].ToString();
+						oReprintInvoice.InvoiceDate = DBNull.Value.Equals(row["InvoiceDate"]) ? "1999-01-01" : Convert.ToDateTime((row["InvoiceDate"])).ToString("yyyy-MM-dd");
+						oReprintInvoice.LegalNumber = row["LegalNumber"].ToString();
+						oReprintInvoice.InvoiceComment = row["InvoiceComment"].ToString();
+
+						oReprintInvoice.OrderNum = DBNull.Value.Equals(row["OrderNum"]) ? 0 : int.Parse(row["OrderNum"].ToString());
+						oReprintInvoice.OrderLine = DBNull.Value.Equals(row["OrderLine"]) ? 0 : int.Parse(row["OrderLine"].ToString());
+						oReprintInvoice.OrderRel = DBNull.Value.Equals(row["OrderRelNum"]) ? 0 : int.Parse(row["OrderRelNum"].ToString());
+						oReprintInvoice.PackNum = DBNull.Value.Equals(row["PackNum"]) ? 0 : int.Parse(row["PackNum"].ToString());
+						oReprintInvoice.PackLine = DBNull.Value.Equals(row["PackLine"]) ? 0 : int.Parse(row["PackLine"].ToString());
+						oReprintInvoice.Quantity = DBNull.Value.Equals(row["OurShipQty"]) ? 0 : decimal.Parse(row["OurShipQty"].ToString());
+
+						oReprintInvoice.Warehouse = row["WarehouseCode"].ToString();
+						oReprintInvoice.BinNum = row["BinNum"].ToString();
+						oReprintInvoice.LotNum = row["LotNum"].ToString();
+						oReprintInvoice.PartNum = row["PartNum"].ToString();
+						oReprintInvoice.PartDescription = row["LineDesc"].ToString();
+						oReprintInvoice.UOM = row["InventoryShipUOM"].ToString();
+						oReprintInvoice.Weight = DBNull.Value.Equals(row["Weight"]) ? 0 : decimal.Parse(row["Weight"].ToString());
+						oReprintInvoice.ShipVia = row["ShipViaCode"].ToString();
+						oReprintInvoice.Carton = DBNull.Value.Equals(row["SD_CartonNum_c"]) ? 0 : int.Parse(row["SD_CartonNum_c"].ToString());
+						oReprintInvoice.TrackingNum = row["TrackingNumber"].ToString();
+						oReprintInvoice.PickListNum = row["FS_PickListNo_c"].ToString();
+
+						oReprintInvoice.Picker = row["SD_PickedBy_c"].ToString();
+						oReprintInvoice.Packer = row["SD_PackedBy_c"].ToString();
+						oReprintInvoice.ShipToName = row["Name"].ToString();
+						oReprintInvoice.ShipToAddr1 = row["Address1"].ToString();
+						oReprintInvoice.ShipToAddr2 = row["Address2"].ToString();
+						oReprintInvoice.ShipToAddr3 = row["Address3"].ToString();
+						oReprintInvoice.ShipToState = row["State"].ToString();
+						oReprintInvoice.ShipToCity = row["City"].ToString();
+						oReprintInvoice.ShipToZip = row["ZIP"].ToString();
+						oReprintInvoice.ShipToCountry = row["Country"].ToString();
+						oReprintInvoice.ExpiryDate = DBNull.Value.Equals(row["ExpirationDate"]) ? "1999-01-01" : Convert.ToDateTime((row["ExpirationDate"])).ToString("yyyy-MM-dd");
+
+						InvoicesList.Add(oReprintInvoice);
+					}
+
+					strMessage = "";
+					IsError = false;
+				}
+				else
+				{
+					strMessage = "Invoice not found.";
+					IsError = true;
+				}
+
+			} // ending for try
+			catch (Exception ex)
+			{
+				strMessage = ex.Message.ToString();
+				IsError = true;
+			}
+
+			return (IsError ? false : true);
+
+
+		}
+
+		public bool _ReAssignDO(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strUID, string strInvoiceNum, decimal dWeight, decimal dCarton, string strTransporter, string strPackNum, string strRemark,out string strMessage)
         {
             bool IsError = false;
             bool IsUpdated;

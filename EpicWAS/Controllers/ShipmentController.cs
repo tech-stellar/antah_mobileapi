@@ -12,9 +12,74 @@ namespace EpicWAS.Controllers
 {
     public class ShipmentController : ApiController
     {
+		[HttpGet]
+		public HttpResponseMessage LoadSummary(string strUID, string strPass, string strCurCompany, string strOrderNum, string strPartNum, string strPickListNum, string strWarehouse, string strStatus, bool backOrder, 
+            string strFromPickDate, string strToPickDate, string strCurPlant, string strEnvId)
+		{
+			string strReturnMsg;
+			bool IsLogin = false;
+			bool IsComplete = false;
+			bool IsLoadSummaryOk = false;
 
-        [HttpGet]
-        public HttpResponseMessage LoadPickPackSlip(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId,  string strCustID, string strCustName, string strPickNum, string strTagNum)
+			EpicEnv oEpicorEnv = new EpicEnv();
+			EpicUser oEpicUser = new EpicUser();
+
+			oEpicUser.Epic_UserId = strUID;
+			oEpicUser.Epic_PassKey = strPass;
+
+			EpicEnvBO oEpicorEnvBO = new EpicEnvBO();
+			IsComplete = oEpicorEnvBO._LoadEpicEnvById(strEnvId, ref oEpicorEnv, out strReturnMsg);
+
+			if (IsComplete)
+			{
+				EpicUserBO oEpicUserBO = new EpicUserBO();
+
+				IsLogin = oEpicUserBO._VerifyEpicorLogin(ref oEpicorEnv, ref oEpicUser, out strReturnMsg);
+
+				if (IsLogin)
+				{
+					PickPackBO oPickPackBO = new PickPackBO();
+					IList<Summary> SummaryL = new List<Summary>();
+
+                    strOrderNum = strOrderNum == null ? "" : strOrderNum;
+                    strPartNum = strPartNum == null ? "" : strPartNum;
+                    strPickListNum = strPickListNum == null ? "" : strPickListNum;
+                    strWarehouse = strWarehouse == null ? "" : strWarehouse;
+                    strStatus = strStatus == null ? "" : strStatus;
+
+					IsLoadSummaryOk = oPickPackBO._LoadSummary(ref oEpicorEnv, strCurCompany, strUID, strOrderNum, strPartNum, strPickListNum, 
+                        strWarehouse, strStatus, backOrder, strFromPickDate, strToPickDate, ref SummaryL, out strReturnMsg);
+
+
+
+					if (IsLoadSummaryOk)
+					{
+						return Request.CreateResponse(HttpStatusCode.OK, SummaryL);
+					}
+					else
+					{
+						HttpError err = new HttpError(strReturnMsg);
+						return Request.CreateResponse(HttpStatusCode.NotFound, err);
+					}
+
+				}
+				else
+				{
+					HttpError err = new HttpError(strReturnMsg);
+					return Request.CreateResponse(HttpStatusCode.Unauthorized, err);
+				} // end if for Islogin
+
+			}
+			else
+			{
+				HttpError err = new HttpError(strReturnMsg);
+				return Request.CreateResponse(HttpStatusCode.NotFound, err);
+			} // end if for iscomplete
+
+		}
+
+		[HttpGet]
+        public HttpResponseMessage LoadPickPackSlip(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId,  string strCustID, string strCustName, string strPickNum, string strTagNum, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -41,8 +106,15 @@ namespace EpicWAS.Controllers
                     PickPackBO oPickPackBO = new PickPackBO();
                     IList<PickPack2> PickPackL = new List<PickPack2>();
                     
-
-                    IsLoadPickPackOK = oPickPackBO._LoadPickPacksV2(ref oEpicorEnv, strCurCompany, strCustID, strCustName, ref PickPackL, strPickNum, strTagNum, strUID, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsLoadPickPackOK = oPickPackBO._LoadPickPacksUD103(ref oEpicorEnv, strCurCompany, strCurPlant, strCustID, strCustName, ref PickPackL, strPickNum, strTagNum, strUID, out strReturnMsg);
+					}
+                    else
+                    {
+						IsLoadPickPackOK = oPickPackBO._LoadPickPacksV2(ref oEpicorEnv, strCurCompany, strCustID, strCustName, ref PickPackL, strPickNum, strTagNum, strUID, out strReturnMsg);
+					}
+                    
 
 
                     if (IsLoadPickPackOK)
@@ -73,7 +145,7 @@ namespace EpicWAS.Controllers
 
 
         [HttpGet]
-        public HttpResponseMessage RetrievePickPack(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPicker)
+        public HttpResponseMessage RetrievePickPack(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPicker, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -100,7 +172,15 @@ namespace EpicWAS.Controllers
                     PickPackBO oPickPackBO = new PickPackBO();
                     IList<PickPack> PickPackL = new List<PickPack>();
 
-                    IsLoadPickPackOK = oPickPackBO._AssignPickPacks(ref oEpicorEnv, strCurCompany, strPicker, ref PickPackL, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsLoadPickPackOK = oPickPackBO._AssignPickPacksUD103(ref oEpicorEnv, strCurCompany, strCurPlant, strPicker, ref PickPackL, out strReturnMsg);
+					}
+                    else
+                    {
+						IsLoadPickPackOK = oPickPackBO._AssignPickPacks(ref oEpicorEnv, strCurCompany, strPicker, ref PickPackL, out strReturnMsg);
+					}
+                    
 
                     if (IsLoadPickPackOK)
                     {
@@ -128,8 +208,63 @@ namespace EpicWAS.Controllers
 
         }
 
+		[HttpGet]
+		public HttpResponseMessage RetrieveBackPickPack(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPicker, string strPartNum)
+		{
+			string strReturnMsg;
+			bool IsLogin = false;
+			bool IsComplete = false;
+			bool IsLoadPickPackOK = false;
 
-        [HttpGet]
+			EpicEnv oEpicorEnv = new EpicEnv();
+			EpicUser oEpicUser = new EpicUser();
+
+			oEpicUser.Epic_UserId = strUID;
+			oEpicUser.Epic_PassKey = strPass;
+
+			EpicEnvBO oEpicorEnvBO = new EpicEnvBO();
+			IsComplete = oEpicorEnvBO._LoadEpicEnvById(strEnvId, ref oEpicorEnv, out strReturnMsg);
+
+			if (IsComplete)
+			{
+				EpicUserBO oEpicUserBO = new EpicUserBO();
+
+				IsLogin = oEpicUserBO._VerifyEpicorLogin(ref oEpicorEnv, ref oEpicUser, out strReturnMsg);
+
+				if (IsLogin)
+				{
+					PickPackBO oPickPackBO = new PickPackBO();
+					IList<PickPack> PickPackL = new List<PickPack>();
+
+					IsLoadPickPackOK = oPickPackBO._AssignBackPickPacks(ref oEpicorEnv, strCurCompany, strCurPlant, strPicker, strPartNum, ref PickPackL, out strReturnMsg);
+
+					if (IsLoadPickPackOK)
+					{
+						return Request.CreateResponse(HttpStatusCode.OK, PickPackL);
+					}
+					else
+					{
+						HttpError err = new HttpError(strReturnMsg);
+						return Request.CreateResponse(HttpStatusCode.NotFound, err);
+					}
+
+				}
+				else
+				{
+					HttpError err = new HttpError(strReturnMsg);
+					return Request.CreateResponse(HttpStatusCode.Unauthorized, err);
+				} // end if for Islogin
+
+			}
+			else
+			{
+				HttpError err = new HttpError(strReturnMsg);
+				return Request.CreateResponse(HttpStatusCode.NotFound, err);
+			} // end if for iscomplete
+
+		}
+
+		[HttpGet]
         public HttpResponseMessage LoadUserDefineReasonCodes(string strUID, string strPass, string strCurCompany, string strCodeTypeId, string strEnvId)
         {
             string strReturnMsg;
@@ -188,7 +323,7 @@ namespace EpicWAS.Controllers
 
 
         [HttpGet]
-        public HttpResponseMessage LoadEscalateList(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPickNum, string strCust)
+        public HttpResponseMessage LoadEscalateList(string strUID, string strPass, string strCurCompany, string strCurPlant, string strEnvId, string strPickNum, string strCust, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -215,8 +350,14 @@ namespace EpicWAS.Controllers
                     PickPackBO oPickPackBO = new PickPackBO();
                     IList<PickPackEscalate> EscalateL = new List<PickPackEscalate>();
 
-
-                    IsLoadPickPackOK = oPickPackBO._LoadEscalateList(ref oEpicorEnv, strCurCompany, strCust, ref EscalateL, strPickNum, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsLoadPickPackOK = oPickPackBO._LoadEscalateListUD103(ref oEpicorEnv, strCurCompany, strCust, ref EscalateL, strPickNum, out strReturnMsg);
+					}
+                    else
+                    {
+						IsLoadPickPackOK = oPickPackBO._LoadEscalateList(ref oEpicorEnv, strCurCompany, strCust, ref EscalateL, strPickNum, out strReturnMsg);
+					}
 
 
                     if (IsLoadPickPackOK)
@@ -304,7 +445,7 @@ namespace EpicWAS.Controllers
 
 
         [HttpGet]
-        public HttpResponseMessage VerifyTag(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strPackListNum, string strTag)
+        public HttpResponseMessage VerifyTag(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strPackListNum, string strTag, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -330,8 +471,14 @@ namespace EpicWAS.Controllers
                 {
                     PickPackBO oPickPackBO = new PickPackBO();
                     
-
-                    IsTagOK = oPickPackBO._Verify_Tag(ref oEpicorEnv, strCurCompany, strPackListNum, strTag, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsTagOK = oPickPackBO._Verify_TagUD103(ref oEpicorEnv, strCurCompany, strPackListNum, strTag, out strReturnMsg);
+					}
+                    else
+                    {
+						IsTagOK = oPickPackBO._Verify_Tag(ref oEpicorEnv, strCurCompany, strPackListNum, strTag, out strReturnMsg);
+					}
 
                     if (IsTagOK)
                     {
@@ -419,7 +566,7 @@ namespace EpicWAS.Controllers
 
 
         [HttpGet]
-        public HttpResponseMessage LoadInvoiceForReprint(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strInvoice, string strLegalNumber)
+        public HttpResponseMessage LoadInvoiceForReprint(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strInvoice, string strLegalNumber, string ud = "")
         {
             string strReturnMsg;
             bool IsLogin = false;
@@ -446,7 +593,14 @@ namespace EpicWAS.Controllers
                     PickPackBO oPickPackBO = new PickPackBO();
                     IList<ReprintInvoice> InvoicesL = new List<ReprintInvoice>();
 
-                    IsLoadInvoiceOK = oPickPackBO._LoadInvoicesForReprint(ref oEpicorEnv, strCurCompany, strInvoice, strLegalNumber, ref InvoicesL, out strReturnMsg);
+                    if (ud == "UD103")
+                    {
+						IsLoadInvoiceOK = oPickPackBO._LoadInvoicesForReprintUD103(ref oEpicorEnv, strCurCompany, strInvoice, strLegalNumber, ref InvoicesL, out strReturnMsg);
+					}
+                    else
+                    {
+						IsLoadInvoiceOK = oPickPackBO._LoadInvoicesForReprint(ref oEpicorEnv, strCurCompany, strInvoice, strLegalNumber, ref InvoicesL, out strReturnMsg);
+					}
 
                     if (IsLoadInvoiceOK)
                     {
@@ -708,8 +862,8 @@ namespace EpicWAS.Controllers
 
 
 
-        [HttpPost]
-        public HttpResponseMessage LoadPickPackRevert(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strMQSysRowID, string strU14SysRowID, string strRemark, string strPicker, string strReason, DateTime dtEscalateDt, string strCurrentStage = "" )
+		[HttpPost]
+        public HttpResponseMessage LoadPickPackRevert(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strMQSysRowID, string strU14SysRowID, string strRemark, string strPicker, string strReason, DateTime dtEscalateDt, string strCurrentStage = "", string pickListNo = "", string ud = "" )
         {
             string strReturnMsg;
             bool IsComplete = false;
@@ -747,10 +901,19 @@ namespace EpicWAS.Controllers
                 oPickPackES.EscalateDateTime = dtEscalateDt.ToString();
                 oPickPackES.Picker = strPicker;
                 oPickPackES.CurrentStage = strCurrentStage;
+                oPickPackES.PickListNo = pickListNo;
                
                 EpicorBO oEpicor = new EpicorBO();
 
-                IsTrxComplete = oEpicor._InsertInToUD18(ref oEpicorEnv, ref oPickPackES, out strReturnMsg, strUID, strPass);
+                if (ud != "UD103")
+                {
+					IsTrxComplete = oEpicor._InsertInToUD18(ref oEpicorEnv, ref oPickPackES, out strReturnMsg, strUID, strPass);
+				}
+                else
+                {
+					IsTrxComplete = oEpicor._InsertInToUD18New(ref oEpicorEnv, ref oPickPackES, out strReturnMsg, strUID, strPass);
+				}
+                
 
                 if (IsTrxComplete)
                 {
@@ -774,7 +937,7 @@ namespace EpicWAS.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage SavePickPack(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strU14SysRowID, string strLotNum, string strWarehouse, string strBinNum, decimal dQuantity, string strTag, string strPallet="")
+        public HttpResponseMessage SavePickPack(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strU14SysRowID, string strLotNum, string strWarehouse, string strBinNum, decimal dQuantity, string strTag, string strPallet="", string ud = "", string pickNum = "", string pickLine = "")
         {
             string strReturnMsg;
             bool IsComplete = false;
@@ -789,7 +952,14 @@ namespace EpicWAS.Controllers
             {
                 PickPackBO oPickPack = new PickPackBO();
                 
-                IsTrxComplete = oPickPack._SavePickPack(ref oEpicorEnv, strCurCompany, strCurPlant, strUID, strPass,strLotNum, strWarehouse, strBinNum, strU14SysRowID, dQuantity, strTag, strPallet, out strReturnMsg);
+                if (ud == "UD103")
+                {
+					IsTrxComplete = oPickPack._SavePickPackUD103(ref oEpicorEnv, strCurCompany, strCurPlant, strUID, strPass, strLotNum, strWarehouse, strBinNum, dQuantity, strTag, strPallet, pickNum, pickLine, out strReturnMsg);
+				}
+                else
+                {
+					IsTrxComplete = oPickPack._SavePickPack(ref oEpicorEnv, strCurCompany, strCurPlant, strUID, strPass, strLotNum, strWarehouse, strBinNum, strU14SysRowID, dQuantity, strTag, strPallet, out strReturnMsg);
+				}
 
                 if (IsTrxComplete)
                 {
@@ -813,7 +983,7 @@ namespace EpicWAS.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage SavePacking(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strRemark, string strTransporter, string strConsignment, string strPallet, decimal dTotalWeight, decimal dTotalBox, string strPickListNum, string strPacker, string strStation = "", string strPackPallet ="")
+        public HttpResponseMessage SavePacking(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strRemark, string strTransporter, string strConsignment, string strPallet, decimal dTotalWeight, decimal dTotalBox, string strPickListNum, string strPacker, string strStation = "", string strPackPallet ="", string ud = "")
         {
             string strReturnMsg;
             bool IsComplete = false;
@@ -828,9 +998,17 @@ namespace EpicWAS.Controllers
             {
                 PickPackBO oPickPack = new PickPackBO();
 
-                IsTrxComplete = oPickPack._SavePackList(ref oEpicorEnv, strCurCompany, strRemark, strTransporter, strConsignment, strPallet, dTotalWeight, dTotalBox, strPickListNum, strPacker, strStation, strUID, strPass, strCurPlant, strPackPallet, out strReturnMsg);
+                if (ud == "UD103")
+                {
+                    IsTrxComplete = oPickPack._SavePackListUD103(ref oEpicorEnv, strCurCompany, strRemark, strTransporter, strConsignment, strPallet, dTotalWeight, dTotalBox, strPickListNum, strPacker, strStation, strUID, strPass, strCurPlant, strPackPallet, out strReturnMsg);
+                }
+                else
+                {
+					IsTrxComplete = oPickPack._SavePackList(ref oEpicorEnv, strCurCompany, strRemark, strTransporter, strConsignment, strPallet, dTotalWeight, dTotalBox, strPickListNum, strPacker, strStation, strUID, strPass, strCurPlant, strPackPallet, out strReturnMsg);
+				}
 
-                if (IsTrxComplete)
+
+				if (IsTrxComplete)
                 {
 
                     return Request.CreateResponse(HttpStatusCode.OK);
@@ -852,7 +1030,7 @@ namespace EpicWAS.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage ResolvedEscalate(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strPickListNum, string strReason = "", string strRemark = "")
+        public HttpResponseMessage ResolvedEscalate(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strPickListNum, string strReason = "", string strRemark = "", string ud = "")
         {
             string strReturnMsg;
             bool IsComplete = false;
@@ -867,7 +1045,14 @@ namespace EpicWAS.Controllers
             {
                 PickPackBO oPickPack = new PickPackBO();
 
-                IsTrxComplete = oPickPack._ResolvedEscalate(ref oEpicorEnv, strCurCompany, strPickListNum, strReason, strRemark, out strReturnMsg);
+                if (ud == "UD103")
+                {
+                    IsTrxComplete = oPickPack._ResolvedEscalateUD103(ref oEpicorEnv, strCurCompany, strPickListNum, strReason, strRemark, out strReturnMsg);
+				}
+                else
+                {
+					IsTrxComplete = oPickPack._ResolvedEscalate(ref oEpicorEnv, strCurCompany, strPickListNum, strReason, strRemark, out strReturnMsg);
+				}
 
                 if (IsTrxComplete)
                 {

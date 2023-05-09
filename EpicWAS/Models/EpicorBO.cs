@@ -3443,11 +3443,13 @@ namespace EpicWAS.Models
                         newRow.Date02 = Convert.ToDateTime(oPickPackEscalate.EscalateDateTime);
 
                         newRow.Character01 = oPickPackEscalate.PickPackRemarks;
-                        
-                        newRow.UserDefinedColumns["SD_MQGUID_c"] = Guid.Parse(oPickPackEscalate.MQ_SysRowID);
-                        newRow.UserDefinedColumns["SD_UD14GUID_c"] = Guid.Parse(oPickPackEscalate.U14_SysRowID);
+
+                        Guid sysRowID;
+                        newRow.UserDefinedColumns["SD_MQGUID_c"] = Guid.TryParse(oPickPackEscalate.MQ_SysRowID, out sysRowID) ? sysRowID : Guid.NewGuid();
+                        newRow.UserDefinedColumns["SD_UD14GUID_c"] = Guid.TryParse(oPickPackEscalate.U14_SysRowID, out sysRowID) ? sysRowID : Guid.NewGuid();
                         //newRow["SD_MQGUID_c"] = oPickPackEscalate.MQ_SysRowID;
                         //newRow["SD_UD14GUID_c"] = oPickPackEscalate.U14_SysRowID;
+                        newRow.UserDefinedColumns["SD_PickListNum_c"] = oPickPackEscalate.PickListNo;
                         ud18Client.Update(ref ts);
                     }
 
@@ -3521,7 +3523,167 @@ namespace EpicWAS.Models
 
         }
 
-        public bool _AMMIssueReturn(ref EpicEnv oEpicEnv, out string strMessage, string strUID = "", string strPass = "", string strCompany ="", string strPlant = "", string strMtlQueueRowID = "")
+		public bool _InsertInToUD18New(ref EpicEnv oEpicEnv, ref PickPackEscalate oPickPackEscalate, out string strMessage, string strUID = "", string strPass = "")
+		{
+			bool IsEpicLoginOK = false;
+			bool IsEpicTrxSuccess = false;
+
+			string scheme = "http";
+			string strEpicSessionModSvc = oEpicEnv.Env_AppEpicor + "/" + strSessionModSvcPath;
+			string strEpicUD18Svc = oEpicEnv.Env_AppEpicor + "/" + strUD18SvcPath;
+
+			string strEpicUser = (oEpicEnv.Env_UsedEpicLogin ? strUID : oEpicEnv.Env_AppUserId);
+			string strEpicPwd = (oEpicEnv.Env_UsedEpicLogin ? strPass : oEpicEnv.Env_AppPassKey);
+
+			System.Net.ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => { return true; };
+			EndpointBindingType bindingType = EndpointBindingType.BasicHttp;
+
+			if (bindingType == EndpointBindingType.BasicHttp)
+			{
+				scheme = "https";
+			}
+
+			UriBuilder builder = new UriBuilder(scheme, oEpicEnv.Env_AppServer);
+
+			builder.Path = strEpicSessionModSvc;
+			SessionModSvcContractClient sessionModClient = GetClient<SessionModSvcContractClient, SessionModSvcContract>(builder.Uri.ToString(), strEpicUser, strEpicPwd, bindingType);
+
+			builder.Path = strEpicUD18Svc;
+			UD18SvcContractClient ud18Client = GetClient<UD18SvcContractClient, UD18SvcContract>(builder.Uri.ToString(), strEpicUser, strEpicPwd, bindingType);
+
+			Guid sessionId = Guid.Empty;
+
+			try
+			{
+				sessionId = sessionModClient.Login();
+
+				string companyName;
+				string plantID;
+				string plantName;
+				string workstationID;
+				string workstationDescription;
+				string employeeID;
+				string countryGroupCode;
+				string countryCode;
+
+
+				builder.Path = strEpicSessionModSvc;
+				sessionModClient = GetClient<SessionModSvcContractClient, SessionModSvcContract>(builder.Uri.ToString(), strEpicUser, strEpicPwd, bindingType);
+
+				sessionModClient.Endpoint.EndpointBehaviors.Add(new HookServiceBehavior(sessionId, strEpicUser));
+
+				sessionModClient.SetCompany(oPickPackEscalate.Company, out companyName, out plantID, out plantName, out workstationID, out workstationDescription,
+											out employeeID, out countryGroupCode, out countryCode);
+
+				if (oPickPackEscalate.CurrentPlant != "")
+				{
+					sessionModClient.SetPlant(oPickPackEscalate.CurrentPlant);
+				}
+
+				IsEpicLoginOK = true;
+				strMessage = "";
+
+			}
+			catch (Exception ex)
+			{
+				IsEpicLoginOK = false;
+				strMessage = ex.Message.ToString();
+			}
+
+
+			if (IsEpicLoginOK == true)
+			{
+				try
+				{
+
+					ud18Client.Endpoint.EndpointBehaviors.Add(new HookServiceBehavior(sessionId, strEpicUser));
+
+					var ts = new UD18Tableset();
+					ud18Client.GetaNewUD18(ref ts);
+
+					var newRow = ts.UD18[0];// .Where(n => n.RowMod.Equals("A", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+
+					if (newRow != null)
+					{
+						newRow.Company = oPickPackEscalate.Company.ToUpper();
+						Guid gkey = Guid.NewGuid();
+						newRow.Key1 = gkey.ToString();
+
+						newRow.ShortChar01 = strUID;
+						newRow.ShortChar02 = oPickPackEscalate.Picker;
+						newRow.ShortChar03 = oPickPackEscalate.Reason;
+						newRow.ShortChar04 = oPickPackEscalate.CurrentStage;
+						newRow.ShortChar18 = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt");
+
+						newRow.Date01 = DateTime.Now;
+						newRow.Date02 = Convert.ToDateTime(oPickPackEscalate.EscalateDateTime);
+
+						newRow.Character01 = oPickPackEscalate.PickPackRemarks;
+
+						Guid sysRowID;
+						newRow.UserDefinedColumns["SD_MQGUID_c"] = Guid.TryParse(oPickPackEscalate.MQ_SysRowID, out sysRowID) ? sysRowID : Guid.NewGuid();
+						newRow.UserDefinedColumns["SD_UD14GUID_c"] = Guid.TryParse(oPickPackEscalate.U14_SysRowID, out sysRowID) ? sysRowID : Guid.NewGuid();
+						newRow.UserDefinedColumns["SD_PickListNum_c"] = oPickPackEscalate.PickListNo;
+						ud18Client.Update(ref ts);
+					}
+
+
+					SQLServerBO oSQL = new SQLServerBO();
+					string _strSQLCon = oSQL._retSQLConnectionString();
+					_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+					string strSQL;
+                    string status = "";
+
+                    if (oPickPackEscalate.CurrentStage == "Picking") {
+                        status = "ESCALATED PICKING";
+                    }
+                    else if (oPickPackEscalate.CurrentStage == "Packing")
+                    {
+                        status = "ESCALATED PACKING";
+                    }
+
+					strSQL = "update UD103 set SD_Status_c = '" + status + "' ";
+					strSQL += "where Key1 = '" + oPickPackEscalate.PickListNo + "' and company = '" + oPickPackEscalate.Company + "' ";
+
+					oSQL._exeSQLCommand(strSQL, _strSQLCon);
+
+
+				}
+				catch (Exception ex)
+				{
+					IsEpicTrxSuccess = false;
+					strMessage = ex.Message.ToString();
+				}
+
+				IsEpicTrxSuccess = (strMessage.Length > 0 ? false : true);
+
+			}
+			else
+			{
+				strMessage = "Login into Epicor failed. ";
+				IsEpicTrxSuccess = false;
+			}
+
+
+			if (sessionId != Guid.Empty)
+			{
+				IsEpicLoginOK = true;
+				sessionModClient.Logout();
+			}
+			else
+			{
+				IsEpicLoginOK = false;
+				strMessage = "Unable to connect into Epicor";
+			}
+
+			return (IsEpicLoginOK && IsEpicTrxSuccess);
+
+
+
+		}
+
+		public bool _AMMIssueReturn(ref EpicEnv oEpicEnv, out string strMessage, string strUID = "", string strPass = "", string strCompany ="", string strPlant = "", string strMtlQueueRowID = "")
         {
             bool IsEpicLoginOK = false;
             bool IsEpicTrxSuccess = false;
