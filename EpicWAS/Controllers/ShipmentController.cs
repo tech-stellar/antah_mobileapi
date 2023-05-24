@@ -858,6 +858,32 @@ namespace EpicWAS.Controllers
 
         }
 
+        [HttpGet]
+        public HttpResponseMessage LoadPackPartQty(string strEnvId, string pickNum, string partNum)
+        {
+			string strReturnMsg;
+			bool IsComplete = false;
+			double packPartQty = 0;
+
+			EpicEnv oEpicorEnv = new EpicEnv();
+			EpicEnvBO oEpicorEnvBO = new EpicEnvBO();
+
+			IsComplete = oEpicorEnvBO._LoadEpicEnvById(strEnvId, ref oEpicorEnv, out strReturnMsg);
+
+			if (IsComplete)
+			{
+				PickPackBO oPickPack = new PickPackBO();
+				packPartQty = oPickPack._checkPickPartQty(ref oEpicorEnv, pickNum, partNum);
+
+				return Request.CreateResponse(HttpStatusCode.OK, packPartQty);
+			}
+			else
+			{
+				HttpError err = new HttpError(strReturnMsg);
+				return Request.CreateResponse(HttpStatusCode.NotFound, err);
+			} // end for iscomplete
+		}
+
 
 
 
