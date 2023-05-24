@@ -588,7 +588,7 @@ namespace EpicWAS.Models
 				_strSQL += "join PartLot pl on UD103A.Company = pl.Company and pl.LotNum = UD103A.SD_LotNum_c and pl.PartNum = UD103A.SD_PartNum_c ";
                 _strSQL += "join ShipVia sv on oh.Company = sv.Company and oh.ShipViaCode = sv.ShipViaCode ";
 
-				_strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' ";
+				_strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' and UD103A.SD_Voided_c = 0 ";
 
 				if (strCustID != "" && strCustID != null)
 				{
@@ -612,7 +612,7 @@ namespace EpicWAS.Models
 
 				}
 
-				_strSQL += " and UD103.Key1 in (select distinct top 1 UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ";
+				_strSQL += " and UD103.Key1 in (select distinct UD103.Key1 from UD103 where UD103.SD_PickedComplete_c = 1 ";
                 _strSQL += " and UD103.SD_Status_c = 'PICKED' or UD103.SD_Status_c = 'PACKING') ";
 
                 _strSQL += "group by UD103.Company, UD103.Key1, UD103A.SD_OrderNum_c, OrderDate, SD_PartNum_c, PartDescription, SD_UOM_c, SD_LotNum_c, SD_CustID_c, OrderComment, UD103.SD_PackedBy_c, " +
@@ -1072,7 +1072,7 @@ namespace EpicWAS.Models
                     "join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = '" + strPicker + "') " +
                     "and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 0 ";
 				_strSQL += "and SD_PickListGroup_c in (" + strPickGrps + ") ";
-				_strSQL += "and UD103.Company = '" + strCompany + "' and SD_Plant_c = '" + strCurPlant + "' ";   // add company and plant filter
+				_strSQL += "and UD103.Company = '" + strCompany + "' and SD_Plant_c = '" + strCurPlant + "' and UD103.SD_Voided_c = 0 ";   // add company and plant filter
 				_strSQL += "order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
 
 				//SQLServerBO _MSSQL = new SQLServerBO();
@@ -1103,7 +1103,8 @@ namespace EpicWAS.Models
 					_strSQL += "join PartLot pl on UD103.Company = pl.Company and UD103A.SD_PartNum_c = pl.PartNum and SD_LotNum_c = LotNum ";
 					_strSQL += "join Customer c on UD103.Company = c.Company and c.CustNum = UD103.SD_CustNum_c ";
 					_strSQL += "join OrderHed oh on UD103.Company = oh.Company and UD103A.SD_OrderNum_c = oh.OrderNum ";
-					_strSQL += "where UD103.Key1 = '" + pickListNum + "' ";
+					_strSQL += "where UD103.Key1 = '" + pickListNum + "' and UD103A.SD_Voided_c = 0";
+                    // and SD_Voided_c = 0
 
 					_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
 
@@ -1622,98 +1623,106 @@ namespace EpicWAS.Models
 			bool IsError = false;
 			bool IsUpdated;
 
-			try
+			if (checkLineVoid(ref oEpicEnv, pickNum, pickLine))
 			{
-				string _strSQL;
-
-
-				SQLServerBO _MSSQL = new SQLServerBO();
-				string _strSQLCon = _MSSQL._retSQLConnectionString();
-				_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
-
-				_strSQL = "update UD103A set SD_Warehouse_c = '" + strWarehouse + "', ";
-                _strSQL += "SD_BinNum_c = '" + strBinNum + "', ";
-                _strSQL += "SD_LotNUm_c = '" + strLotNum + "', ";
-                _strSQL += "SD_AllocateQuantity_c = " + dQuantity.ToString() + ", ";
-                _strSQL += "SD_TagNum_c = '" + strTag + "', ";
-                _strSQL += "SD_PickedBy_c = '" + strUID + "', ";
-				_strSQL += "SD_PickedDate_c = getdate(), ";
-				_strSQL += "SD_PickedTime_c = getdate() ";
-                _strSQL += "where Key1 = '" + pickNum + "' and ChildKey2 = '"+ pickLine + "' ";
-
-                IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
-
-				if (IsUpdated)
-				{
-					strMessage = "";
-					IsError = false;
-				}
-				else
-				{
-					strMessage = "Can't perform update.";
-					IsError = true;
-
-				}
-
-                // update UD103 (PICKING)
-
-                // get count of picked lines for the picklist, compare with total count for the picklist
-                _strSQL = "select count(*) as PickedCount from UD103A where Key1 = '" + pickNum + "' ";
-
-                DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
-                var totalCount = 0;
-                if (_dts.Tables[0].Rows.Count > 0)
-                {
-                    foreach (DataRow row in _dts.Tables[0].Rows)
-                    {
-                        totalCount = Int32.Parse(row["PickedCount"].ToString());
-                    }
-                }
-
-                _strSQL += "and SD_PickedBy_c != '' ";
-				_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
-				var pickedCount = 0;
-				if (_dts.Tables[0].Rows.Count > 0)
-				{
-					foreach (DataRow row in _dts.Tables[0].Rows)
-					{
-						pickedCount = Int32.Parse(row["PickedCount"].ToString());
-					}
-				}
-
-                // update UD103 again if counts are equal (PICKED)
-
-                _strSQL = "update UD103 set SD_PickedBy_c = '" + strUID + "' ";
-
-				if (totalCount == pickedCount)
-				{
-                    _strSQL += ", SD_PickedComplete_c = 1, " +
-                        "SD_PickedCompleteDate_c = getdate(), " +
-                        "SD_PickedCompleteTime_c = getdate(), " +
-                        "SD_Status_c = 'PICKED' ";
-				}
-
-				_strSQL += "where Key1 = '" + pickNum + "' ";
-
-				IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
-
-				if (IsUpdated)
-				{
-					strMessage = "";
-					IsError = false;
-				}
-				else
-				{
-					strMessage = "Can't perform update.";
-					IsError = true;
-
-				}
-
-			}
-			catch (Exception ex)
-			{
-				strMessage = ex.Message.ToString();
+				strMessage = "Picklist line was already cancelled.";
 				IsError = true;
+			}
+			else
+			{
+				try
+				{
+					string _strSQL;
+
+
+					SQLServerBO _MSSQL = new SQLServerBO();
+					string _strSQLCon = _MSSQL._retSQLConnectionString();
+					_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+					_strSQL = "update UD103A set SD_Warehouse_c = '" + strWarehouse + "', ";
+					_strSQL += "SD_BinNum_c = '" + strBinNum + "', ";
+					_strSQL += "SD_LotNUm_c = '" + strLotNum + "', ";
+					_strSQL += "SD_AllocateQuantity_c = " + dQuantity.ToString() + ", ";
+					_strSQL += "SD_TagNum_c = '" + strTag + "', ";
+					_strSQL += "SD_PickedBy_c = '" + strUID + "', ";
+					_strSQL += "SD_PickedDate_c = getdate(), ";
+					_strSQL += "SD_PickedTime_c = getdate() ";
+					_strSQL += "where Key1 = '" + pickNum + "' and ChildKey2 = '" + pickLine + "' ";
+
+					IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+					if (IsUpdated)
+					{
+						strMessage = "";
+						IsError = false;
+					}
+					else
+					{
+						strMessage = "Can't perform update.";
+						IsError = true;
+
+					}
+
+					// update UD103 (PICKING)
+
+					// get count of picked lines for the picklist, compare with total count for the picklist
+					_strSQL = "select count(*) as PickedCount from UD103A where Key1 = '" + pickNum + "' and SD_Voided_c = 0";
+                    // check escalated ones as well
+					DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+					var totalCount = 0;
+					if (_dts.Tables[0].Rows.Count > 0)
+					{
+						foreach (DataRow row in _dts.Tables[0].Rows)
+						{
+							totalCount = Int32.Parse(row["PickedCount"].ToString());
+						}
+					}
+
+					_strSQL += "and SD_PickedBy_c != '' ";
+					_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+					var pickedCount = 0;
+					if (_dts.Tables[0].Rows.Count > 0)
+					{
+						foreach (DataRow row in _dts.Tables[0].Rows)
+						{
+							pickedCount = Int32.Parse(row["PickedCount"].ToString());
+						}
+					}
+
+					// update UD103 again if counts are equal (PICKED)
+
+					_strSQL = "update UD103 set SD_PickedBy_c = '" + strUID + "' ";
+
+					if (totalCount == pickedCount)
+					{
+						_strSQL += ", SD_PickedComplete_c = 1, " +
+							"SD_PickedCompleteDate_c = getdate(), " +
+							"SD_PickedCompleteTime_c = getdate(), " +
+							"SD_Status_c = 'PICKED' ";
+					}
+
+					_strSQL += "where Key1 = '" + pickNum + "' ";
+
+					IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+					if (IsUpdated)
+					{
+						strMessage = "";
+						IsError = false;
+					}
+					else
+					{
+						strMessage = "Can't perform update.";
+						IsError = true;
+
+					}
+
+				}
+				catch (Exception ex)
+				{
+					strMessage = ex.Message.ToString();
+					IsError = true;
+				}
 			}
 
 			return (IsError ? false : true);
@@ -2000,6 +2009,11 @@ namespace EpicWAS.Models
 			int lastRunning;
 			DataSet _dts;
 
+			//if (checkLineVoid(ref oEpicEnv, strPickListNum, pickLine))
+			//{
+			//	strMessage = "Picklist line was already cancelled.";
+			//	IsError = true;
+			//}
 			try
 			{
 				SQLServerBO _MSSQL = new SQLServerBO();
@@ -3732,5 +3746,52 @@ namespace EpicWAS.Models
 
         }
 
-    }
+        private bool checkLineVoid(ref EpicEnv oEpicEnv, string pickNum, string pickLine)
+        {
+			string _strSQL;
+
+
+			SQLServerBO _MSSQL = new SQLServerBO();
+			string _strSQLCon = _MSSQL._retSQLConnectionString();
+			_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+            _strSQL = "select count(*) as VoidCount from UD103A where Key1 = '" + pickNum + "' and ChildKey2 = '" + pickLine + "' and SD_Voided_c = 0";
+
+			DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+			var voided = false;
+			if (_dts.Tables[0].Rows.Count > 0)
+			{
+				foreach (DataRow row in _dts.Tables[0].Rows)
+				{
+					voided = Int32.Parse(row["VoidCount"].ToString()) <= 0;
+				}
+			}
+
+            return voided;
+		}
+
+		public double _checkPickPartQty(ref EpicEnv oEpicEnv, string pickNum, string partNum)
+		{
+			string _strSQL;
+
+
+			SQLServerBO _MSSQL = new SQLServerBO();
+			string _strSQLCon = _MSSQL._retSQLConnectionString();
+			_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+			_strSQL = "select sum(SD_AllocateQuantity_c) as AllocateQty from UD103A where SD_PartNum_c = '" + partNum + "' and Key1 = '" + pickNum + "' and SD_Voided_c = 0";
+            double count = 0;
+			DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+			if (_dts.Tables[0].Rows.Count > 0)
+			{
+				foreach (DataRow row in _dts.Tables[0].Rows)
+				{
+					var countStr = row["AllocateQty"].ToString();
+                    count = Double.Parse(countStr);
+				}
+			}
+
+			return count;
+		}
+	}
 }
