@@ -1090,15 +1090,15 @@ namespace EpicWAS.Models
 					IsUpdated = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 				}
 
-                bool hasLines = false;
+                //bool hasLines = false;
                 if (IsUpdated)
-                {
-                    _strSQL = "select * from UD103A where UD103A.SD_Voided_c = 0 and UD103A.Key1 = '" + pickListNum + "'";
-					_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
-                    hasLines = _dts.Tables[0].Rows.Count > 0;
-				}
+                //{
+                //    _strSQL = "select * from UD103A where UD103A.SD_Voided_c = 0 and UD103A.Key1 = '" + pickListNum + "'";
+				//	_dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+                //    hasLines = _dts.Tables[0].Rows.Count > 0;
+				//}
 
-                if (IsUpdated && hasLines)
+                // if (IsUpdated && hasLines)
                 {
                     _strSQL = "select UD103.SD_OrderNum_c, SD_OrderLine_c, SD_OrderRel_c, SD_PartNum_c, ";
                     _strSQL += "PartDescription, SD_UOM_c, SD_AllocateQuantity_c, ExpirationDate, ";
@@ -1157,22 +1157,22 @@ namespace EpicWAS.Models
                         strMessage = "No picking list generated";
                         IsError = true;
                     }
-                }
-                else if (IsUpdated && !hasLines) 
-                {
-					_strSQL = "update UD103 set SD_Voided_c = 1 where Key1 = '" + pickListNum + "' ";
+     //           }
+     //           else if (IsUpdated && !hasLines) 
+     //           {
+					//_strSQL = "update UD103 set SD_Voided_c = 1 where Key1 = '" + pickListNum + "' ";
 
-					bool voidUpdate = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+					//bool voidUpdate = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 
-                    if (voidUpdate)
-                    {
-						IsError = _AssignPickPacksUD103(ref oEpicEnv, strCompany, strCurPlant, strPicker, ref oPickPackList, out strMessage);
-					}
-                    else
-                    {
-                        strMessage = "Something went wrong during the retrieval.";
-                        IsError = true;
-                    }
+     //               if (voidUpdate)
+     //               {
+					//	IsError = _AssignPickPacksUD103(ref oEpicEnv, strCompany, strCurPlant, strPicker, ref oPickPackList, out strMessage);
+					//}
+     //               else
+     //               {
+     //                   strMessage = "Something went wrong during the retrieval.";
+     //                   IsError = true;
+     //               }
 					
 				}
                 else
