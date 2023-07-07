@@ -588,7 +588,7 @@ namespace EpicWAS.Models
 				_strSQL += "join PartLot pl on UD103A.Company = pl.Company and pl.LotNum = UD103A.SD_LotNum_c and pl.PartNum = UD103A.SD_PartNum_c ";
                 _strSQL += "join ShipVia sv on oh.Company = sv.Company and oh.ShipViaCode = sv.ShipViaCode ";
 
-				_strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' and UD103A.SD_Voided_c = 0 ";
+                _strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' and UD103A.SD_Voided_c = 0 ";
 
 				if (strCustID != "" && strCustID != null)
 				{
@@ -607,7 +607,7 @@ namespace EpicWAS.Models
 
 				if (strTagNum != "" && strTagNum != null)
 				{
-					_strSQL += " and UD103.Key1 in (select distinct top 1 UD103.Key1 from UD103 where UD103.SD_TagNum_c = '" + strTagNum + "') ";
+					_strSQL += " and UD103.Key1 in (select distinct top 1 UD103A.Key1 from UD103 where UD103A.SD_TagNum_c = '" + strTagNum + "') ";
 					_strSQL += " and 0 = isnull((select top 1 case when s.ShipStatus = 'INVOICED' then 1 else 0 end from ShipHead s where s.Company = UD103.Company and s.FS_PickListNo_c = UD103.Key1 ),0) ";
 
 				}
