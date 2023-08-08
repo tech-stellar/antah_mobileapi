@@ -269,6 +269,7 @@
     <Compile Include="Models\Pallets.cs" />
     <Compile Include="Models\PickPack.cs" />
     <Compile Include="Models\PickPack2.cs" />
+    <Compile Include="Models\PickPack3.cs" />
     <Compile Include="Models\PickPackBO.cs" />
     <Compile Include="Models\PickPackEscalate.cs" />
     <Compile Include="Models\PurchaseOrder.cs" />

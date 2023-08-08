@@ -14,7 +14,7 @@ namespace EpicWAS.Controllers
     {
 		[HttpGet]
 		public HttpResponseMessage LoadSummary(string strUID, string strPass, string strCurCompany, string strOrderNum, string strPartNum, string strPickListNum, string strWarehouse, string strStatus, bool backOrder, 
-            string strFromPickDate, string strToPickDate, string strCurPlant, string strEnvId)
+            string strFromPickDate, string strToPickDate, string strCurPlant, string strEnvId, bool showVoid = false)
 		{
 			string strReturnMsg;
 			bool IsLogin = false;
@@ -48,7 +48,7 @@ namespace EpicWAS.Controllers
                     strStatus = strStatus == null ? "" : strStatus;
 
 					IsLoadSummaryOk = oPickPackBO._LoadSummary(ref oEpicorEnv, strCurCompany, strUID, strOrderNum, strPartNum, strPickListNum, 
-                        strWarehouse, strStatus, backOrder, strFromPickDate, strToPickDate, ref SummaryL, out strReturnMsg);
+                        strWarehouse, strStatus, backOrder, strFromPickDate, strToPickDate, showVoid, ref SummaryL, out strReturnMsg);
 
 
 
@@ -884,11 +884,45 @@ namespace EpicWAS.Controllers
 			} // end for iscomplete
 		}
 
+        [HttpGet]
+        public HttpResponseMessage RetrievePickPackStatus(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strPackListNum)
+        {
+            string strReturnMsg;
+            bool IsComplete = false;
+            bool IsTrxComplete = false;
+
+            EpicEnv oEpicorEnv = new EpicEnv();
+            EpicEnvBO oEpicorEnvBO = new EpicEnvBO();
+
+            IsComplete = oEpicorEnvBO._LoadEpicEnvById(strEnvId, ref oEpicorEnv, out strReturnMsg);
+
+            if (IsComplete)
+            {
+                PickPack3 PickPack3 = new PickPack3();
+                PickPackBO oPickPack = new PickPackBO();
+
+                IsTrxComplete = oPickPack._RetrievePickPackStatus(ref oEpicorEnv, strCurCompany, strCurPlant, strPackListNum,ref PickPack3, out strReturnMsg);
+
+                if (IsTrxComplete)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, PickPack3);
+                }
+                else
+                {
+                    HttpError err = new HttpError(strReturnMsg);
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError, err);
+                }
+
+            }
+            else
+            {
+                HttpError err = new HttpError(strReturnMsg);
+                return Request.CreateResponse(HttpStatusCode.NotFound, err);
+            } // end for iscomplete       
+        }
 
 
-
-
-		[HttpPost]
+        [HttpPost]
         public HttpResponseMessage LoadPickPackRevert(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strMQSysRowID, string strU14SysRowID, string strRemark, string strPicker, string strReason, DateTime dtEscalateDt, string strCurrentStage = "", string pickListNo = "", string ud = "" )
         {
             string strReturnMsg;

@@ -13,7 +13,7 @@ namespace EpicWAS.Models
     public class PickPackBO
     {
 		public bool _LoadSummary(ref EpicEnv oEpicEnv, string strCompany, string strUID, string strOrderNum, string strPartNum, string strPickListNum, string strWarehouse, string strStatus, bool backOrder, 
-            string strFromPickDate, string strToPickDate, ref IList<Summary> oSummaryList, out string strMessage)
+            string strFromPickDate, string strToPickDate, bool showVoid, ref IList<Summary> oSummaryList, out string strMessage)
 		{
 			bool IsError = false;
             var strPickGrps = "";
@@ -39,29 +39,73 @@ namespace EpicWAS.Models
 				}
 
 				string backOrderStatus = backOrder ? "1" : "0";
+                string voidStatus = showVoid ? "1,0" : "0";
+
                 _strSQL = "select SD_PickListDate_c as PickListDate, u.Key1 as PickListNum, ua.SD_OrderNum_c as OrderNum, (case when ua.SD_PickedBy_c != '' then 1 else 0 end) as Picked, " +
                     "(case when u.SD_Status_c like 'ESCALATED%' then 1 else 0 end) as Escalated, ChildKey2 as PickListLine, SD_PartNum_c as PartNum, PartDescription, SD_UOM_c as UOM, " +
-					"SD_AllocateQuantity_c as AllocatedQty, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
-                    "ISNULL(OnhandQty, 0) as OnhandQty, ISNULL(OnhandQty - pb.AllocatedQty_c, 0) as AvailableQty, SD_BackOrder_c as BackOrder from UD103 u " +
-                    "join UD103A ua on u.Company = ua.Company and u.Key1 = ua.Key1 join OrderRel orl on orl.Company = u.Company and orl.OrderNum = ua.SD_OrderNum_c " +
-                    "and orl.OrderLine = ua.SD_OrderLine_c and orl.OrderRelNum = ua.SD_OrderRel_c join Part p on p.Company = u.Company and p.PartNum = ua.SD_PartNum_c " +
-                    "join PartLot pl on pl.Company = u.Company and pl.PartNum = ua.SD_PartNum_c and SD_LotNum_c = pl.LotNum left join PartBin pb on pb.Company = u.Company " +
-                    "and pb.WarehouseCode = ua.SD_Warehouse_c and pb.BinNum = ua.SD_BinNum_c and pb.LotNum = ua.SD_LotNum_c and pb.PartNum = ua.SD_PartNum_c " +
-                    "where ua.SD_OrderNum_c like '%" + strOrderNum + "%' and SD_PartNum_c like '%" + strPartNum + "%' and u.Key1 like '%" + strPickListNum + "%' " +
-                    "and SD_Warehouse_c like '%" + strWarehouse + "%' and SD_Status_c like '" + strStatus + "%' and SD_BackOrder_c = '" + backOrderStatus + "' " +
-                    "and SD_PickListGroup_c in (" + strPickGrps + ") ";
-					
+                    "SD_AllocateQuantity_c as AllocatedQty, SD_Warehouse_c as Warehouse, SD_BinNum_c as BinNum, SD_LotNum_c as LotNum, ExpirationDate, SD_ManualAlloc_c as ManualAlloc, " +
+                    "ISNULL(OnhandQty, 0) as OnhandQty, ISNULL(OnhandQty - pb.AllocatedQty_c, 0) as AvailableQty, SD_BackOrder_c as BackOrder, u.SD_Voided_c as VoidOrder " +
+                    "from UD103 u join UD103A ua on u.Company = ua.Company and u.Key1 = ua.Key1 " +
+                    "join OrderRel orl on orl.Company = u.Company and orl.OrderNum = ua.SD_OrderNum_c and orl.OrderLine = ua.SD_OrderLine_c and orl.OrderRelNum = ua.SD_OrderRel_c " +
+                    "join Part p on p.Company = u.Company and p.PartNum = ua.SD_PartNum_c " +
+                    "join PartLot pl on pl.Company = u.Company and pl.PartNum = ua.SD_PartNum_c and SD_LotNum_c = pl.LotNum " +
+                    "left join PartBin pb on pb.Company = u.Company and pb.WarehouseCode = ua.SD_Warehouse_c and pb.BinNum = ua.SD_BinNum_c and pb.LotNum = ua.SD_LotNum_c and pb.PartNum = ua.SD_PartNum_c ";
+
+                string _strWHERE = "";
+
+                if (strOrderNum != "" || strOrderNum != null)
+                {
+                    _strWHERE += "and ua.SD_OrderNum_c like '%" + strOrderNum + "%' ";
+                }
+
+                if (strPartNum != "" || strPartNum != null)
+                {
+                    _strWHERE += "and SD_PartNum_c like '%" + strPartNum + "%' ";
+                }
+
+                if (strPickListNum != "" || strPickListNum != null)
+                {
+                    _strWHERE += "and u.Key1 like '%" + strPickListNum + "%' ";
+                }
+
+                if (strWarehouse != "" || strWarehouse != null)
+                {
+                    _strWHERE += "and SD_Warehouse_c like '%" + strWarehouse + "%' ";
+                }
+
+                if (strStatus != "" || strStatus != null)
+                {
+                    _strWHERE += "and SD_BackOrder_c = '" + strStatus + "' ";
+                }
+
+                if (backOrderStatus != "" || backOrderStatus != null)
+                {
+                    _strWHERE += "and SD_Status_c like '%" + backOrderStatus + "%' ";
+                }
+
+                if (voidStatus != "" || voidStatus != null)
+                {
+                    _strWHERE += "and SD_Voided_c in (" + voidStatus + ") ";
+                }
+
+                if (strPickGrps != "" || strPickGrps != null)
+                {
+                    _strWHERE += "and SD_PickListGroup_c in (" + strPickGrps + ") ";
+                }
 
                 if (!String.IsNullOrEmpty(strFromPickDate))
                 {
-                    _strSQL += "and SD_PickListDate_c >= '" + strFromPickDate + "' "; 
+                    _strWHERE += "and SD_PickListDate_c >= '" + strFromPickDate + "' "; 
                 }
 				if (!String.IsNullOrEmpty(strToPickDate))
 				{
-					_strSQL += "and SD_PickListDate_c < '" + strToPickDate + "' ";
+                    _strWHERE += "and SD_PickListDate_c < '" + strToPickDate + "' ";
 				}
 
-                _strSQL += "order by PickListNum, PickListLine";
+                if (_strWHERE != "")
+                { _strSQL = _strSQL + " WHERE " + _strWHERE.Substring(3, _strWHERE.Length - 3); }
+
+                _strSQL += " order by PickListNum, PickListLine ";
 
 
 				// SQLServerBO _MSSQL = new SQLServerBO();
@@ -3818,5 +3862,67 @@ namespace EpicWAS.Models
 
 			return count;
 		}
-	}
+
+
+        public bool _RetrievePickPackStatus(ref EpicEnv oEpicEnv, string strCompany, string strCurPlant, string strPickListNum, ref PickPack3 oPickPack, out string strMessage)
+        {
+            bool IsError = false;
+
+            try
+            {
+                string _strSQL = "select top 1 u103.company, u103.Key1, u103.SD_Voided_c ";
+                _strSQL += "from UD103 u103 ";
+
+                string _strWHERE = "";
+
+                if (strCompany != null && strCompany != "")
+                { _strWHERE += "AND u103.Company = '" + strCompany + "' "; }
+
+                if (strPickListNum != "")
+                { _strWHERE += " and u103.Key1 = '" + strPickListNum + "' "; }
+
+                if (_strWHERE != null && _strWHERE != "")
+                { _strSQL = _strSQL + " WHERE " + _strWHERE.Substring(3, _strWHERE.Length - 3); }
+
+
+                SQLServerBO _MSSQL = new SQLServerBO();
+                string _strSQLCon = _MSSQL._retSQLConnectionString();
+                _strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
+
+                DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
+
+                if (_dts.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow row in _dts.Tables[0].Rows)
+                    {
+                        oPickPack.Company = row["company"].ToString();
+                        oPickPack.PickListNum = row["Key1"].ToString();
+                        oPickPack.PickListVoided = row["SD_Voided_c"].ToString() == "True" ? true : false;
+
+                    }
+                    strMessage = "";
+                    IsError = false;
+
+                }
+                else
+                {
+                    strMessage = "Picklist not found ";
+                    IsError = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                strMessage = ex.Message.ToString();
+                IsError = true;
+            }
+
+
+            return (IsError ? false : true);
+
+
+
+        }
+
+    }
 }
