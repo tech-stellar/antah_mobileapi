@@ -269,6 +269,7 @@
     <Compile Include="Models\Pallets.cs" />
     <Compile Include="Models\PickPack.cs" />
     <Compile Include="Models\PickPack2.cs" />
+    <Compile Include="Models\PickPack3.cs" />
     <Compile Include="Models\PickPackBO.cs" />
     <Compile Include="Models\PickPackEscalate.cs" />
     <Compile Include="Models\PurchaseOrder.cs" />
@@ -293,6 +294,7 @@
     <Compile Include="Models\StkRepl.cs" />
     <Compile Include="Models\StkRepl2.cs" />
     <Compile Include="Models\StkRepl2Sub.cs" />
+    <Compile Include="Models\Summary.cs" />
     <Compile Include="Models\UD17.cs" />
     <Compile Include="Models\UD25.cs" />
     <Compile Include="Models\CustomMessageInspector.cs" />

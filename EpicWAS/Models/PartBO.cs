@@ -670,11 +670,12 @@ namespace EpicWAS.Models
             {
                 string _strSQL = "SELECT pb.Company, pb.PartNum, pb.LotNum, pb.OnhandQty, pb.WarehouseCode, pb.BinNum, pb.AllocatedQty, pb.SalesPickingQty ";
                 _strSQL += ", pl.PartLotDescription, pl.Batch, pl.MfgBatch, pl.MfgLot, pl.HeatNum, pl.FirmWare, pl.BestBeforeDt, pl.MfgDt, pl.CureDt, pl.ExpirationDate AS ExpireDt ";
-                _strSQL += ", p.PartDescription, p.prodcode, pg.description ";
+                _strSQL += ", p.PartDescription, p.prodcode, pg.description, ISNULL(pbud.AllocatedQty_c, 0) NewAllocQty ";
                 _strSQL += "FROM erp.PartBin pb " ;
                 _strSQL += "FULL JOIN erp.PartLot pl on pl.Company = pb.Company and pl.PartNum = pb.PartNum and pl.LotNum = pb.LotNum ";
                 _strSQL += "left join erp.part p on p.Company = pb.Company and p.partnum = pb.partnum ";
                 _strSQL += "left join erp.ProdGrup pg on pg.Company = p.Company and pg.prodcode = p.prodcode ";
+                _strSQL += "left join erp.PartBin_ud pbud on pb.SysRowID = pbud.ForeignSysRowID ";
                 _strSQL += "WHERE pb.Company = '" + strCompany  + "' " ;
 
                 if (strPartNum != null )
@@ -734,7 +735,7 @@ namespace EpicWAS.Models
                         oPartLot.ProdGroup = row["prodcode"].ToString();
                         oPartLot.ProdGroupName = row["description"].ToString();
 
-                        oPartLot.AllocatedQty = Convert.ToDecimal(row["AllocatedQty"]) + Convert.ToDecimal(row["SalesPickingQty"]);
+                        oPartLot.AllocatedQty = Convert.ToDecimal(row["AllocatedQty"]) + Convert.ToDecimal(row["SalesPickingQty"]) + Convert.ToDecimal(row["NewAllocQty"]);
                         oPartLot.AvailableQty = oPartLot.OnHandQty - oPartLot.AllocatedQty;
 
                         PartLots.Add(oPartLot);
@@ -1174,6 +1175,7 @@ namespace EpicWAS.Models
             {
                 string _strSQL = "SELECT pb.Company, pb.BinNum, pb.LotNum, pb.OnhandQty, pb.DimCode, pl.ExpirationDate, pb.PartNum, pb.WarehouseCode, wb.ZoneID ";
                 _strSQL += "from Erp.PartBin pb ";
+                //_strSQL += "inner join Erp.Part p on pb.company = p.company and pb.partnum = p.partnum ";
                 _strSQL += "inner join Erp.PartLot pl on pb.Company = pl.Company and pb.PartNum = pl.PartNum and pb.LotNum = pl.LotNum ";
                 _strSQL += "inner join Erp.WhseBin wb on pb.Company = wb.Company and pb.WarehouseCode = wb.WarehouseCode and pb.BinNum = wb.BinNum ";
                 _strSQL += "WHERE pb.Company = '" + strCompany + "' ";
@@ -1188,6 +1190,8 @@ namespace EpicWAS.Models
                     _strSQL += "and pb.WarehouseCode = '" + strWarehouse + "' ";
                 }
 
+                //add order by --Gary
+                //_strSQL += "ORDER BY wb.SD_Level_c, wb.SD_Zone_c, wb.SD_Rack_c, wb.SD_BinNo_c ";
 
                 SQLServerBO _MSSQL = new SQLServerBO();
                 string _strSQLCon = _MSSQL._retSQLConnectionString();
