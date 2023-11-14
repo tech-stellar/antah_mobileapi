@@ -739,7 +739,7 @@ namespace EpicWAS.Controllers
 
                     IList<StkRepl2Sub> StkReplSubs = new List<StkRepl2Sub>();
 
-                    IsLoadStkReplOK = oPartBO._StockReplenishment2Sub(ref oEpicorEnv, strCurCompany, strPartNum, strWarehouse, ref StkReplSubs, out strReturnMsg);
+                    IsLoadStkReplOK = oPartBO._StockReplenishment2Sub(ref oEpicorEnv, strCurCompany, strPartNum, strWarehouse, strCurPlant, ref StkReplSubs, out strReturnMsg);
 
                     if (IsLoadStkReplOK)
                     {

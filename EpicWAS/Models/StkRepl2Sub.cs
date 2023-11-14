@@ -9,6 +9,7 @@ namespace EpicWAS.Models
     {
         public string Company { get; set; }
         public string PartNum { get; set; }
+        public string PartDescription { get; set; }
         public string WarehouseCode { get; set; }
         public string BinNum { get; set; }
         public string LotNum { get; set; }

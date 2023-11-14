@@ -1167,18 +1167,25 @@ namespace EpicWAS.Models
         }
 
 
-        public bool _StockReplenishment2Sub(ref EpicEnv oEpicEnv, string strCompany, string strPartNum, string strWarehouse,  ref IList<StkRepl2Sub> StkReplSubs, out string strMessage)
+        public bool _StockReplenishment2Sub(ref EpicEnv oEpicEnv, string strCompany, string strPartNum, string strWarehouse, string strCurPlant, ref IList<StkRepl2Sub> StkReplSubs, out string strMessage)
         {
             bool IsError = false;
 
             try
             {
-                string _strSQL = "SELECT pb.Company, pb.BinNum, pb.LotNum, pb.OnhandQty, pb.DimCode, pl.ExpirationDate, pb.PartNum, pb.WarehouseCode, wb.ZoneID ";
+                string _strSQL = "SELECT pb.Company, pb.BinNum, pb.LotNum, pb.OnhandQty, pb.DimCode, pl.ExpirationDate, pb.PartNum, pb.WarehouseCode, wb.ZoneID, p.PartDescription ";
                 _strSQL += "from Erp.PartBin pb ";
-                //_strSQL += "inner join Erp.Part p on pb.company = p.company and pb.partnum = p.partnum ";
+                _strSQL += "inner join Erp.Part p on pb.company = p.company and pb.partnum = p.partnum ";
                 _strSQL += "inner join Erp.PartLot pl on pb.Company = pl.Company and pb.PartNum = pl.PartNum and pb.LotNum = pl.LotNum ";
-                _strSQL += "inner join Erp.WhseBin wb on pb.Company = wb.Company and pb.WarehouseCode = wb.WarehouseCode and pb.BinNum = wb.BinNum ";
+                _strSQL += "inner join Dbo.WhseBin wb on pb.Company = wb.Company and pb.WarehouseCode = wb.WarehouseCode and pb.BinNum = wb.BinNum ";
+                _strSQL += "inner join erp.Warehse wh on pb.Company = wh.Company and pb.WarehouseCode = wh.WarehouseCode ";
                 _strSQL += "WHERE pb.Company = '" + strCompany + "' ";
+
+                //added plant filter by Gary
+                if (!String.IsNullOrEmpty(strCurPlant))
+                {
+                    _strSQL += "AND wh.Plant = '" + strCurPlant + "' ";
+                }
 
                 if (strPartNum != null)
                 {
@@ -1190,8 +1197,8 @@ namespace EpicWAS.Models
                     _strSQL += "and pb.WarehouseCode = '" + strWarehouse + "' ";
                 }
 
-                //add order by --Gary
-                //_strSQL += "ORDER BY wb.SD_Level_c, wb.SD_Zone_c, wb.SD_Rack_c, wb.SD_BinNo_c ";
+                //added order by --Gary
+                _strSQL += "ORDER BY wb.SD_Level_c, wb.SD_Zone_c, wb.SD_Rack_c, wb.SD_BinNo_c ";
 
                 SQLServerBO _MSSQL = new SQLServerBO();
                 string _strSQLCon = _MSSQL._retSQLConnectionString();
@@ -1206,6 +1213,7 @@ namespace EpicWAS.Models
                         StkRepl2Sub oStkRepl = new StkRepl2Sub();
                         oStkRepl.Company = row["Company"].ToString();
                         oStkRepl.PartNum = row["PartNum"].ToString();
+                        oStkRepl.PartDescription = row["PartDescription"].ToString();
                         oStkRepl.WarehouseCode = row["WarehouseCode"].ToString();
                         oStkRepl.OnHandQty = Convert.ToDecimal(row["OnhandQty"]);
                         oStkRepl.DimCode = row["DimCode"].ToString();

@@ -638,8 +638,8 @@ namespace EpicWAS.Models
                 _strSQL += "join Customer c on UD103.Company = c.Company and UD103.SD_CustID_c = c.CustID ";
 				_strSQL += "join PartLot pl on UD103A.Company = pl.Company and pl.LotNum = UD103A.SD_LotNum_c and pl.PartNum = UD103A.SD_PartNum_c ";
                 _strSQL += "join ShipVia sv on oh.Company = sv.Company and oh.ShipViaCode = sv.ShipViaCode ";
-
-                _strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' and UD103A.SD_Voided_c = 0 ";
+                //changed to check UD103 voided status by Gary
+                _strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' and UD103.SD_Voided_c = 0 ";
 
 				if (strCustID != "" && strCustID != null)
 				{
