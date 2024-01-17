@@ -264,6 +264,7 @@
     <Compile Include="Models\LaborBO.cs" />
     <Compile Include="Models\MaintenanceBO.cs" />
     <Compile Include="Models\MiscMaterial.cs" />
+    <Compile Include="Models\NewShipVia.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderHed.cs" />
     <Compile Include="Models\Pallets.cs" />

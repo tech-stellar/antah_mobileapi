@@ -564,6 +564,120 @@ namespace EpicWAS.Controllers
 
         }
 
+        [HttpGet]
+        public HttpResponseMessage LoadNewShipVia(string strUID, string strPass, string strCurCompany, string strShipViaCode, string strEnvId)
+        {
+            string strReturnMsg;
+            bool IsLogin = false;
+            bool IsComplete = false;
+            bool IsLoadShipViaOK = false;
+
+            EpicEnv oEpicorEnv = new EpicEnv();
+            EpicUser oEpicUser = new EpicUser();
+
+            oEpicUser.Epic_UserId = strUID;
+            oEpicUser.Epic_PassKey = strPass;
+
+            EpicEnvBO oEpicorEnvBO = new EpicEnvBO();
+            IsComplete = oEpicorEnvBO._LoadEpicEnvById(strEnvId, ref oEpicorEnv, out strReturnMsg);
+
+            if (IsComplete)
+            {
+                EpicUserBO oEpicUserBO = new EpicUserBO();
+                IsLogin = oEpicUserBO._VerifyEpicorLogin(ref oEpicorEnv, ref oEpicUser, out strReturnMsg);
+
+                if (IsLogin)
+                {
+                    PickPackBO oPickPackBO = new PickPackBO();
+                    IList<NewShipVia> ShipViaList = new List<NewShipVia>();
+
+                    IsLoadShipViaOK = oPickPackBO._LoadNewShipVia(ref oEpicorEnv, strCurCompany, strShipViaCode, ref ShipViaList, out strReturnMsg);
+
+                    if (IsLoadShipViaOK)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, ShipViaList);
+                    }
+                    else
+                    {
+                        HttpError err = new HttpError(strReturnMsg);
+                        return Request.CreateResponse(HttpStatusCode.NotFound, err);
+                    }
+
+                }
+                else
+                {
+                    HttpError err = new HttpError(strReturnMsg);
+                    return Request.CreateResponse(HttpStatusCode.Unauthorized, err);
+                } // end if for islogin
+
+            }
+            else
+            {
+                HttpError err = new HttpError(strReturnMsg);
+                return Request.CreateResponse(HttpStatusCode.NotFound, err);
+
+            } // end for iscomplete
+
+
+        }
+
+        [HttpGet]
+        public HttpResponseMessage LoadState(string strUID, string strPass, string strCurCompany, string strPicklistNum, string strEnvId)
+        {
+            string strReturnMsg;
+            bool IsLogin = false;
+            bool IsComplete = false;
+            bool IsLoadStateOK = false;
+            bool IsControlWeight = false;
+
+            EpicEnv oEpicorEnv = new EpicEnv();
+            EpicUser oEpicUser = new EpicUser();
+
+            oEpicUser.Epic_UserId = strUID;
+            oEpicUser.Epic_PassKey = strPass;
+
+            EpicEnvBO oEpicorEnvBO = new EpicEnvBO();
+            IsComplete = oEpicorEnvBO._LoadEpicEnvById(strEnvId, ref oEpicorEnv, out strReturnMsg);
+
+            if (IsComplete)
+            {
+                EpicUserBO oEpicUserBO = new EpicUserBO();
+                IsLogin = oEpicUserBO._VerifyEpicorLogin(ref oEpicorEnv, ref oEpicUser, out strReturnMsg);
+
+                if (IsLogin)
+                {
+                    PickPackBO oPickPackBO = new PickPackBO();
+                    IList<NewShipVia> ShipViaList = new List<NewShipVia>();
+
+                    IsLoadStateOK = oPickPackBO._LoadState(ref oEpicorEnv, strCurCompany, strPicklistNum, out IsControlWeight);
+
+                    if (IsLoadStateOK)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, IsControlWeight.ToString());
+                    }
+                    else
+                    {
+                        HttpError err = new HttpError(strReturnMsg);
+                        return Request.CreateResponse(HttpStatusCode.NotFound, err);
+                    }
+
+                }
+                else
+                {
+                    HttpError err = new HttpError(strReturnMsg);
+                    return Request.CreateResponse(HttpStatusCode.Unauthorized, err);
+                } // end if for islogin
+
+            }
+            else
+            {
+                HttpError err = new HttpError(strReturnMsg);
+                return Request.CreateResponse(HttpStatusCode.NotFound, err);
+
+            } // end for iscomplete
+
+
+        }
 
         [HttpGet]
         public HttpResponseMessage LoadInvoiceForReprint(string strUID, string strPass, string strEnvId, string strCurCompany, string strCurPlant, string strInvoice, string strLegalNumber, string ud = "")

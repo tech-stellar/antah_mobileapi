@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\pc\Desktop\Antah\api 20231114 1006</_PublishTargetUrl>
-    <History>True|2023-11-14T02:03:44.4150438Z;True|2023-09-06T19:20:45.2010182+08:00;</History>
+    <_PublishTargetUrl>C:\Users\pc\Desktop\Antah\api 20240116 1322</_PublishTargetUrl>
+    <History>True|2024-01-16T05:22:48.2890847Z;True|2023-11-28T14:28:55.2288694+08:00;True|2023-11-24T11:48:17.5646836+08:00;True|2023-11-16T17:40:02.7514376+08:00;True|2023-11-14T10:03:44.4150438+08:00;True|2023-09-06T19:20:45.2010182+08:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -199,13 +199,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/06/2023 14:12:59</publishTime>
     </File>
     <File Include="bin/EpicWAS.dll">
-      <publishTime>11/14/2023 10:06:34</publishTime>
+      <publishTime>01/16/2024 16:49:02</publishTime>
     </File>
     <File Include="bin/EpicWAS.dll.config">
       <publishTime>09/06/2023 14:12:59</publishTime>
     </File>
     <File Include="bin/EpicWAS.pdb">
-      <publishTime>11/14/2023 10:06:34</publishTime>
+      <publishTime>01/16/2024 16:49:02</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>09/06/2023 14:13:03</publishTime>
@@ -478,7 +478,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/06/2023 14:12:58</publishTime>
     </File>
     <File Include="Controllers/ShipmentController.cs">
-      <publishTime>09/06/2023 14:12:58</publishTime>
+      <publishTime>01/16/2024 16:40:16</publishTime>
     </File>
     <File Include="Controllers/SplitMergeUOMController.cs">
       <publishTime>09/06/2023 14:12:58</publishTime>
@@ -490,10 +490,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/06/2023 14:12:58</publishTime>
     </File>
     <File Include="EpicWAS.csproj">
-      <publishTime>09/06/2023 14:12:58</publishTime>
+      <publishTime>01/16/2024 12:48:56</publishTime>
     </File>
     <File Include="EpicWAS.csproj.user">
-      <publishTime>11/14/2023 10:06:28</publishTime>
+      <publishTime>01/16/2024 16:49:30</publishTime>
     </File>
     <File Include="EpicWAS.db">
       <publishTime>09/06/2023 14:12:58</publishTime>
@@ -633,6 +633,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Models/MoveInventoryBO.cs">
       <publishTime>09/06/2023 14:12:58</publishTime>
     </File>
+    <File Include="Models/NewShipVia.cs">
+      <publishTime>01/16/2024 12:47:10</publishTime>
+    </File>
     <File Include="Models/Order.cs">
       <publishTime>09/06/2023 14:12:58</publishTime>
     </File>
@@ -649,7 +652,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/06/2023 14:12:58</publishTime>
     </File>
     <File Include="Models/PartBO.cs">
-      <publishTime>11/14/2023 10:02:30</publishTime>
+      <publishTime>11/14/2023 10:19:23</publishTime>
     </File>
     <File Include="Models/PartLot.cs">
       <publishTime>09/06/2023 14:12:58</publishTime>
@@ -676,7 +679,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/06/2023 14:12:58</publishTime>
     </File>
     <File Include="Models/PickPackBO.cs">
-      <publishTime>11/14/2023 10:02:30</publishTime>
+      <publishTime>01/16/2024 16:48:54</publishTime>
     </File>
     <File Include="Models/PickPackEscalate.cs">
       <publishTime>09/06/2023 14:12:58</publishTime>
@@ -805,10 +808,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/06/2023 14:12:58</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/FolderProfile.pubxml">
-      <publishTime>11/14/2023 10:06:26</publishTime>
+      <publishTime>01/16/2024 13:22:33</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/FolderProfile.pubxml.user">
-      <publishTime>11/14/2023 10:03:44</publishTime>
+      <publishTime>01/16/2024 16:49:06</publishTime>
     </File>
     <File Include="Providers/ApplicationOAuthProvider.cs">
       <publishTime>09/06/2023 14:12:58</publishTime>
