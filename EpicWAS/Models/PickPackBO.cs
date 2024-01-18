@@ -654,7 +654,7 @@ namespace EpicWAS.Models
                 _strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' and UD103.SD_Voided_c = 0 ";
                 _strSQL += "and UD103.SD_PickedComplete_c = 1 and UD103.SD_Status_c in ('PICKED', 'PACKING') ";
                 _strSQL += "and oh.OpenOrder = 1 ";
-                _strSQL += "and UD103.SD_ShipVia_c != 'NA' and UD103.SD_ShipVia_c != '' ";
+                //_strSQL += "and UD103.SD_ShipVia_c != 'NA' and UD103.SD_ShipVia_c != '' ";
 
                 if (strCustID != "" && strCustID != null)
 				{
@@ -1151,6 +1151,7 @@ namespace EpicWAS.Models
                     "when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
                     "join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = '" + strPicker + "') " +
                     "and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 0 ";
+                _strSQL += "and UD103.SD_ShipVia_c != 'NA' and UD103.SD_ShipVia_c != '' ";
 				_strSQL += "and SD_PickListGroup_c in (" + strPickGrps + ") ";
 				_strSQL += "and UD103.Company = '" + strCompany + "' and SD_Plant_c = '" + strCurPlant + "' and UD103.SD_Voided_c = 0 ";   // add company and plant filter
 				_strSQL += "order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
@@ -1309,6 +1310,7 @@ namespace EpicWAS.Models
                         "when UD103.SD_PickedBy_c = '' then 2 end [Assigned] from UD103 join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 " +
                         "join OrderHed oh on oh.Company = UD103.Company and oh.OrderNum = UD103A.SD_OrderNum_c where (UD103.SD_PickedBy_c = '' or UD103.SD_PickedBy_c = '" + strPicker + "') " +
                         "and SD_PickedComplete_c = 0 and (SD_Status_c = 'ALLOCATED' or SD_Status_c = 'PICKING') and SD_BackOrder_c = 1 and UD103.SD_Voided_c = 0 ";
+                    _strSQL += "and UD103.SD_ShipVia_c != 'NA' and UD103.SD_ShipVia_c != '' ";
                     _strSQL += "and SD_PickListGroup_c in (" + strPickGrps + ") and UD103.Company = '" + strCompany + "' and SD_Plant_c = '" + strCurPlant + "' ";
                     _strSQL += "and SD_PartNum_c = '" + strPartNum + "' order by Assigned, SD_Urgent_c desc, oh.OrderDate, oh.OrderNum";
 
