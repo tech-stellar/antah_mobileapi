@@ -1,0 +1,185 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|c:\\users\\pc\\source\\repos\\antah_mobileapi\\epicwas\\models\\pickpackbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|solutionrelative:epicwas\\models\\pickpackbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|C:\\Users\\pc\\source\\repos\\antah_mobileapi\\epicwas\\controllers\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|solutionrelative:epicwas\\controllers\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|C:\\Users\\pc\\source\\repos\\antah_mobileapi\\epicwas\\controllers\\receiptcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|solutionrelative:epicwas\\controllers\\receiptcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|C:\\Users\\pc\\source\\repos\\antah_mobileapi\\epicwas\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|solutionrelative:epicwas\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|C:\\Users\\pc\\source\\repos\\antah_mobileapi\\epicwas\\models\\shipvia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|solutionrelative:epicwas\\models\\shipvia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|C:\\Users\\pc\\source\\repos\\antah_mobileapi\\epicwas\\models\\newshipvia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|solutionrelative:epicwas\\models\\newshipvia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|C:\\Users\\pc\\source\\repos\\antah_mobileapi\\epicwas\\models\\shipdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|solutionrelative:epicwas\\models\\shipdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|C:\\Users\\pc\\source\\repos\\antah_mobileapi\\epicwas\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{BDAE217F-E861-49FF-A54D-311EBECB241C}|EpicWAS\\EpicWAS.csproj|solutionrelative:epicwas\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PickPackBO.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Models\\PickPackBO.cs",
+              "RelativeDocumentMoniker": "EpicWAS\\Models\\PickPackBO.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Models\\PickPackBO.cs",
+              "RelativeToolTip": "EpicWAS\\Models\\PickPackBO.cs",
+              "ViewState": "AQIAAMUGAAAAAAAAAAAAwNoGAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T05:44:39.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ShipmentController.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Controllers\\ShipmentController.cs",
+              "RelativeDocumentMoniker": "EpicWAS\\Controllers\\ShipmentController.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Controllers\\ShipmentController.cs",
+              "RelativeToolTip": "EpicWAS\\Controllers\\ShipmentController.cs",
+              "ViewState": "AQIAAE4EAAAAAAAAAAAQwGoEAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T04:46:01.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReceiptController.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Controllers\\ReceiptController.cs",
+              "RelativeDocumentMoniker": "EpicWAS\\Controllers\\ReceiptController.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Controllers\\ReceiptController.cs",
+              "RelativeToolTip": "EpicWAS\\Controllers\\ReceiptController.cs",
+              "ViewState": "AQIAAJEBAAAAAAAAAAAQwKsBAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-05T03:33:40.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ShipDetail.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Models\\ShipDetail.cs",
+              "RelativeDocumentMoniker": "EpicWAS\\Models\\ShipDetail.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Models\\ShipDetail.cs",
+              "RelativeToolTip": "EpicWAS\\Models\\ShipDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-16T04:46:57.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NewShipVia.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Models\\NewShipVia.cs",
+              "RelativeDocumentMoniker": "EpicWAS\\Models\\NewShipVia.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Models\\NewShipVia.cs",
+              "RelativeToolTip": "EpicWAS\\Models\\NewShipVia.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-16T04:36:58.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ShipVia.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Models\\ShipVia.cs",
+              "RelativeDocumentMoniker": "EpicWAS\\Models\\ShipVia.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Models\\ShipVia.cs",
+              "RelativeToolTip": "EpicWAS\\Models\\ShipVia.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-16T04:36:08.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Startup.cs",
+              "RelativeDocumentMoniker": "EpicWAS\\Startup.cs",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Startup.cs",
+              "RelativeToolTip": "EpicWAS\\Startup.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-30T17:13:49.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Web.config",
+              "RelativeDocumentMoniker": "EpicWAS\\Web.config",
+              "ToolTip": "C:\\Users\\pc\\source\\repos\\antah_mobileapi\\EpicWAS\\Web.config",
+              "RelativeToolTip": "EpicWAS\\Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2023-12-30T16:52:28.595Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 103,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

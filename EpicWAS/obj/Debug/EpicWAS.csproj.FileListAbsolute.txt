@@ -1232,6 +1232,6 @@ C:\Users\pc\Source\Repos\antah_mobileapi\EpicWAS\bin\Microsoft.Owin.Security.Mic
 C:\Users\pc\Source\Repos\antah_mobileapi\EpicWAS\bin\System.Web.Http.Owin.xml
 C:\Users\pc\Source\Repos\antah_mobileapi\EpicWAS\obj\Debug\EpicWAS.csproj.AssemblyReference.cache
 C:\Users\pc\Source\Repos\antah_mobileapi\EpicWAS\obj\Debug\EpicWAS.csproj.CoreCompileInputs.cache
-C:\Users\pc\Source\Repos\antah_mobileapi\EpicWAS\obj\Debug\EpicWAS.csproj.CopyComplete
 C:\Users\pc\Source\Repos\antah_mobileapi\EpicWAS\obj\Debug\EpicWAS.dll
 C:\Users\pc\Source\Repos\antah_mobileapi\EpicWAS\obj\Debug\EpicWAS.pdb
+C:\Users\pc\source\repos\antah_mobileapi\EpicWAS\obj\Debug\EpicWAS.csproj.Up2Date

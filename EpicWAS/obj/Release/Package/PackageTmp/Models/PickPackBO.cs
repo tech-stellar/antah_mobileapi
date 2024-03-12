@@ -68,6 +68,8 @@ namespace EpicWAS.Models
 
                 string _strWHERE = "";
 
+                _strWHERE += "and u.SD_Status_c = 'ALLOCATED' and u.SD_Voided_c = 0 ";
+
                 if (strOrderNum != "" || strOrderNum != null)
                 {
                     _strWHERE += "and ua.SD_OrderNum_c like '%" + strOrderNum + "%' ";
@@ -98,10 +100,10 @@ namespace EpicWAS.Models
                     _strWHERE += "and u.SD_BackOrder_c in (" + backOrderStatus + ") ";
                 }
 
-                if (voidStatus != "" || voidStatus != null)
-                {
-                    _strWHERE += "and u.SD_Voided_c in (" + voidStatus + ") ";
-                }
+                //if (voidStatus != "" || voidStatus != null)
+                //{
+                //    _strWHERE += "and u.SD_Voided_c in (" + voidStatus + ") ";
+                //}
 
                 if (strPickGrps != "" || strPickGrps != null)
                 {
@@ -1640,7 +1642,7 @@ namespace EpicWAS.Models
                 _strSQL += "(select distinct Company, Key1 from UD103 ";
                 _strSQL += "where Company = '" + strCompany + "' ";
                 _strSQL += "and SD_TagNum_c = '" + strTag + "' ";
-                _strSQL += "and Key1 <> '" + strPackListNum + "') ud103  ";
+                _strSQL += "and Key1 <> '" + strPackListNum + "' and SD_Status_c != 'Packed' and SD_Voided_c = 0) ud103  ";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
 				string _strSQLCon = _MSSQL._retSQLConnectionString();
@@ -2303,6 +2305,16 @@ namespace EpicWAS.Models
 					}
 				}
 
+                // update UD103a table SD_PackedBy_c, SD_PackedDate_c, SD_PackedTime_c,
+                _strSQL = "update UD103a ";
+                _strSQL += "set SD_PackedBy_c = '" + strPacker + "' ";
+                _strSQL += ", SD_PackedDate_c = getdate() ";
+                _strSQL += ", SD_PackedTime_c = getdate() ";
+                _strSQL += "where Company = '" + strCompany + "' ";
+                _strSQL += "and Key1 = '" + strPickListNum + "' ";
+
+                bool IsUpdatedUD103a = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
                 // update UD103 table
                 _strSQL = "update UD103 ";
                 _strSQL += "set SD_Transporter_c = '" + strTransporter + "' ";
@@ -2319,7 +2331,9 @@ namespace EpicWAS.Models
                 _strSQL += "where Company = '" + strCompany + "' ";
                 _strSQL += "and Key1 = '" + strPickListNum + "' ";
 
-				bool IsUpdatedUD = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+                bool IsUpdatedUD103 = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+                
 
 
 				IsUpdated = oEpicor._PickedOrder(ref oEpicEnv, out strMessage, ref OrderList, strUID, strPass, strCompany, strCurPlant, strPickListNum, strConsignment, Math.Round(dTotalWeight, 1), strTransporter, dTotalBox, strStation);
@@ -2780,7 +2794,7 @@ namespace EpicWAS.Models
 
 				string _strSQL = "select UD18.*, UD103A.*, SD_StationId_c, SD_CustID_c, pl.ExpirationDate, u.CodeDesc, p.PartDescription from UD18 ";
 				_strSQL += "join UD103 on UD18.Company = UD103.Company and UD18.SD_PickListNum_c = UD103.Key1 ";
-				_strSQL += "join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 and UD103A.SysRowID = UD18.SD_UD14GUID_c ";
+				_strSQL += "join UD103A on UD103.Company = UD103A.Company and UD103.Key1 = UD103A.Key1 and UD103A.key1 = UD18.SD_PickListNum_c  ";
                 _strSQL += "join erp.Part p on UD103A.Company = p.Company and UD103A.SD_PartNum_c = p.PartNum ";
 				_strSQL += "join erp.PartLot pl on UD18.Company = pl.Company and pl.PartNum = UD103A.SD_PartNum_c and pl.LotNum = UD103A.SD_LotNum_c ";
 				_strSQL += "join ice.UDCodes u on UD18.Company = u.Company and UD18.ShortChar03 = u.CodeID ";
@@ -3889,7 +3903,7 @@ namespace EpicWAS.Models
             return voided;
 		}
 
-		public double _checkPickPartQty(ref EpicEnv oEpicEnv, string pickNum, string partNum)
+		public double _checkPickPartQty(ref EpicEnv oEpicEnv, string pickNum, string partNum, string lotNum)
 		{
 			string _strSQL;
 
@@ -3898,7 +3912,7 @@ namespace EpicWAS.Models
 			string _strSQLCon = _MSSQL._retSQLConnectionString();
 			_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
 
-			_strSQL = "select sum(SD_AllocateQuantity_c) as AllocateQty from UD103A where SD_PartNum_c = '" + partNum + "' and Key1 = '" + pickNum + "' and SD_Voided_c = 0";
+			_strSQL = "select sum(SD_AllocateQuantity_c) as AllocateQty from UD103A where SD_PartNum_c = '" + partNum + "' and Key1 = '" + pickNum + "' and SD_Voided_c = 0 and SD_LotNum_c = '" + lotNum + "'";
             double count = 0;
 			DataSet _dts = _MSSQL._MSSQLDataSetResult(_strSQL, _strSQLCon);
 			if (_dts.Tables[0].Rows.Count > 0)

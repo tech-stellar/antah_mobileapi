@@ -973,7 +973,7 @@ namespace EpicWAS.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage LoadPackPartQty(string strEnvId, string pickNum, string partNum)
+        public HttpResponseMessage LoadPackPartQty(string strEnvId, string pickNum, string partNum, string lotNum)
         {
 			string strReturnMsg;
 			bool IsComplete = false;
@@ -987,7 +987,7 @@ namespace EpicWAS.Controllers
 			if (IsComplete)
 			{
 				PickPackBO oPickPack = new PickPackBO();
-				packPartQty = oPickPack._checkPickPartQty(ref oEpicorEnv, pickNum, partNum);
+				packPartQty = oPickPack._checkPickPartQty(ref oEpicorEnv, pickNum, partNum, lotNum);
 
 				return Request.CreateResponse(HttpStatusCode.OK, packPartQty);
 			}
