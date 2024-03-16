@@ -637,9 +637,9 @@ namespace EpicWAS.Models
 			try
 			{
 				string _strSQL = "select UD103.Company, UD103.Key1 as PickListNum, UD103A.SD_OrderNum_c as OrderNum, OrderDate, SD_PartNum_c as PartNum, PartDescription, ";
-                _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, sum(SD_AllocateQuantity_c) as AllocateQuantity, SD_CustID_c + ' - ' + Name + CHAR(10) + CHAR(13) + " +
-					"Address1 + CHAR(10) + CHAR(13) + Address2 + CHAR(10) + CHAR(13) + Address3 + CHAR(10) + CHAR(13) + Zip + ' ' + City + ' ' + State + ' ' + " +
-					"Country as Customer, oh.OrderComment, ";
+                _strSQL += "SD_UOM_c as UOM,SD_LotNum_c as LotNum, sum(SD_AllocateQuantity_c) as AllocateQuantity, SD_CustID_c + ' - ' + c.Name + CASE WHEN ST.Address1 IS NOT NULL THEN + CHAR(10) + CHAR(13) + " +
+                    "ST.Address1 + CHAR(10) + CHAR(13) + ST.Address2 + CHAR(10) + CHAR(13) + ST.Address3 + CHAR(10) + CHAR(13) + ST.Zip + ' ' + ST.City + ' ' + ST.State + ' ' + " +
+                    "ST.Country ELSE '' END as Customer, oh.OrderComment, ";
 				_strSQL += "UD103.SD_PackedBy_c as PackedBy, UD103.SD_PalletNum_c as PalletNum, SD_Consignment_c as Consignment, ";
 				_strSQL += "SD_Transporter_c as Transporter, SD_TotalWeight_c as TotalWeight, SD_TotalCarton_c as TotalCarton, pl.ExpirationDate, ";
 				_strSQL += "oh.AP_BumiAgDONum_c as BumiAgDONum, SD_Urgent_c as Urgent, UD103.SD_TagNum_c as TagNum, ";
@@ -652,6 +652,7 @@ namespace EpicWAS.Models
                 _strSQL += "join Customer c on UD103.Company = c.Company and UD103.SD_CustID_c = c.CustID ";
 				_strSQL += "join PartLot pl on UD103A.Company = pl.Company and pl.LotNum = UD103A.SD_LotNum_c and pl.PartNum = UD103A.SD_PartNum_c ";
                 _strSQL += "join ShipVia sv on oh.Company = sv.Company and oh.ShipViaCode = sv.ShipViaCode ";
+                _strSQL += "left join Dbo.ShipTo ST on OH.Company = ST.Company AND OH.ShipToCustNum = ST.CustNum AND OH.ShipToNum = ST.ShipToNum ";
                 //changed to check UD103 voided status by Gary
                 _strSQL += "where UD103.Company = '" + strCompany + "' and UD103.SD_Plant_c = '" + strCurPlant + "' and UD103.SD_Voided_c = 0 ";
                 _strSQL += "and UD103.SD_PickedComplete_c = 1 and UD103.SD_Status_c in ('PICKED', 'PACKING') ";
@@ -695,7 +696,7 @@ namespace EpicWAS.Models
 
                 _strSQL += "group by UD103.Company, UD103.Key1, UD103A.SD_OrderNum_c, OrderDate, SD_PartNum_c, PartDescription, SD_UOM_c, SD_LotNum_c, SD_CustID_c, OrderComment, UD103.SD_PackedBy_c, " +
 					"UD103.SD_PalletNum_c, SD_Consignment_c, SD_Transporter_c, SD_TotalWeight_c, " +
-					"SD_TotalCarton_c, ExpirationDate, AP_BumiAgDONum_c, SD_Urgent_c, UD103.SD_TagNum_c, oh.ShipViaCode, sv.Description, Name, Address1, Address2, Address3, Zip, City, State, Country ";
+                    "SD_TotalCarton_c, ExpirationDate, AP_BumiAgDONum_c, SD_Urgent_c, UD103.SD_TagNum_c, oh.ShipViaCode, sv.Description, c.Name, ST.Address1, ST.Address2, ST.Address3, ST.Zip, ST.City, ST.State, ST.Country ";
 
                 //_strSQL = "select *, (select top 1 SysRowID from UD103A a where x.Company = a.Company and x.OrderNum = a.SD_OrderNum_c and x.PartNum = a.SD_PartNum_c ) as SysRowID from (" + _strSQL + ") x ";
                 _strSQL = " WITH InQuery AS ( select *, (select top 1 SysRowID from UD103A a where x.Company = a.Company and x.OrderNum = a.SD_OrderNum_c and x.PartNum = a.SD_PartNum_c ) as SysRowID from (" + _strSQL + ") x ) ";
@@ -1639,10 +1640,11 @@ namespace EpicWAS.Models
                 //};
 
                 string _strSQL = "select Count(*) as TagCount from ";
-                _strSQL += "(select distinct Company, Key1 from UD103 ";
-                _strSQL += "where Company = '" + strCompany + "' ";
-                _strSQL += "and SD_TagNum_c = '" + strTag + "' ";
-                _strSQL += "and Key1 <> '" + strPackListNum + "' and SD_Status_c != 'Packed' and SD_Voided_c = 0) ud103  ";
+                _strSQL += "(select distinct ud.Company, ud.Key1 from UD103 ud ";
+                _strSQL += "inner join UD103A uda on ud.company = uda.company and ud.key1 = uda.key1 ";
+                _strSQL += "where ud.Company = '" + strCompany + "' ";
+                _strSQL += "and uda.SD_TagNum_c = '" + strTag + "' ";
+                _strSQL += "and ud.Key1 <> '" + strPackListNum + "' and ud.SD_Status_c != 'Packed' and ud.SD_Voided_c = 0) ud103  ";
 
 				SQLServerBO _MSSQL = new SQLServerBO();
 				string _strSQLCon = _MSSQL._retSQLConnectionString();
@@ -1759,10 +1761,10 @@ namespace EpicWAS.Models
 					string _strSQLCon = _MSSQL._retSQLConnectionString();
 					_strSQLCon = string.Format(_strSQLCon, oEpicEnv.Env_SQLServer, oEpicEnv.Env_SQLDB, oEpicEnv.Env_SQLUserId, oEpicEnv.Env_SQLPassKey);
 
-					_strSQL = "update UD103A set SD_Warehouse_c = '" + strWarehouse + "', ";
-					_strSQL += "SD_BinNum_c = '" + strBinNum + "', ";
-					_strSQL += "SD_LotNUm_c = '" + strLotNum + "', ";
-					_strSQL += "SD_AllocateQuantity_c = " + dQuantity.ToString() + ", ";
+					_strSQL = "update UD103A set SD_ScannedWarehouse_c = '" + strWarehouse + "', ";
+					_strSQL += "SD_ScannedBinNum_c = '" + strBinNum + "', ";
+					_strSQL += "SD_ScannedLotNUm_c = '" + strLotNum + "', ";
+					_strSQL += "SD_ScannedQuantity_c = " + dQuantity.ToString() + ", ";
 					_strSQL += "SD_TagNum_c = '" + strTag + "', ";
 					_strSQL += "SD_PickedBy_c = '" + strUID + "', ";
 					_strSQL += "SD_PickedDate_c = getdate(), ";
@@ -2305,16 +2307,7 @@ namespace EpicWAS.Models
 					}
 				}
 
-                // update UD103a table SD_PackedBy_c, SD_PackedDate_c, SD_PackedTime_c,
-                _strSQL = "update UD103a ";
-                _strSQL += "set SD_PackedBy_c = '" + strPacker + "' ";
-                _strSQL += ", SD_PackedDate_c = getdate() ";
-                _strSQL += ", SD_PackedTime_c = getdate() ";
-                _strSQL += "where Company = '" + strCompany + "' ";
-                _strSQL += "and Key1 = '" + strPickListNum + "' ";
-
-                bool IsUpdatedUD103a = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
-
+                
                 // update UD103 table
                 _strSQL = "update UD103 ";
                 _strSQL += "set SD_Transporter_c = '" + strTransporter + "' ";
@@ -2333,10 +2326,19 @@ namespace EpicWAS.Models
 
                 bool IsUpdatedUD103 = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 
-                
+                // update UD103a table SD_PackedBy_c, SD_PackedDate_c, SD_PackedTime_c,
+                _strSQL = "update UD103a ";
+                _strSQL += "set SD_PackedBy_c = '" + strPacker + "' ";
+                _strSQL += ", SD_PackedDate_c = getdate() ";
+                _strSQL += ", SD_PackedTime_c = getdate() ";
+                _strSQL += "where Company = '" + strCompany + "' ";
+                _strSQL += "and Key1 = '" + strPickListNum + "' ";
+
+                bool IsUpdatedUD103a = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 
 
-				IsUpdated = oEpicor._PickedOrder(ref oEpicEnv, out strMessage, ref OrderList, strUID, strPass, strCompany, strCurPlant, strPickListNum, strConsignment, Math.Round(dTotalWeight, 1), strTransporter, dTotalBox, strStation);
+
+                IsUpdated = oEpicor._PickedOrder(ref oEpicEnv, out strMessage, ref OrderList, strUID, strPass, strCompany, strCurPlant, strPickListNum, strConsignment, Math.Round(dTotalWeight, 1), strTransporter, dTotalBox, strStation);
 				if (IsUpdated)
 				{
 					_MSSQL._exeSDSCreateLabelSP_Reprint(_strSQLCon, strCompany, strUID, "SHP-LBL", DateTime.Now, "", "", "", 0, Convert.ToInt32(dTotalBox), "", "", "", strPickListNum);
@@ -2356,6 +2358,15 @@ namespace EpicWAS.Models
 						"SD_Status_c = 'PACKING', SD_PackedBy_c = '' where Key1 = '" + strPickListNum + "' ";
 
 					bool rollbackSuccess = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
+
+                    _strSQL = "update UD103a ";
+                    _strSQL += "set SD_PackedBy_c = '' ";
+                    _strSQL += ", SD_PackedDate_c = null ";
+                    _strSQL += ", SD_PackedTime_c = null ";
+                    _strSQL += "where Company = '" + strCompany + "' ";
+                    _strSQL += "and Key1 = '" + strPickListNum + "' ";
+
+                    bool rollbackSuccessUD103A = _MSSQL._exeSQLCommand(_strSQL, _strSQLCon);
 
                     strMessage += " Created shipment will not be invoiced due to the error.";
 
